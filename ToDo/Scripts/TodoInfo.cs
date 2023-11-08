@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkToDo.Myscripts
+namespace ToDo.Myscripts
 {
     public class TodoInfo : IComparable<TodoInfo>
     {

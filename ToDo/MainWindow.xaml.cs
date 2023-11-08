@@ -1,4 +1,4 @@
-﻿using LinkToDo.Pages;
+﻿using ToDo.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +14,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LinkToDo
+namespace ToDo
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {
-        //AddressbookPage addressbookPage;
         TodolistPage todolistPage;
         public MainWindow()
         {
@@ -30,14 +29,9 @@ namespace LinkToDo
         }
         private void init()
         {
-            //addressbookPage=new AddressbookPage();
             todolistPage=new TodolistPage();
-            //PagesNavigation.Navigate(addressbookPage);
+            PagesNavigation.Navigate(todolistPage);
         }
-        //private void rdAddressbook_Click(object sender, RoutedEventArgs e)
-        //{
-        //    PagesNavigation.Navigate(addressbookPage);
-        //}
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {

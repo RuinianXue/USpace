@@ -1,6 +1,6 @@
 ﻿using HandyControl.Controls;
-using LinkToDo.Components;
-using LinkToDo.Myscripts;
+using ToDo.Components;
+using ToDo.Myscripts;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LinkToDo.Pages
+namespace ToDo.Pages
 {
     /// <summary>
     /// TodolistPage.xaml 的交互逻辑

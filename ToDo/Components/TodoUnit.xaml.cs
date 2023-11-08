@@ -1,5 +1,5 @@
-﻿using LinkToDo.Myscripts;
-using LinkToDo.Pages;
+﻿using ToDo.Myscripts;
+using ToDo.Pages;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,7 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LinkToDo.Components
+namespace ToDo.Components
 {
     /// <summary>
     /// TodoUnit.xaml 的交互逻辑
@@ -44,7 +44,7 @@ namespace LinkToDo.Components
         {
             todoContentText.Text = todoInfo.Content;
             todoDateTimeText.Text = todoInfo.Date.ToString("yyyy-MM-dd HH:mm:ss");
-            todoTeammateListText.Text = todoInfo.Teammate;
+            //todoTeammateListText.Text = todoInfo.Teammate;
             if (todoInfo.IsDone > 0)
             {
                 isDoneBtn.IsChecked = true;
@@ -220,8 +220,8 @@ namespace LinkToDo.Components
         {
             todoContentText.Opacity = 0.7;
             todoContentText.TextDecorations = TextDecorations.Strikethrough;
-            todoTeammateListTextTitle.Opacity = 0.8;
-            todoTeammateListText.Opacity = 0.8;
+            //todoTeammateListTextTitle.Opacity = 0.8;
+            //todoTeammateListText.Opacity = 0.8;
             calenderIcon.Fill = (SolidColorBrush)this.FindResource("TextPrimaryColor");
             calenderIcon.Opacity = 0.7;
             todoDateTimeText.Foreground = (SolidColorBrush)this.FindResource("TextPrimaryColor");
@@ -232,8 +232,8 @@ namespace LinkToDo.Components
         {
             todoContentText.Opacity = 1;
             todoContentText.TextDecorations = null;
-            todoTeammateListTextTitle.Opacity = 1;
-            todoTeammateListText.Opacity = 1;
+            //todoTeammateListTextTitle.Opacity = 1;
+            //todoTeammateListText.Opacity = 1;
             calenderIcon.Fill = (LinearGradientBrush)this.FindResource("DangerBrush");
             calenderIcon.Opacity = 1;
             todoDateTimeText.Foreground = (LinearGradientBrush)this.FindResource("DangerBrush");
