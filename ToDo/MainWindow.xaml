@@ -1,13 +1,13 @@
-﻿<Window x:Class="LinkToDo.MainWindow"
+﻿<Window x:Class="ToDo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LinkToDo"
+        xmlns:local="clr-namespace:ToDo"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d" Name="home"
         Icon="pack://application:,,,/Resources/Icon0.ico"
-        Title="Link-todo" MinHeight="450" MinWidth="450" Height="650" Width="900" 
+        Title="USpace" MinHeight="450" MinWidth="450" Height="650" Width="900" 
         WindowStartupLocation="CenterScreen" WindowState="Normal">
     <!--WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize"-->
 
@@ -29,7 +29,7 @@
                     <!-- Logo -->
                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top">
                         <Path Data="{DynamicResource logo}" Margin="16 0 0 0" Stretch="Fill" Fill="{DynamicResource PrimaryBlueColor}" Width="25" Height="25" HorizontalAlignment="Left"/>
-                        <hc:SimpleText Text="Link-todo" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" TextAlignment="Left" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        <hc:SimpleText Text="USpace" Foreground="{DynamicResource PrimaryBlueColor}" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" TextAlignment="Left" HorizontalAlignment="Left" Margin="20 0 0 0"/>
                     </StackPanel>
                     <!-- Menu -->
                     <ToggleButton x:Name="btnMenu"  HorizontalAlignment="Right" BorderThickness="0" Background="Transparent" VerticalAlignment="Center" Style="{StaticResource MenuIconStyle}" Margin="0 0 15 0">
@@ -74,7 +74,7 @@
                     </ToggleButton>
                     <StackPanel Grid.Row="3">
                         <!--<RadioButton x:Name="rdAddressbook" IsChecked="True" Content=" 通讯录" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource addressbook}" Click="rdAddressbook_Click"/>-->
-                        <RadioButton x:Name="rdTodolist" IsChecked="True" Content=" To Do" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="rdTodolist_Click"/>
+                        <RadioButton x:Name="rdTodolist" IsChecked="True" Content=" To Do" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="rdTodolist_Click" Cursor="Hand"/>
                     </StackPanel>
                 </Grid>
             </Border>

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\0USpace\ToDo\obj\Debug\
+E:\0net\ToDo\obj\Debug\
 LinkToDo
 none
 false
 DEBUG;TRACE
-E:\0USpace\ToDo\App.xaml
+E:\0net\ToDo\App.xaml
 61940356986
 
 12622567010
-3475501
+34-1187964385
 Assets\Icons\Icons.xaml;Components\TodoUnit.xaml;MainWindow.xaml;Pages\TodolistPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;
 
 False

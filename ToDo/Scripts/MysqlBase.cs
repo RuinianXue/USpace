@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkToDo.Myscripts
+namespace ToDo.Myscripts
 {
     internal class MysqlBase
     {

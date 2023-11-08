@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LinkToDo.Properties
+namespace ToDo.Properties
 {
 
 
