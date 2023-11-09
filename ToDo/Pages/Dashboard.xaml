@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:UIDisplay"
-             mc:Ignorable="d">
+             mc:Ignorable="d" Loaded="Page_Loaded">
     <Grid x:Name="mainGrid">
         <Grid.Resources>
         </Grid.Resources>

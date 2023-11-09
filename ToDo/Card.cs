@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media.Animation;
 
 namespace UIDisplay
 {
@@ -15,6 +17,8 @@ namespace UIDisplay
         public StackPanel stackPanel;
         public Card()
         {
+            MouseEnter += Card_MouseEnter;
+            MouseLeave += Card_MouseLeave;
             // Set default values
             //ShadowAssist.SetShadowDepth(this, 0);
             UniformCornerRadius = 15;
@@ -29,7 +33,7 @@ namespace UIDisplay
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
 
-            /*
+            
             // Create the PackIcon
             PackIcon packIcon = new PackIcon();
             packIcon.Kind = PackIconKind.Twitter;
@@ -55,7 +59,7 @@ namespace UIDisplay
             ellipsisIcon.Kind = PackIconKind.EllipsisHorizontal;
             ellipsisIcon.HorizontalAlignment = HorizontalAlignment.Right;
             stackPanel.Children.Add(ellipsisIcon);
-            */
+            
             // Set the Content of the Card to the StackPanel
             Content = stackPanel;
         }
@@ -65,11 +69,70 @@ namespace UIDisplay
             Grid.SetColumn(this, colomn);
             grid.Children.Add(this);
         }
+        private void Card_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.SMALL_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.SMALL_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
+
+            storyboard.Begin();
+        }
+
+        private Timeline CreatDoubleAnimation(UIElement uIElement, string propertyPath, DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames)
+        {
+
+            Storyboard.SetTarget(doubleAnimationUsingKeyFrames, uIElement);
+            Storyboard.SetTargetProperty(doubleAnimationUsingKeyFrames, new PropertyPath(propertyPath));
+            return doubleAnimationUsingKeyFrames;
+        }
+
+        private void Card_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.SMALL_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.SMALL_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
+
+            storyboard.Begin();
+        }
     }
     public class BigRectangleCard :Card
     {
         public BigRectangleCard()
         {
+            MouseEnter += Card_MouseEnter;
+            MouseLeave += Card_MouseLeave;
             UniformCornerRadius = 15;
             BorderThickness = new Thickness(5);
             BorderBrush = Brushes.White;
@@ -88,11 +151,101 @@ namespace UIDisplay
             Grid.SetColumnSpan(this, 2);
             grid.Children.Add(this);
         }
+        private void Card_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.SMALL_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.SMALL_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesWidth = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth2 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth1);
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth2);
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFramesWidth.Clone()));
+
+            storyboard.Begin();
+        }
+
+        private Timeline CreatDoubleAnimation(UIElement uIElement, string propertyPath, DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames)
+        {
+
+            Storyboard.SetTarget(doubleAnimationUsingKeyFrames, uIElement);
+            Storyboard.SetTargetProperty(doubleAnimationUsingKeyFrames, new PropertyPath(propertyPath));
+            return doubleAnimationUsingKeyFrames;
+        }
+
+        private void Card_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.SMALL_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
+            {   
+                Value = Constants.SMALL_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesWidth = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth2 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth1);
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth2);
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFramesWidth.Clone()));
+            storyboard.Begin();
+        }
     }
     public class BigSquareCard : Card
     {
         public BigSquareCard()
         {
+            MouseEnter += Card_MouseEnter;
+            MouseLeave += Card_MouseLeave;
             UniformCornerRadius = 15;
             BorderThickness = new Thickness(5);
             BorderBrush = Brushes.White;
@@ -111,6 +264,65 @@ namespace UIDisplay
             Grid.SetColumn(this, colomn);
             Grid.SetColumnSpan(this, 2);
             grid.Children.Add(this);
+        }
+
+        private void Card_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
+
+            storyboard.Begin();
+        }
+
+        private Timeline CreatDoubleAnimation(UIElement uIElement, string propertyPath, DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames)
+        {
+
+            Storyboard.SetTarget(doubleAnimationUsingKeyFrames, uIElement);
+            Storyboard.SetTargetProperty(doubleAnimationUsingKeyFrames, new PropertyPath(propertyPath));
+            return doubleAnimationUsingKeyFrames;
+        }
+
+        private void Card_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            //if (IsChecked) target_num = 190;
+            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
+            {
+                Value = Constants.BIG_CARD_LENGTH,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
+
+            storyboard.Begin();
         }
     }
 }

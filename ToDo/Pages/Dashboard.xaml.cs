@@ -13,6 +13,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -113,6 +114,35 @@ namespace UIDisplay.Pages
                     //DrawinGridBorder(i, j);
                 }
             }*/
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //LoadInAnimation(sender);
+        }
+        private void LoadInAnimation(object sender)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimation doubleAnimation = new DoubleAnimation()
+            {
+                From = 0.4,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.6),
+                DecelerationRatio = 0.6
+            };
+            DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.8),
+                DecelerationRatio = 0.6
+            };
+            Storyboard.SetTarget(doubleAnimation, (Page)sender);
+            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
+            storyboard.Children.Add(doubleAnimation);
+            Storyboard.SetTarget(doubleAnimation2, (Page)sender);
+            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.Y)"));
+            storyboard.Children.Add(doubleAnimation2);
+            storyboard.Begin();
         }
     }
 }
