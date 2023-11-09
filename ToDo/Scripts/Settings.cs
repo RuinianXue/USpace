@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ToDo.Myscripts
+namespace UIDisplay.Myscripts
 {
     internal class Settings
     {

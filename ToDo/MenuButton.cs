@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinkToDo
+namespace UIDisplay
 {
     using System.Drawing.Printing;
     using System.Windows;

@@ -142,12 +142,6 @@
     <Resource Include="Images\avatar1.jpg" />
     <Resource Include="Images\cartoon-woman-pretty.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Github\USpace\ToDo\ToDo.csproj">
-      <Project>{8adf840a-48a4-4b7b-bb9f-28e3e7896b82}</Project>
-      <Name>ToDo</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

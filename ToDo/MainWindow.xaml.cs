@@ -1,4 +1,4 @@
-﻿using ToDo.Pages;
+﻿using UIDisplay.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LinkToDo;
 
-namespace ToDo
+namespace UIDisplay
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -23,11 +22,11 @@ namespace ToDo
     public partial class MainWindow : Window
     {
         TodolistPage todolistPage;
-        //Dashboard dashboardPage;
+        Dashboard dashboardPage;
         public MainWindow()
         {
             InitializeComponent();
-            init(); 
+            WindowInitialize(); 
             //MenuInitialize();
         }
 
@@ -37,10 +36,11 @@ namespace ToDo
             Grid.SetRow(btnMenu, 2); // 将MenuButton添加到第二行
             gridMenu.Children.Add(btnMenu);
         }
-        private void init()
+        private void WindowInitialize()
         {
             todolistPage=new TodolistPage();
-            PagesNavigation.Navigate(todolistPage);
+            dashboardPage = new Dashboard();
+            PagesNavigation.Navigate(dashboardPage);
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -67,7 +67,7 @@ namespace ToDo
         }
         private void dashboard_Click(object sender, RoutedEventArgs e)
         {
-            PagesNavigation.Navigate(todolistPage);
+            PagesNavigation.Navigate(dashboardPage);
 
         }
     }

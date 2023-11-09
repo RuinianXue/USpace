@@ -202,7 +202,6 @@ D:\Github\USpace\ToDo\obj\Debug\App.g.cs
 D:\Github\USpace\ToDo\obj\Debug\LinkToDo_MarkupCompile.cache
 D:\Github\USpace\ToDo\obj\Debug\LinkToDo_MarkupCompile.lref
 D:\Github\USpace\ToDo\obj\Debug\App.baml
-D:\Github\USpace\ToDo\obj\Debug\Assets\Icons\Icons.baml
 D:\Github\USpace\ToDo\obj\Debug\Components\TodoUnit.baml
 D:\Github\USpace\ToDo\obj\Debug\MainWindow.baml
 D:\Github\USpace\ToDo\obj\Debug\Pages\TodolistPage.baml
@@ -215,3 +214,4 @@ D:\Github\USpace\ToDo\obj\Debug\ToDo.csproj.CoreCompileInputs.cache
 D:\Github\USpace\ToDo\obj\Debug\ToDo.csproj.CopyComplete
 D:\Github\USpace\ToDo\obj\Debug\LinkToDo.exe
 D:\Github\USpace\ToDo\obj\Debug\LinkToDo.pdb
+D:\Github\USpace\ToDo\obj\Debug\Assets\Icons\Icons.baml

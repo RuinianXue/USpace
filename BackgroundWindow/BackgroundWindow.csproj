@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HandyControl, Version=3.4.0.0, Culture=neutral, PublicKeyToken=45be8712787a1e5b, processorArchitecture=MSIL">
-      <HintPath>..\ToDo\packages\HandyControls.3.4.5\lib\net48\HandyControl.dll</HintPath>
+      <HintPath>..\packages\HandyControls.3.4.5\lib\net48\HandyControl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -115,9 +115,9 @@
       <Project>{ff5bf79d-dd5d-4dca-9246-94091835be50}</Project>
       <Name>DashBoard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ToDo\ToDo.csproj">
+    <ProjectReference Include="..\ToDo\UIDisplay.csproj">
       <Project>{8adf840a-48a4-4b7b-bb9f-28e3e7896b82}</Project>
-      <Name>ToDo</Name>
+      <Name>UIDisplay</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

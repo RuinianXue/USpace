@@ -124,3 +124,6 @@ D:\Github\USpace\BackgroundWindow\obj\Debug\BackgroundWindow.csproj.CoreCompileI
 D:\Github\USpace\BackgroundWindow\obj\Debug\BackgroundWindow.csproj.CopyComplete
 D:\Github\USpace\BackgroundWindow\obj\Debug\BackgroundWindow.exe
 D:\Github\USpace\BackgroundWindow\obj\Debug\BackgroundWindow.pdb
+D:\Github\USpace\BackgroundWindow\bin\Debug\StyleAndTheme.exe
+D:\Github\USpace\BackgroundWindow\bin\Debug\StyleAndTheme.pdb
+D:\Github\USpace\BackgroundWindow\bin\Debug\StyleAndTheme.exe.config

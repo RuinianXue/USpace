@@ -1737,9 +1737,9 @@
                 在图片上鼠标移动时的即时位置
             </summary>
         </member>
-        <member name="F:HandyControl.Controls.ImageViewer._imgIsMouseDown">
+        <member name="F:HandyControl.Controls.ImageViewer._imgIsMouseLeftButtonDown">
             <summary>
-                鼠标是否在图片上按下
+                鼠标是否在图片上按下左键
             </summary>
         </member>
         <member name="F:HandyControl.Controls.ImageViewer._imgMouseDownMargin">
@@ -1757,9 +1757,9 @@
                 在小图片上鼠标移动时的即时位置
             </summary>
         </member>
-        <member name="F:HandyControl.Controls.ImageViewer._imgSmallIsMouseDown">
+        <member name="F:HandyControl.Controls.ImageViewer._imgSmallIsMouseLeftButtonDown">
             <summary>
-                鼠标是否在小图片上按下
+                鼠标是否在小图片上按下左键
             </summary>
         </member>
         <member name="F:HandyControl.Controls.ImageViewer._imgSmallMouseDownMargin">
@@ -1808,6 +1808,16 @@
                 带一个图片路径的构造函数
             </summary>
             <param name="path"></param>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer.ShowFullScreenButtonProperty">
+            <summary>
+                是否显示全屏按钮
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer.ShowCloseButtonProperty">
+            <summary>
+                关闭按钮是否显示中
+            </summary>
         </member>
         <member name="P:HandyControl.Controls.ImageViewer.ShowFullScreenButton">
             <summary>
@@ -1876,9 +1886,59 @@
                 移动小图片
             </summary>
         </member>
+        <member name="P:HandyControl.Controls.ComboBox.VerifyFunc">
+            <summary>
+                数据验证委托
+            </summary>
+        </member>
         <member name="P:HandyControl.Controls.ComboBox.SearchFunc">
             <summary>
                 数据搜索委托
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.IsErrorProperty">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ComboBox.IsError">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.ErrorStrProperty">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ComboBox.ErrorStr">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.TextTypePropertyKey">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.TextTypeProperty">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ComboBox.TextType">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.ShowClearButtonProperty">
+            <summary>
+                是否显示清除按钮
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ComboBox.ShowClearButton">
+            <summary>
+                是否显示清除按钮
             </summary>
         </member>
         <member name="F:HandyControl.Controls.ComboBox.AutoCompleteProperty">
@@ -1901,6 +1961,12 @@
                 搜索文本
             </summary>
         </member>
+        <member name="M:HandyControl.Controls.ComboBox.VerifyData">
+            <summary>
+                验证数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HandyControl.Controls.ComboBox.UpdateSearchItems(System.String)">
             <summary>
                 更新搜索的项目
@@ -1917,6 +1983,42 @@
             Sets the local Text property without breaking bindings
             </summary>
             <param name="value"></param>
+        </member>
+        <member name="T:HandyControl.Controls.IDataInput">
+            <summary>
+                表示可以成为一个数据输入控件
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.IDataInput.VerifyData">
+            <summary>
+                验证数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.VerifyFunc">
+            <summary>
+                数据验证委托
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.IsError">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.ErrorStr">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.TextType">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.ShowClearButton">
+            <summary>
+                是否显示清除按钮
+            </summary>
         </member>
         <member name="T:HandyControl.Controls.NumericUpDown">
             <summary>
@@ -2016,6 +2118,26 @@
         <member name="F:HandyControl.Controls.PasswordBox.PasswordCharProperty">
             <summary>
                 掩码字符
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.IsErrorProperty">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.ErrorStrProperty">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.TextTypeProperty">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.ShowClearButtonProperty">
+            <summary>
+                是否显示清除按钮
             </summary>
         </member>
         <member name="F:HandyControl.Controls.SearchBar.IsRealTimeProperty">
@@ -2187,169 +2309,169 @@
         </member>
         <member name="T:HandyControl.Controls.Growl">
             <summary>
-                消息提醒
+                message notification
             </summary>
         </member>
         <member name="F:HandyControl.Controls.Growl._tickCount">
             <summary>
-                计数
+                count
             </summary>
         </member>
         <member name="F:HandyControl.Controls.Growl._timerClose">
             <summary>
-                关闭计时器
+                Turn off timer
             </summary>
         </member>
         <member name="P:HandyControl.Controls.Growl.GrowlPanel">
             <summary>
-                消息容器
+                Message container
             </summary>
         </member>
         <member name="M:HandyControl.Controls.Growl.StartTimer">
             <summary>
-                开始计时器
+                Start timer
             </summary>
         </member>
         <member name="M:HandyControl.Controls.Growl.SetGrowlPanel(System.Windows.Controls.Panel)">
             <summary>
-                消息容器
+                Message container
             </summary>
             <param name="panel"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Show(HandyControl.Data.GrowlInfo)">
             <summary>
-                显示信息
+                Display information
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Success(System.String,System.String)">
             <summary>
-                成功
+                success
             </summary>
             <param name="message"></param>
             <param name="token"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Success(HandyControl.Data.GrowlInfo)">
             <summary>
-                成功
+                Success
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.SuccessGlobal(System.String)">
             <summary>
-                成功
+                Success Global
             </summary>
             <param name="message"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.SuccessGlobal(HandyControl.Data.GrowlInfo)">
             <summary>
-                成功
+                Success Global
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Info(System.String,System.String)">
             <summary>
-                消息
+                Info
             </summary>
             <param name="message"></param>
             <param name="token"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Info(HandyControl.Data.GrowlInfo)">
             <summary>
-                消息
+                Info
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.InfoGlobal(System.String)">
             <summary>
-                消息
+                Info Global
             </summary>
             <param name="message"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.InfoGlobal(HandyControl.Data.GrowlInfo)">
             <summary>
-                消息
+                Info Global
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Warning(System.String,System.String)">
             <summary>
-                警告
+                Warning
             </summary>
             <param name="message"></param>
             <param name="token"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Warning(HandyControl.Data.GrowlInfo)">
             <summary>
-                警告
+                Warning
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.WarningGlobal(System.String)">
             <summary>
-                警告
+                Warning Global
             </summary>
             <param name="message"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.WarningGlobal(HandyControl.Data.GrowlInfo)">
             <summary>
-                警告
+                Warning Global
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Error(System.String,System.String)">
             <summary>
-                错误
+                Error
             </summary>
             <param name="message"></param>
             <param name="token"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Error(HandyControl.Data.GrowlInfo)">
             <summary>
-                错误
+                Error
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.ErrorGlobal(System.String)">
             <summary>
-                错误
+                Error Global
             </summary>
             <param name="message"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.ErrorGlobal(HandyControl.Data.GrowlInfo)">
             <summary>
-                错误
+                Error Global
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Fatal(System.String,System.String)">
             <summary>
-                严重
+                Fatal
             </summary>
             <param name="message"></param>
             <param name="token"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Fatal(HandyControl.Data.GrowlInfo)">
             <summary>
-                严重
+                Fatal
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.FatalGlobal(System.String)">
             <summary>
-                严重
+                Fatal Global
             </summary>
             <param name="message"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.FatalGlobal(HandyControl.Data.GrowlInfo)">
             <summary>
-                严重
+                Fatal Global
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Ask(System.String,System.Func{System.Boolean,System.Boolean},System.String)">
             <summary>
-                询问
+                Ask
             </summary>
             <param name="message"></param>
             <param name="actionBeforeClose"></param>
@@ -2357,43 +2479,43 @@
         </member>
         <member name="M:HandyControl.Controls.Growl.Ask(HandyControl.Data.GrowlInfo)">
             <summary>
-                询问
+                Ask
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.AskGlobal(System.String,System.Func{System.Boolean,System.Boolean})">
             <summary>
-                询问
+                Ask Global
             </summary>
             <param name="message"></param>
             <param name="actionBeforeClose"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.AskGlobal(HandyControl.Data.GrowlInfo)">
             <summary>
-                询问
+                Ask Global
             </summary>
             <param name="growlInfo"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Close(System.Boolean)">
             <summary>
-                关闭
+                Close
             </summary>
         </member>
         <member name="M:HandyControl.Controls.Growl.Clear(System.String)">
             <summary>
-                清除
+                Clear
             </summary>
             <param name="token"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.Clear(System.Windows.Controls.Panel)">
             <summary>
-                清除
+                Clear
             </summary>
             <param name="panel"></param>
         </member>
         <member name="M:HandyControl.Controls.Growl.ClearGlobal">
             <summary>
-                清除
+                Clear Global
             </summary>
         </member>
         <member name="T:HandyControl.Controls.Pagination">
@@ -3055,6 +3177,11 @@
                 更新鼠标跟随块位置
             </summary>
         </member>
+        <member name="T:HandyControl.Controls.Transfer">
+            <summary>
+                穿梭框
+            </summary>
+        </member>
         <member name="T:HandyControl.Controls.ImageBrowser">
             <summary>
                 图片浏览器
@@ -3424,7 +3551,7 @@
             Initializes a new instance of the Theme class.
             </summary>
         </member>
-        <member name="M:HandyControl.Themes.ThemeManager.GetSystemTheme(System.Boolean)">
+        <member name="M:HandyControl.Themes.ThemeManager.GetSystemTheme">
             <summary>
             Returns theme used for Windows
             </summary>
