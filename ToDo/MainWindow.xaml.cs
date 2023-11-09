@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LinkToDo;
 
 namespace ToDo
 {
@@ -22,10 +23,19 @@ namespace ToDo
     public partial class MainWindow : Window
     {
         TodolistPage todolistPage;
+        //Dashboard dashboardPage;
         public MainWindow()
         {
             InitializeComponent();
-            init();
+            init(); 
+            //MenuInitialize();
+        }
+
+        private void MenuInitialize()
+        {
+            MenuButton btnMenu  = new MenuButton();
+            Grid.SetRow(btnMenu, 2); // 将MenuButton添加到第二行
+            gridMenu.Children.Add(btnMenu);
         }
         private void init()
         {
@@ -54,6 +64,11 @@ namespace ToDo
         private void rdTodolist_Click(object sender, RoutedEventArgs e)
         {
             PagesNavigation.Navigate(todolistPage);
+        }
+        private void dashboard_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(todolistPage);
+
         }
     }
 }

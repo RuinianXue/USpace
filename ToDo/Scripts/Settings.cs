@@ -5,7 +5,7 @@ namespace ToDo.Myscripts
     internal class Settings
     {
         // 数据库名
-        public static string DatbaseName { get; } = "mydatabase";
+        public static string DatbaseName { get; } = "todo";
         // 数据库所在服务器域名或ip
         public static string DatabaseHost { get; } = "localhost";
         // 数据库端口号
@@ -13,7 +13,7 @@ namespace ToDo.Myscripts
         // 数据库用户名
         public static string DatabaseUsername { get; } = "root";
         // 数据库密码
-        public static string DatabasePassword { get; } = "271744";
+        public static string DatabasePassword { get; } = "rrgglovexx37";
 
         //// 七牛云密钥对
         //public static string QiniuAccessKey { get; } = "";

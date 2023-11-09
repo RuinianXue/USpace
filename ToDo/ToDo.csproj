@@ -139,12 +139,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\LightTheme.xaml">
+    <Page Include="MyThemes\LightTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuButton.cs" />
     <Compile Include="Scripts\MysqlBase.cs" />
     <Compile Include="Scripts\MyUtils.cs" />
     <Compile Include="Scripts\Settings.cs" />

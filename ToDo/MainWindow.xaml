@@ -7,11 +7,11 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d" Name="home"
         Icon="pack://application:,,,/Resources/Icon0.ico"
-        Title="USpace" MinHeight="450" MinWidth="450" Height="650" Width="900" 
-        WindowStartupLocation="CenterScreen" WindowState="Normal">
-    <!--WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize"-->
+        Title="USpace" Height="650" Width="900" 
+        WindowStartupLocation="CenterScreen" WindowState="Normal"
+    WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize">
 
-    <Border CornerRadius="8" Background="{DynamicResource PrimaryBackgroundColor}">
+    <Border CornerRadius="15" Background="{DynamicResource PrimaryBackgroundColor}" >
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -73,8 +73,10 @@
                         </ToggleButton.Triggers>
                     </ToggleButton>
                     <StackPanel Grid.Row="3">
+                        <RadioButton x:Name="Dashboard" IsChecked="True" Content=" To Do" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="dashboard_Click" Cursor="Hand"/>
                         <!--<RadioButton x:Name="rdAddressbook" IsChecked="True" Content=" 通讯录" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource addressbook}" Click="rdAddressbook_Click"/>-->
-                        <RadioButton x:Name="rdTodolist" IsChecked="True" Content=" To Do" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="rdTodolist_Click" Cursor="Hand"/>
+                        <RadioButton x:Name="rdTodolist" Content=" To Do" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="rdTodolist_Click" Cursor="Hand"/>
+
                     </StackPanel>
                 </Grid>
             </Border>

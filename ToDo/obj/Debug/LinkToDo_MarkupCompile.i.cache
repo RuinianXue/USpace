@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\00\LinkToDo\obj\Debug\
+D:\Github\USpace\ToDo\obj\Debug\
 LinkToDo
 none
 false
 DEBUG;TRACE
-E:\00\LinkToDo\App.xaml
-61940356986
+D:\Github\USpace\ToDo\App.xaml
+6-73289574
 
-13-1750622165
-34-2116514560
-Assets\Icons\Icons.xaml;Components\TodoUnit.xaml;MainWindow.xaml;Pages\TodolistPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;
+141981807498
+34-176025727
+Assets\Icons\Icons.xaml;Components\TodoUnit.xaml;MainWindow.xaml;Pages\TodolistPage.xaml;Styles\MainStyle.xaml;MyThemes\LightTheme.xaml;
 
 True
 
