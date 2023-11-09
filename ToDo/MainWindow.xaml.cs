@@ -26,6 +26,7 @@ namespace UIDisplay
         public MainWindow()
         {
             InitializeComponent();
+
             WindowInitialize(); 
             //MenuInitialize();
         }
@@ -33,12 +34,16 @@ namespace UIDisplay
         private void MenuInitialize()
         {
             MenuButton btnMenu  = new MenuButton();
-            Grid.SetRow(btnMenu, 2); // 将MenuButton添加到第二行
+            Grid.SetRow(btnMenu, 0); // 将MenuButton添加到第二行
             gridMenu.Children.Add(btnMenu);
         }
         private void WindowInitialize()
         {
-            todolistPage=new TodolistPage();
+            this.Width = Constants.INSIDE_WIDTH + 80;
+            this.Height = Constants.INSIDE_HEIGHT + 30;
+            PagesNavigation.Height = Constants.INSIDE_HEIGHT;
+            PagesNavigation.Width = Constants.INSIDE_WIDTH;
+            todolistPage =new TodolistPage();
             dashboardPage = new Dashboard();
             PagesNavigation.Navigate(dashboardPage);
         }

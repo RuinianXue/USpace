@@ -130,7 +130,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dashboard.xaml">
+    <Page Include="Pages\Dashboard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -147,7 +147,7 @@
       <DependentUpon>TodoUnit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
-    <Compile Include="Dashboard.xaml.cs">
+    <Compile Include="Pages\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">

@@ -1,7 +1,6 @@
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.csproj.AssemblyReference.cache
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.csproj.SuggestedBindingRedirects.cache
 D:\Github\USpace\ToDo\obj\Debug\Components\TodoUnit.g.cs
-D:\Github\USpace\ToDo\obj\Debug\Dashboard.g.cs
 D:\Github\USpace\ToDo\obj\Debug\MainWindow.g.cs
 D:\Github\USpace\ToDo\obj\Debug\Pages\TodolistPage.g.cs
 D:\Github\USpace\ToDo\obj\Debug\App.g.cs
@@ -54,7 +53,6 @@ D:\Github\USpace\ToDo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Github\USpace\ToDo\obj\Debug\App.baml
 D:\Github\USpace\ToDo\obj\Debug\Assets\Icons\Icons.baml
 D:\Github\USpace\ToDo\obj\Debug\Components\TodoUnit.baml
-D:\Github\USpace\ToDo\obj\Debug\Dashboard.baml
 D:\Github\USpace\ToDo\obj\Debug\MainWindow.baml
 D:\Github\USpace\ToDo\obj\Debug\Pages\TodolistPage.baml
 D:\Github\USpace\ToDo\obj\Debug\Styles\MainStyle.baml
@@ -66,3 +64,5 @@ D:\Github\USpace\ToDo\obj\Debug\UIDisplay.csproj.CoreCompileInputs.cache
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.csproj.CopyComplete
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.exe
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.pdb
+D:\Github\USpace\ToDo\obj\Debug\Pages\Dashboard.g.cs
+D:\Github\USpace\ToDo\obj\Debug\Pages\Dashboard.baml

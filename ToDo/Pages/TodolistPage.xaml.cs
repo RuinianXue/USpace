@@ -36,11 +36,13 @@ namespace UIDisplay.Pages
         public TodolistPage()
         {
             InitializeComponent();
-            Init();
+            TodoListPageInitialize();
 
         }
-        private void Init()
+        private void TodoListPageInitialize()
         {
+            //this.Width = Constants.INSIDE_WIDTH;
+            //this.Height = Constants.INSIDE_HEIGHT;
             Refresh();
             Task.Run(checkTime);
             addressbookRefresh();
