@@ -1,5 +1,5 @@
-﻿using ToDo.Myscripts;
-using ToDo.Pages;
+﻿using UIDisplay.Myscripts;
+using UIDisplay.Pages;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,7 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ToDo.Components
+namespace UIDisplay.Components
 {
     /// <summary>
     /// TodoUnit.xaml 的交互逻辑

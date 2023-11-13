@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace ToDo.Myscripts
+namespace UIDisplay.Myscripts
 {
     internal class Settings
     {
         // 数据库名
-        public static string DatbaseName { get; } = "mydatabase";
+        public static string DatbaseName { get; } = "todo";
         // 数据库所在服务器域名或ip
         public static string DatabaseHost { get; } = "localhost";
         // 数据库端口号

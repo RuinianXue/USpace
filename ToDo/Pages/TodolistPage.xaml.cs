@@ -1,6 +1,6 @@
 ﻿using HandyControl.Controls;
-using ToDo.Components;
-using ToDo.Myscripts;
+using UIDisplay.Components;
+using UIDisplay.Myscripts;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ToDo.Pages
+namespace UIDisplay.Pages
 {
     /// <summary>
     /// TodolistPage.xaml 的交互逻辑
@@ -36,11 +36,13 @@ namespace ToDo.Pages
         public TodolistPage()
         {
             InitializeComponent();
-            Init();
+            TodoListPageInitialize();
 
         }
-        private void Init()
+        private void TodoListPageInitialize()
         {
+            //this.Width = Constants.INSIDE_WIDTH;
+            //this.Height = Constants.INSIDE_HEIGHT;
             Refresh();
             Task.Run(checkTime);
             addressbookRefresh();
@@ -234,14 +236,14 @@ namespace ToDo.Pages
 
         private void todoTaskContentTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (todoTaskContentTextBox.Text.Length > 0)
+            /*if (todoTaskContentTextBox.Text.Length > 0)
             {
                 //spFuncArea.Visibility = Visibility.Visible;
             }
             else
             {
                 //spFuncArea.Visibility = Visibility.Collapsed;
-            }
+            }*/
         }
 
         private void todoTaskContentTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -259,10 +261,9 @@ namespace ToDo.Pages
                 g0Focus1.Visibility = Visibility.Visible;
                 g1Focus0.Visibility = Visibility.Collapsed;
                 g1Focus1.Visibility = Visibility.Visible;
-                dateTimePickers.SelectedDateTime = DateTime.Now.AddDays(7);
+                dateTimePickers.SelectedDateTime = DateTime.Now.AddDays(1);
                 todoTaskContentTextBox.Focus();
             }
-
         }
 
         private void todoTaskContentTextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -339,8 +340,18 @@ namespace ToDo.Pages
                 if (todoTaskContentTextBox.Text.Length > 0)
                 {
                     //TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
+
                     TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, 
                         "无");
+                    string input = todoTaskContentTextBox.Text;
+
+                    DateTime? parsedTime = tmp_todoInfo.ParseTime(input);
+
+                    if (parsedTime != null)
+                    {
+                        tmp_todoInfo.Date = parsedTime.Value;
+                    }
+
                     Task.Run(() =>
                     {
                         todoDataControl = new TodoDataControl();
@@ -362,128 +373,6 @@ namespace ToDo.Pages
                     Growl.Info("未输入任务内容");
                 }
             }
-        }
-
-        private void addEmaillistBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (addressbookBorder.Visibility == Visibility.Visible)
-            {
-                Storyboard storyboard = new Storyboard();
-                DoubleAnimation doubleAnimation = new DoubleAnimation()
-                {
-                    From = 1,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(1),
-                    DecelerationRatio = 0.6
-                };
-                DoubleAnimation doubleAnimation2 = new DoubleAnimation()
-                {
-                    From = 0,
-                    To = 50,
-                    Duration = TimeSpan.FromSeconds(1),
-                    DecelerationRatio = 0.6
-                };
-                Storyboard.SetTarget(doubleAnimation, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-                storyboard.Children.Add(doubleAnimation);
-                Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
-                storyboard.Children.Add(doubleAnimation2);
-                storyboard.Begin();
-                Task.Run(() =>
-                {
-                    Thread.Sleep(1000);
-                    Dispatcher.BeginInvoke(new Action(delegate
-                    {
-                        addressbookBorder.Visibility = Visibility.Collapsed;
-                    }));
-                    addressbookRefresh();
-                });
-
-            }
-            else
-            {
-                addressbookBorder.Visibility = Visibility.Visible;
-                Storyboard storyboard = new Storyboard();
-                DoubleAnimation doubleAnimation = new DoubleAnimation()
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(0.6),
-                    DecelerationRatio = 0.6
-                };
-                DoubleAnimation doubleAnimation2 = new DoubleAnimation()
-                {
-                    From = 50,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(0.8),
-                    DecelerationRatio = 0.6
-                };
-                Storyboard.SetTarget(doubleAnimation, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-                storyboard.Children.Add(doubleAnimation);
-                Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
-                storyboard.Children.Add(doubleAnimation2);
-                storyboard.Begin();
-            }
-
-        }
-
-        private void addressbookRefreshBtn_Click(object sender, RoutedEventArgs e)
-        {
-            addressbookRefresh();
-        }
-
-        private async void emailListConfirmBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //await Task.Run(() =>
-            //{
-            //    string emailList = "";
-            //    Dispatcher.BeginInvoke(new Action(delegate
-            //    {
-            //        foreach (AddressUnit addressUnit in wrapPanel.Children)
-            //        {
-            //            if (addressUnit.IsChecked == true)
-            //            {
-            //                emailList += addressUnit.emailLabel.Text + ";";
-            //            }
-            //        }
-            //        if (emailList.Length == 0) emailList = "无";
-            //        teammateList.Text = emailList;
-            //    }));
-            //});
-            //Storyboard storyboard = new Storyboard();
-            //DoubleAnimation doubleAnimation = new DoubleAnimation()
-            //{
-            //    From = 1,
-            //    To = 0,
-            //    Duration = TimeSpan.FromSeconds(1),
-            //    DecelerationRatio = 0.6
-            //};
-            //DoubleAnimation doubleAnimation2 = new DoubleAnimation()
-            //{
-            //    From = 0,
-            //    To = 50,
-            //    Duration = TimeSpan.FromSeconds(1),
-            //    DecelerationRatio = 0.6
-            //};
-            //Storyboard.SetTarget(doubleAnimation, addressbookBorder);
-            //Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-            //storyboard.Children.Add(doubleAnimation);
-            //Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
-            //Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
-            //storyboard.Children.Add(doubleAnimation2);
-            //storyboard.Begin();
-            //await Task.Run(() =>
-            //{
-            //    Thread.Sleep(1000);
-            //    Dispatcher.BeginInvoke(new Action(delegate
-            //    {
-            //        addressbookBorder.Visibility = Visibility.Collapsed;
-            //    }));
-            //    addressbookRefresh();
-            //});
         }
     }
 }
