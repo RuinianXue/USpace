@@ -1,0 +1,139 @@
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\DashBoard.exe.config
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\DashBoard.exe
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\DashBoard.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\ControlzEx.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LinkToDo.exe
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LiveCharts.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LiveCharts.Wpf.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MahApps.Metro.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignColors.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignExtensions.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignThemes.MahApps.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\HandyControl.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MySql.Data.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\Google.Protobuf.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\ZstdNet.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\BouncyCastle.Crypto.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\System.Memory.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\System.Buffers.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\K4os.Compression.LZ4.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\K4os.Hash.xxHash.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\System.Numerics.Vectors.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LinkToDo.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LinkToDo.exe.config
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\ControlzEx.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\ControlzEx.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LiveCharts.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LiveCharts.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LiveCharts.Wpf.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\LiveCharts.Wpf.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MahApps.Metro.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MahApps.Metro.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignColors.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignExtensions.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignThemes.MahApps.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\HandyControl.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\MySql.Data.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\Google.Protobuf.pdb
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\Google.Protobuf.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\BouncyCastle.Crypto.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\System.Memory.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\System.Buffers.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\K4os.Compression.LZ4.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\K4os.Hash.xxHash.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\System.Numerics.Vectors.xml
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\ar-DZ\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\cs\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\cs-CZ\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\de\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\fr\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\fr-FR\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\pt\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\pt-BR\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\Ru\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\ru-ru\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\bin\Debug\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.csproj.AssemblyReference.cache
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.csproj.SuggestedBindingRedirects.cache
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.exe.config
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\Dashboard.g.cs
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\MainWindow.g.cs
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\App.g.cs
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard_MarkupCompile.cache
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard_MarkupCompile.lref
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\App.baml
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\Dashboard.baml
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\MainWindow.baml
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.g.resources
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.Properties.Resources.resources
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.csproj.GenerateResource.cache
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.csproj.CoreCompileInputs.cache
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.csproj.CopyComplete
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.exe
+D:\2023-2024 NET Class\Test\TestDashBoard\obj\Debug\DashBoard.pdb
+D:\Github\USpace\DashBoard\bin\Debug\DashBoard.exe.config
+D:\Github\USpace\DashBoard\bin\Debug\DashBoard.exe
+D:\Github\USpace\DashBoard\bin\Debug\DashBoard.pdb
+D:\Github\USpace\DashBoard\bin\Debug\ControlzEx.dll
+D:\Github\USpace\DashBoard\bin\Debug\LiveCharts.dll
+D:\Github\USpace\DashBoard\bin\Debug\LiveCharts.Wpf.dll
+D:\Github\USpace\DashBoard\bin\Debug\MahApps.Metro.dll
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignColors.dll
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignExtensions.dll
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignThemes.MahApps.dll
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Github\USpace\DashBoard\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\Github\USpace\DashBoard\bin\Debug\ControlzEx.pdb
+D:\Github\USpace\DashBoard\bin\Debug\ControlzEx.xml
+D:\Github\USpace\DashBoard\bin\Debug\LiveCharts.pdb
+D:\Github\USpace\DashBoard\bin\Debug\LiveCharts.xml
+D:\Github\USpace\DashBoard\bin\Debug\LiveCharts.Wpf.pdb
+D:\Github\USpace\DashBoard\bin\Debug\LiveCharts.Wpf.xml
+D:\Github\USpace\DashBoard\bin\Debug\MahApps.Metro.pdb
+D:\Github\USpace\DashBoard\bin\Debug\MahApps.Metro.xml
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignColors.pdb
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignExtensions.xml
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignThemes.MahApps.pdb
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Github\USpace\DashBoard\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Github\USpace\DashBoard\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\Github\USpace\DashBoard\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\Github\USpace\DashBoard\bin\Debug\ar-DZ\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\cs\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\cs-CZ\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\de\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\fr\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\fr-FR\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\pt\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\pt-BR\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\Ru\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\ru-ru\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\bin\Debug\uz-Latn-UZ\MaterialDesignExtensions.resources.dll
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.csproj.AssemblyReference.cache
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.csproj.SuggestedBindingRedirects.cache
+D:\Github\USpace\DashBoard\obj\Debug\Dashboard.g.cs
+D:\Github\USpace\DashBoard\obj\Debug\MainWindow.g.cs
+D:\Github\USpace\DashBoard\obj\Debug\App.g.cs
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard_MarkupCompile.cache
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard_MarkupCompile.lref
+D:\Github\USpace\DashBoard\obj\Debug\App.baml
+D:\Github\USpace\DashBoard\obj\Debug\Dashboard.baml
+D:\Github\USpace\DashBoard\obj\Debug\MainWindow.baml
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.g.resources
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.Properties.Resources.resources
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.csproj.GenerateResource.cache
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.csproj.CoreCompileInputs.cache
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.csproj.CopyComplete
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.exe
+D:\Github\USpace\DashBoard\obj\Debug\DashBoard.pdb
+D:\Github\USpace\DashBoard\bin\Debug\StyleAndTheme.exe
+D:\Github\USpace\DashBoard\bin\Debug\StyleAndTheme.pdb
+D:\Github\USpace\DashBoard\bin\Debug\StyleAndTheme.exe.config

@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="https://handyorg.github.io/handycontrol"
-                    xmlns:local="clr-namespace:LinkToDo.Styles">
+                    xmlns:local="clr-namespace:UIDisplay">
     <!--#region Addressbook button style-->
     <Style x:Key="adbButtonsStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
