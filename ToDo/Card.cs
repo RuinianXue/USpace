@@ -15,10 +15,93 @@ namespace UIDisplay
     public class Card : MaterialDesignThemes.Wpf.Card
     {
         public StackPanel stackPanel;
+        private void MoveItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DeleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Parent is Panel panel)
+            {
+                panel.Children.Remove(this);
+            }
+        }
+        private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ((Card)sender).ContextMenu.IsOpen = true;
+        }
+        public void InitializeMenu()
+        {
+            ContextMenu contextMenu = new ContextMenu();
+            // Add menu items for moving and deleting the Card
+            MenuItem moveItem = new MenuItem();
+            moveItem.Header = "Move Card";
+            moveItem.Click += MoveItem_Click;
+            contextMenu.Items.Add(moveItem);
+
+            MenuItem deleteItem = new MenuItem();
+            deleteItem.Header = "Delete Card";
+            deleteItem.Click += DeleteItem_Click;
+            contextMenu.Items.Add(deleteItem);
+
+            // Attach the context menu to the Card
+            this.ContextMenu = contextMenu;
+            this.MouseRightButtonDown += Card_MouseRightButtonDown;
+        }
+        //编辑模式
+        private DateTime mouseDownTime;
+        private void Card_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            mouseDownTime = DateTime.Now;
+            this.CaptureMouse();
+        }
+        private void Card_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            this.ReleaseMouseCapture();
+        }
+        //长按进入编辑模式
+        private bool Check_editMode()
+        {
+            return (DateTime.Now - mouseDownTime).TotalSeconds > 2;
+        }
+        private void UnbindAndRebindGrid(Grid grid,int row,int column)
+        {
+
+            grid.Children.Remove(this);
+            SetPosition(grid, row, column);//存疑
+        }
+        bool CanPlaceCard(Grid grid, int row, int column)
+        {
+            return true;
+        }
+        private void Card_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed && Check_editMode())
+            {
+                if (Parent is Grid grid)
+                {
+                    Grid tmpgrid = grid as Grid;
+                    // 获取当前鼠标位置所在的行列
+                    Point mousePosition = e.GetPosition(tmpgrid);
+                    int row = (int)(mousePosition.Y / tmpgrid.RowDefinitions[0].ActualHeight);
+                    int column = (int)(mousePosition.X / tmpgrid.ColumnDefinitions[0].ActualWidth);
+                    // 判断当前位置是否可以放置Card
+                    if (CanPlaceCard(tmpgrid, row, column))
+                    {
+                        UnbindAndRebindGrid(tmpgrid, row, column);
+                    }
+                }
+            }
+        }
         public Card()
         {
+            mouseDownTime = DateTime.Now;
             MouseEnter += Card_MouseEnter;
             MouseLeave += Card_MouseLeave;
+            MouseDown += Card_MouseDown;
+            MouseUp += Card_MouseUp;
+            MouseMove += Card_MouseMove;
+            InitializeMenu();
             // Set default values
             //ShadowAssist.SetShadowDepth(this, 0);
             UniformCornerRadius = 15;
@@ -28,11 +111,9 @@ namespace UIDisplay
             Height = Constants.SMALL_CARD_LENGTH;
             Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
 
-
             // Create the StackPanel
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
-
             
             // Create the PackIcon
             PackIcon packIcon = new PackIcon();

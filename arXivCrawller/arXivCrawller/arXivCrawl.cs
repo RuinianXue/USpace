@@ -15,6 +15,7 @@ namespace ConsoleApp2
 
             string apiUrl = $"http://export.arxiv.org/api/query?search_query={query}&max_results={maxResult.ToString()}";
             
+            /*
             //测试完毕后删除
             using (HttpClient client = new HttpClient())
             {
@@ -32,7 +33,7 @@ namespace ConsoleApp2
                 }
             }
             //测试完毕后删除
-            
+            */
 
             XDocument doc = XDocument.Load(apiUrl);
             // Declare the xml namespaces

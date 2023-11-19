@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gGbrIpNL9yU8ju1+WQvyXFV+MaxDkflSFtmepgtengf7hvcDTL4nwFlauhlvtK7GD6Jhg0J1LJIGjNenbKyRRw==",
+  "dgSpecHash": "yQml7Q91QAInoOnfx2K4drFtragNjXz8QH+3Lx0bhgQ2AGGcH9qSmlMIsIrYsC9K4boWhXcZwlq4hJnTcyOrrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bba\\source\\repos\\ConsoleApp2\\ConsoleApp2\\arXivCrawller.csproj",
+  "projectFilePath": "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

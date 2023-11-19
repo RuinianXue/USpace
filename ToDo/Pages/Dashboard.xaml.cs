@@ -144,5 +144,6 @@ namespace UIDisplay.Pages
             storyboard.Children.Add(doubleAnimation2);
             storyboard.Begin();
         }
+
     }
 }

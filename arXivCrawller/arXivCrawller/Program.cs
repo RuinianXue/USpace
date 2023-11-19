@@ -10,9 +10,15 @@ namespace ArxivApiParser
     {
         static void  Main(string[] args)
         {
-            ArxivArticle[] articles = arXivCrawl.ArXivCrawlBySearch("all:machine",10);
-            foreach (var article in articles) { article.Show(); }
-
+            ArxivArticle[] articles = arXivCrawl.ArXivCrawlBySearch("all:LLM",10);
+            foreach (var article in articles) { //article.Show();
+                Console.WriteLine(article.Title);
+                Console.WriteLine(article.PublishDate);
+                //Console.WriteLine(article.UpdateDate);
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+  
             return;
         }
     }

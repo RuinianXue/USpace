@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bba\\source\\repos\\ConsoleApp2\\ConsoleApp2\\arXivCrawller.csproj": {}
+    "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bba\\source\\repos\\ConsoleApp2\\ConsoleApp2\\arXivCrawller.csproj": {
+    "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bba\\source\\repos\\ConsoleApp2\\ConsoleApp2\\arXivCrawller.csproj",
+        "projectUniqueName": "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj",
         "projectName": "arXivCrawller",
-        "projectPath": "C:\\Users\\bba\\source\\repos\\ConsoleApp2\\ConsoleApp2\\arXivCrawller.csproj",
-        "packagesPath": "C:\\Users\\bba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bba\\source\\repos\\ConsoleApp2\\ConsoleApp2\\obj\\",
+        "projectPath": "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj",
+        "packagesPath": "C:\\Users\\Linda XUE\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\bba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Linda XUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
