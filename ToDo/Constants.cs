@@ -8,8 +8,8 @@ namespace UIDisplay
 {
     public static class Constants
     {
-        public const int SQUARE_GRID_LENGTH = 180;
-        public const int SMALL_CARD_LENGTH = 160;
+        public const int SQUARE_GRID_LENGTH = 160;
+        public const int SMALL_CARD_LENGTH = 140;
         public const int BIG_CARD_LENGTH = SQUARE_GRID_LENGTH + SMALL_CARD_LENGTH;
         public const int EDGE = 20;
         public const int MAX_ROW = 4;

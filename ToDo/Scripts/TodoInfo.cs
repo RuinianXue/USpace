@@ -43,16 +43,19 @@ namespace UIDisplay.Myscripts
             DayOfWeek currentDayOfWeek = now.DayOfWeek;
             string pattern = @"(?i)(\b明天|\b后天|\b大后天)?(\b本周|\b下周)?([一二三四五六日周])?((早上|上午|下午|晚上)?(\d+)点(\d+)?(分(钟)?)?)?([\u4E00-\u9FFF]+)?";
             Match match = Regex.Match(input, pattern);
+
             if (match.Success)
             {
                 string dayModifier = match.Groups[1].Value;
                 string weekModifier = match.Groups[2].Value;
                 string dayOfWeekPhrase = match.Groups[3].Value;
                 string timePhrase = match.Groups[4].Value;
-                string hour = match.Groups[5].Value;
-                string minute = match.Groups[6].Value;
+                string hour = match.Groups[6].Value;
+                string minute = match.Groups[7].Value;  //?
+
                 for (int i = 0; i < match.Groups.Count; i++)
                 {
+                    // Console.WriteLine("Value[" + i + "]: " + match.Groups[i].Value);
                     if ((match.Groups[i].Value).Length >= 1)
                         Content = match.Groups[i].Value;
                 }
@@ -82,6 +85,7 @@ namespace UIDisplay.Myscripts
                 {
                     hours += 12;
                 }
+
                 int minutes = 0;
                 if (!string.IsNullOrEmpty(minute))
                 {
@@ -99,15 +103,16 @@ namespace UIDisplay.Myscripts
                 if (!string.IsNullOrEmpty(match.Groups[8].Value))
                     value2 = int.Parse(match.Groups[8].Value);
                 string unit2 = match.Groups[9].Value;
-                string unit3 = match.Groups[10].Value;
-                string unit24 = match.Groups[11].Value;
-                string unit25 = match.Groups[12].Value;
-                string unit26 = match.Groups[13].Value;
-                string unit262 = match.Groups[14].Value;
-                string unit263 = match.Groups[15].Value;
-                string unit264 = match.Groups[16].Value;
-                string unit265 = match.Groups[17].Value;
-                string unit266 = match.Groups[18].Value;
+                //string unit3 = match.Groups[10].Value;
+                //string unit24 = match.Groups[11].Value;
+                //string unit25 = match.Groups[12].Value;
+                //string unit26 = match.Groups[13].Value;
+                //string unit262 = match.Groups[14].Value;
+                //string unit263 = match.Groups[15].Value;
+                //string unit264 = match.Groups[16].Value;
+                //string unit265 = match.Groups[17].Value;
+                //string unit266 = match.Groups[18].Value;
+
                 for (int i = 0; i < match.Groups.Count; i++)
                 {
                     if ((match.Groups[i].Value).Length >= 2)
@@ -132,6 +137,7 @@ namespace UIDisplay.Myscripts
 
                 if (unit == "秒钟")
                     dt = dt.AddSeconds(value);
+
                 if (!string.IsNullOrEmpty(unit2))
                 {
                     if (unit2 == "分钟")
@@ -158,10 +164,6 @@ namespace UIDisplay.Myscripts
             int currentDayOfWeek = (int)now.DayOfWeek;
             int targetDayOfWeekValue = (int)targetDayOfWeek;
             int daysToTargetDay = (targetDayOfWeekValue - currentDayOfWeek + 7) % 7;
-            if (daysToTargetDay == 0)
-            {
-                daysToTargetDay = 0;
-            }
             return now.AddDays(daysToAdd + daysToTargetDay);
         }
 

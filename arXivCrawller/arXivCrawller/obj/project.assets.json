@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Linda XUE\\.nuget\\packages\\": {},
+    "C:\\Users\\lenovo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj",
+      "projectUniqueName": "E:\\0temp\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj",
       "projectName": "arXivCrawller",
-      "projectPath": "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj",
-      "packagesPath": "C:\\Users\\Linda XUE\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\USpace\\arXivCrawller\\arXivCrawller\\obj\\",
+      "projectPath": "E:\\0temp\\USpace\\arXivCrawller\\arXivCrawller\\arXivCrawller.csproj",
+      "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+      "outputPath": "E:\\0temp\\USpace\\arXivCrawller\\arXivCrawller\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Linda XUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -56,8 +56,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -66,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

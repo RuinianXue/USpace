@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIDisplay", "ToDo\UIDisplay
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "arXivCrawller", "arXivCrawller\arXivCrawller\arXivCrawller.csproj", "{ADE8879D-1687-488B-AF9D-71324DB57250}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{9A45EE98-3FC1-4764-A970-A07116AF0717}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ADE8879D-1687-488B-AF9D-71324DB57250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADE8879D-1687-488B-AF9D-71324DB57250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADE8879D-1687-488B-AF9D-71324DB57250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A45EE98-3FC1-4764-A970-A07116AF0717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A45EE98-3FC1-4764-A970-A07116AF0717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A45EE98-3FC1-4764-A970-A07116AF0717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A45EE98-3FC1-4764-A970-A07116AF0717}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
