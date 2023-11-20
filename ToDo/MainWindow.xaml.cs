@@ -45,6 +45,23 @@ namespace UIDisplay
             PagesNavigation.Width = Constants.INSIDE_WIDTH;
             todolistPage =new TodolistPage();
             dashboardPage = new Dashboard();
+
+            #region Dashboard Menu
+            ContextMenu contextMenu = new ContextMenu();
+
+            MenuItem editModeMenuItem = new MenuItem();
+            editModeMenuItem.Header = "Edit Mode";
+            editModeMenuItem.Click += EditModeMenuItem_Click;
+            contextMenu.Items.Add(editModeMenuItem);
+
+            MenuItem viewDeletedMenuItem = new MenuItem();
+            viewDeletedMenuItem.Header = "Recently Deleted";
+            viewDeletedMenuItem.Click += ViewDeletedMenuItem_Click;
+            contextMenu.Items.Add(viewDeletedMenuItem);
+
+            this.ContextMenu = contextMenu;
+            this.MouseRightButtonDown += MainPage_MouseRightButtonDown;
+            #endregion
             PagesNavigation.Navigate(dashboardPage);
         }
 
@@ -68,12 +85,32 @@ namespace UIDisplay
 
         private void rdTodolist_Click(object sender, RoutedEventArgs e)
         {
+            now_dashboard = false;
             PagesNavigation.Navigate(todolistPage);
         }
+        bool now_dashboard = false;
         private void dashboard_Click(object sender, RoutedEventArgs e)
         {
+            now_dashboard = true;
             PagesNavigation.Navigate(dashboardPage);
-
         }
+        private void MainPage_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(now_dashboard)
+            {
+                this.ContextMenu.IsOpen = true;
+            }
+        }
+
+        private void EditModeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            // 在这里处理进入编辑模式的逻辑
+        }
+
+        private void ViewDeletedMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            // 在这里处理查看最近删除的逻辑
+        }
+
     }
 }

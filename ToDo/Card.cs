@@ -134,10 +134,10 @@ namespace UIDisplay
         }
         private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.RightButton == MouseButtonState.Pressed)
-            {
+            //if (e.RightButton == MouseButtonState.Pressed)
+            //{
                 ((Card)sender).ContextMenu.IsOpen = true;
-            }
+            //}
         }
 
         private void DeleteItem_Click(object sender, RoutedEventArgs e)

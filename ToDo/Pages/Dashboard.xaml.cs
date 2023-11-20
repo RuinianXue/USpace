@@ -34,6 +34,8 @@ namespace UIDisplay.Pages
 
         public void InitializeDashboard()
         {
+
+
             mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(Constants.INSIDE_WIDTH, GridUnitType.Pixel) });
             //mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(2* Constants.SQUARE_GRID_LENGTH, GridUnitType.Pixel) });
             inGrid.ClipToBounds = false;
@@ -316,5 +318,6 @@ namespace UIDisplay.Pages
             this._dragdropPopup.IsOpen = true;
         }
         #endregion
+
     }
 }
