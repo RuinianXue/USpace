@@ -10,6 +10,9 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Controls.Primitives;
+using MySqlX.XDevAPI.Relational;
+using HandyControl.Controls;
+using System.Data.Common;
 
 namespace UIDisplay
 {
@@ -20,6 +23,9 @@ namespace UIDisplay
         {
             MouseEnter += Card_MouseEnter;
             MouseLeave += Card_MouseLeave;
+            MouseDown += Card_MouseDown;
+            MouseUp += Card_MouseUp;
+            MouseMove += Card_MouseMove;
             // Set default values
             //ShadowAssist.SetShadowDepth(this, 0);
             UniformCornerRadius = 15;
@@ -81,7 +87,51 @@ namespace UIDisplay
             // Set the Content of the Card to the StackPanel
             Content = stackPanel;
         }
+        private DateTime mouseDownTime;
+        private void Card_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            mouseDownTime = DateTime.Now;
+            ((Card)sender).CaptureMouse();
+        }
+        private void Card_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ((Card)sender).ReleaseMouseCapture();
+        }
+        //长按进入编辑模式
+        private bool Check_EditMode()
+        {
+            return (DateTime.Now - mouseDownTime).TotalSeconds > 1;
+        }
+        private int PlaceCardMode(Grid grid,int row, int column)
+        { return 1; }
+        private void Card_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed && Check_EditMode())
+            {
+                if (Parent is Grid grid)
+                {
 
+                    // 获取当前鼠标位置所在的行列
+                    Point mousePosition = e.GetPosition(grid);
+                    int row = (int)(mousePosition.Y / grid.RowDefinitions[0].ActualHeight);
+                    int column = (int)(mousePosition.X / grid.ColumnDefinitions[0].ActualWidth);
+
+                    switch (PlaceCardMode(grid, row, column))
+                    {
+                        case 1:
+                            UnbinAndRebindGrid(grid, row, column);
+                            break;
+                        case 0:
+                            break;
+                    } 
+                }
+            }
+        }
+        private void UnbinAndRebindGrid(Grid grid, int row, int column)
+        {
+            grid.Children.Remove(this);
+            SetPosition(grid, row, column);
+        }
         private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.RightButton == MouseButtonState.Pressed)

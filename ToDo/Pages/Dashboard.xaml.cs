@@ -40,9 +40,9 @@ namespace UIDisplay.Pages
             inGrid.Margin = new Thickness(Constants.EDGE);
             inGrid.Height = Constants.MAX_ROW * Constants.SQUARE_GRID_LENGTH ;
             inGrid.Width = Constants.MAX_COLOMN * Constants.SQUARE_GRID_LENGTH;
-            inGrid.MouseLeftButtonDown += Element_MouseLeftButtonDown;
+            /*inGrid.MouseLeftButtonDown += Element_MouseLeftButtonDown;
             inGrid.MouseLeftButtonUp += Element_MouseLeftButtonUp;
-            inGrid.PreviewMouseMove += Element_PreviewMouseMove;
+            inGrid.PreviewMouseMove += Element_PreviewMouseMove;*/
             //inGrid.Background = new SolidColorBrush(Color.FromRgb(246, 246, 248));
             for (int i=1;i<=Constants.MAX_COLOMN;i++)
             {
