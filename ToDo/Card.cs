@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using System.Windows.Controls.Primitives;
 
 namespace UIDisplay
 {
@@ -27,8 +28,25 @@ namespace UIDisplay
             Width = Constants.SMALL_CARD_LENGTH;
             Height = Constants.SMALL_CARD_LENGTH;
             Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
+            ContextMenu contextMenu = new ContextMenu();
 
+            // Add menu items for moving and deleting the Card
+            MenuItem moveItem = new MenuItem();
+            moveItem.Header = "Move Card";
+            moveItem.Click += MoveItem_Click;
+            contextMenu.Items.Add(moveItem);
 
+            MenuItem deleteItem = new MenuItem();
+            deleteItem.Header = "Delete Card";
+            deleteItem.Click += DeleteItem_Click;
+            contextMenu.Items.Add(deleteItem);
+
+            // Attach the context menu to the Card
+            this.ContextMenu = contextMenu;
+
+            // Add event handler for right-click
+            this.MouseRightButtonDown += Card_MouseRightButtonDown;
+            #region otherInitialize
             // Create the StackPanel
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
@@ -59,9 +77,29 @@ namespace UIDisplay
             ellipsisIcon.Kind = PackIconKind.EllipsisHorizontal;
             ellipsisIcon.HorizontalAlignment = HorizontalAlignment.Right;
             stackPanel.Children.Add(ellipsisIcon);
-            
+            #endregion
             // Set the Content of the Card to the StackPanel
             Content = stackPanel;
+        }
+
+        private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.RightButton == MouseButtonState.Pressed)
+            {
+                ((Card)sender).ContextMenu.IsOpen = true;
+            }
+        }
+
+        private void DeleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Parent is Panel panel)
+            {
+                panel.Children.Remove(this);
+            }
+        }
+        private void MoveItem_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
         public void SetPosition(Grid grid, int row,int colomn)
         {
@@ -324,5 +362,6 @@ namespace UIDisplay
 
             storyboard.Begin();
         }
+
     }
 }
