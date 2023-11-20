@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("arXivCrawller")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd2275c42293ea3e0e0166b28a20c440fe51ace8")]
 [assembly: System.Reflection.AssemblyProductAttribute("arXivCrawller")]
 [assembly: System.Reflection.AssemblyTitleAttribute("arXivCrawller")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

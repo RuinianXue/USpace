@@ -30,5 +30,6 @@
         Console.WriteLine(PublishDate);
         Console.WriteLine(UpdateDate);
         Console.WriteLine();
+        Console.WriteLine();
     }
 }

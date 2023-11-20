@@ -11,29 +11,10 @@ namespace ConsoleApp2
 {
     internal class arXivCrawl
     {
-        public static ArxivArticle[] ArXivCrawlBySearch(string query, int maxResult){
+        public static ArxivArticle[] ArXivCrawlBySearch(string query, int maxResult)
+        {
+            string apiUrl = $"http://export.arxiv.org/api/query?search_query={query}&max_results={maxResult.ToString()}&sortBy=lastUpdatedDate&sortOrder=descending";
 
-            string apiUrl = $"http://export.arxiv.org/api/query?search_query={query}&max_results={maxResult.ToString()}";
-            
-            /*
-            //测试完毕后删除
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = client.GetAsync(apiUrl).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    string xmlContent = response.Content.ReadAsStringAsync().Result;
-                    // 解析 XML 内容以提取相关信息。
-                    // 根据需要处理数据。
-                    Console.WriteLine(xmlContent);
-                }
-                else
-                {
-                    Console.WriteLine($"Error: {response.StatusCode}");
-                }
-            }
-            //测试完毕后删除
-            */
 
             XDocument doc = XDocument.Load(apiUrl);
             // Declare the xml namespaces

@@ -26,7 +26,7 @@ using System.Windows;
 //例如，如果您在源文件中使用的是美国英语，
 //使用的是美国英语，请将 <UICulture> 设置为 en-US。  然后取消
 //对以下 NeutralResourceLanguage 特性的注释。  更新
-//以下行中的“en-US”以匹配项目文件中的 UICulture 设置。
+//以下行中的"en-US"以匹配项目文件中的 UICulture 设置。
 
 //[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
 
@@ -48,7 +48,7 @@ using System.Windows;
 //      生成号
 //      修订号
 //
-//可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
+//可以指定所有这些值，也可以使用"生成号"和"修订号"的默认值
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
