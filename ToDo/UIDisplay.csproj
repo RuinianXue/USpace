@@ -271,7 +271,16 @@
   <ItemGroup>
     <Resource Include="Images\icon_markdowneditor.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\arXiv_Crawller\arXiv_Crawller.csproj">
+      <Project>{b1965a8e-449b-4e88-aff1-7f025dcc03d3}</Project>
+      <Name>arXiv_Crawller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenAIGPT\OpenAIGPT.csproj">
+      <Project>{02a36fdc-445a-46fb-ab86-63cd2d6986c4}</Project>
+      <Name>OpenAIGPT</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\avatar1.jpg" />
     <Resource Include="Images\cartoon-woman-pretty.png" />

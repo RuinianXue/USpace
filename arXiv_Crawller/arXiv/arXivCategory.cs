@@ -8,7 +8,7 @@ namespace arXivCrawller
 {
     internal class arXivCategory
     {
-        private static arXivCategory instance;
+        public static arXivCategory instance;
         public static Dictionary<string, string[]> cates;
 
 

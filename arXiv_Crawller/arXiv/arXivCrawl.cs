@@ -1,4 +1,5 @@
-﻿using System;
+﻿using arXivCrawller;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -9,8 +10,17 @@ using System.Xml.Linq;
 
 namespace ConsoleApp2
 {
-    internal class arXivCrawl
+
+    public class arXivCrawl
     {
+        public static ArxivArticle GetOneRandomArticle()
+        {
+            string query = arXivCategory.Instance().RandomQuery();
+            Console.WriteLine(query);
+            Console.WriteLine();
+            ArxivArticle[] articles = arXivCrawl.ArXivCrawlBySearch(query, 3);
+            return articles[0];
+        }
         public static ArxivArticle[] ArXivCrawlBySearch(string query, int maxResult)
         {
             string apiUrl = $"http://export.arxiv.org/api/query?search_query={query}&max_results={maxResult.ToString()}&sortBy=lastUpdatedDate&sortOrder=descending";

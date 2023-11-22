@@ -97,18 +97,20 @@ namespace UIDisplay.Pages
             this.Height = Constants.INSIDE_HEIGHT;
             this.Width = Constants.INSIDE_WIDTH;
             InitializeDashboard();
+            /*
             BigSquareCard tmpbig1 = new BigSquareCard();
             tmpbig1.SetPosition(inGrid, 0, 0);
             BigSquareCard tmpbig2 = new BigSquareCard();
-            tmpbig2.SetPosition(inGrid, 0, 2);
-            Card tmp1 = new Card();
+            tmpbig2.SetPosition(inGrid, 0, 2);*/
+            ArxivCard tmp1 = new ArxivCard();
             tmp1.SetPosition(inGrid,0,4);
+            /*
             Card tmp2 = new Card();
             tmp2.SetPosition(inGrid,1,4);
             BigRectangleCard tmpbig3 = new BigRectangleCard();
             tmpbig3.SetPosition(inGrid,2,0);
             BigRectangleCard tmpbig4 = new BigRectangleCard();
-            tmpbig4.SetPosition(inGrid, 2, 2);
+            tmpbig4.SetPosition(inGrid, 2, 2);*/
             /*
             for (int i=1;i<=Constants.MAX_ROW;i++)
             {

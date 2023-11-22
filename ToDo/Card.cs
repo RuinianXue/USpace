@@ -13,6 +13,7 @@ using System.Windows.Controls.Primitives;
 using MySqlX.XDevAPI.Relational;
 using HandyControl.Controls;
 using System.Data.Common;
+using ConsoleApp2;
 
 namespace UIDisplay
 {
@@ -52,6 +53,7 @@ namespace UIDisplay
 
             // Add event handler for right-click
             this.MouseRightButtonDown += Card_MouseRightButtonDown;
+            /*
             #region otherInitialize
             // Create the StackPanel
             stackPanel = new StackPanel();
@@ -84,6 +86,7 @@ namespace UIDisplay
             ellipsisIcon.HorizontalAlignment = HorizontalAlignment.Right;
             stackPanel.Children.Add(ellipsisIcon);
             #endregion
+            */
             // Set the Content of the Card to the StackPanel
             Content = stackPanel;
         }
@@ -413,5 +416,49 @@ namespace UIDisplay
             storyboard.Begin();
         }
 
+    }
+    public class ArxivCard : Card
+    {
+        public List<string> Authors { get; set; }
+        public string Title { get; set; }
+        public string Summary { get; set; }
+        public List<string> Categories { get; set; }
+
+        public string Homepage { get; set; }
+        public string Pdfpage { get; set; }
+        public string Doipage { get; set; }
+
+
+        public string PublishDate { get; set; }
+        public string UpdateDate { get; set; }
+        public string Publish { get; set; }
+
+        public ArxivCard() :base() 
+        {
+            ArxivArticle arxivArticle = arXivCrawl.GetOneRandomArticle();
+            this.Authors = arxivArticle.Authors;
+            this.Title=arxivArticle.Title;
+            this.Homepage = arxivArticle.Homepage;
+            this.Pdfpage = arxivArticle.Pdfpage;
+            this.PublishDate = arxivArticle.PublishDate;
+
+            stackPanel = new StackPanel();
+            stackPanel.Margin = new Thickness(10);
+
+            TextBlock textBoxTitle = new TextBlock();
+            textBoxTitle.Margin = new Thickness(10);
+            textBoxTitle.Text = this.Title;
+            stackPanel.Children.Add(textBoxTitle);
+            //Console.WriteLine("!!!!!!Title Here" + this.Title + " " + textBoxTitle.Text);
+
+            /*
+            TextBox textBox2 = new TextBox();
+            textBox2.Margin = new Thickness(10);
+            textBox2.Text = "Textbox 2";
+
+            TextBox textBox3 = new TextBox();
+            textBox3.Margin = new Thickness(10);
+            textBox3.Text = "Textbox 3";*/
+        }
     }
 }
