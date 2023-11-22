@@ -30,7 +30,7 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class TodolistPage : Page
     {
-        private TodoDataControl todoDataControl;
+        private TodoManager todoDataControl;
 
         private bool isShowMore { get; set; } = true;
         public TodolistPage()
@@ -94,12 +94,12 @@ namespace UIDisplay.Pages
         {
             Task.Run(() =>
             {
-                todoDataControl = new TodoDataControl();
+                todoDataControl = new TodoManager();
                 List<TodoInfo> todoUnitList0, todoUnitList1, todoUnitList2;
                 todoUnitList0 = new List<TodoInfo>();
                 todoUnitList1 = new List<TodoInfo>();
                 todoUnitList2 = new List<TodoInfo>();
-                DataTable dt = todoDataControl.queryTodoInfo();
+                DataTable dt = todoDataControl.QueryTodoInfo();
                 foreach (DataRow row in dt.Rows)
                 {
                     string uuid = Convert.ToString(row[0]);
@@ -167,8 +167,8 @@ namespace UIDisplay.Pages
         {
             Task.Run(() =>
             {
-                TodoDataControl tmp_todoDataControl = new TodoDataControl();
-                tmp_todoDataControl.updateTodoInfo(todoInfo);
+                TodoManager tmp_todoDataControl = new TodoManager();
+                tmp_todoDataControl.UpdateTodoInfo(todoInfo);
                 Refresh_TodoDoneCount();
 
             });
@@ -177,8 +177,8 @@ namespace UIDisplay.Pages
         {
             Task.Run(() =>
             {
-                TodoDataControl tmp_todoDataControl = new TodoDataControl();
-                tmp_todoDataControl.deleteTodoInfo(todoInfo);
+                TodoManager tmp_todoDataControl = new TodoManager();
+                tmp_todoDataControl.DeleteTodoInfo(todoInfo);
                 Refresh_TodoDoneCount();
             });
         }
@@ -341,7 +341,7 @@ namespace UIDisplay.Pages
                 {
                     //TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
 
-                    TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, 
+                    TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0,
                         "无");
                     string input = todoTaskContentTextBox.Text;
 
@@ -354,8 +354,8 @@ namespace UIDisplay.Pages
 
                     Task.Run(() =>
                     {
-                        todoDataControl = new TodoDataControl();
-                        todoDataControl.insertTodoInfo(tmp_todoInfo);
+                        todoDataControl = new TodoManager();
+                        todoDataControl.InsertTodoInfo(tmp_todoInfo);
                     });
                     Task.Run(() =>
                     {

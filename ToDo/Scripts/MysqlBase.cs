@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UIDisplay.Myscripts
 {
@@ -13,17 +10,136 @@ namespace UIDisplay.Myscripts
         private MySqlConnection conn = null;
         private MySqlCommand command = null;
         private MySqlDataReader reader = null;
-        
+
         /// <summary>
         /// 构造方法里建议连接
         /// </summary>
         /// <param name="connstr"></param>
         public MysqlBase()
         {
-            string connstr = "Database=" + Settings.DatbaseName + ";Data Source="+Settings.DatabaseHost+";User Id="+Settings.DatabaseUsername+";Password="+Settings.DatabasePassword+";pooling=false;CharSet=utf8;port="+Settings.DatabasePort+";";
-            conn = new MySqlConnection(connstr);
+            string connStr = $"Database={Settings.DatbaseName};Data Source={Settings.DatabaseHost};User Id={Settings.DatabaseUsername};Password={Settings.DatabasePassword};pooling=false;CharSet=utf8;port={Settings.DatabasePort};";
+            conn = new MySqlConnection(connStr);
         }
-        /// <summary>
+
+        public void Dispose()
+        {
+            conn?.Dispose();
+            command?.Dispose();
+            reader?.Dispose();
+        }
+
+        public bool CheckConnectStatus()
+        {
+            try
+            {
+                conn.Open();
+                return conn.State == ConnectionState.Open;
+            }
+            catch (Exception ex)
+            {
+                // 记录异常信息，可以根据需要进行扩展
+                Console.WriteLine($"Error in CheckConnectStatus: {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public int CommonExecute(string sql, params MySqlParameter[] parameters)
+        {
+            int res = -1;
+            try
+            {
+                using (conn)
+                {
+                    conn.Open();
+                    using (command = new MySqlCommand(sql, conn))
+                    {
+                        command.Parameters.AddRange(parameters);
+                        res = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // 记录异常信息，可以根据需要进行扩展
+                Console.WriteLine($"Error in CommonExecute: {ex.Message}");
+            }
+            return res;
+        }
+
+        public DataTable Query(string sql, params MySqlParameter[] parameters)
+        {
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand(sql, conn))
+                {
+                    command.Parameters.AddRange(parameters);
+                    using (reader = command.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+        public DataSet GetDataSet(string sql, string tablename, params MySqlParameter[] parameters)
+        {
+            using (conn)
+            {
+                conn.Open();
+                using (command = new MySqlCommand(sql, conn))
+                {
+                    command.Parameters.AddRange(parameters);
+                    DataSet dataset = new DataSet();
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataset, tablename);
+                    }
+                    return dataset;
+                }
+            }
+        }
+
+        public bool ExecuteSqlTran(List<string> SQLStringList)
+        {
+            bool flag = false;
+            using (conn)
+            {
+                conn.Open();
+                using (MySqlCommand cmd = conn.CreateCommand())
+                {
+                    MySqlTransaction tran = conn.BeginTransaction();
+                    cmd.Transaction = tran;
+                    try
+                    {
+                        foreach (string strsql in SQLStringList)
+                        {
+                            if (!string.IsNullOrWhiteSpace(strsql))
+                            {
+                                cmd.CommandText = strsql;
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        tran.Commit();
+                        flag = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error in ExecuteSqlTran: {ex.Message}");
+                        tran.Rollback();
+                    }
+                }
+            }
+            return flag;
+        }
+
+        /*/// <summary>
         /// 检测数据库连接状态
         /// </summary>
         /// <returns></returns>
@@ -58,17 +174,17 @@ namespace UIDisplay.Myscripts
             int res = -1;
             try
             {
-                //当连接处于打开状态时关闭,然后再打开,避免有时候数据不能及时更新
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
-                conn.Open();
-                command = new MySqlCommand(sql, conn);
-                res = command.ExecuteNonQuery();
+                using (conn)
+                {
+                    conn.Open();
+                    command = new MySqlCommand(sql, conn);
+                    res = command.ExecuteNonQuery();
+                }
             }
             catch (MySqlException)
             {
+                Console.WriteLine($"Error in CommonExecute: {ex.Message}");
             }
-            conn.Close();
             return res;
         }
         /// <summary>
@@ -78,17 +194,17 @@ namespace UIDisplay.Myscripts
         /// <returns></returns>
         public DataTable query(string sql)
         {
-            //当连接处于打开状态时关闭,然后再打开,避免有时候数据不能及时更新
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
-            conn.Open();
-            command = new MySqlCommand(sql, conn);
-            DataTable dt = new DataTable();
-            using (reader = command.ExecuteReader(CommandBehavior.CloseConnection))
+            using (conn)
             {
-                dt.Load(reader);
+                conn.Open();
+                command = new MySqlCommand(sql, conn);
+                DataTable dt = new DataTable();
+                using (reader = command.ExecuteReader(CommandBehavior.CloseConnection))
+                {
+                    dt.Load(reader);
+                }
+                return dt;
             }
-            return dt;
         }
         /// <summary>
         /// 获取DataSet数据集
@@ -98,16 +214,16 @@ namespace UIDisplay.Myscripts
         /// <returns></returns>
         public DataSet GetDataSet(string sql, string tablename)
         {
-            //当连接处于打开状态时关闭,然后再打开,避免有时候数据不能及时更新
-            if (conn.State == ConnectionState.Open)
+            using (conn)
+            {
+                conn.Open();
+                command = new MySqlCommand(sql, conn);
+                DataSet dataset = new DataSet();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dataset, tablename);
                 conn.Close();
-            conn.Open();
-            command = new MySqlCommand(sql, conn);
-            DataSet dataset = new DataSet();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            adapter.Fill(dataset, tablename);
-            conn.Close();
-            return dataset;
+                return dataset;
+            }
         }
         /// <summary>
         /// 实现多SQL语句执行的数据库事务
@@ -116,37 +232,34 @@ namespace UIDisplay.Myscripts
         public bool ExecuteSqlTran(List<string> SQLStringList)
         {
             bool flag = false;
-            //当连接处于打开状态时关闭,然后再打开,避免有时候数据不能及时更新
-            if (conn.State == ConnectionState.Open)
-                conn.Close();
-            conn.Open();
-            MySqlCommand cmd = conn.CreateCommand();
-            //开启事务
-            MySqlTransaction tran = this.conn.BeginTransaction();
-            cmd.Transaction = tran;//将事务应用于CMD
-            try
+            using (conn)
             {
-                foreach (string strsql in SQLStringList)
+                conn.Open();
+                using (MySqlCommand cmd = conn.CreateCommand())
                 {
-                    if (strsql.Trim() != "")
+                    MySqlTransaction tran = conn.BeginTransaction();
+                    cmd.Transaction = tran;
+                    try
                     {
-                        cmd.CommandText = strsql;
-                        cmd.ExecuteNonQuery();
+                        foreach (string strsql in SQLStringList)
+                        {
+                            if (!string.IsNullOrWhiteSpace(strsql))
+                            {
+                                cmd.CommandText = strsql;
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        tran.Commit();
+                        flag = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error in ExecuteSqlTran: {ex.Message}");
+                        tran.Rollback();
                     }
                 }
-                tran.Commit();//提交事务（不提交不会回滚错误）
-                flag = true;
-            }
-            catch (Exception)
-            {
-                tran.Rollback();
-                flag = false;
-            }
-            finally
-            {
-                conn.Close();
             }
             return flag;
-        }
+        }*/
     }
 }

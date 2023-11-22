@@ -1,0 +1,225 @@
+﻿<Window x:Class="UIDisplay.Pages.Register"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:uc="clr-namespace:UIDisplay.UserControls"
+    mc:Ignorable="d" Height="500" Width="800" Background="Transparent" 
+    WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style x:Key="button" TargetType="Button">
+            <Setter Property="Background" Value="#C6C6C6" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="50" Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#363636" />
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#161616" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="buttonBlack" TargetType="Button">
+            <Setter Property="Background" Value="#363636" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Width" Value="60" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Margin" Value="0 20 0 0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="50" Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="text" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#363636" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#F5F7F9" />
+            <Setter Property="Foreground" Value="#767676" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="#F5F7F9" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Padding" Value="10 10" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0 10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border x:Name="border" CornerRadius="3" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#d9d9d9"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="#d9d9d9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="buttonMain" TargetType="Button">
+            <Setter Property="Background" Value="#F5F7F9" />
+            <Setter Property="Foreground" Value="#363636" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#c9c9c9" />
+                    <Setter Property="Foreground" Value="#161616" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="buttonMainGreen" TargetType="Button" BasedOn="{StaticResource buttonMain}">
+            <Setter Property="Background" Value="#5FE7C4" />
+            <Setter Property="Foreground" Value="#ffffff" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#4ec7a8" />
+                    <Setter Property="Foreground" Value="#ffffff" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="iconApp" TargetType="Image">
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Left Section-->
+        <Border Grid.Column="1" Background="#FFD500" Padding="30" CornerRadius="0 25 25 0">
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="/Images/img.png" Margin="0 0 0 40" Width="160" Height="160" RenderTransformOrigin="1,1"/>
+
+                <TextBlock TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Text="Let's get you set up" Foreground="#363636"/>
+                <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Margin="0 20 0 20" Foreground="#363636" Text="it should only take a couple of minutes to pair with your watch"/>
+
+                <!--<Button Style="{StaticResource buttonBlack}">
+                    <fa:ImageAwesome Icon="AngleRight" Width="25" Height="25" Foreground="#FFD500" RenderTransformOrigin="0.5,0.5">
+                        <fa:ImageAwesome.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="179.866"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </fa:ImageAwesome.RenderTransform>
+                    </fa:ImageAwesome>
+                </Button>-->
+            </StackPanel>
+        </Border>
+
+        <!--Input Section-->
+        <Border Grid.Column="0" Padding="20" MouseDown="Border_MouseDown" Background="#ffffff" CornerRadius="25 0 0 25">
+            <Grid>
+                <Image Source="/Images/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource iconApp}"/>
+                <Image Source="/Images/minimize.png" Width="20" Margin="0 7 40 0" Style="{StaticResource iconApp}"/>
+
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Nickname" Style="{StaticResource text}"/>
+                    <!--<TextBlock Grid.Row="1" Text="Date of Birth" Style="{StaticResource text}"/>-->
+                    <TextBlock Grid.Row="2" Text="Password" Style="{StaticResource text}"/>
+                    <TextBlock Grid.Row="3" Text="Confirm Password" Style="{StaticResource text}"/>
+
+                    <uc:MyTextBox x:Name="txtNickname" Grid.Column="1" Grid.Row="0" Hint="Karim"/>
+                    <!--<uc:MyTextBox Grid.Column="1" Grid.Row="1" Hint="01/02/1980"/>-->
+                    <uc:MyTextBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2" Hint="Longer than 5 bits"/>
+                    <uc:MyTextBox x:Name="txtConfirmPassword" Grid.Column="1" Grid.Row="3"/>
+
+                    <Grid Grid.Column="1" Grid.Row="7" Margin="0 40 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{StaticResource buttonMain}" Margin="0 0 10 0" Content="Cancel" Click="CancelButton_Click" />
+                        <Button Grid.Column="1" Style="{StaticResource buttonMainGreen}" Margin="10 0 0 0" Content="Save" Click="SaveButton_Click" />
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

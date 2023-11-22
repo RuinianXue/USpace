@@ -4,3 +4,24 @@
 [1122/111957.159:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
 [1122/143804.806:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
 [1122/145606.232:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1122/163100.990:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1122/163101.099:INFO:component_installer.cc(297)] Failed to verify installation for Widevine Content Decryption Module (C:\Users\lenovo\AppData\Local\CEF\User Data\WidevineCdm\4.10.2557.0).: 系统找不到指定的路径。 (0x3)
+[1122/163115.645:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 1
+[1122/163115.756:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 9
+[1122/163115.808:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 33
+[1122/163115.920:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 89
+[1122/163116.121:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 187
+[1122/163116.151:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 199
+[1122/163116.514:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 371
+[1122/163116.680:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 451
+[1122/163116.712:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 453
+[1122/163117.663:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 9
+[1122/163118.307:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 287
+[1122/163118.663:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 409
+[1122/163118.776:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 441
+[1122/163118.932:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 493
+[1122/163119.253:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 3
+[1122/163119.296:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 15
+[1122/163222.910:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1122/163330.582:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1122/163652.942:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
