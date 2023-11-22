@@ -103,7 +103,7 @@ namespace UIDisplay.Pages
             BigSquareCard tmpbig2 = new BigSquareCard();
             tmpbig2.SetPosition(inGrid, 0, 2);*/
             ArxivCard tmp1 = new ArxivCard();
-            tmp1.SetPosition(inGrid,0,4);
+            tmp1.SetPosition(inGrid,0,0);
             /*
             Card tmp2 = new Card();
             tmp2.SetPosition(inGrid,1,4);
