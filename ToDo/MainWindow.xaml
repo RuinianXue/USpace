@@ -9,7 +9,7 @@
         Icon="pack://application:,,,/Resources/Icon0.ico"
         Title="USpace" 
         WindowStartupLocation="CenterScreen" WindowState="Normal"
-    WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize">
+    WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize" Cursor="Hand">
 
     <Border CornerRadius="15" Background="{DynamicResource PrimaryBackgroundColor}" >
         <Grid>
@@ -76,6 +76,7 @@
                     <StackPanel Grid.Row="3">
                         <RadioButton x:Name="Dashboard" IsChecked="True" Content=" Dashboard" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="dashboard_Click" Cursor="Hand"/>
                         <RadioButton x:Name="rdTodolist" Content=" To Do List" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="rdTodolist_Click" Cursor="Hand"/>
+                        <RadioButton x:Name="MarkdownEditor" Content=" Markdown" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="markdownEditor_Click" Cursor="Hand"/>
                     </StackPanel>
                 </Grid>
             </Border>

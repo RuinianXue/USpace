@@ -23,6 +23,7 @@ namespace UIDisplay
     {
         TodolistPage todolistPage;
         Dashboard dashboardPage;
+        MarkdownEditorPage markdownEditor;
         public MainWindow()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace UIDisplay
             PagesNavigation.Width = Constants.INSIDE_WIDTH;
             todolistPage =new TodolistPage();
             dashboardPage = new Dashboard();
-
+            markdownEditor = new MarkdownEditorPage();
             #region Dashboard Menu
             ContextMenu contextMenu = new ContextMenu();
 
@@ -87,6 +88,10 @@ namespace UIDisplay
         {
             now_dashboard = false;
             PagesNavigation.Navigate(todolistPage);
+        }
+        private void markdownEditor_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(markdownEditor);
         }
         bool now_dashboard = false;
         private void dashboard_Click(object sender, RoutedEventArgs e)

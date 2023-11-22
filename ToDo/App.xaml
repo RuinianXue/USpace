@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="MyThemes/LightTheme.xaml"/>
 
                 <ResourceDictionary Source="Assets/Icons/Icons.xaml"/>
+                <ResourceDictionary Source="MyThemes/ResourceDictionary.xaml"/>
 
                 <ResourceDictionary Source="Styles/MainStyle.xaml"/>
 
