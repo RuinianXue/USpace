@@ -25,3 +25,9 @@
 [1122/163222.910:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
 [1122/163330.582:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
 [1122/163652.942:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1122/170749.261:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1122/170755.838:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 9
+[1122/170755.978:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 61
+[1122/170756.038:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 75
+[1122/170756.184:WARNING:spdy_session.cc(2966)] Received HEADERS for invalid stream 111
+[1122/170758.521:ERROR:ssl_client_socket_impl.cc(975)] handshake failed; returned -1, SSL error code 1, net_error -100
