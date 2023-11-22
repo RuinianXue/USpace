@@ -18,6 +18,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIDisplay.Components;
 
 namespace UIDisplay.Pages
 {
@@ -31,21 +32,19 @@ namespace UIDisplay.Pages
         public SeriesCollection LastHourSeries1 { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
-
+        public static Grid mainGrid = new Grid();
+        public static Grid inGrid = new Grid();
+        public static Grid outGrid = new Grid();
         public void InitializeDashboard()
         {
-
-
+            outGrid.Children.Add(mainGrid);
+            inGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f3f3f3")); // 将整个Grid填充为蓝色
             mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(Constants.INSIDE_WIDTH, GridUnitType.Pixel) });
-            //mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(2* Constants.SQUARE_GRID_LENGTH, GridUnitType.Pixel) });
+            mainGrid.Children.Add(inGrid);
             inGrid.ClipToBounds = false;
             inGrid.Margin = new Thickness(Constants.EDGE);
             inGrid.Height = Constants.MAX_ROW * Constants.SQUARE_GRID_LENGTH ;
             inGrid.Width = Constants.MAX_COLOMN * Constants.SQUARE_GRID_LENGTH;
-            /*inGrid.MouseLeftButtonDown += Element_MouseLeftButtonDown;
-            inGrid.MouseLeftButtonUp += Element_MouseLeftButtonUp;
-            inGrid.PreviewMouseMove += Element_PreviewMouseMove;*/
-            //inGrid.Background = new SolidColorBrush(Color.FromRgb(246, 246, 248));
             for (int i=1;i<=Constants.MAX_COLOMN;i++)
             {
                 inGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(4, GridUnitType.Star) });
@@ -54,21 +53,18 @@ namespace UIDisplay.Pages
             {
                 inGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(4, GridUnitType.Star) });
             }
-            /* inGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(4, GridUnitType.Star) });
-             inGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(4, GridUnitType.Star) });
-             inGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(4, GridUnitType.Star) });
-             inGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(4, GridUnitType.Star) });
-             inGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(4, GridUnitType.Star) });
-             inGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(4, GridUnitType.Star) });
-            */
+
             inGrid.ClipToBounds = false;
             Grid.SetColumn(inGrid, 0);
-
-            /*
-            rightMainStackPanel.Background = Brushes.White;
-            Grid.SetColumn(rightMainStackPanel, 1);
-            */
-            //Grid.SetRow(inGrid, 1);
+            this.Content = outGrid;
+        }
+        public void Answer_CardDoubleClick()
+        {
+            //BlurMask blurMask = new BlurMask(mainGrid,outGrid);
+        }
+        public static void OnEventOfCard_DoubleClick(object sender, EventArgs e)
+        {
+            //this.maskGrid.Visibility = Visibility.Visible;
         }
         public void DrawinGridBorder(int i,int j)
         {
@@ -93,24 +89,26 @@ namespace UIDisplay.Pages
         }
         public Dashboard()
         {
+            this.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f3f3f3"));
             InitializeComponent();
             this.Height = Constants.INSIDE_HEIGHT;
             this.Width = Constants.INSIDE_WIDTH;
             InitializeDashboard();
-            /*
+            
             BigSquareCard tmpbig1 = new BigSquareCard();
-            tmpbig1.SetPosition(inGrid, 0, 0);
+            //tmpbig1.SetPosition(inGrid, 0, 0);
             BigSquareCard tmpbig2 = new BigSquareCard();
-            tmpbig2.SetPosition(inGrid, 0, 2);*/
+            tmpbig2.SetPosition(inGrid, 0, 2);
             ArxivCard tmp1 = new ArxivCard();
             tmp1.SetPosition(inGrid,0,0);
-            /*
+         
+            
             Card tmp2 = new Card();
-            tmp2.SetPosition(inGrid,1,4);
+            //tmp2.SetPosition(inGrid,1,4);
             BigRectangleCard tmpbig3 = new BigRectangleCard();
             tmpbig3.SetPosition(inGrid,2,0);
             BigRectangleCard tmpbig4 = new BigRectangleCard();
-            tmpbig4.SetPosition(inGrid, 2, 2);*/
+            tmpbig4.SetPosition(inGrid, 2, 2);
             /*
             for (int i=1;i<=Constants.MAX_ROW;i++)
             {

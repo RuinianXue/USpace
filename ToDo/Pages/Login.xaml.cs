@@ -106,7 +106,7 @@ namespace UIDisplay.Pages
             //// Perform the slide animation as before
             //DoubleAnimation slideAnimation = new DoubleAnimation
             //{
-            //    To = +this.ActualWidth, // Move the grid to the left by its own width
+            //    To = +this.ActualWidth, // Move the gridOfMask to the left by its own width
             //    Duration = TimeSpan.FromSeconds(0.5) // Duration of the animation
             //};
             ////SlideTransform.BeginAnimation(TranslateTransform.XProperty, slideAnimation);

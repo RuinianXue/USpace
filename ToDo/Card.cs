@@ -15,19 +15,28 @@ using HandyControl.Controls;
 using System.Data.Common;
 using ConsoleApp2;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Effects;
+using UIDisplay.Pages;
+using UIDisplay.Components;
 
 namespace UIDisplay
 {
     public class Card : MaterialDesignThemes.Wpf.Card
     {
         public StackPanel stackPanel;
-        public Card()
+        public void EventsInitialize()
         {
             MouseEnter += Card_MouseEnter;
             MouseLeave += Card_MouseLeave;
             MouseDown += Card_MouseDown;
             MouseUp += Card_MouseUp;
             MouseMove += Card_MouseMove;
+            MouseDoubleClick += Card_DoubleClick;
+            //Card_DoubleEvent += this.Parent.Parent.OnEventOfCard_DoubleClick;
+        }
+        public Card()
+        {
+            EventsInitialize();
             // Set default values
             //ShadowAssist.SetShadowDepth(this, 0);
             UniformCornerRadius = 15;
@@ -90,6 +99,14 @@ namespace UIDisplay
             */
             // Set the Content of the Card to the StackPanel
             Content = stackPanel;
+        }
+        //public event EventHandler Card_DoubleEvent;
+        static BlurMask blurmask= new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
+        protected void Card_DoubleClick(object sender, EventArgs e)
+        {
+            blurmask.Appear(Dashboard.outGrid);
+            //blurmask.Disappear(Dashboard.outGrid);
+            //blurmask.Appear(Dashboard.outGrid);
         }
         private DateTime mouseDownTime;
         private void Card_MouseDown(object sender, MouseButtonEventArgs e)
@@ -515,10 +532,7 @@ namespace UIDisplay
             this.Homepage = arxivArticle.Homepage;
             this.Pdfpage = arxivArticle.Pdfpage;
             this.PublishDate = arxivArticle.PublishDate;
-
             textBoxTitle.Text = this.Title;
-
-
         }
     }
 }

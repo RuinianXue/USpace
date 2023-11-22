@@ -8,14 +8,4 @@
              xmlns:local="clr-namespace:UIDisplay"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" Loaded="Page_Loaded">
-    <Grid x:Name="mainGrid">
-        <Grid.Resources>
-        </Grid.Resources>
-        <StackPanel>
-            <Grid x:Name="inGrid">
-            </Grid>
-        </StackPanel>
-        <StackPanel x:Name="rightMainStackPanel">
-        </StackPanel>
-    </Grid>
 </UserControl>
