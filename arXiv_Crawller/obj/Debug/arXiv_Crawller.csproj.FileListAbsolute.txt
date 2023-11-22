@@ -1,0 +1,7 @@
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe.config
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.pdb
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.AssemblyReference.cache
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CoreCompileInputs.cache
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.exe
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.pdb
