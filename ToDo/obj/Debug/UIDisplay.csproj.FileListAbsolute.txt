@@ -717,3 +717,5 @@ D:\Github\USpace\ToDo\obj\Debug\UIDisplay.csproj.CoreCompileInputs.cache
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.csproj.CopyComplete
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.exe
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.pdb
+D:\Github\USpace\ToDo\obj\Debug\ClickedCard.g.cs
+D:\Github\USpace\ToDo\obj\Debug\ClickedCard.baml

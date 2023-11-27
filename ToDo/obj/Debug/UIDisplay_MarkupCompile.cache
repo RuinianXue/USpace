@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Github\USpace\ToDo\App.xaml
-12-1661779852
+131586877717
 78-1347016994
-26990770374
+271097868233
 48-1324700193
-Assets\Icons\Icons.xaml;Components\TodoUnit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\Login.xaml;Pages\MarkdownEditorPage.xaml;MyThemes\ResourceDictionary.xaml;Pages\Register.xaml;Pages\TodolistPage.xaml;Styles\MainStyle.xaml;MyThemes\LightTheme.xaml;UserControls\MyTextBox.xaml;
+Assets\Icons\Icons.xaml;ClickedCard.xaml;Components\TodoUnit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\Login.xaml;Pages\MarkdownEditorPage.xaml;MyThemes\ResourceDictionary.xaml;Pages\Register.xaml;Pages\TodolistPage.xaml;Styles\MainStyle.xaml;MyThemes\LightTheme.xaml;UserControls\MyTextBox.xaml;
 
 False
 

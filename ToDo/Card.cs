@@ -46,65 +46,27 @@ namespace UIDisplay
             Height = Constants.SMALL_CARD_LENGTH;
             Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
             ContextMenu contextMenu = new ContextMenu();
-
-            // Add menu items for moving and deleting the Card
+            #region MenuItem of right click
             MenuItem moveItem = new MenuItem();
             moveItem.Header = "Move Card";
             moveItem.Click += MoveItem_Click;
             contextMenu.Items.Add(moveItem);
-
             MenuItem deleteItem = new MenuItem();
             deleteItem.Header = "Delete Card";
             deleteItem.Click += DeleteItem_Click;
             contextMenu.Items.Add(deleteItem);
-
-            // Attach the context menu to the Card
             this.ContextMenu = contextMenu;
-
-            // Add event handler for right-click
             this.MouseRightButtonDown += Card_MouseRightButtonDown;
-            /*
-            #region otherInitialize
-            // Create the StackPanel
-            stackPanel = new StackPanel();
-            stackPanel.Margin = new Thickness(10);
-
-            
-            // Create the PackIcon
-            PackIcon packIcon = new PackIcon();
-            packIcon.Kind = PackIconKind.Twitter;
-            packIcon.Foreground = Brushes.LightBlue;
-            stackPanel.Children.Add(packIcon);
-
-            // Create the TextBlock for followers count
-            TextBlock followersTextBlock = new TextBlock();
-            followersTextBlock.FontWeight = FontWeights.SemiBold;
-            followersTextBlock.FontSize = 25;
-            followersTextBlock.Text = "280K";
-            followersTextBlock.Margin = new Thickness(0, 10, 0, 0);
-            stackPanel.Children.Add(followersTextBlock);
-
-            // Create the TextBlock for "Followers" label
-            TextBlock label = new TextBlock();
-            label.FontSize = 12;
-            label.Text = "Followers";
-            stackPanel.Children.Add(label);
-
-            // Create the PackIcon for ellipsis
-            PackIcon ellipsisIcon = new PackIcon();
-            ellipsisIcon.Kind = PackIconKind.EllipsisHorizontal;
-            ellipsisIcon.HorizontalAlignment = HorizontalAlignment.Right;
-            stackPanel.Children.Add(ellipsisIcon);
             #endregion
-            */
-            // Set the Content of the Card to the StackPanel
             Content = stackPanel;
         }
-        //public event EventHandler Card_DoubleEvent;
         static BlurMask blurmask= new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
         protected void Card_DoubleClick(object sender, EventArgs e)
         {
             blurmask.Appear(Dashboard.outGrid);
+            ClickCard clickCard = new ClickCard(this);
+            clickCard.Appear(Dashboard.overallGrid);
+            //clickCard.Show();
             //blurmask.Disappear(Dashboard.outGrid);
             //blurmask.Appear(Dashboard.outGrid);
         }
@@ -155,10 +117,7 @@ namespace UIDisplay
         }
         private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if (e.RightButton == MouseButtonState.Pressed)
-            //{
-                ((Card)sender).ContextMenu.IsOpen = true;
-            //}
+            ((Card)sender).ContextMenu.IsOpen = true;
         }
 
         public void DeleteItem_Click(object sender, RoutedEventArgs e)
@@ -250,8 +209,8 @@ namespace UIDisplay
             Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
 
             // Create the StackPanel
-            stackPanel = new StackPanel();
-            stackPanel.Margin = new Thickness(10);
+            //stackPanel = new StackPanel();
+            //stackPanel.Margin = new Thickness(10);
         }
         public new void SetPosition(Grid grid, int row, int colomn)
         {
@@ -473,8 +432,8 @@ namespace UIDisplay
             textBoxTitle = new TextBlock();
             textBoxTitle.Margin = new Thickness(10);
             textBoxTitle.Text = this.Title;
-            textBoxTitle.Width = Constants.BIG_CARD_LENGTH - 30;
-            textBoxTitle.Height = Constants.BIG_CARD_LENGTH - 30;
+            textBoxTitle.Width = Constants.BIG_CARD_LENGTH - 35;
+            textBoxTitle.Height = Constants.BIG_CARD_LENGTH - 35;
             textBoxTitle.TextWrapping = TextWrapping.Wrap;
             textBoxTitle.FontWeight = FontWeights.Bold;
             textBoxTitle.FontFamily = new FontFamily("Arial Black");
@@ -533,6 +492,57 @@ namespace UIDisplay
             this.Pdfpage = arxivArticle.Pdfpage;
             this.PublishDate = arxivArticle.PublishDate;
             textBoxTitle.Text = this.Title;
+        }
+    }
+    public class ClickCard : MaterialDesignThemes.Wpf.Card
+    {
+        private Grid gridOfClickCard;
+        public ClickCard()
+        {
+            gridOfClickCard = new Grid();
+            gridOfClickCard.Width = Constants.SMALL_CARD_LENGTH * 2;
+            gridOfClickCard.Height = Constants.SMALL_CARD_LENGTH * 2; 
+            this.Width = Constants.SMALL_CARD_LENGTH * 2;
+            this.Height = Constants.SMALL_CARD_LENGTH * 2;
+            gridOfClickCard.Children.Add(this);
+        }
+        public ClickCard(Card fromCard)
+        {
+            //MouseEnter+=Card_MouseEnter;
+            //MouseLeave+=Card_MouseLeave;
+            //stackPanel = new StackPanel();
+            //stackPanel.Margin = new Thickness(10);
+            gridOfClickCard = new Grid();
+            Panel.SetZIndex(gridOfClickCard, 1);
+            gridOfClickCard.Width = fromCard.Width * 2;
+            gridOfClickCard.Height = fromCard.Height * 2;
+            this.Width = fromCard.Width * 2;
+            this.Height = fromCard.Height * 2;
+            BorderThickness = new Thickness(5);
+            BorderBrush = Brushes.White;
+            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
+            gridOfClickCard.Children.Add(this);
+
+            //Content = stackPanel;
+        }
+        public void Appear(Grid overallGrid)
+        {
+            overallGrid.Children.Add(gridOfClickCard);
+        }
+        public void Disappear(Grid overallGrid)
+        {
+            if (overallGrid.Children.Contains(gridOfClickCard))
+            {
+                overallGrid.Children.Remove(gridOfClickCard);
+            }
+        }
+        private void Card_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+        private void Card_MouseLeave(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,18 @@
+﻿<Window x:Class="UIDisplay.ClickedCard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:UIDisplay"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowState="Normal"
+        WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize" Cursor="Hand"
+        Title="ClickedCard" ShowInTaskbar="False">
+
+    <Border CornerRadius="15" Background="{DynamicResource PrimaryBackgroundColor}" BorderBrush="Transparent" BorderThickness="1">
+        <Border.Effect>
+            <DropShadowEffect Color="LightGray"  Direction="300" ShadowDepth="10" Opacity="0.9" BlurRadius="15" />
+        </Border.Effect>
+    </Border>
+</Window>

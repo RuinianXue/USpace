@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIDisplay"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        mc:Ignorable="d" Name="home"
+        mc:Ignorable="d" Name="HomeWindow"
         Icon="pack://application:,,,/Resources/Icon0.ico"
         Title="USpace" 
         WindowStartupLocation="CenterScreen" WindowState="Normal"
-    WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize" Cursor="Hand">
+        WindowStyle="None" Background="Transparent" AllowsTransparency="True" ResizeMode="NoResize">
 
     <Border CornerRadius="15" Background="{DynamicResource PrimaryBackgroundColor}" >
         <Grid>
