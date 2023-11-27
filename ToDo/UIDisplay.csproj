@@ -145,9 +145,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ClickedCard.xaml.cs">
-      <DependentUpon>ClickedCard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Components\BlurMask.cs" />
     <Compile Include="UserControls\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
@@ -155,10 +152,6 @@
     <Page Include="Assets\Icons\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ClickedCard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Components\TodoUnit.xaml">
       <SubType>Designer</SubType>

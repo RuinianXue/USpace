@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Effects;
 using System.Windows.Media;
 using System.Windows;
+using UIDisplay.Pages;
 
 namespace UIDisplay.Components
 {
@@ -16,9 +17,31 @@ namespace UIDisplay.Components
         private Border border;
         private VisualBrush brush;
         private RectangleGeometry clipGeometry;
+        public event EventHandler MaskClicked;
+
+        public bool windowClosed;
+        public bool WindowClosed
+        {
+            get { return windowClosed; }
+            set
+            {
+                if(value == true)
+                {
+                    BlurClickedtoClose();
+                }
+                windowClosed = value;
+            }
+        }
+
+        protected virtual void BlurClickedtoClose()
+        {
+            MaskClicked?.Invoke(this, EventArgs.Empty);
+        }
         public BlurMask(Grid inGrid, Grid outGrid)
         {
+            WindowClosed = false;
             gridOfMask = new Grid();
+            gridOfMask.MouseLeftButtonDown += gridOfMask_Click;
             gridOfMask.Width = inGrid.Width;
             gridOfMask.Height = inGrid.Height;
             gridOfMask.Margin = new Thickness(-100, -100, -100, -100);
@@ -54,6 +77,10 @@ namespace UIDisplay.Components
             {
                 outGrid.Children.Remove(gridOfMask);
             }
+        }
+        public void gridOfMask_Click(object sender, RoutedEventArgs e)
+        {
+            WindowClosed = true;
         }
     }
 }

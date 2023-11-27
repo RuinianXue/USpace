@@ -24,6 +24,7 @@ namespace UIDisplay
     public class Card : MaterialDesignThemes.Wpf.Card
     {
         public StackPanel stackPanel;
+        public ClickCard clickCard;
         public void EventsInitialize()
         {
             MouseEnter += Card_MouseEnter;
@@ -59,16 +60,27 @@ namespace UIDisplay
             this.MouseRightButtonDown += Card_MouseRightButtonDown;
             #endregion
             Content = stackPanel;
+            clickCard = new ClickCard();
+            blurmask.MaskClicked += Mask_ClickClose;
+        }
+        protected void Mask_ClickClose(object sender, EventArgs e)
+        {
+            blurmask.Disappear(Dashboard.outGrid);
+            clickCard.Disappear(Dashboard.overallGrid);
         }
         static BlurMask blurmask= new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
         protected void Card_DoubleClick(object sender, EventArgs e)
         {
             blurmask.Appear(Dashboard.outGrid);
-            ClickCard clickCard = new ClickCard(this);
             clickCard.Appear(Dashboard.overallGrid);
             //clickCard.Show();
             //blurmask.Disappear(Dashboard.outGrid);
             //blurmask.Appear(Dashboard.outGrid);
+        }
+        public void outGrid_Click(object sender, RoutedEventArgs e)
+        {
+            blurmask.Disappear(Dashboard.outGrid);
+            clickCard.Disappear(Dashboard.overallGrid);
         }
         private DateTime mouseDownTime;
         private void Card_MouseDown(object sender, MouseButtonEventArgs e)
@@ -312,6 +324,7 @@ namespace UIDisplay
     {
         public BigSquareCard()
         {
+
             MouseEnter += Card_MouseEnter;
             MouseLeave += Card_MouseLeave;
             UniformCornerRadius = 15;
@@ -497,6 +510,7 @@ namespace UIDisplay
     public class ClickCard : MaterialDesignThemes.Wpf.Card
     {
         private Grid gridOfClickCard;
+        /*
         public ClickCard()
         {
             gridOfClickCard = new Grid();
@@ -505,8 +519,8 @@ namespace UIDisplay
             this.Width = Constants.SMALL_CARD_LENGTH * 2;
             this.Height = Constants.SMALL_CARD_LENGTH * 2;
             gridOfClickCard.Children.Add(this);
-        }
-        public ClickCard(Card fromCard)
+        }*/
+        public ClickCard()
         {
             //MouseEnter+=Card_MouseEnter;
             //MouseLeave+=Card_MouseLeave;
@@ -514,10 +528,8 @@ namespace UIDisplay
             //stackPanel.Margin = new Thickness(10);
             gridOfClickCard = new Grid();
             Panel.SetZIndex(gridOfClickCard, 1);
-            gridOfClickCard.Width = fromCard.Width * 2;
-            gridOfClickCard.Height = fromCard.Height * 2;
-            this.Width = fromCard.Width * 2;
-            this.Height = fromCard.Height * 2;
+            gridOfClickCard.Width = this.Width = Constants.BIG_CARD_LENGTH * 2;
+            gridOfClickCard.Height = this.Height = Constants.BIG_CARD_LENGTH * 2;
             BorderThickness = new Thickness(5);
             BorderBrush = Brushes.White;
             Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));

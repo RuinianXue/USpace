@@ -319,6 +319,5 @@ namespace UIDisplay.Pages
             this._dragdropPopup.IsOpen = true;
         }
         #endregion
-
     }
 }
