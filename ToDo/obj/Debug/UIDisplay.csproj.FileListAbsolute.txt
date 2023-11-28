@@ -732,3 +732,5 @@ D:\gitrepos\USpace\ToDo\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\gitrepos\USpace\ToDo\obj\Debug\Pages\Login.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\Pages\Register.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\UserControls\MyTextBox.baml
+D:\gitrepos\USpace\ToDo\bin\Debug\TomatoClock.dll
+D:\gitrepos\USpace\ToDo\bin\Debug\TomatoClock.pdb

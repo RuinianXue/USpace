@@ -7,27 +7,27 @@
       "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\pages\\dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\tomatocard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\tomatocard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\tomatocard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|d:\\gitrepos\\uspace\\tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|D:\\gitrepos\\USpace\\tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|solutionrelative:tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\components\\todounit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\components\\todounit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\components\\todounit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "ToDo\\Pages\\Dashboard.xaml.cs",
               "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Pages\\Dashboard.xaml.cs",
               "RelativeToolTip": "ToDo\\Pages\\Dashboard.xaml.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAArwGkAAAAOAAAA",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAmwGoAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-11-28T15:38:07.114Z",
               "EditorCaption": ""
@@ -62,8 +62,7 @@
               "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Components\\TodoUnit.xaml",
               "RelativeToolTip": "ToDo\\Components\\TodoUnit.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-28T15:27:35.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-28T15:27:35.829Z"
             },
             {
               "$type": "Document",
@@ -74,8 +73,7 @@
               "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\MainWindow.xaml",
               "RelativeToolTip": "ToDo\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-28T15:27:18.142Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-28T15:27:18.142Z"
             },
             {
               "$type": "Document",
@@ -86,8 +84,7 @@
               "ToolTip": "D:\\gitrepos\\USpace\\TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
               "RelativeToolTip": "TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-28T15:07:22.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-28T15:07:22.861Z"
             },
             {
               "$type": "Document",
@@ -99,8 +96,7 @@
               "RelativeToolTip": "ToDo\\MainWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-28T14:58:46.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-28T14:58:46.952Z"
             },
             {
               "$type": "Document",
@@ -112,8 +108,7 @@
               "RelativeToolTip": "ToDo\\TomatoCard.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAkwBIAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-28T14:57:51.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-28T14:57:51.052Z"
             },
             {
               "$type": "Document",
@@ -125,8 +120,7 @@
               "RelativeToolTip": "ToDo\\Card.cs",
               "ViewState": "AQIAAM0BAAAAAAAAAAArwNsBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-28T14:57:21.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-28T14:57:21.285Z"
             }
           ]
         }
