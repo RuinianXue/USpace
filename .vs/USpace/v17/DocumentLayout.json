@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "D:\\gitrepos\\USpace\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|d:\\gitrepos\\uspace\\arxiv_crawller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\pages\\dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\pages\\dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|D:\\gitrepos\\USpace\\openaigpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|solutionrelative:openaigpt\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\tomatocard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\tomatocard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|D:\\gitrepos\\USpace\\openaigpt\\gpthelper\\gptrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|solutionrelative:openaigpt\\gpthelper\\gptrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|D:\\gitrepos\\USpace\\openaigpt\\gpthelper\\jsonrespond.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|solutionrelative:openaigpt\\gpthelper\\jsonrespond.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|d:\\gitrepos\\uspace\\tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|solutionrelative:tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\components\\todounit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\components\\todounit.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,51 +43,90 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\Program.cs",
-              "RelativeDocumentMoniker": "arXiv_Crawller\\Program.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\Program.cs",
-              "RelativeToolTip": "arXiv_Crawller\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
+              "Title": "Dashboard.xaml.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Pages\\Dashboard.xaml.cs",
+              "RelativeDocumentMoniker": "ToDo\\Pages\\Dashboard.xaml.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Pages\\Dashboard.xaml.cs",
+              "RelativeToolTip": "ToDo\\Pages\\Dashboard.xaml.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAArwGkAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-22T06:37:41.203Z",
+              "WhenOpened": "2023-11-28T15:38:07.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TodoUnit.xaml",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Components\\TodoUnit.xaml",
+              "RelativeDocumentMoniker": "ToDo\\Components\\TodoUnit.xaml",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Components\\TodoUnit.xaml",
+              "RelativeToolTip": "ToDo\\Components\\TodoUnit.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-11-28T15:27:35.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ToDo\\MainWindow.xaml",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\MainWindow.xaml",
+              "RelativeToolTip": "ToDo\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-11-28T15:27:18.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClockMainWindow.xaml",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
+              "RelativeDocumentMoniker": "TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
+              "ToolTip": "D:\\gitrepos\\USpace\\TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
+              "RelativeToolTip": "TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-11-28T15:07:22.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ToDo\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\MainWindow.xaml.cs",
+              "RelativeToolTip": "ToDo\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-28T14:58:46.952Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\OpenAIGPT\\Program.cs",
-              "RelativeDocumentMoniker": "OpenAIGPT\\Program.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\OpenAIGPT\\Program.cs",
-              "RelativeToolTip": "OpenAIGPT\\Program.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAmwBMAAAAqAAAA",
+              "Title": "TomatoCard.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\TomatoCard.cs",
+              "RelativeDocumentMoniker": "ToDo\\TomatoCard.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\TomatoCard.cs",
+              "RelativeToolTip": "ToDo\\TomatoCard.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAkwBIAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-22T05:39:22.139Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GPTRequest.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "RelativeDocumentMoniker": "OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "RelativeToolTip": "OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-22T05:39:09.66Z"
+              "WhenOpened": "2023-11-28T14:57:51.052Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "JsonRespond.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\OpenAIGPT\\GPTHelper\\JsonRespond.cs",
-              "RelativeDocumentMoniker": "OpenAIGPT\\GPTHelper\\JsonRespond.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\OpenAIGPT\\GPTHelper\\JsonRespond.cs",
-              "RelativeToolTip": "OpenAIGPT\\GPTHelper\\JsonRespond.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAowBYAAAAAAAAA",
+              "Title": "Card.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Card.cs",
+              "RelativeDocumentMoniker": "ToDo\\Card.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Card.cs",
+              "RelativeToolTip": "ToDo\\Card.cs",
+              "ViewState": "AQIAAM0BAAAAAAAAAAArwNsBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-22T05:00:18.675Z"
+              "WhenOpened": "2023-11-28T14:57:21.285Z",
+              "EditorCaption": ""
             }
           ]
         }

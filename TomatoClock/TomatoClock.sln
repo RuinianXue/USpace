@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34310.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomatoClock", "TomatoClock\TomatoClock.csproj", "{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E59E4CD4-31A9-4860-9108-288D88B4942B}
+	EndGlobalSection
+EndGlobal

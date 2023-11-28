@@ -17,8 +17,7 @@ namespace ConsoleApp2
         {
             string query = arXivCategory.Instance().RandomQuery();
             Console.WriteLine(query);
-            Console.WriteLine();
-            ArxivArticle[] articles = arXivCrawl.ArXivCrawlBySearch(query, 3);
+            ArxivArticle[] articles = arXivCrawl.ArXivCrawlBySearch(query, 1);
             return articles[0];
         }
         public static ArxivArticle[] ArXivCrawlBySearch(string query, int maxResult)

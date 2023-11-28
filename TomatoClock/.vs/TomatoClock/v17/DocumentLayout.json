@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\bba\\source\\repos\\TomatoClock\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock.csproj|c:\\users\\bba\\source\\repos\\tomatoclock\\tomatoclock\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock.csproj|solutionrelative:tomatoclock\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock.csproj|c:\\users\\bba\\source\\repos\\tomatoclock\\tomatoclock\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock.csproj|solutionrelative:tomatoclock\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock.csproj|c:\\users\\bba\\source\\repos\\tomatoclock\\tomatoclock\\viewmodel\\notificationobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock.csproj|solutionrelative:tomatoclock\\viewmodel\\notificationobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\bba\\source\\repos\\TomatoClock\\TomatoClock\\View\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "TomatoClock\\View\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\bba\\source\\repos\\TomatoClock\\TomatoClock\\View\\MainWindow.xaml",
+              "RelativeToolTip": "TomatoClock\\View\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-11-27T08:17:53.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\bba\\source\\repos\\TomatoClock\\TomatoClock\\View\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "TomatoClock\\View\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\bba\\source\\repos\\TomatoClock\\TomatoClock\\View\\MainWindow.xaml.cs",
+              "RelativeToolTip": "TomatoClock\\View\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA0AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-27T08:17:53.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NotificationObject.cs",
+              "DocumentMoniker": "C:\\Users\\bba\\source\\repos\\TomatoClock\\TomatoClock\\ViewModel\\NotificationObject.cs",
+              "RelativeDocumentMoniker": "TomatoClock\\ViewModel\\NotificationObject.cs",
+              "ToolTip": "C:\\Users\\bba\\source\\repos\\TomatoClock\\TomatoClock\\ViewModel\\NotificationObject.cs",
+              "RelativeToolTip": "TomatoClock\\ViewModel\\NotificationObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-11-27T11:32:13.225Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

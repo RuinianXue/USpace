@@ -13,7 +13,7 @@ namespace UIDisplay.Myscripts
         // 数据库用户名
         public static string DatabaseUsername { get; } = "root";
         // 数据库密码
-        public static string DatabasePassword { get; } = "271744";
+        public static string DatabasePassword { get; } = "kraj";
 
         //// 七牛云密钥对
         //public static string QiniuAccessKey { get; } = "";

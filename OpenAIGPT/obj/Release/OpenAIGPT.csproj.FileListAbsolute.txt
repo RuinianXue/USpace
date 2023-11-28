@@ -1,0 +1,10 @@
+D:\gitrepos\USpace\OpenAIGPT\bin\Release\OpenAIGPT.exe.config
+D:\gitrepos\USpace\OpenAIGPT\bin\Release\OpenAIGPT.exe
+D:\gitrepos\USpace\OpenAIGPT\bin\Release\OpenAIGPT.pdb
+D:\gitrepos\USpace\OpenAIGPT\bin\Release\Newtonsoft.Json.dll
+D:\gitrepos\USpace\OpenAIGPT\bin\Release\Newtonsoft.Json.xml
+D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.AssemblyReference.cache
+D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.CoreCompileInputs.cache
+D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.CopyComplete
+D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.exe
+D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.pdb

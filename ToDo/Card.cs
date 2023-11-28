@@ -98,7 +98,7 @@ namespace UIDisplay
             #endregion
             */
             // Set the Content of the Card to the StackPanel
-            Content = stackPanel;
+            //Content = stackPanel;
         }
         //public event EventHandler Card_DoubleEvent;
         static BlurMask blurmask= new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
