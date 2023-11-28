@@ -35,8 +35,10 @@ namespace UIDisplay.Pages
         public static Grid mainGrid = new Grid();
         public static Grid inGrid = new Grid();
         public static Grid outGrid = new Grid();
+        public static Grid overallGrid = new Grid();
         public void InitializeDashboard()
         {
+            overallGrid.Children.Add(outGrid);
             outGrid.Children.Add(mainGrid);
             inGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f3f3f3")); // 将整个Grid填充为蓝色
             mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(Constants.INSIDE_WIDTH, GridUnitType.Pixel) });
@@ -56,7 +58,7 @@ namespace UIDisplay.Pages
 
             inGrid.ClipToBounds = false;
             Grid.SetColumn(inGrid, 0);
-            this.Content = outGrid;
+            this.Content = overallGrid;
         }
         public void Answer_CardDoubleClick()
         {
@@ -97,13 +99,12 @@ namespace UIDisplay.Pages
             
             BigSquareCard tmpbig1 = new BigSquareCard();
             //tmpbig1.SetPosition(inGrid, 0, 0);
-            TomatoCard tmpbig2 = new TomatoCard();
+            BigSquareCard tmpbig2 = new BigSquareCard();
             tmpbig2.SetPosition(inGrid, 0, 2);
             ArxivCard tmp1 = new ArxivCard();
             tmp1.SetPosition(inGrid,0,0);
-         
-            
-            //TomatoCard tmp2 = new TomatoCard();
+
+            Card tmp2 = new Card();
             //tmp2.SetPosition(inGrid,1,4);
             BigRectangleCard tmpbig3 = new BigRectangleCard();
             tmpbig3.SetPosition(inGrid,2,0);
@@ -318,6 +319,5 @@ namespace UIDisplay.Pages
             this._dragdropPopup.IsOpen = true;
         }
         #endregion
-
     }
 }
