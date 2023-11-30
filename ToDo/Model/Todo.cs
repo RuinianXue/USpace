@@ -14,9 +14,7 @@ namespace UIDisplay.Model
         public DateTime Date { get; set; }
         public int Priority { get; set; }
         public int IsDone { get; set; }
-        public string Teammate { get; set; }
-
-        //string myevent;
+        public string Teammate { get; set; }    //待修改：Teammate应该直接定义为对象 建立两个数据库的联系
 
         public Todo(string uUID,string content, DateTime date,int priority,int isDone,string teammate)
         {
@@ -37,7 +35,8 @@ namespace UIDisplay.Model
             return other.Date.CompareTo(Date);
         }
 
-        public DateTime? ParseTime(string input)
+        public DateTime? ParseTime(string input)    
+        //待修改：目前暂时没调用 需要编写代码将它和右下角的时间显示相对应
         {
             DateTime now = DateTime.Now;
             DayOfWeek currentDayOfWeek = now.DayOfWeek;

@@ -22,7 +22,6 @@ namespace UIDisplay
             vb.Child = clk;
             stackPanel.Children.Add(vb);
             Content = stackPanel;
-            Console.WriteLine("A?");
         }
     }
 }

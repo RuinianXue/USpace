@@ -201,38 +201,12 @@ namespace UIDisplay.Components
                 storyboard.Begin();
             }
         }
+
         private Timeline CreatColorAnimation(UIElement uIElement, string propertyPath, ColorAnimationUsingKeyFrames colorAnimationUsingKeyFrames)
         {
             Storyboard.SetTarget(colorAnimationUsingKeyFrames, uIElement);
             Storyboard.SetTargetProperty(colorAnimationUsingKeyFrames, new PropertyPath(propertyPath));
             return colorAnimationUsingKeyFrames;
-        }
-
-        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
-        {
-            //Console.WriteLine("test");
-            //Storyboard storyboard = new Storyboard();
-            //DoubleAnimation doubleAnimation = new DoubleAnimation()
-            //{
-            //    From = 1,
-            //    To = 0,
-            //    Duration = TimeSpan.FromSeconds(1),
-            //    DecelerationRatio = 0.6
-            //};
-            //DoubleAnimation doubleAnimation2 = new DoubleAnimation()
-            //{
-            //    From = 0,
-            //    To = -50,
-            //    Duration = TimeSpan.FromSeconds(0.8),
-            //    DecelerationRatio = 0.6
-            //};
-            //Storyboard.SetTarget(doubleAnimation, (UserControl)sender);
-            //Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-            //storyboard.Children.Add(doubleAnimation);
-            //Storyboard.SetTarget(doubleAnimation2, (UserControl)sender);
-            //Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.Y)"));
-            //storyboard.Children.Add(doubleAnimation2);
-            //storyboard.Begin();
         }
     }
 }

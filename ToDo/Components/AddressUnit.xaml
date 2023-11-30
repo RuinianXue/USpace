@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:UIDisplay.Components"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave" MouseDown="UserControl_MouseDown" Unloaded="UserControl_Unloaded">
+             d:DesignHeight="450" d:DesignWidth="800" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave" MouseDown="UserControl_MouseDown">
     <UserControl.RenderTransform>
         <TranslateTransform Y="0"/>
     </UserControl.RenderTransform>
