@@ -152,9 +152,7 @@
       <DependentUpon>AddressUnit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\BlurMask.cs" />
-<<<<<<< Updated upstream
     <Compile Include="TomatoCard.cs" />
-=======
     <Compile Include="Pages\AddressbookPage.xaml.cs">
       <DependentUpon>AddressbookPage.xaml</DependentUpon>
     </Compile>
@@ -164,7 +162,6 @@
     <Compile Include="Scripts\QiniuBase.cs" />
     <Compile Include="Scripts\UserDataControl.cs" />
     <Compile Include="Scripts\UserInfo.cs" />
->>>>>>> Stashed changes
     <Compile Include="UserControls\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
     </Compile>
