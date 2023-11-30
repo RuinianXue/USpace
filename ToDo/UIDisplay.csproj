@@ -153,6 +153,7 @@
       <DependentUpon>AddressUnit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\BlurMask.cs" />
+    <Compile Include="DAL\ContactRepository.cs" />
     <Compile Include="DAL\TodoRepository.cs" />
     <Compile Include="TomatoCard.cs" />
     <Compile Include="Pages\AddressbookPage.xaml.cs">

@@ -25,24 +25,22 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class TodolistPage : Page
     {
-        private TodoManager todoDataControl;
-
-        private bool isShowMore { get; set; } = true;
+        private bool IsShowMore { get; set; } = true;
         public TodolistPage()
         {
             InitializeComponent();
             TodoListPageInitialize();
-            addressbookRefresh();
+            Refresh_Addressbook();
         }
         private void TodoListPageInitialize()
         {
             //this.Width = Constants.INSIDE_WIDTH;
             //this.Height = Constants.INSIDE_HEIGHT;
             Refresh();
-            Task.Run(checkTime);
-            addressbookRefresh();
+            Task.Run(CheckTime);
+            Refresh_Addressbook();
         }
-        private void checkTime()
+        private void CheckTime()
         {
             while (true)
             {
@@ -88,12 +86,11 @@ namespace UIDisplay.Pages
         {
             Task.Run(() =>
             {
-                todoDataControl = new TodoManager();
                 List<Todo> todoUnitList0, todoUnitList1, todoUnitList2;
                 todoUnitList0 = new List<Todo>();
                 todoUnitList1 = new List<Todo>();
                 todoUnitList2 = new List<Todo>();
-                DataTable dt = todoDataControl.QueryTodoInfo();
+                DataTable dt = TodoManager.QueryTodoInfo();
                 foreach (DataRow row in dt.Rows)
                 {
                     string uuid = Convert.ToString(row[0]);
@@ -137,7 +134,16 @@ namespace UIDisplay.Pages
                 }));
             });
         }
-        private void addressbookRefresh()
+
+        private void Refresh_TodoDoneCount()
+        {
+            Dispatcher.BeginInvoke(new Action(delegate
+            {
+                todoDoneCount.Text = todoList2.Children.Count.ToString();
+            }));
+        }
+
+        private void Refresh_Addressbook()
         {
             Task.Run(() =>
             {
@@ -156,46 +162,12 @@ namespace UIDisplay.Pages
                 }));
             });
         }
-        public void UpdateTodoInfo(Todo todoInfo)
-        {
-            Task.Run(() =>
-            {
-                TodoManager todoManager = new TodoManager();
-                int result = todoManager.UpdateTodoInfo(todoInfo);
-                if (result > 0)
-                {
-                    Growl.Success("待办任务更新成功！");
-                }
-                else
-                {
-                    Growl.Warning("待办任务更新失败！");
-                }
-                Refresh_TodoDoneCount();
-            });
-        }
-
-        public void DeleteTodoInfo(Todo todoInfo)
-        {
-            Task.Run(() =>
-            {
-                TodoManager todoManager = new TodoManager();
-                int result = todoManager.DeleteTodoInfo(todoInfo);
-                if (result > 0)
-                {
-                    Growl.Success("待办任务删除成功！");
-                }
-                else
-                {
-                    Growl.Warning("待办任务删除失败！");
-                }
-                Refresh_TodoDoneCount();
-            });
-        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LoadInAnimation(sender);
         }
+
         private void LoadInAnimation(object sender)
         {
             Storyboard storyboard = new Storyboard();
@@ -222,13 +194,12 @@ namespace UIDisplay.Pages
             storyboard.Begin();
         }
 
-
         private void moreBtn_Click(object sender, RoutedEventArgs e)
         {
-            isShowMore = !isShowMore;
-            double from = isShowMore ? 0 : 90;
-            double to = isShowMore ? 90 : 0;
-            todoList2.Visibility = isShowMore ? Visibility.Visible : Visibility.Collapsed;
+            IsShowMore = !IsShowMore;
+            double from = IsShowMore ? 0 : 90;
+            double to = IsShowMore ? 90 : 0;
+            todoList2.Visibility = IsShowMore ? Visibility.Visible : Visibility.Collapsed;
             Storyboard storyboard = new Storyboard();
             DoubleAnimation doubleAnimation = new DoubleAnimation()
             {
@@ -295,14 +266,6 @@ namespace UIDisplay.Pages
             todoTaskContentTextBox_LostFocus();
         }
 
-        private void Refresh_TodoDoneCount()
-        {
-            Dispatcher.BeginInvoke(new Action(delegate
-            {
-                todoDoneCount.Text = todoList2.Children.Count.ToString();
-            }));
-        }
-
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && g1Focus1.Visibility == Visibility.Visible)
@@ -313,8 +276,7 @@ namespace UIDisplay.Pages
 
                     Task.Run(() =>
                     {
-                        todoDataControl = new TodoManager();
-                        todoDataControl.InsertTodoInfo(tmp_todoInfo);
+                        InsertTodoInfo(tmp_todoInfo);
                     });
                     Task.Run(() =>
                     {
@@ -367,7 +329,7 @@ namespace UIDisplay.Pages
                     {
                         addressbookBorder.Visibility = Visibility.Collapsed;
                     }));
-                    addressbookRefresh();
+                    Refresh_Addressbook();
                 });
 
             }
@@ -402,7 +364,7 @@ namespace UIDisplay.Pages
 
         private void addressbookRefreshBtn_Click(object sender, RoutedEventArgs e)
         {
-            addressbookRefresh();
+            Refresh_Addressbook();
         }
 
         private async void emailListConfirmBtn_Click(object sender, RoutedEventArgs e)
@@ -452,7 +414,57 @@ namespace UIDisplay.Pages
                 {
                     addressbookBorder.Visibility = Visibility.Collapsed;
                 }));
-                addressbookRefresh();
+                Refresh_Addressbook();
+            });
+        }
+
+        public void InsertTodoInfo(Todo todoInfo)
+        {
+            Task.Run(() =>
+            {
+                int result = TodoManager.InsertTodoInfo(todoInfo);
+                if (result > 0)
+                {
+                    Growl.Success("待办任务新建成功！");
+                }
+                else
+                {
+                    Growl.Warning("待办任务新建失败！");
+                }
+            });
+        }
+
+        public void UpdateTodoInfo(Todo todoInfo)
+        {
+            Task.Run(() =>
+            {
+                int result = TodoManager.UpdateTodoInfo(todoInfo);
+                if (result > 0)
+                {
+                    Growl.Success("待办任务更新成功！");
+                }
+                else
+                {
+                    Growl.Warning("待办任务更新失败！");
+                }
+                Refresh_TodoDoneCount();
+            });
+        }
+
+        public void DeleteTodoInfo(Todo todoInfo)
+        {
+            Task.Run(() =>
+            {
+                int result = TodoManager.DeleteTodoInfo(todoInfo);
+                if (result > 0)
+                {
+                    Growl.Success("待办任务删除成功！");
+                }
+                else
+                {
+                    Growl.Warning("待办任务删除失败！");
+                }
+                Refresh_TodoDoneCount();
             });
         }
     }
