@@ -13,3 +13,11 @@ D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.SuggestedBinding
 D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CoreCompileInputs.cache
 D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.exe
 D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.pdb
+E:\0temp\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe.config
+E:\0temp\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe
+E:\0temp\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.pdb
+E:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.AssemblyReference.cache
+E:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.SuggestedBindingRedirects.cache
+E:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CoreCompileInputs.cache
+E:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.exe
+E:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.pdb

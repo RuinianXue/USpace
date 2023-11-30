@@ -48,14 +48,14 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                        <Path x:Name="calenderIcon" Data="{DynamicResource calender}" Stretch="Fill" Height="10" Width="10" Fill="{DynamicResource DangerBrush}" Margin="0 0 4 0"/>
+                        <Path x:Name="calenderIcon" Data="{DynamicResource calender}" Stretch="Fill" Height="10" Width="10" Fill="{DynamicResource DangerBrush}" Margin="9 0 4 0"/>
                         <hc:SimpleText x:Name="todoDateTimeText" Text="2022.11.25" VerticalAlignment="Center" FontSize="10" Foreground="{DynamicResource DangerBrush}"/>
                     </StackPanel>
                     
-                    <!--<StackPanel Grid.Column="1" Orientation="Horizontal" Margin="16 0 0 0">
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="16 0 0 0">
                         <hc:SimpleText x:Name="todoTeammateListTextTitle" Text="关联人:" VerticalAlignment="Center"  FontSize="10" Width="40"/>
                         <hc:SimpleText x:Name="todoTeammateListText" Text="无" VerticalAlignment="Center" FontSize="10"/>
-                    </StackPanel>-->
+                    </StackPanel>
                 </Grid>
             </Grid>
             <hc:SimplePanel Grid.Column="2">

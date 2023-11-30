@@ -99,8 +99,8 @@
     <Reference Include="Ookii.Dialogs.Wpf, Version=5.0.0.0, Culture=neutral, PublicKeyToken=66aa232afad40158, processorArchitecture=MSIL">
       <HintPath>..\packages\Ookii.Dialogs.Wpf.5.0.1\lib\net462\Ookii.Dialogs.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="Qiniu, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Qiniu.SDK.8.0.0\lib\net46\Qiniu.dll</HintPath>
+    <Reference Include="Qiniu, Version=8.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Qiniu.8.4.0\lib\netstandard2.0\Qiniu.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -148,8 +148,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\AddressUnit.xaml.cs">
+      <DependentUpon>AddressUnit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\BlurMask.cs" />
+<<<<<<< Updated upstream
     <Compile Include="TomatoCard.cs" />
+=======
+    <Compile Include="Pages\AddressbookPage.xaml.cs">
+      <DependentUpon>AddressbookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddressUnitEdit.xaml.cs">
+      <DependentUpon>AddressUnitEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\QiniuBase.cs" />
+    <Compile Include="Scripts\UserDataControl.cs" />
+    <Compile Include="Scripts\UserInfo.cs" />
+>>>>>>> Stashed changes
     <Compile Include="UserControls\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
     </Compile>
@@ -157,7 +172,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Components\AddressUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\TodoUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddressbookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddressUnitEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,7 +200,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BLL\EmailService.cs" />
+    <Compile Include="BLL\EmailManager.cs" />
     <Compile Include="BLL\PasswordManager.cs" />
     <Compile Include="BLL\UserManager.cs" />
     <Compile Include="Card.cs" />
@@ -190,7 +217,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\Login.xaml">
+    <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,7 +229,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\Register.xaml">
+    <Page Include="Pages\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -225,14 +252,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MenuButton.cs" />
-    <Compile Include="Pages\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MarkdownEditorPage.xaml.cs">
       <DependentUpon>MarkdownEditorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Register.xaml.cs">
-      <DependentUpon>Register.xaml</DependentUpon>
+    <Compile Include="Pages\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Scripts\MysqlBase.cs" />
     <Compile Include="Scripts\MyUtils.cs" />

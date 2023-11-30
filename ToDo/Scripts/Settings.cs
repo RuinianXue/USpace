@@ -15,14 +15,13 @@ namespace UIDisplay.Myscripts
         // 数据库密码
         public static string DatabasePassword { get; } = "kraj";
 
-        //// 七牛云密钥对
-        //public static string QiniuAccessKey { get; } = "";
-        //public static string QiniuSecretKey { get; } = "";
+        // 七牛云密钥对
+        public static string QiniuAccessKey { get; } = "fUWIthaPBIja3BGrphwZ0guP0lcd3pvDJWMwLbeK";
+        public static string QiniuSecretKey { get; } = "c-jGS1qHO3tbY7B8yR-z4pHFs2_KZMxSfYjIZOk4";
 
-
-        //// 邮件服务发送方
-        //public static string EmailFrom { get; } = "xxxxxxxxx@qq.com";
-        //// 邮件服务发送方授权码
-        //public static string EmailPwd { get; } = "ajrtpsdsdsncfdgz";
+        // 邮件服务发送方
+        public static string EmailFrom { get; } = "2066892296@qq.com";
+        // 邮件服务发送方授权码
+        public static string EmailPwd { get; } = "nrzayyqhvyiccjae";
     }
 }

@@ -22,6 +22,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIDisplay.BLL;
 
 namespace UIDisplay.Pages
 {
@@ -37,7 +38,7 @@ namespace UIDisplay.Pages
         {
             InitializeComponent();
             TodoListPageInitialize();
-
+            addressbookRefresh();
         }
         private void TodoListPageInitialize()
         {
@@ -65,9 +66,8 @@ namespace UIDisplay.Pages
                             foreach (string email in emailList)
                             {
                                 Console.WriteLine(email);
-                                //MyEmail.SendEmail(email, "您有一个任务有待完成", todoUnit.todoInfo.Content);
+                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todoInfo.Content);
                             }
-
                         }
                     }
                     foreach (TodoUnit todoUnit in todoList1.Children)
@@ -82,7 +82,7 @@ namespace UIDisplay.Pages
                             foreach (string email in emailList)
                             {
                                 Console.WriteLine(email);
-                                //MyEmail.SendEmail(email, "您有一个任务有待完成", todoUnit.todoInfo.Content);
+                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todoInfo.Content);
                             }
                         }
                     }
@@ -147,19 +147,19 @@ namespace UIDisplay.Pages
         {
             Task.Run(() =>
             {
-                //UserDataControl userDataControl = new UserDataControl();
-                //DataTable dt = userDataControl.queryUserInfo();
-                //Dispatcher.BeginInvoke(new Action(delegate
-                //{
-                //    wrapPanel.Children.Clear();
-                //    for (int i = 0; i < dt.Rows.Count; i++)
-                //    {
-                //        DataRow row = dt.Rows[i];
-                //        UserInfo userInfo = new UserInfo(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
-                //        AddressUnit addressUnit = new AddressUnit(userInfo,1);
-                //        wrapPanel.Children.Add(addressUnit);
-                //    }
-                //}));
+                UserDataControl userDataControl = new UserDataControl();
+                DataTable dt = userDataControl.QueryUserInfo();
+                Dispatcher.BeginInvoke(new Action(delegate
+                {
+                    wrapPanel.Children.Clear();
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        DataRow row = dt.Rows[i];
+                        UserInfo userInfo = new UserInfo(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
+                        AddressUnit addressUnit = new AddressUnit(userInfo, 1);
+                        wrapPanel.Children.Add(addressUnit);
+                    }
+                }));
             });
 
         }
@@ -236,14 +236,14 @@ namespace UIDisplay.Pages
 
         private void todoTaskContentTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            /*if (todoTaskContentTextBox.Text.Length > 0)
+            if (todoTaskContentTextBox.Text.Length > 0)
             {
-                //spFuncArea.Visibility = Visibility.Visible;
+                spFuncArea.Visibility = Visibility.Visible;
             }
             else
             {
-                //spFuncArea.Visibility = Visibility.Collapsed;
-            }*/
+                spFuncArea.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void todoTaskContentTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -269,12 +269,8 @@ namespace UIDisplay.Pages
         private void todoTaskContentTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("todoTaskContentTextBox: " + "lost_focus");
-            //todoTaskContentTextBox.Text = null;
-            //g0Focus0.Visibility = Visibility.Visible;
-            //g0Focus1.Visibility = Visibility.Collapsed;
-            //g1Focus0.Visibility = Visibility.Visible;
-            //g1Focus1.Visibility = Visibility.Collapsed;
         }
+
         private void todoTaskContentTextBox_LostFocus()
         {
             todoTaskContentTextBox.Text = null;
@@ -282,42 +278,7 @@ namespace UIDisplay.Pages
             g0Focus1.Visibility = Visibility.Collapsed;
             g1Focus0.Visibility = Visibility.Visible;
             g1Focus1.Visibility = Visibility.Collapsed;
-            //teammateList.Text = "无";
-        }
-
-        private void todoTaskContentTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            /*if (e.Key == Key.Enter)
-            {
-                if (todoTaskContentTextBox.Text.Length > 0)
-                {
-                    TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
-                    Task.Run(() =>
-                   {
-                       todoDataControl = new TodoDataControl();
-                       todoDataControl.insertTodoInfo(tmp_todoInfo);
-                   });
-                    Task.Run(() =>
-                    {
-                        Dispatcher.BeginInvoke(new Action(delegate
-                        {
-                            TodoUnit todoUnit = new TodoUnit(this, tmp_todoInfo);
-                            todoUnit.addTodoUnitIntoTodoList();
-                        }));
-
-                    });
-                    todoTaskContentTextBox_LostFocus();
-                }
-                else
-                {
-                    Growl.Info("未输入任务内容");
-                }
-            }*/
-        }
-
-
-        private void Page_MouseDown(object sender, MouseButtonEventArgs e)
-        {
+            teammateList.Text = "无";
         }
 
         private void todolistPanelScr_MouseDown(object sender, MouseButtonEventArgs e)
@@ -339,18 +300,20 @@ namespace UIDisplay.Pages
             {
                 if (todoTaskContentTextBox.Text.Length > 0)
                 {
-                    //TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
+                    TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
 
-                    TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0,
-                        "无");
-                    string input = todoTaskContentTextBox.Text;
+                    //Console.WriteLine("---------------------------------" +
+                    //    dateTimePickers.SelectedDateTime.Value);
 
-                    DateTime? parsedTime = tmp_todoInfo.ParseTime(input);
+                    //string input = todoTaskContentTextBox.Text;
 
-                    if (parsedTime != null)
-                    {
-                        tmp_todoInfo.Date = parsedTime.Value;
-                    }
+                    //DateTime? parsedTime = tmp_todoInfo.ParseTime(input);
+
+                    //if (parsedTime != null)
+                    //{
+                    //    Console.WriteLine(parsedTime.Value + "---------------------------------");
+                    //    tmp_todoInfo.Date = parsedTime.Value;
+                    //}
 
                     Task.Run(() =>
                     {
@@ -373,6 +336,128 @@ namespace UIDisplay.Pages
                     Growl.Info("未输入任务内容");
                 }
             }
+        }
+
+        private void addEmaillistBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (addressbookBorder.Visibility == Visibility.Visible)
+            {
+                Storyboard storyboard = new Storyboard();
+                DoubleAnimation doubleAnimation = new DoubleAnimation()
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(1),
+                    DecelerationRatio = 0.6
+                };
+                DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+                {
+                    From = 0,
+                    To = 50,
+                    Duration = TimeSpan.FromSeconds(1),
+                    DecelerationRatio = 0.6
+                };
+                Storyboard.SetTarget(doubleAnimation, addressbookBorder);
+                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
+                storyboard.Children.Add(doubleAnimation);
+                Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
+                Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
+                storyboard.Children.Add(doubleAnimation2);
+                storyboard.Begin();
+                Task.Run(() =>
+                {
+                    Thread.Sleep(1000);
+                    Dispatcher.BeginInvoke(new Action(delegate
+                    {
+                        addressbookBorder.Visibility = Visibility.Collapsed;
+                    }));
+                    addressbookRefresh();
+                });
+
+            }
+            else
+            {
+                addressbookBorder.Visibility = Visibility.Visible;
+                Storyboard storyboard = new Storyboard();
+                DoubleAnimation doubleAnimation = new DoubleAnimation()
+                {
+                    From = 0,
+                    To = 1,
+                    Duration = TimeSpan.FromSeconds(0.6),
+                    DecelerationRatio = 0.6
+                };
+                DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+                {
+                    From = 50,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(0.8),
+                    DecelerationRatio = 0.6
+                };
+                Storyboard.SetTarget(doubleAnimation, addressbookBorder);
+                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
+                storyboard.Children.Add(doubleAnimation);
+                Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
+                Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
+                storyboard.Children.Add(doubleAnimation2);
+                storyboard.Begin();
+            }
+
+        }
+
+        private void addressbookRefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            addressbookRefresh();
+        }
+
+        private async void emailListConfirmBtn_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                string emailList = "";
+                Dispatcher.BeginInvoke(new Action(delegate
+                {
+                    foreach (AddressUnit addressUnit in wrapPanel.Children)
+                    {
+                        if (addressUnit.IsChecked == true)
+                        {
+                            emailList += addressUnit.emailLabel.Text + ";";
+                        }
+                    }
+                    if (emailList.Length == 0) emailList = "无";
+                    teammateList.Text = emailList;
+                }));
+            });
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimation doubleAnimation = new DoubleAnimation()
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(1),
+                DecelerationRatio = 0.6
+            };
+            DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+            {
+                From = 0,
+                To = 50,
+                Duration = TimeSpan.FromSeconds(1),
+                DecelerationRatio = 0.6
+            };
+            Storyboard.SetTarget(doubleAnimation, addressbookBorder);
+            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
+            storyboard.Children.Add(doubleAnimation);
+            Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
+            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
+            storyboard.Children.Add(doubleAnimation2);
+            storyboard.Begin();
+            await Task.Run(() =>
+            {
+                Thread.Sleep(1000);
+                Dispatcher.BeginInvoke(new Action(delegate
+                {
+                    addressbookBorder.Visibility = Visibility.Collapsed;
+                }));
+                addressbookRefresh();
+            });
         }
     }
 }

@@ -21,6 +21,7 @@ namespace UIDisplay
     /// </summary>
     public partial class MainWindow : Window
     {
+        AddressbookPage addressbookPage;
         TodolistPage todolistPage;
         Dashboard dashboardPage;
         MarkdownEditorPage markdownEditor;
@@ -44,6 +45,7 @@ namespace UIDisplay
             this.Height = Constants.INSIDE_HEIGHT + 30;
             PagesNavigation.Height = Constants.INSIDE_HEIGHT;
             PagesNavigation.Width = Constants.INSIDE_WIDTH;
+            addressbookPage = new AddressbookPage();
             todolistPage =new TodolistPage();
             dashboardPage = new Dashboard();
             markdownEditor = new MarkdownEditorPage();
@@ -82,6 +84,11 @@ namespace UIDisplay
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+
+        private void rdAddressbook_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(addressbookPage);
         }
 
         private void rdTodolist_Click(object sender, RoutedEventArgs e)

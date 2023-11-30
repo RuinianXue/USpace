@@ -8,12 +8,11 @@
       xmlns:my="clr-namespace:UIDisplay.Components"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="TodolistPage" Loaded="Page_Loaded" MouseDown="Page_MouseDown" KeyDown="Page_KeyDown">
+      Title="TodolistPage" Loaded="Page_Loaded" KeyDown="Page_KeyDown">
     <Page.RenderTransform>
         <TranslateTransform X="0" Y="0"/>
     </Page.RenderTransform>
-    <!--<Border Style="{StaticResource BorderClip}" x:Name="mainBorder" CornerRadius="20" Background="{DynamicResource SecondaryBlueColorA}">-->
-    <Border x:Name="mainBorder" CornerRadius="20" Background="{DynamicResource SecondaryBlueColorA}">
+    <Border Style="{StaticResource BorderClip}" x:Name="mainBorder" CornerRadius="20" Background="{DynamicResource SecondaryBlueColorA}">
         <Grid>
             <ScrollViewer x:Name="todolistPanelScr" Grid.ZIndex="0" Margin="0" VerticalScrollBarVisibility="Auto" MouseDown="todolistPanelScr_MouseDown">
                 <Grid Margin="32 8 32 8">
@@ -64,10 +63,10 @@
             </Border>-->
 
             <StackPanel x:Name="titlePanel" Grid.ZIndex="3" Orientation="Vertical" VerticalAlignment="Top"  Background="Transparent">
-                <Grid Margin="0 7 0 0">
+                <Grid Margin="0 20 0 0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <Path Data="{DynamicResource home}" Margin="64 0 0 0" Stretch="Fill" Fill="{DynamicResource PrimaryBlueColorA}" Width="24" Height="24" HorizontalAlignment="Left"/>
-                        <hc:SimpleText Text="任务" Margin="16 8 0 0" VerticalAlignment="Bottom" Foreground="{DynamicResource PrimaryBlueColorA}" FontSize="28" FontWeight="Bold"/>
+                        <Path Data="{DynamicResource home}" Margin="37 0 0 0" Stretch="Fill" Fill="{DynamicResource PrimaryBlueColorA}" Width="28" Height="28"/>
+                        <hc:SimpleText Text="任务" Margin="16 0 0 0" VerticalAlignment="Center" Foreground="{DynamicResource PrimaryBlueColorA}" FontSize="28" FontWeight="Bold"/>
                     </StackPanel>
 
                 </Grid>
@@ -79,11 +78,20 @@
                 <Border.Background>
                     <SolidColorBrush Color="#E2F2C7" Opacity="0.6"/>
                 </Border.Background>
+                <Grid x:Name="addressBookPanel">
+                    <ScrollViewer x:Name="scr" Margin="0" VerticalScrollBarVisibility="Auto" Grid.Row="0">
+                        <WrapPanel x:Name="wrapPanel">
+                            <my:AddressUnit Visibility="Visible"/>
+                        </WrapPanel>
+                    </ScrollViewer>
+                    <Button x:Name="addressbookRefreshBtn" Grid.ZIndex="2" Content="刷新" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 110 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource TEAL_C}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="addressbookRefreshBtn_Click"/>
+                    <Button x:Name="emailListConfirmBtn" Grid.ZIndex="1" Content="确认" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 15 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource PrimaryBrush}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="emailListConfirmBtn_Click"/>
+                </Grid>
             </Border>
 
             <Border x:Name="b2" Grid.ZIndex="1" Height="90" VerticalAlignment="Bottom" Background="{DynamicResource SecondaryBlueColorA}" Opacity="0.8"/>
             <StackPanel Grid.ZIndex="3" Orientation="Vertical" VerticalAlignment="Bottom">
-                <Border Height="Auto" CornerRadius="10" Background="{StaticResource SecondaryBackgroundColor}" Margin="32 8 32 4" MouseDown="Border_MouseDown">
+                <Border Height="Auto" CornerRadius="10" Background="{StaticResource SecondaryBackgroundColor}" Margin="32 8 32 20" MouseDown="Border_MouseDown">
                     <Border.Opacity>
                         0.75
                     </Border.Opacity>
@@ -101,13 +109,17 @@
                         </Grid>
                         <Grid x:Name="g1Focus1" Grid.Column="1" VerticalAlignment="Center" Visibility="Collapsed">
                             <StackPanel Orientation="Vertical">
-                                <hc:TextBox x:Name="todoTaskContentTextBox" hc:InfoElement.Placeholder="请输入任务内容" TextChanged="todoTaskContentTextBox_TextChanged" Background="Transparent" Margin="0 0 8 0" GotFocus="todoTaskContentTextBox_GotFocus" LostFocus="todoTaskContentTextBox_LostFocus" KeyDown="todoTaskContentTextBox_KeyDown"/>
+                                <hc:TextBox x:Name="todoTaskContentTextBox" hc:InfoElement.Placeholder="请输入任务内容" TextChanged="todoTaskContentTextBox_TextChanged" Background="Transparent" Margin="0 0 8 0" GotFocus="todoTaskContentTextBox_GotFocus" LostFocus="todoTaskContentTextBox_LostFocus"/>
+                                <StackPanel Orientation="Horizontal" Margin="0 8 0 0">
+                                    <hc:SimpleText Text="已选关联人:" Width="70"/>
+                                    <hc:SimpleText x:Name="teammateList" Text="无"/>
+                                </StackPanel>
                             </StackPanel>
-
                         </Grid>
                         <StackPanel x:Name="spFuncArea" Grid.Column="2" Orientation="Horizontal" Margin="0 0 8 0" Visibility="Collapsed">
                             <hc:Divider Orientation="Vertical" Width="10" Height="60"/>
                             <StackPanel x:Name="functionalArea" Grid.Column="2" VerticalAlignment="Center" Width="Auto" Orientation="Vertical">
+                                <Button x:Name="addEmaillistBtn" Style="{StaticResource ButtonPrimary}" Content="添加关联人" Width="200" Click="addEmaillistBtn_Click"/>
                                 <hc:DateTimePicker x:Name="dateTimePickers" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Title="提醒日期:" hc:InfoElement.TitlePlacement="Left" Margin="0 4 0 0"/>
                             </StackPanel>
                         </StackPanel>
