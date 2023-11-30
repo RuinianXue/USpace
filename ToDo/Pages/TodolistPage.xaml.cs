@@ -12,17 +12,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UIDisplay.BLL;
+using UIDisplay.Model;
 
 namespace UIDisplay.Pages
 {
@@ -56,33 +50,33 @@ namespace UIDisplay.Pages
                 {
                     foreach (TodoUnit todoUnit in todoList0.Children)
                     {
-                        if (DateTime.Now.AddMinutes(1) < todoUnit.todoInfo.Date)
+                        if (DateTime.Now.AddMinutes(1) < todoUnit.todo.Date)
                         {
                             break;
                         }
-                        else if (todoUnit.todoInfo.Date >= DateTime.Now)
+                        else if (todoUnit.todo.Date >= DateTime.Now)
                         {
-                            string[] emailList = todoUnit.todoInfo.Teammate.Split(';');
+                            string[] emailList = todoUnit.todo.Teammate.Split(';');
                             foreach (string email in emailList)
                             {
                                 Console.WriteLine(email);
-                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todoInfo.Content);
+                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todo.Content);
                             }
                         }
                     }
                     foreach (TodoUnit todoUnit in todoList1.Children)
                     {
-                        if (DateTime.Now.AddMinutes(1) < todoUnit.todoInfo.Date)
+                        if (DateTime.Now.AddMinutes(1) < todoUnit.todo.Date)
                         {
                             break;
                         }
-                        else if (todoUnit.todoInfo.Date >= DateTime.Now)
+                        else if (todoUnit.todo.Date >= DateTime.Now)
                         {
-                            string[] emailList = todoUnit.todoInfo.Teammate.Split(';');
+                            string[] emailList = todoUnit.todo.Teammate.Split(';');
                             foreach (string email in emailList)
                             {
                                 Console.WriteLine(email);
-                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todoInfo.Content);
+                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todo.Content);
                             }
                         }
                     }
@@ -95,10 +89,10 @@ namespace UIDisplay.Pages
             Task.Run(() =>
             {
                 todoDataControl = new TodoManager();
-                List<TodoInfo> todoUnitList0, todoUnitList1, todoUnitList2;
-                todoUnitList0 = new List<TodoInfo>();
-                todoUnitList1 = new List<TodoInfo>();
-                todoUnitList2 = new List<TodoInfo>();
+                List<Todo> todoUnitList0, todoUnitList1, todoUnitList2;
+                todoUnitList0 = new List<Todo>();
+                todoUnitList1 = new List<Todo>();
+                todoUnitList2 = new List<Todo>();
                 DataTable dt = todoDataControl.QueryTodoInfo();
                 foreach (DataRow row in dt.Rows)
                 {
@@ -111,31 +105,31 @@ namespace UIDisplay.Pages
 
                     if (isdone == 0 && priority > 0)
                     {
-                        todoUnitList0.Add(new TodoInfo(uuid, content, date, priority, isdone, teammate));
+                        todoUnitList0.Add(new Todo(uuid, content, date, priority, isdone, teammate));
                     }
                     else if (isdone == 0)
                     {
-                        todoUnitList1.Add(new TodoInfo(uuid, content, date, priority, isdone, teammate));
+                        todoUnitList1.Add(new Todo(uuid, content, date, priority, isdone, teammate));
                     }
                     else
                     {
-                        todoUnitList2.Add(new TodoInfo(uuid, content, date, priority, isdone, teammate));
+                        todoUnitList2.Add(new Todo(uuid, content, date, priority, isdone, teammate));
                     }
                 }
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
                     todoList0.Children.Clear();
-                    foreach (TodoInfo sub_todoInfo in todoUnitList0)
+                    foreach (Todo sub_todoInfo in todoUnitList0)
                     {
                         todoList0.Children.Add(new TodoUnit(this, sub_todoInfo));
                     }
                     todoList1.Children.Clear();
-                    foreach (TodoInfo sub_todoInfo in todoUnitList1)
+                    foreach (Todo sub_todoInfo in todoUnitList1)
                     {
                         todoList1.Children.Add(new TodoUnit(this, sub_todoInfo));
                     }
                     todoList2.Children.Clear();
-                    foreach (TodoInfo sub_todoInfo in todoUnitList2)
+                    foreach (Todo sub_todoInfo in todoUnitList2)
                     {
                         todoList2.Children.Add(new TodoUnit(this, sub_todoInfo));
                     }
@@ -163,22 +157,38 @@ namespace UIDisplay.Pages
             });
 
         }
-        public void UpdateTodoInfo(TodoInfo todoInfo)
+        public void UpdateTodoInfo(Todo todoInfo)
         {
             Task.Run(() =>
             {
-                TodoManager tmp_todoDataControl = new TodoManager();
-                tmp_todoDataControl.UpdateTodoInfo(todoInfo);
+                TodoManager todoManager = new TodoManager();
+                int result = todoManager.UpdateTodoInfo(todoInfo);
+                if (result > 0)
+                {
+                    Growl.Success("待办任务添加成功！");
+                }
+                else
+                {
+                    Growl.Warning("待办任务添加失败！");
+                }
                 Refresh_TodoDoneCount();
-
             });
         }
-        public void DeleteTodoInfo(TodoInfo todoInfo)
+
+        public void DeleteTodoInfo(Todo todoInfo)
         {
             Task.Run(() =>
             {
-                TodoManager tmp_todoDataControl = new TodoManager();
-                tmp_todoDataControl.DeleteTodoInfo(todoInfo);
+                TodoManager todoManager = new TodoManager();
+                int result = todoManager.DeleteTodoInfo(todoInfo);
+                if (result > 0)
+                {
+                    Growl.Success("待办任务删除成功！");
+                }
+                else
+                {
+                    Growl.Warning("待办任务删除失败！");
+                }
                 Refresh_TodoDoneCount();
             });
         }
@@ -300,20 +310,7 @@ namespace UIDisplay.Pages
             {
                 if (todoTaskContentTextBox.Text.Length > 0)
                 {
-                    TodoInfo tmp_todoInfo = new TodoInfo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
-
-                    //Console.WriteLine("---------------------------------" +
-                    //    dateTimePickers.SelectedDateTime.Value);
-
-                    //string input = todoTaskContentTextBox.Text;
-
-                    //DateTime? parsedTime = tmp_todoInfo.ParseTime(input);
-
-                    //if (parsedTime != null)
-                    //{
-                    //    Console.WriteLine(parsedTime.Value + "---------------------------------");
-                    //    tmp_todoInfo.Date = parsedTime.Value;
-                    //}
+                    Todo tmp_todoInfo = new Todo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
 
                     Task.Run(() =>
                     {

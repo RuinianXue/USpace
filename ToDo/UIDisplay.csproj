@@ -148,10 +148,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BLL\TodoManager.cs" />
     <Compile Include="Components\AddressUnit.xaml.cs">
       <DependentUpon>AddressUnit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\BlurMask.cs" />
+    <Compile Include="DAL\TodoRepository.cs" />
     <Compile Include="TomatoCard.cs" />
     <Compile Include="Pages\AddressbookPage.xaml.cs">
       <DependentUpon>AddressbookPage.xaml</DependentUpon>
@@ -261,8 +263,7 @@
     <Compile Include="Scripts\MysqlBase.cs" />
     <Compile Include="Scripts\MyUtils.cs" />
     <Compile Include="Scripts\Settings.cs" />
-    <Compile Include="Scripts\TodoManager.cs" />
-    <Compile Include="Scripts\TodoInfo.cs" />
+    <Compile Include="Model\Todo.cs" />
     <Compile Include="Pages\TodolistPage.xaml.cs">
       <DependentUpon>TodolistPage.xaml</DependentUpon>
     </Compile>

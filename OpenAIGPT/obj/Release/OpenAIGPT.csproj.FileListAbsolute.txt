@@ -8,3 +8,14 @@ D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.CoreCompileInputs.cach
 D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.CopyComplete
 D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.exe
 D:\gitrepos\USpace\OpenAIGPT\obj\Release\OpenAIGPT.pdb
+E:\0temp\USpace\OpenAIGPT\bin\Release\OpenAIGPT.exe.config
+E:\0temp\USpace\OpenAIGPT\bin\Release\OpenAIGPT.exe
+E:\0temp\USpace\OpenAIGPT\bin\Release\OpenAIGPT.pdb
+E:\0temp\USpace\OpenAIGPT\bin\Release\Newtonsoft.Json.dll
+E:\0temp\USpace\OpenAIGPT\bin\Release\Newtonsoft.Json.xml
+E:\0temp\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.AssemblyReference.cache
+E:\0temp\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.SuggestedBindingRedirects.cache
+E:\0temp\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.CoreCompileInputs.cache
+E:\0temp\USpace\OpenAIGPT\obj\Release\OpenAIGPT.csproj.CopyComplete
+E:\0temp\USpace\OpenAIGPT\obj\Release\OpenAIGPT.exe
+E:\0temp\USpace\OpenAIGPT\obj\Release\OpenAIGPT.pdb

@@ -18,6 +18,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIDisplay.Model;
 
 namespace UIDisplay.Components
 {
@@ -26,30 +27,30 @@ namespace UIDisplay.Components
     /// </summary>
     public partial class TodoUnit : UserControl
     {
-        public TodoInfo todoInfo;
+        public Todo todo;
         TodolistPage todolistPage;
         public TodoUnit()
         {
             InitializeComponent();
         }
 
-        public TodoUnit(TodolistPage todolistPage, TodoInfo todoInfo)
+        public TodoUnit(TodolistPage todolistPage, Todo todoInfo)
         {
             InitializeComponent();
-            this.todoInfo = todoInfo;
+            this.todo = todoInfo;
             this.todolistPage = todolistPage;
             Init();
         }
         private void Init()
         {
-            todoContentText.Text = todoInfo.Content;
-            todoDateTimeText.Text = todoInfo.Date.ToString("yyyy-MM-dd HH:mm:ss");
-            //todoTeammateListText.Text = todoInfo.Teammate;
-            if (todoInfo.IsDone > 0)
+            todoContentText.Text = todo.Content;
+            todoDateTimeText.Text = todo.Date.ToString("yyyy-MM-dd HH:mm:ss");
+            todoTeammateListText.Text = todo.Teammate;
+            if (todo.IsDone > 0)
             {
                 isDoneBtn.IsChecked = true;
             }
-            if (todoInfo.Priority > 0)
+            if (todo.Priority > 0)
             {
                 isImportantBtn.IsChecked = true;
             }
@@ -125,8 +126,8 @@ namespace UIDisplay.Components
             storyboard.Children.Add(doubleAnimation2);
             storyboard.Begin();
 
-            todoInfo.IsDone = isDoneBtn.IsChecked == true ? 1 : 0;
-            todolistPage.UpdateTodoInfo(todoInfo);
+            todo.IsDone = isDoneBtn.IsChecked == true ? 1 : 0;
+            todolistPage.UpdateTodoInfo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -152,8 +153,8 @@ namespace UIDisplay.Components
 
         private void isImportantBtn_Click(object sender, RoutedEventArgs e)
         {
-            todoInfo.Priority = isImportantBtn.IsChecked == true ? 5 : 0;
-            todolistPage.UpdateTodoInfo(todoInfo);
+            todo.Priority = isImportantBtn.IsChecked == true ? 5 : 0;
+            todolistPage.UpdateTodoInfo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -190,7 +191,7 @@ namespace UIDisplay.Components
                 while (l <= r)
                 {
                     int mid = (l + r) >> 1;
-                    if (todoInfo.CompareTo(((TodoUnit)todolistPage.todoList0.Children[mid]).todoInfo) >= 0)
+                    if (todo.CompareTo(((TodoUnit)todolistPage.todoList0.Children[mid]).todo) >= 0)
                     {
                         pos = mid;
                         r = mid - 1;
@@ -207,7 +208,7 @@ namespace UIDisplay.Components
                 int pos = todolistPage.todoList1.Children.Count;
                 for (int i = 0; i < todolistPage.todoList1.Children.Count; i++)
                 {
-                    if (todoInfo.CompareTo(((TodoUnit)todolistPage.todoList1.Children[i]).todoInfo) >= 0)
+                    if (todo.CompareTo(((TodoUnit)todolistPage.todoList1.Children[i]).todo) >= 0)
                     {
                         pos = i;
                         break;
@@ -220,8 +221,8 @@ namespace UIDisplay.Components
         {
             todoContentText.Opacity = 0.7;
             todoContentText.TextDecorations = TextDecorations.Strikethrough;
-            //todoTeammateListTextTitle.Opacity = 0.8;
-            //todoTeammateListText.Opacity = 0.8;
+            todoTeammateListTextTitle.Opacity = 0.8;
+            todoTeammateListText.Opacity = 0.8;
             calenderIcon.Fill = (SolidColorBrush)this.FindResource("TextPrimaryColor");
             calenderIcon.Opacity = 0.7;
             todoDateTimeText.Foreground = (SolidColorBrush)this.FindResource("TextPrimaryColor");
@@ -232,8 +233,8 @@ namespace UIDisplay.Components
         {
             todoContentText.Opacity = 1;
             todoContentText.TextDecorations = null;
-            //todoTeammateListTextTitle.Opacity = 1;
-            //todoTeammateListText.Opacity = 1;
+            todoTeammateListTextTitle.Opacity = 1;
+            todoTeammateListText.Opacity = 1;
             calenderIcon.Fill = (LinearGradientBrush)this.FindResource("DangerBrush");
             calenderIcon.Opacity = 1;
             todoDateTimeText.Foreground = (LinearGradientBrush)this.FindResource("DangerBrush");
@@ -252,7 +253,7 @@ namespace UIDisplay.Components
 
         private void deleteMI_Click(object sender, RoutedEventArgs e)
         {
-            todolistPage.DeleteTodoInfo(todoInfo);
+            todolistPage.DeleteTodoInfo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate

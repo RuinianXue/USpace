@@ -17,10 +17,9 @@ namespace UIDisplay.DAL
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@nickname", user.Nickname),
-                //new MySqlParameter("@dob", user.DateOfBirth),
+                //new MySqlParameter("@dob", user.DateOfBirth), // 生日设置待实现
                 new MySqlParameter("@dob", null),
                 new MySqlParameter("@email", user.Email),
-                //new MySqlParameter("@password", user.Password)
                 new MySqlParameter("@password", PasswordManager.HashPassword(user.Password))
             };
 

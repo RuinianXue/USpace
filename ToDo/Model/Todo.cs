@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace UIDisplay.Myscripts
+namespace UIDisplay.Model
 {
-    public class TodoInfo : IComparable<TodoInfo>
+    public class Todo : IComparable<Todo>
     {
         public string UUID { get; set; }    
         public string Content { get; set; }
@@ -18,7 +18,7 @@ namespace UIDisplay.Myscripts
 
         //string myevent;
 
-        public TodoInfo(string uUID,string content, DateTime date,int priority,int isDone,string teammate)
+        public Todo(string uUID,string content, DateTime date,int priority,int isDone,string teammate)
         {
             UUID = uUID;
             Content= content;
@@ -28,7 +28,7 @@ namespace UIDisplay.Myscripts
             Teammate = teammate;
         }
 
-        public int CompareTo(TodoInfo other)
+        public int CompareTo(Todo other)
         {
             if (Priority!=other.Priority)
             {

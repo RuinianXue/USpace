@@ -10,10 +10,8 @@ namespace UIDisplay.BLL
     {
         public static bool InsertUser(string newUserName, DateTime newDateOfBirth, string newEmail, string newPassword)
         {
-            // Check if the user exists; if not, perform the insert operation
             if (!UserRepository.IsUserExists(newEmail))
             {
-                // Call the DAL method to execute the insert operation
                 User user = new User
                 {
                     Nickname = newUserName,
@@ -24,15 +22,13 @@ namespace UIDisplay.BLL
 
                 return UserRepository.InsertUser(user);
             }
-            return false; // User exists, no insert operation performed
+            return false; 
         }
 
         public static bool UpdateUser(int userID, string newUserName, DateTime newDateOfBirth, string newEmail, string newPassword)
         {
-            // Check if the user exists; if so, perform the update operation
             if (UserRepository.IsUserExists(userID))
             {
-                // Call the DAL method to execute the update operation
                 User user = new User
                 {
                     ID = userID,
@@ -44,18 +40,16 @@ namespace UIDisplay.BLL
 
                 return UserRepository.UpdateUser(user);
             }
-            return false; // User does not exist, no update operation performed
+            return false; 
         }
 
         public static bool DeleteUser(int userID)
         {
-            // Check if the user exists; if so, perform the delete operation
             if (UserRepository.IsUserExists(userID))
             {
-                // Call the DAL method to execute the delete operation
                 return UserRepository.DeleteUserByID(userID);
             }
-            return false; // User does not exist, no delete operation performed
+            return false; 
         }
 
         public static bool SearchUser(string email, out DataTable result)
