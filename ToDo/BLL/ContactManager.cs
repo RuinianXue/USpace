@@ -2,19 +2,21 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using UIDisplay.Model;
+using UIDisplay.Myscripts;
 
-namespace UIDisplay.Myscripts
+namespace UIDisplay.BLL
 {
-    internal class UserDataControl
+    internal class ContactManager
     {
         private MysqlBase mysqlBase;
 
-        public UserDataControl()
+        public ContactManager()
         {
             mysqlBase = new MysqlBase();
         }
 
-        public void InsertUserInfo(UserInfo userInfo)
+        public void InsertUserInfo(Contact userInfo)
         {
             string sql = "INSERT INTO userinfo (uuid, name, phone, email, imgpath) VALUES (@uuid, @name, @phone, @email, @imgpath)";
             Console.WriteLine(sql);
@@ -39,7 +41,7 @@ namespace UIDisplay.Myscripts
             }
         }
 
-        public void UpdateUserInfo(UserInfo userInfo)
+        public void UpdateUserInfo(Contact userInfo)
         {
             string sql = "UPDATE userinfo SET name=@name, phone=@phone, email=@email, imgpath=@imgpath WHERE uuid=@uuid";
             Console.WriteLine(sql);
@@ -64,7 +66,7 @@ namespace UIDisplay.Myscripts
             }
         }
 
-        public void DeleteUserInfo(UserInfo userInfo)
+        public void DeleteUserInfo(Contact userInfo)
         {
             string sql = "DELETE FROM userinfo WHERE uuid=@uuid";
             Console.WriteLine(sql);

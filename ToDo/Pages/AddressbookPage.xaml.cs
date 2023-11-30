@@ -21,6 +21,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using UIDisplay.Model;
+using UIDisplay.BLL;
 
 namespace UIDisplay.Pages
 {
@@ -36,7 +38,7 @@ namespace UIDisplay.Pages
         }
         public void Refresh()
         {
-            UserDataControl userDataControl = new UserDataControl();
+            ContactManager userDataControl = new ContactManager();
             DataTable dt = userDataControl.QueryUserInfo();
             Dispatcher.BeginInvoke(new Action(delegate
             {
@@ -44,7 +46,7 @@ namespace UIDisplay.Pages
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     DataRow row = dt.Rows[i];
-                    UserInfo userInfo = new UserInfo(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
+                    Contact userInfo = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
                     AddressUnit addressUnit = new AddressUnit(userInfo);
                     wrapPanel.Children.Add(addressUnit);
                 }
@@ -88,7 +90,7 @@ namespace UIDisplay.Pages
 
         private void insertpersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            UserInfo userInfo = new UserInfo(UserInfo.genUUID(), "", "", "", "default.jpg");
+            Contact userInfo = new Contact(Contact.genUUID(), "", "", "", "default.jpg");
             AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, userInfo);
             NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
         }
@@ -100,7 +102,7 @@ namespace UIDisplay.Pages
 
         private void deletepersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            UserDataControl userDataControl = new UserDataControl();
+            ContactManager userDataControl = new ContactManager();
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate

@@ -162,8 +162,8 @@
       <DependentUpon>AddressUnitEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Scripts\QiniuBase.cs" />
-    <Compile Include="Scripts\UserDataControl.cs" />
-    <Compile Include="Scripts\UserInfo.cs" />
+    <Compile Include="BLL\ContactManager.cs" />
+    <Compile Include="Model\Contact.cs" />
     <Compile Include="UserControls\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
     </Compile>

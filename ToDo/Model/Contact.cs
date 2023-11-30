@@ -8,9 +8,9 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace UIDisplay.Myscripts
+namespace UIDisplay.Model
 {
-    public class UserInfo
+    public class Contact
     {
         private readonly string IMG_PATH_PREFIX = "https://src.star-tears.cn/hznu/class-img-bed/";
         public string UUID { get; set; }
@@ -19,10 +19,10 @@ namespace UIDisplay.Myscripts
         public string Email { get; set; }
         public string ImgPath { get; set; }
 
-        public UserInfo()
+        public Contact()
         {
         }
-        public UserInfo(string uUID, string name = "", string phoneNum = "", string email = "", string imgPath = "")
+        public Contact(string uUID, string name = "", string phoneNum = "", string email = "", string imgPath = "")
         {
             UUID = uUID;
             Name = name;

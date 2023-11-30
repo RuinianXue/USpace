@@ -15,6 +15,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIDisplay.Model;
 
 namespace UIDisplay.Components
 {
@@ -37,12 +38,12 @@ namespace UIDisplay.Components
         private List<MyColor> myColors = new List<MyColor>();
         private int mode = 0;
         public bool IsChecked { get; set; } = false;
-        public UserInfo userInfo { get; set; }
+        public Contact userInfo { get; set; }
         public AddressUnit()
         {
             InitializeComponent();
         }
-        public AddressUnit(UserInfo uI, int mode = 0)
+        public AddressUnit(Contact uI, int mode = 0)
         {
             InitializeComponent();
             myColors.Add(new MyColor(255, 85, 85, 255));

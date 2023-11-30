@@ -141,7 +141,7 @@ namespace UIDisplay.Pages
         {
             Task.Run(() =>
             {
-                UserDataControl userDataControl = new UserDataControl();
+                ContactManager userDataControl = new ContactManager();
                 DataTable dt = userDataControl.QueryUserInfo();
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
@@ -149,13 +149,12 @@ namespace UIDisplay.Pages
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         DataRow row = dt.Rows[i];
-                        UserInfo userInfo = new UserInfo(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
+                        Contact userInfo = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
                         AddressUnit addressUnit = new AddressUnit(userInfo, 1);
                         wrapPanel.Children.Add(addressUnit);
                     }
                 }));
             });
-
         }
         public void UpdateTodoInfo(Todo todoInfo)
         {
@@ -165,11 +164,11 @@ namespace UIDisplay.Pages
                 int result = todoManager.UpdateTodoInfo(todoInfo);
                 if (result > 0)
                 {
-                    Growl.Success("待办任务添加成功！");
+                    Growl.Success("待办任务更新成功！");
                 }
                 else
                 {
-                    Growl.Warning("待办任务添加失败！");
+                    Growl.Warning("待办任务更新失败！");
                 }
                 Refresh_TodoDoneCount();
             });

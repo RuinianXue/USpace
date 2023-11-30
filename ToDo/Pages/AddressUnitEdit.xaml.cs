@@ -19,6 +19,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using UIDisplay.Model;
+using UIDisplay.BLL;
 
 namespace UIDisplay.Pages
 {
@@ -27,7 +29,7 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class AddressUnitEdit : Page
     {
-        private UserInfo userInfo;
+        private Contact userInfo;
         private int mode;
         private string tmp_img_path { get; set; }
         private AddressbookPage _adbp;
@@ -40,7 +42,7 @@ namespace UIDisplay.Pages
         /// </summary>
         /// <param name="user">user信息</param>
         /// <param name="mode">模式，默认0（添加新联系人），1（修改信息）</param>
-        public AddressUnitEdit(AddressbookPage adbp, UserInfo user, int mode = 0)
+        public AddressUnitEdit(AddressbookPage adbp, Contact user, int mode = 0)
         {
             InitializeComponent();
             _adbp = adbp;
@@ -83,7 +85,7 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(userInfo.ImgPath);
                 }
-                userInfo.ImgPath = UserInfo.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
+                userInfo.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
                 Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
             }
@@ -103,7 +105,7 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(userInfo.ImgPath);
                 }
-                userInfo.ImgPath = UserInfo.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
+                userInfo.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
                 Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
             }
@@ -114,7 +116,7 @@ namespace UIDisplay.Pages
 
         private void uploadUserInfo()
         {
-            UserDataControl userDataControl = new UserDataControl();
+            ContactManager userDataControl = new ContactManager();
             if (mode == 0)
             {
                 userDataControl.InsertUserInfo(userInfo);
@@ -135,7 +137,7 @@ namespace UIDisplay.Pages
             {
                 tmp_img_path = openFileDialog.FileName;
                 Console.WriteLine(tmp_img_path);
-                img.Source = UserInfo.LoadImage(tmp_img_path);
+                img.Source = Contact.LoadImage(tmp_img_path);
             }
         }
 
