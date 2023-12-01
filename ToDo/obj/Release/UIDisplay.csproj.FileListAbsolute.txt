@@ -338,7 +338,6 @@ E:\0temp\USpace\ToDo\obj\Release\Pages\LoginPage.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\MarkdownEditorPage.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\RegisterPage.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\TodoListPage.g.cs
-E:\0temp\USpace\ToDo\obj\Release\UserControls\MyTextBox.g.cs
 E:\0temp\USpace\ToDo\obj\Release\App.g.cs
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay_Content.g.cs
 E:\0temp\USpace\ToDo\obj\Release\GeneratedInternalTypeHelper.g.cs
@@ -357,7 +356,6 @@ E:\0temp\USpace\ToDo\obj\Release\Pages\MarkdownEditorPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\RegisterPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\TodoListPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Styles\MainStyle.baml
-E:\0temp\USpace\ToDo\obj\Release\UserControls\MyTextBox.baml
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.g.resources
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.Properties.Resources.resources
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.GenerateResource.cache
@@ -367,3 +365,5 @@ E:\0temp\USpace\ToDo\obj\Release\UIDisplay.exe
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.pdb
 E:\0temp\USpace\ToDo\obj\Release\Themes\ResourceDictionary.baml
 E:\0temp\USpace\ToDo\obj\Release\Themes\LightTheme.baml
+E:\0temp\USpace\ToDo\obj\Release\Components\MyTextBox.g.cs
+E:\0temp\USpace\ToDo\obj\Release\Components\MyTextBox.baml

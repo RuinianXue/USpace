@@ -4,7 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
-    xmlns:uc="clr-namespace:UIDisplay.UserControls"
+    xmlns:uc="clr-namespace:UIDisplay.Components"
     mc:Ignorable="d" Height="500" Width="800" Background="Transparent" 
     WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
 

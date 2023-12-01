@@ -26,7 +26,7 @@ namespace UIDisplay.Pages
     public partial class TodoListPage : Page
     {
         private bool IsShowMore { get; set; } = true;
-        TodoList todoList;
+        //TodoList todoList;
         public TodoListPage()
         {
             InitializeComponent();
@@ -37,15 +37,15 @@ namespace UIDisplay.Pages
         {
             //this.Width = Constants.INSIDE_WIDTH;
             //this.Height = Constants.INSIDE_HEIGHT;
-            // 创建 TodoList 实例
-            todoList = new TodoList();
+            //// 创建 TodoList 实例
+            //todoList = new TodoList();
 
-            // 设置 TodoList 的名称和布局属性
-            todoList.Name = "todoList";
-            todoList.SetValue(Grid.ZIndexProperty, 0);
+            //// 设置 TodoList 的名称和布局属性
+            //todoList.Name = "todoList";
+            //todoList.SetValue(Grid.ZIndexProperty, 0);
 
-            // 将 TodoList 添加到父容器中
-            todoListPanel.Children.Add(todoList); // 请将 parentContainer 替换为实际的父容器名称
+            //// 将 TodoList 添加到父容器中
+            //todoListPanel.Children.Add(todoList); // 请将 parentContainer 替换为实际的父容器名称
 
             Refresh();
             Task.Run(CheckTime);
@@ -129,17 +129,17 @@ namespace UIDisplay.Pages
                     todoList.todoList0.Children.Clear();
                     foreach (Todo sub_todoInfo in todoUnitList0)
                     {
-                        todoList.todoList0.Children.Add(new TodoUnit(this, sub_todoInfo));
+                        todoList.todoList0.Children.Add(new TodoUnit(todoList, sub_todoInfo));
                     }
                     todoList.todoList1.Children.Clear();
                     foreach (Todo sub_todoInfo in todoUnitList1)
                     {
-                        todoList.todoList1.Children.Add(new TodoUnit(this, sub_todoInfo));
+                        todoList.todoList1.Children.Add(new TodoUnit(todoList, sub_todoInfo));
                     }
                     todoList.todoList2.Children.Clear();
                     foreach (Todo sub_todoInfo in todoUnitList2)
                     {
-                        todoList.todoList2.Children.Add(new TodoUnit(this, sub_todoInfo));
+                        todoList.todoList2.Children.Add(new TodoUnit(todoList, sub_todoInfo));
                     }
                     Refresh_TodoDoneCount();
                 }));
@@ -272,10 +272,10 @@ namespace UIDisplay.Pages
             teammateList.Text = "无";
         }
 
-        //private void todolistPanelScr_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    todoTaskContentTextBox_LostFocus();
-        //}
+        private void todolistPanelScr_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            todoTaskContentTextBox_LostFocus();
+        }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
@@ -293,10 +293,9 @@ namespace UIDisplay.Pages
                     {
                         Dispatcher.BeginInvoke(new Action(delegate
                         {
-                            TodoUnit todoUnit = new TodoUnit(this, tmp_todoInfo);
+                            TodoUnit todoUnit = new TodoUnit(todoList, tmp_todoInfo);
                             todoUnit.addTodoUnitIntoTodoList();
                         }));
-
                     });
                     todoTaskContentTextBox_LostFocus();
                 }

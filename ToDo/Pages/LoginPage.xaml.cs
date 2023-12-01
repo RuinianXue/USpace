@@ -3,7 +3,7 @@ using System.Windows.Input;
 using System.Text.RegularExpressions;
 using System.Windows.Threading;
 using System;
-using UIDisplay.UserControls;
+using UIDisplay.Components;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Media;

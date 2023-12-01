@@ -36,13 +36,13 @@ namespace UIDisplay.Components
             InitializeComponent();
         }
 
-        public TodoUnit(TodoListPage todolistPage, Todo todoInfo)
-        {
-            InitializeComponent();
-            this.todo = todoInfo;
-            this.todoListPage = todolistPage;
-            Init();
-        }
+        //public TodoUnit(TodoListPage todolistPage, Todo todoInfo)
+        //{
+        //    InitializeComponent();
+        //    this.todo = todoInfo;
+        //    this.todoListPage = todolistPage;
+        //    Init();
+        //}
 
         public TodoUnit(TodoList todolist, Todo todoInfo)
         {

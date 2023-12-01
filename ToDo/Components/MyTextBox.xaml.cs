@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace UIDisplay.UserControls
+namespace UIDisplay.Components
 {
     /// <summary>
     /// MyTextBox.xaml 的交互逻辑

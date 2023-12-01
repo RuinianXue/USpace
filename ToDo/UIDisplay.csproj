@@ -169,7 +169,7 @@
     <Compile Include="Utils\QiniuBase.cs" />
     <Compile Include="BLL\ContactManager.cs" />
     <Compile Include="Model\Contact.cs" />
-    <Compile Include="UserControls\MyTextBox.xaml.cs">
+    <Compile Include="Components\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
     </Compile>
     <Page Include="Assets\Icons\Icons.xaml">
@@ -253,7 +253,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\MyTextBox.xaml">
+    <Page Include="Components\MyTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
