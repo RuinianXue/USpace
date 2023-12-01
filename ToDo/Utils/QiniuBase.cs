@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using HandyControl.Controls;
 
-namespace UIDisplay.Myscripts
+namespace UIDisplay.Utils
 {
     internal class QiniuBase
     {

@@ -327,7 +327,6 @@ E:\0temp\USpace\ToDo\bin\Release\TomatoClock.pdb
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.AssemblyReference.cache
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.SuggestedBindingRedirects.cache
 E:\0temp\USpace\ToDo\obj\Release\Assets\Icons\Icons.baml
-E:\0temp\USpace\ToDo\obj\Release\MyThemes\ResourceDictionary.baml
 E:\0temp\USpace\ToDo\obj\Release\Components\AddressUnit.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Components\TodoList.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Components\TodoUnit.g.cs
@@ -358,7 +357,6 @@ E:\0temp\USpace\ToDo\obj\Release\Pages\MarkdownEditorPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\RegisterPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\TodoListPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Styles\MainStyle.baml
-E:\0temp\USpace\ToDo\obj\Release\MyThemes\LightTheme.baml
 E:\0temp\USpace\ToDo\obj\Release\UserControls\MyTextBox.baml
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.g.resources
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.Properties.Resources.resources
@@ -367,3 +365,5 @@ E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.CoreCompileInputs.cache
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.CopyComplete
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.exe
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.pdb
+E:\0temp\USpace\ToDo\obj\Release\Themes\ResourceDictionary.baml
+E:\0temp\USpace\ToDo\obj\Release\Themes\LightTheme.baml

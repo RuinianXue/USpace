@@ -7,5 +7,5 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:UIDisplay"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             mc:Ignorable="d" Loaded="Page_Loaded">
+             mc:Ignorable="d">
 </UserControl>

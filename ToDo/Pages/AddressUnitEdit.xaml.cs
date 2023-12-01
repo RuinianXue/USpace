@@ -1,4 +1,4 @@
-﻿using UIDisplay.Myscripts;
+﻿using UIDisplay.Utils;
 using Microsoft.Win32;
 using Qiniu.Http;
 using Qiniu.Storage;

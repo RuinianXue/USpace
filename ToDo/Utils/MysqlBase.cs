@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace UIDisplay.Myscripts
+namespace UIDisplay.Utils
 {
     internal class MysqlBase
     {

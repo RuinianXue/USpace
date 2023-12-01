@@ -15,7 +15,8 @@
     <Border Style="{StaticResource BorderClip}" x:Name="mainBorder" CornerRadius="20" Background="{DynamicResource SecondaryBlueColorA}">
         <Grid>
             <!--<local1:TodoList x:Name="todoListControl" Grid.ZIndex="0" Margin="0" VerticalScrollBarVisibility="Auto" MouseDown="todolistPanelScr_MouseDown"/>-->
-            <local1:TodoList x:Name="todoList" Grid.ZIndex="0" Margin="32 8 32 8"/>
+            <!--<local1:TodoList x:Name="todoList" Grid.ZIndex="0" Margin="32 72 32 8"/>-->
+            <StackPanel x:Name="todoListPanel" Grid.ZIndex="0" Margin="32 72 32 8"/>
             <Border x:Name="b1" Grid.ZIndex="1" Height="70" VerticalAlignment="Top" Background="{DynamicResource SecondaryBlueColorA}" Opacity="0.8"/>
             <!--<Border Grid.ZIndex="2" VerticalAlignment="Top" Height="{Binding Height, ElementName=b1}">
                 <Border.Background>
@@ -32,7 +33,6 @@
                         <Path Data="{DynamicResource home}" Margin="37 0 0 0" Stretch="Fill" Fill="{DynamicResource PrimaryBlueColorA}" Width="28" Height="28"/>
                         <hc:SimpleText Text="任务" Margin="16 0 0 0" VerticalAlignment="Center" Foreground="{DynamicResource PrimaryBlueColorA}" FontSize="28" FontWeight="Bold"/>
                     </StackPanel>
-
                 </Grid>
             </StackPanel>
             <Border x:Name="addressbookBorder" Grid.ZIndex="4" CornerRadius="10" Margin="4 70 4 90" Visibility="Collapsed">

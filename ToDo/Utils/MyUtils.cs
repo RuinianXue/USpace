@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UIDisplay.Myscripts
+namespace UIDisplay.Utils
 {
     internal class MyUtils
     {

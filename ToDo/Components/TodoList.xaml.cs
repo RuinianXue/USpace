@@ -1,6 +1,6 @@
 ﻿using HandyControl.Controls;
 using UIDisplay.Components;
-using UIDisplay.Myscripts;
+using UIDisplay.Utils;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace UIDisplay.Components
             Refresh();
         }
 
-        private void Refresh()
+        public void Refresh()   //待修改：暂时改为public
         {
             Task.Run(() =>
             {

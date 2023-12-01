@@ -2,7 +2,7 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 using UIDisplay.Model;
-using UIDisplay.Myscripts;
+using UIDisplay.Utils;
 using UIDisplay.BLL;
 
 namespace UIDisplay.DAL

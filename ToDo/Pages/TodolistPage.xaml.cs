@@ -1,6 +1,6 @@
 ﻿using HandyControl.Controls;
 using UIDisplay.Components;
-using UIDisplay.Myscripts;
+using UIDisplay.Utils;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
@@ -26,6 +26,7 @@ namespace UIDisplay.Pages
     public partial class TodoListPage : Page
     {
         private bool IsShowMore { get; set; } = true;
+        TodoList todoList;
         public TodoListPage()
         {
             InitializeComponent();
@@ -36,6 +37,16 @@ namespace UIDisplay.Pages
         {
             //this.Width = Constants.INSIDE_WIDTH;
             //this.Height = Constants.INSIDE_HEIGHT;
+            // 创建 TodoList 实例
+            todoList = new TodoList();
+
+            // 设置 TodoList 的名称和布局属性
+            todoList.Name = "todoList";
+            todoList.SetValue(Grid.ZIndexProperty, 0);
+
+            // 将 TodoList 添加到父容器中
+            todoListPanel.Children.Add(todoList); // 请将 parentContainer 替换为实际的父容器名称
+
             Refresh();
             Task.Run(CheckTime);
             Refresh_Addressbook();

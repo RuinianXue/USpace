@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UIDisplay.Myscripts
+namespace UIDisplay.Utils
 {
     internal class Settings
     {

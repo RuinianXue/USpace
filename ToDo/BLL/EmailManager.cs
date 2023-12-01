@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using HandyControl.Controls;
-using UIDisplay.Myscripts;
+using UIDisplay.Utils;
 
 namespace UIDisplay.BLL
 {

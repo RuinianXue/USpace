@@ -104,7 +104,7 @@ namespace UIDisplay.Pages
             ArxivCard tmp1 = new ArxivCard();
             tmp1.SetPosition(inGrid,0,0);
 
-            Card tmp2 = new Card();
+            //Card tmp2 = new Card();
             //tmp2.SetPosition(inGrid,1,4);
             //BigRectangleCard tmpbig3 = new BigRectangleCard();
             //tmpbig3.SetPosition(inGrid,2,0);
@@ -125,35 +125,7 @@ namespace UIDisplay.Pages
                 }
             }*/
         }
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            //LoadInAnimation(sender);
-        }
-        private void LoadInAnimation(object sender)
-        {
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimation doubleAnimation = new DoubleAnimation()
-            {
-                From = 0.4,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.6),
-                DecelerationRatio = 0.6
-            };
-            DoubleAnimation doubleAnimation2 = new DoubleAnimation()
-            {
-                From = 50,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.8),
-                DecelerationRatio = 0.6
-            };
-            Storyboard.SetTarget(doubleAnimation, (Page)sender);
-            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-            storyboard.Children.Add(doubleAnimation);
-            Storyboard.SetTarget(doubleAnimation2, (Page)sender);
-            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.Y)"));
-            storyboard.Children.Add(doubleAnimation2);
-            storyboard.Begin();
-        }
+
         #region drag and drop
         private UIElement initUE;
         private Point initPt;
