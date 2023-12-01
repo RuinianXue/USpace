@@ -365,3 +365,5 @@ E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.CoreCompileInputs.cache
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.CopyComplete
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.exe
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.pdb
+E:\0temp\USpace\ToDo\obj\Release\Components\TodoUnit_BigSquare.g.cs
+E:\0temp\USpace\ToDo\obj\Release\Components\TodoUnit_BigSquare.baml

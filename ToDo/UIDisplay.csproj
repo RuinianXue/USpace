@@ -155,6 +155,7 @@
     <Compile Include="Components\BlurMask.cs" />
     <Compile Include="DAL\ContactRepository.cs" />
     <Compile Include="DAL\TodoRepository.cs" />
+    <Compile Include="TodoCard.cs" />
     <Compile Include="TomatoCard.cs" />
     <Compile Include="Pages\AddressbookPage.xaml.cs">
       <DependentUpon>AddressbookPage.xaml</DependentUpon>
@@ -167,6 +168,9 @@
     <Compile Include="Model\Contact.cs" />
     <Compile Include="UserControls\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TodoUnit_BigSquare.xaml.cs">
+      <DependentUpon>TodoUnit_BigSquare.xaml</DependentUpon>
     </Compile>
     <Page Include="Assets\Icons\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MyTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\TodoUnit_BigSquare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

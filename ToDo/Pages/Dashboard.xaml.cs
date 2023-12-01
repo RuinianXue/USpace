@@ -106,8 +106,11 @@ namespace UIDisplay.Pages
 
             Card tmp2 = new Card();
             //tmp2.SetPosition(inGrid,1,4);
-            BigRectangleCard tmpbig3 = new BigRectangleCard();
-            tmpbig3.SetPosition(inGrid,2,0);
+            //BigRectangleCard tmpbig3 = new BigRectangleCard();
+            //tmpbig3.SetPosition(inGrid,2,0);
+            TodoCard todoCard = new TodoCard();
+            todoCard.SetPosition(inGrid, 2, 0);
+
             BigRectangleCard tmpbig4 = new BigRectangleCard();
             tmpbig4.SetPosition(inGrid, 2, 2);
             /*
