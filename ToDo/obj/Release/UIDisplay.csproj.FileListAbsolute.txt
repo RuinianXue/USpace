@@ -178,6 +178,9 @@ D:\gitrepos\USpace\ToDo\obj\Release\UIDisplay.csproj.CoreCompileInputs.cache
 D:\gitrepos\USpace\ToDo\obj\Release\UIDisplay.csproj.CopyComplete
 D:\gitrepos\USpace\ToDo\obj\Release\UIDisplay.exe
 D:\gitrepos\USpace\ToDo\obj\Release\UIDisplay.pdb
+E:\0temp\USpace\ToDo\bin\Release\CefSharp.Core.Runtime.dll
+E:\0temp\USpace\ToDo\bin\Release\CefSharp.Core.Runtime.pdb
+E:\0temp\USpace\ToDo\bin\Release\CefSharp.Core.Runtime.xml
 E:\0temp\USpace\ToDo\bin\Release\chrome_100_percent.pak
 E:\0temp\USpace\ToDo\bin\Release\chrome_200_percent.pak
 E:\0temp\USpace\ToDo\bin\Release\chrome_elf.dll
@@ -253,9 +256,6 @@ E:\0temp\USpace\ToDo\bin\Release\CefSharp.BrowserSubprocess.Core.dll
 E:\0temp\USpace\ToDo\bin\Release\CefSharp.BrowserSubprocess.Core.pdb
 E:\0temp\USpace\ToDo\bin\Release\CefSharp.BrowserSubprocess.exe
 E:\0temp\USpace\ToDo\bin\Release\CefSharp.BrowserSubprocess.pdb
-E:\0temp\USpace\ToDo\bin\Release\CefSharp.Core.Runtime.dll
-E:\0temp\USpace\ToDo\bin\Release\CefSharp.Core.Runtime.pdb
-E:\0temp\USpace\ToDo\bin\Release\CefSharp.Core.Runtime.xml
 E:\0temp\USpace\ToDo\bin\Release\UIDisplay.exe.config
 E:\0temp\USpace\ToDo\bin\Release\UIDisplay.exe
 E:\0temp\USpace\ToDo\bin\Release\UIDisplay.pdb
@@ -329,6 +329,7 @@ E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.SuggestedBindingRedirects.cach
 E:\0temp\USpace\ToDo\obj\Release\Assets\Icons\Icons.baml
 E:\0temp\USpace\ToDo\obj\Release\MyThemes\ResourceDictionary.baml
 E:\0temp\USpace\ToDo\obj\Release\Components\AddressUnit.g.cs
+E:\0temp\USpace\ToDo\obj\Release\Components\TodoList.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Components\TodoUnit.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\AddressbookPage.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\AddressUnitEdit.g.cs
@@ -337,7 +338,7 @@ E:\0temp\USpace\ToDo\obj\Release\MainWindow.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\LoginPage.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\MarkdownEditorPage.g.cs
 E:\0temp\USpace\ToDo\obj\Release\Pages\RegisterPage.g.cs
-E:\0temp\USpace\ToDo\obj\Release\Pages\TodolistPage.g.cs
+E:\0temp\USpace\ToDo\obj\Release\Pages\TodoListPage.g.cs
 E:\0temp\USpace\ToDo\obj\Release\UserControls\MyTextBox.g.cs
 E:\0temp\USpace\ToDo\obj\Release\App.g.cs
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay_Content.g.cs
@@ -346,6 +347,7 @@ E:\0temp\USpace\ToDo\obj\Release\UIDisplay_MarkupCompile.cache
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay_MarkupCompile.lref
 E:\0temp\USpace\ToDo\obj\Release\App.baml
 E:\0temp\USpace\ToDo\obj\Release\Components\AddressUnit.baml
+E:\0temp\USpace\ToDo\obj\Release\Components\TodoList.baml
 E:\0temp\USpace\ToDo\obj\Release\Components\TodoUnit.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\AddressbookPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\AddressUnitEdit.baml
@@ -354,7 +356,7 @@ E:\0temp\USpace\ToDo\obj\Release\MainWindow.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\LoginPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\MarkdownEditorPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Pages\RegisterPage.baml
-E:\0temp\USpace\ToDo\obj\Release\Pages\TodolistPage.baml
+E:\0temp\USpace\ToDo\obj\Release\Pages\TodoListPage.baml
 E:\0temp\USpace\ToDo\obj\Release\Styles\MainStyle.baml
 E:\0temp\USpace\ToDo\obj\Release\MyThemes\LightTheme.baml
 E:\0temp\USpace\ToDo\obj\Release\UserControls\MyTextBox.baml
@@ -365,5 +367,3 @@ E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.CoreCompileInputs.cache
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.csproj.CopyComplete
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.exe
 E:\0temp\USpace\ToDo\obj\Release\UIDisplay.pdb
-E:\0temp\USpace\ToDo\obj\Release\Components\TodoUnit_BigSquare.g.cs
-E:\0temp\USpace\ToDo\obj\Release\Components\TodoUnit_BigSquare.baml

@@ -153,6 +153,9 @@
       <DependentUpon>AddressUnit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\BlurMask.cs" />
+    <Compile Include="Components\TodoList.xaml.cs">
+      <DependentUpon>TodoList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DAL\ContactRepository.cs" />
     <Compile Include="DAL\TodoRepository.cs" />
     <Compile Include="TodoCard.cs" />
@@ -169,14 +172,15 @@
     <Compile Include="UserControls\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Components\TodoUnit_BigSquare.xaml.cs">
-      <DependentUpon>TodoUnit_BigSquare.xaml</DependentUpon>
-    </Compile>
     <Page Include="Assets\Icons\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Components\AddressUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\TodoList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,7 +241,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TodolistPage.xaml">
+    <Page Include="Pages\TodoListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,10 +254,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MyTextBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Components\TodoUnit_BigSquare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,8 +273,8 @@
     <Compile Include="Scripts\MyUtils.cs" />
     <Compile Include="Scripts\Settings.cs" />
     <Compile Include="Model\Todo.cs" />
-    <Compile Include="Pages\TodolistPage.xaml.cs">
-      <DependentUpon>TodolistPage.xaml</DependentUpon>
+    <Compile Include="Pages\TodoListPage.xaml.cs">
+      <DependentUpon>TodoListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -22,7 +22,7 @@ namespace UIDisplay
     public partial class MainWindow : Window
     {
         AddressbookPage addressbookPage;
-        TodolistPage todolistPage;
+        TodoListPage todolistPage;
         Dashboard dashboardPage;
         MarkdownEditorPage markdownEditor;
         public MainWindow()
@@ -46,7 +46,7 @@ namespace UIDisplay
             PagesNavigation.Height = Constants.INSIDE_HEIGHT;
             PagesNavigation.Width = Constants.INSIDE_WIDTH;
             addressbookPage = new AddressbookPage();
-            todolistPage =new TodolistPage();
+            todolistPage =new TodoListPage();
             dashboardPage = new Dashboard();
             markdownEditor = new MarkdownEditorPage();
             #region Dashboard Menu

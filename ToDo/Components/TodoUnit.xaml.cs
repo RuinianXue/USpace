@@ -28,23 +28,34 @@ namespace UIDisplay.Components
     public partial class TodoUnit : UserControl
     {
         public Todo todo;
-        TodolistPage todolistPage;
+        TodoListPage todoListPage;
+        TodoList todoList;
+
         public TodoUnit()
         {
             InitializeComponent();
         }
 
-        public TodoUnit(TodolistPage todolistPage, Todo todoInfo)
+        public TodoUnit(TodoListPage todolistPage, Todo todoInfo)
         {
             InitializeComponent();
             this.todo = todoInfo;
-            this.todolistPage = todolistPage;
+            this.todoListPage = todolistPage;
             Init();
         }
+
+        public TodoUnit(TodoList todolist, Todo todoInfo)
+        {
+            InitializeComponent();
+            this.todo = todoInfo;
+            this.todoList = todolist;
+            Init();
+        }
+
         private void Init()
         {
             todoContentText.Text = todo.Content;
-            todoDateTimeText.Text = todo.Date.ToString("yyyy-MM-dd HH:mm:ss");
+            todoDateTimeText.Text = todo.Date.ToString("MM-dd HH:mm");
             todoTeammateListText.Text = todo.Teammate;
             if (todo.IsDone > 0)
             {
@@ -127,7 +138,7 @@ namespace UIDisplay.Components
             storyboard.Begin();
 
             todo.IsDone = isDoneBtn.IsChecked == true ? 1 : 0;
-            todolistPage.UpdateTodoInfo(todo);
+            todoList.UpdateTodoInfo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -135,15 +146,15 @@ namespace UIDisplay.Components
 
                     if (isDoneBtn.IsChecked == false)
                     {
-                        todolistPage.todoList2.Children.Remove(this);
+                        todoList.todoList2.Children.Remove(this);
                     }
                     else if (isImportantBtn.IsChecked == true)
                     {
-                        todolistPage.todoList0.Children.Remove(this);
+                        todoList.todoList0.Children.Remove(this);
                     }
                     else
                     {
-                        todolistPage.todoList1.Children.Remove(this);
+                        todoList.todoList1.Children.Remove(this);
                     }
                     addTodoUnitIntoTodoList();
                 }));
@@ -154,22 +165,22 @@ namespace UIDisplay.Components
         private void isImportantBtn_Click(object sender, RoutedEventArgs e)
         {
             todo.Priority = isImportantBtn.IsChecked == true ? 5 : 0;
-            todolistPage.UpdateTodoInfo(todo);
+            todoList.UpdateTodoInfo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
                     if (isDoneBtn.IsChecked == true)
                     {
-                        todolistPage.todoList2.Children.Remove(this);
+                        todoList.todoList2.Children.Remove(this);
                     }
                     else if (isImportantBtn.IsChecked == true)
                     {
-                        todolistPage.todoList1.Children.Remove(this);
+                        todoList.todoList1.Children.Remove(this);
                     }
                     else
                     {
-                        todolistPage.todoList0.Children.Remove(this);
+                        todoList.todoList0.Children.Remove(this);
                     }
                     addTodoUnitIntoTodoList();
 
@@ -181,17 +192,17 @@ namespace UIDisplay.Components
         {
             if (isDoneBtn.IsChecked == true)
             {
-                todolistPage.todoList2.Children.Insert(0, this);
+                todoList.todoList2.Children.Insert(0, this);
             }
             else if (isImportantBtn.IsChecked == true)
             {
-                int pos = todolistPage.todoList0.Children.Count;
+                int pos = todoList.todoList0.Children.Count;
                 // 二分查找第一个小于this的TodoUnit
                 int l = 0, r = pos - 1;
                 while (l <= r)
                 {
                     int mid = (l + r) >> 1;
-                    if (todo.CompareTo(((TodoUnit)todolistPage.todoList0.Children[mid]).todo) >= 0)
+                    if (todo.CompareTo(((TodoUnit)todoList.todoList0.Children[mid]).todo) >= 0)
                     {
                         pos = mid;
                         r = mid - 1;
@@ -201,20 +212,20 @@ namespace UIDisplay.Components
                         l = mid + 1;
                     }
                 }
-                todolistPage.todoList0.Children.Insert(pos, this);
+                todoList.todoList0.Children.Insert(pos, this);
             }
             else
             {
-                int pos = todolistPage.todoList1.Children.Count;
-                for (int i = 0; i < todolistPage.todoList1.Children.Count; i++)
+                int pos = todoList.todoList1.Children.Count;
+                for (int i = 0; i < todoList.todoList1.Children.Count; i++)
                 {
-                    if (todo.CompareTo(((TodoUnit)todolistPage.todoList1.Children[i]).todo) >= 0)
+                    if (todo.CompareTo(((TodoUnit)todoList.todoList1.Children[i]).todo) >= 0)
                     {
                         pos = i;
                         break;
                     }
                 }
-                todolistPage.todoList1.Children.Insert(pos, this);
+                todoList.todoList1.Children.Insert(pos, this);
             }
         }
         private void isDoneBtn_Checked(object sender, RoutedEventArgs e)
@@ -253,7 +264,7 @@ namespace UIDisplay.Components
 
         private void deleteMI_Click(object sender, RoutedEventArgs e)
         {
-            todolistPage.DeleteTodoInfo(todo);
+            todoList.DeleteTodoInfo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -261,15 +272,15 @@ namespace UIDisplay.Components
 
                     if (isDoneBtn.IsChecked == true)
                     {
-                        todolistPage.todoList2.Children.Remove(this);
+                        todoList.todoList2.Children.Remove(this);
                     }
                     else if (isImportantBtn.IsChecked == true)
                     {
-                        todolistPage.todoList0.Children.Remove(this);
+                        todoList.todoList0.Children.Remove(this);
                     }
                     else
                     {
-                        todolistPage.todoList1.Children.Remove(this);
+                        todoList.todoList1.Children.Remove(this);
                     }
                 }));
             });

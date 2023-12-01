@@ -23,10 +23,10 @@ namespace UIDisplay.Pages
     /// <summary>
     /// TodolistPage.xaml 的交互逻辑
     /// </summary>
-    public partial class TodolistPage : Page
+    public partial class TodoListPage : Page
     {
         private bool IsShowMore { get; set; } = true;
-        public TodolistPage()
+        public TodoListPage()
         {
             InitializeComponent();
             TodoListPageInitialize();
@@ -46,7 +46,7 @@ namespace UIDisplay.Pages
             {
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
-                    foreach (TodoUnit todoUnit in todoList0.Children)
+                    foreach (TodoUnit todoUnit in todoList.todoList0.Children)
                     {
                         if (DateTime.Now.AddMinutes(1) < todoUnit.todo.Date)
                         {
@@ -62,7 +62,7 @@ namespace UIDisplay.Pages
                             }
                         }
                     }
-                    foreach (TodoUnit todoUnit in todoList1.Children)
+                    foreach (TodoUnit todoUnit in todoList.todoList1.Children)
                     {
                         if (DateTime.Now.AddMinutes(1) < todoUnit.todo.Date)
                         {
@@ -115,20 +115,20 @@ namespace UIDisplay.Pages
                 }
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
-                    todoList0.Children.Clear();
+                    todoList.todoList0.Children.Clear();
                     foreach (Todo sub_todoInfo in todoUnitList0)
                     {
-                        todoList0.Children.Add(new TodoUnit(this, sub_todoInfo));
+                        todoList.todoList0.Children.Add(new TodoUnit(this, sub_todoInfo));
                     }
-                    todoList1.Children.Clear();
+                    todoList.todoList1.Children.Clear();
                     foreach (Todo sub_todoInfo in todoUnitList1)
                     {
-                        todoList1.Children.Add(new TodoUnit(this, sub_todoInfo));
+                        todoList.todoList1.Children.Add(new TodoUnit(this, sub_todoInfo));
                     }
-                    todoList2.Children.Clear();
+                    todoList.todoList2.Children.Clear();
                     foreach (Todo sub_todoInfo in todoUnitList2)
                     {
-                        todoList2.Children.Add(new TodoUnit(this, sub_todoInfo));
+                        todoList.todoList2.Children.Add(new TodoUnit(this, sub_todoInfo));
                     }
                     Refresh_TodoDoneCount();
                 }));
@@ -139,7 +139,7 @@ namespace UIDisplay.Pages
         {
             Dispatcher.BeginInvoke(new Action(delegate
             {
-                todoDoneCount.Text = todoList2.Children.Count.ToString();
+                todoList.todoDoneCount.Text = todoList.todoList2.Children.Count.ToString();
             }));
         }
 
@@ -199,7 +199,7 @@ namespace UIDisplay.Pages
             IsShowMore = !IsShowMore;
             double from = IsShowMore ? 0 : 90;
             double to = IsShowMore ? 90 : 0;
-            todoList2.Visibility = IsShowMore ? Visibility.Visible : Visibility.Collapsed;
+            todoList.todoList2.Visibility = IsShowMore ? Visibility.Visible : Visibility.Collapsed;
             Storyboard storyboard = new Storyboard();
             DoubleAnimation doubleAnimation = new DoubleAnimation()
             {
@@ -208,7 +208,7 @@ namespace UIDisplay.Pages
                 Duration = TimeSpan.FromSeconds(0.3),
                 DecelerationRatio = 0.5
             };
-            Storyboard.SetTarget(doubleAnimation, moreIcon);
+            Storyboard.SetTarget(doubleAnimation, todoList.moreIcon);
             Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("RenderTransform.(RotateTransform.Angle)"));
             storyboard.Children.Add(doubleAnimation);
             storyboard.Begin();
@@ -261,10 +261,10 @@ namespace UIDisplay.Pages
             teammateList.Text = "无";
         }
 
-        private void todolistPanelScr_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            todoTaskContentTextBox_LostFocus();
-        }
+        //private void todolistPanelScr_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    todoTaskContentTextBox_LostFocus();
+        //}
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
@@ -434,38 +434,38 @@ namespace UIDisplay.Pages
             });
         }
 
-        public void UpdateTodoInfo(Todo todoInfo)
-        {
-            Task.Run(() =>
-            {
-                int result = TodoManager.UpdateTodoInfo(todoInfo);
-                if (result > 0)
-                {
-                    Growl.Success("待办任务更新成功！");
-                }
-                else
-                {
-                    Growl.Warning("待办任务更新失败！");
-                }
-                Refresh_TodoDoneCount();
-            });
-        }
+        //public void UpdateTodoInfo(Todo todoInfo)
+        //{
+        //    Task.Run(() =>
+        //    {
+        //        int result = TodoManager.UpdateTodoInfo(todoInfo);
+        //        if (result > 0)
+        //        {
+        //            Growl.Success("待办任务更新成功！");
+        //        }
+        //        else
+        //        {
+        //            Growl.Warning("待办任务更新失败！");
+        //        }
+        //        Refresh_TodoDoneCount();
+        //    });
+        //}
 
-        public void DeleteTodoInfo(Todo todoInfo)
-        {
-            Task.Run(() =>
-            {
-                int result = TodoManager.DeleteTodoInfo(todoInfo);
-                if (result > 0)
-                {
-                    Growl.Success("待办任务删除成功！");
-                }
-                else
-                {
-                    Growl.Warning("待办任务删除失败！");
-                }
-                Refresh_TodoDoneCount();
-            });
-        }
+        //public void DeleteTodoInfo(Todo todoInfo)
+        //{
+        //    Task.Run(() =>
+        //    {
+        //        int result = TodoManager.DeleteTodoInfo(todoInfo);
+        //        if (result > 0)
+        //        {
+        //            Growl.Success("待办任务删除成功！");
+        //        }
+        //        else
+        //        {
+        //            Growl.Warning("待办任务删除失败！");
+        //        }
+        //        Refresh_TodoDoneCount();
+        //    });
+        //}
     }
 }

@@ -15,13 +15,11 @@ namespace UIDisplay
         {
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
-            stackPanel.Height = Constants.BIG_CARD_LENGTH - 30;
-            stackPanel.Width = Constants.BIG_CARD_LENGTH - 30;
-            //ClockMainWindow clk = new ClockMainWindow();
-            TodoUnit_BigSquare todoUnit_BigSquare = new TodoUnit_BigSquare();
+            stackPanel.Height = Constants.BIG_CARD_LENGTH-30;
+            stackPanel.Width = Constants.BIG_CARD_LENGTH-30;
+            TodoList todoList = new TodoList();
             Viewbox vb = new Viewbox();
-            //vb.Child = clk;
-            vb.Child = todoUnit_BigSquare;
+            vb.Child = todoList;
             stackPanel.Children.Add(vb);
             Content = stackPanel;
         }
