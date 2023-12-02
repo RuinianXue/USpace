@@ -35,19 +35,6 @@ namespace UIDisplay.Pages
         }
         private void TodoListPageInitialize()
         {
-            //this.Width = Constants.INSIDE_WIDTH;
-            //this.Height = Constants.INSIDE_HEIGHT;
-            //// 创建 TodoList 实例
-            //todoList = new TodoList();
-
-            //// 设置 TodoList 的名称和布局属性
-            //todoList.Name = "todoList";
-            //todoList.SetValue(Grid.ZIndexProperty, 0);
-
-            //// 将 TodoList 添加到父容器中
-            //todoListPanel.Children.Add(todoList); // 请将 parentContainer 替换为实际的父容器名称
-
-            Refresh();
             Task.Run(CheckTime);
             Refresh_Addressbook();
         }
@@ -93,66 +80,6 @@ namespace UIDisplay.Pages
                 Thread.Sleep(60000);
             }
         }
-        private void Refresh()
-        {
-            Task.Run(() =>
-            {
-                List<Todo> todoUnitList0, todoUnitList1, todoUnitList2;
-                todoUnitList0 = new List<Todo>();
-                todoUnitList1 = new List<Todo>();
-                todoUnitList2 = new List<Todo>();
-                DataTable dt = TodoManager.QueryTodoInfo();
-                foreach (DataRow row in dt.Rows)
-                {
-                    string uuid = Convert.ToString(row[0]);
-                    string content = Convert.ToString(row[1]);
-                    DateTime date = Convert.ToDateTime(row[2]);
-                    int priority = Convert.ToInt32(row[3]);
-                    int isdone = Convert.ToInt32(row[4]);
-                    string teammate = Convert.ToString(row[5]);
-
-                    if (isdone == 0 && priority > 0)
-                    {
-                        todoUnitList0.Add(new Todo(uuid, content, date, priority, isdone, teammate));
-                    }
-                    else if (isdone == 0)
-                    {
-                        todoUnitList1.Add(new Todo(uuid, content, date, priority, isdone, teammate));
-                    }
-                    else
-                    {
-                        todoUnitList2.Add(new Todo(uuid, content, date, priority, isdone, teammate));
-                    }
-                }
-                Dispatcher.BeginInvoke(new Action(delegate
-                {
-                    todoList.todoList0.Children.Clear();
-                    foreach (Todo sub_todoInfo in todoUnitList0)
-                    {
-                        todoList.todoList0.Children.Add(new TodoUnit(todoList, sub_todoInfo));
-                    }
-                    todoList.todoList1.Children.Clear();
-                    foreach (Todo sub_todoInfo in todoUnitList1)
-                    {
-                        todoList.todoList1.Children.Add(new TodoUnit(todoList, sub_todoInfo));
-                    }
-                    todoList.todoList2.Children.Clear();
-                    foreach (Todo sub_todoInfo in todoUnitList2)
-                    {
-                        todoList.todoList2.Children.Add(new TodoUnit(todoList, sub_todoInfo));
-                    }
-                    Refresh_TodoDoneCount();
-                }));
-            });
-        }
-
-        private void Refresh_TodoDoneCount()
-        {
-            Dispatcher.BeginInvoke(new Action(delegate
-            {
-                todoList.todoDoneCount.Text = todoList.todoList2.Children.Count.ToString();
-            }));
-        }
 
         private void Refresh_Addressbook()
         {
@@ -177,6 +104,7 @@ namespace UIDisplay.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LoadInAnimation(sender);
+            todoList.Refresh();
         }
 
         private void LoadInAnimation(object sender)

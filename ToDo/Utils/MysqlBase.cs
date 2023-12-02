@@ -43,7 +43,10 @@ namespace UIDisplay.Utils
             }
             finally
             {
-                conn.Close();
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -60,12 +63,20 @@ namespace UIDisplay.Utils
                         command.Parameters.AddRange(parameters);
                         res = command.ExecuteNonQuery();
                     }
+                    conn.Close();
                 }
             }
             catch (MySqlException ex)
             {
                 // 记录异常信息，可以根据需要进行扩展
                 Console.WriteLine($"Error in CommonExecute: {ex.Message}");
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
             }
             return res;
         }

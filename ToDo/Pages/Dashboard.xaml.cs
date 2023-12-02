@@ -36,6 +36,7 @@ namespace UIDisplay.Pages
         public static Grid inGrid = new Grid();
         public static Grid outGrid = new Grid();
         public static Grid overallGrid = new Grid();
+        private TodoCard todoCard;  //临时写在这，主要每次Load的时候得刷新内容
         public void InitializeDashboard()
         {
             overallGrid.Children.Add(outGrid);
@@ -60,6 +61,12 @@ namespace UIDisplay.Pages
             Grid.SetColumn(inGrid, 0);
             this.Content = overallGrid;
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            todoCard.Refresh();
+        }
+
         public void Answer_CardDoubleClick()
         {
             //BlurMask blurMask = new BlurMask(mainGrid,outGrid);
@@ -107,8 +114,8 @@ namespace UIDisplay.Pages
             //Card tmp2 = new Card();
             //tmp2.SetPosition(inGrid,1,4);
             //BigRectangleCard tmpbig3 = new BigRectangleCard();
-            //tmpbig3.SetPosition(inGrid,2,0);
-            TodoCard todoCard = new TodoCard();
+            //tmpbig3.SetPosition(inGrid, 2, 0);
+            todoCard = new TodoCard();
             todoCard.SetPosition(inGrid, 2, 0);
 
             BigRectangleCard tmpbig4 = new BigRectangleCard();

@@ -11,17 +11,24 @@ namespace UIDisplay
 {
     internal class TodoCard : BigSquareCard
     {
+        private TodoList todoList;
+
         public TodoCard()
         {
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
             stackPanel.Height = Constants.BIG_CARD_LENGTH-30;
             stackPanel.Width = Constants.BIG_CARD_LENGTH-30;
-            TodoList todoList = new TodoList();
+            todoList = new TodoList();
             Viewbox vb = new Viewbox();
             vb.Child = todoList;
             stackPanel.Children.Add(vb);
             Content = stackPanel;
+        }
+
+        public void Refresh()
+        {
+            todoList.Refresh();
         }
     }
 }

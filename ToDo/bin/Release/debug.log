@@ -55,3 +55,5 @@
 [1201/233309.689:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
 [1201/233715.711:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
 [1201/233834.997:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1202/152512.785:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
+[1202/154123.891:WARNING:policy_logger.cc(151)] :components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc(88) Could not create policy manager as CBCM is not enabled.
