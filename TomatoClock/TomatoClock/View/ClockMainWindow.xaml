@@ -106,11 +106,11 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
-                        <Button Content="-" Grid.Column="0" Margin="5" Height="20" Click="MinusTime" />
+                        <Button x:Name="minus" Content="-" Grid.Column="0" Margin="5" Height="20" Click="MinusTime" />
                         <TextBox x:Name="TimeSet" Text="{Binding MinuterSet}" VerticalContentAlignment="Center" Grid.Column="1" Margin="3,8,3,8" IsReadOnly="{Binding IsCounting}">
                         </TextBox>
-                        <Label  Grid.Column="2" Margin="0,8,0,8" Content="分钟" FontSize="10"/>
-                        <Button Content="+" Grid.Column="3" Margin="5" Height="20" Click="PlusTime" />
+                        <TextBlock x:Name="minute" Grid.Column="2" Margin="0,8,0,8" Text=" 分钟" FontSize="10" VerticalAlignment="Center"/>
+                        <Button x:Name="plus" Content="+" Grid.Column="3" Margin="5" Height="20" Click="PlusTime" />
                         <ToggleButton 
                             x:Name="State"
                             Content="▷" 
@@ -123,7 +123,7 @@
                             Style="{StaticResource MDIXButton}" 
                             IsChecked="{Binding IsCounting}"
                             Checked="StartCount"
-                            Unchecked="FinishCount"/>
+                            Unchecked="FinishCount" Cursor="Hand"/>
                     </Grid>
 
                 </StackPanel>

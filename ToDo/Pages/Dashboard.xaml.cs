@@ -118,7 +118,7 @@ namespace UIDisplay.Pages
             todoCard = new TodoCard();
             todoCard.SetPosition(inGrid, 2, 0);
 
-            BigRectangleCard tmpbig4 = new BigRectangleCard();
+            TomatoRectCard tmpbig4 = new TomatoRectCard();
             tmpbig4.SetPosition(inGrid, 2, 2);
             /*
             for (int i=1;i<=Constants.MAX_ROW;i++)

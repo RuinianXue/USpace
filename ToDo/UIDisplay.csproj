@@ -133,8 +133,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TomatoClock">
-      <HintPath>..\TomatoClock\TomatoClock\obj\Release\TomatoClock.dll</HintPath>
+    <Reference Include="TomatoClock, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TomatoClock\TomatoClock\obj\Debug\TomatoClock.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

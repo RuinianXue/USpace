@@ -12,9 +12,9 @@ DEBUG;TRACE
 D:\gitrepos\USpace\ToDo\App.xaml
 16141551237
 781654861438
-37221834985
+382143613106
 5070810316
 Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\AddressbookPage.xaml;Pages\AddressUnitEdit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Themes\ResourceDictionary.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;Components\MyTextBox.xaml;
 
-False
+True
 

@@ -22,6 +22,11 @@ namespace TomatoClock
             DataContext = TomatoClockViewModel.Instance();
         }
 
+        public double fontSize
+        {
+            get { return plus.FontSize; }
+            set { minus.FontSize = value; plus.FontSize = value; minute.FontSize = value; }
+        }
         
 
         private void MouseEnter_ShowInfo(object sender, System.Windows.Input.MouseEventArgs e)

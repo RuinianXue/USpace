@@ -9,14 +9,33 @@ using TomatoClock;
 
 namespace UIDisplay
 {
-    internal class TomatoCard: BigSquareCard
+    internal class TomatoCard : BigSquareCard
     {
-        public TomatoCard()
+        public TomatoCard():base()
         {
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
             stackPanel.Height = Constants.BIG_CARD_LENGTH - 30;
             stackPanel.Width = Constants.BIG_CARD_LENGTH - 30;
+            ClockMainWindow clk = new ClockMainWindow();
+            clk.FontSize = 10;
+
+            Viewbox vb = new Viewbox();
+            vb.Child = clk;
+            stackPanel.Children.Add(vb);
+            Content = stackPanel;
+        }
+        
+    }
+    
+    public class TomatoRectCard: BigRectangleCard
+    {
+        public TomatoRectCard()
+        {
+            stackPanel = new StackPanel();
+            stackPanel.Margin = new Thickness(10);
+            stackPanel.Height = Constants.SMALL_CARD_LENGTH - 20;
+            stackPanel.Width = Constants.SMALL_CARD_LENGTH - 20;
             ClockMainWindow clk = new ClockMainWindow();
             Viewbox vb = new Viewbox();
             vb.Child = clk;

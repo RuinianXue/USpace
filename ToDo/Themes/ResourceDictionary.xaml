@@ -16,11 +16,12 @@
 
     <Style TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Consolas" />
-        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontSize" Value="8" />
         <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding"  Value="0" />
     </Style>
-    
-    
+
+
 </ResourceDictionary>
     
     

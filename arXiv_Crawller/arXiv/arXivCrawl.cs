@@ -18,6 +18,8 @@ namespace ConsoleApp2
             string query = arXivCategory.Instance().RandomQuery();
             Console.WriteLine(query);
             ArxivArticle[] articles = arXivCrawl.ArXivCrawlBySearch(query, 1);
+            if(articles.Length < 1)
+                return GetOneRandomArticle();
             return articles[0];
         }
         public static ArxivArticle[] ArXivCrawlBySearch(string query, int maxResult)
