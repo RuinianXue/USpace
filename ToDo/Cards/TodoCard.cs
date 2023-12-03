@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using UIDisplay.Components;
 using UIDisplay.Pages;
 
-namespace UIDisplay
+namespace UIDisplay.Cards
 {
     internal class TodoCard : BigSquareCard
     {
@@ -27,6 +27,7 @@ namespace UIDisplay
             vb.Child = todoList;
             stackPanel.Children.Add(vb);
             Content = stackPanel;
+
             MouseDoubleClick += Card_DoubleClick;
         }
         public event EventHandler TodoCardDoubleClicked;

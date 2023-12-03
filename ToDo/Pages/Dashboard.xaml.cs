@@ -19,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UIDisplay.Components;
+using UIDisplay.Cards;
 
 namespace UIDisplay.Pages
 {

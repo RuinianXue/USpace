@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TomatoClock;
 
-namespace UIDisplay
+namespace UIDisplay.Cards
 {
     internal class TomatoCard : BigSquareCard
     {
