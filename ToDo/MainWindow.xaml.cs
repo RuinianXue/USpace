@@ -25,6 +25,12 @@ namespace UIDisplay
         TodoListPage todolistPage;
         Dashboard dashboardPage;
         MarkdownEditorPage markdownEditor;
+        public void todoRedirect(object sender, EventArgs e)
+        {
+            PagesNavigation.Navigate(todolistPage);
+            Dashboard.IsChecked = false;
+            rdTodolist.IsChecked = true;
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -48,7 +54,9 @@ namespace UIDisplay
             addressbookPage = new AddressbookPage();
             todolistPage =new TodoListPage();
             dashboardPage = new Dashboard();
+            dashboardPage.TodoCardDoubleClicked_Dash += todoRedirect;
             markdownEditor = new MarkdownEditorPage();
+            /*
             #region Dashboard Menu
             ContextMenu contextMenu = new ContextMenu();
 
@@ -65,6 +73,7 @@ namespace UIDisplay
             this.ContextMenu = contextMenu;
             this.MouseRightButtonDown += MainPage_MouseRightButtonDown;
             #endregion
+            */
             PagesNavigation.Navigate(dashboardPage);
         }
 
@@ -88,6 +97,7 @@ namespace UIDisplay
 
         private void rdAddressbook_Click(object sender, RoutedEventArgs e)
         {
+            now_dashboard = false;
             PagesNavigation.Navigate(addressbookPage);
         }
 

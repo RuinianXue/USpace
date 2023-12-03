@@ -25,29 +25,22 @@ namespace UIDisplay
     {
         public StackPanel stackPanel;
         public ClickCard clickCard;
-        public void EventsInitialize()
+        protected int stdHeight;
+        protected int stdWidth;
+        protected void MouseEnterLeaveInitialize()
         {
             MouseEnter += Card_MouseEnter;
             MouseLeave += Card_MouseLeave;
+        }
+        protected void MouseDownUpInitialize()
+        {
             MouseDown += Card_MouseDown;
             MouseUp += Card_MouseUp;
             MouseMove += Card_MouseMove;
-            MouseDoubleClick += Card_DoubleClick;
-            //Card_DoubleEvent += this.Parent.Parent.OnEventOfCard_DoubleClick;
         }
-        public Card()
+        protected virtual void MenuInitialize()
         {
-            EventsInitialize();
-            // Set default values
-            //ShadowAssist.SetShadowDepth(this, 0);
-            UniformCornerRadius = 15;
-            BorderThickness = new Thickness(5);
-            BorderBrush = Brushes.White;
-            Width = Constants.SMALL_CARD_LENGTH;
-            Height = Constants.SMALL_CARD_LENGTH;
-            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
             ContextMenu contextMenu = new ContextMenu();
-            #region MenuItem of right click
             MenuItem moveItem = new MenuItem();
             moveItem.Header = "Move Card";
             moveItem.Click += MoveItem_Click;
@@ -58,10 +51,27 @@ namespace UIDisplay
             contextMenu.Items.Add(deleteItem);
             this.ContextMenu = contextMenu;
             this.MouseRightButtonDown += Card_MouseRightButtonDown;
-            #endregion
-            Content = stackPanel;
+        }
+        protected void ClickCardInitialize()
+        {
+            MouseDoubleClick += Card_DoubleClick;
             clickCard = new ClickCard();
             blurmask.MaskClicked += Mask_ClickClose;
+        }
+        protected void BasicLookInitialize()
+        {
+            //ShadowAssist.SetShadowDepth(this, 0);
+            UniformCornerRadius = 15;
+            BorderThickness = new Thickness(5);
+            BorderBrush = Brushes.White;
+            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
+        }
+        public Card()
+        {
+            MouseEnterLeaveInitialize();
+            MouseDownUpInitialize();
+            BasicLookInitialize();
+            Content = stackPanel;
         }
         protected void Mask_ClickClose(object sender, EventArgs e)
         {
@@ -95,7 +105,7 @@ namespace UIDisplay
         //长按进入编辑模式
         private bool Check_EditMode()
         {
-            return (DateTime.Now - mouseDownTime).TotalSeconds > 1;
+            return (DateTime.Now - mouseDownTime).TotalSeconds > 2;
         }
         private int PlaceCardMode(Grid grid,int row, int column)
         { return 1; }
@@ -149,32 +159,48 @@ namespace UIDisplay
             Grid.SetColumn(this, colomn);
             grid.Children.Add(this);
         }
-        private void Card_MouseEnter(object sender, MouseEventArgs e)
+        protected void Card_MouseEnter(object sender, MouseEventArgs e)
         {
             Storyboard storyboard = new Storyboard();
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesHeight = new DoubleAnimationUsingKeyFrames();
             EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
             {
-                Value = Constants.SMALL_CARD_LENGTH,
+                Value = this.stdHeight,
                 EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
                 KeyTime = TimeSpan.FromSeconds(0)
             };
             EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
             {
-                Value = Constants.SMALL_CARD_LENGTH + 10,
+                Value = this.stdHeight + 10,
                 EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
                 KeyTime = TimeSpan.FromSeconds(0.3)
             };
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+            doubleAnimationUsingKeyFramesHeight.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFramesHeight.KeyFrames.Add(easingDoubleKeyFrame2);
 
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFramesHeight.Clone()));
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesWidth = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth1 = new EasingDoubleKeyFrame()
+            {
+                Value = this.stdWidth,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth2 = new EasingDoubleKeyFrame()
+            {
+                Value = this.stdWidth + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth1);
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth2);
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFramesWidth.Clone()));
 
             storyboard.Begin();
         }
 
-        private Timeline CreatDoubleAnimation(UIElement uIElement, string propertyPath, DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames)
+        protected Timeline CreatDoubleAnimation(UIElement uIElement, string propertyPath, DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames)
         {
 
             Storyboard.SetTarget(doubleAnimationUsingKeyFrames, uIElement);
@@ -182,47 +208,60 @@ namespace UIDisplay
             return doubleAnimationUsingKeyFrames;
         }
 
-        private void Card_MouseLeave(object sender, MouseEventArgs e)
+        protected void Card_MouseLeave(object sender, MouseEventArgs e)
         {
             Storyboard storyboard = new Storyboard();
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesHeight = new DoubleAnimationUsingKeyFrames();
             EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
             {
-                Value = Constants.SMALL_CARD_LENGTH + 10,
+                Value = this.stdHeight + 10,
                 EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
                 KeyTime = TimeSpan.FromSeconds(0)
             };
             EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
             {
-                Value = Constants.SMALL_CARD_LENGTH,
+                Value = this.stdHeight,
                 EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
                 KeyTime = TimeSpan.FromSeconds(0.3)
             };
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
+            doubleAnimationUsingKeyFramesHeight.KeyFrames.Add(easingDoubleKeyFrame1);
+            doubleAnimationUsingKeyFramesHeight.KeyFrames.Add(easingDoubleKeyFrame2);
 
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFramesHeight.Clone()));
 
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesWidth = new DoubleAnimationUsingKeyFrames();
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth1 = new EasingDoubleKeyFrame()
+            {
+                Value = this.stdWidth + 10,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
+                KeyTime = TimeSpan.FromSeconds(0)
+            };
+            EasingDoubleKeyFrame easingDoubleKeyFrameWidth2 = new EasingDoubleKeyFrame()
+            {
+                Value = this.stdWidth,
+                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
+                KeyTime = TimeSpan.FromSeconds(0.3)
+            };
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth1);
+            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth2);
+            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFramesWidth.Clone()));
             storyboard.Begin();
+        }
+    }
+    public class SmallSquareCard :Card
+    {
+        public SmallSquareCard() :base()
+        {
+            Width = stdWidth = Constants.SMALL_CARD_LENGTH;
+            Height = stdHeight = Constants.SMALL_CARD_LENGTH;
         }
     }
     public class BigRectangleCard :Card
     {
-        public BigRectangleCard()
+        public BigRectangleCard() :base() 
         {
-            MouseEnter += Card_MouseEnter;
-            MouseLeave += Card_MouseLeave;
-            UniformCornerRadius = 15;
-            BorderThickness = new Thickness(5);
-            BorderBrush = Brushes.White;
-            Width = Constants.BIG_CARD_LENGTH;
-            Height = Constants.SMALL_CARD_LENGTH;
-            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
-
-            // Create the StackPanel
-            //stackPanel = new StackPanel();
-            //stackPanel.Margin = new Thickness(10);
+            Width = stdWidth = Constants.BIG_CARD_LENGTH;
+            Height = stdHeight = Constants.SMALL_CARD_LENGTH;
         }
         public new void SetPosition(Grid grid, int row, int colomn)
         {
@@ -231,112 +270,13 @@ namespace UIDisplay
             Grid.SetColumnSpan(this, 2);
             grid.Children.Add(this);
         }
-        private void Card_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
-            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.SMALL_CARD_LENGTH,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
-                KeyTime = TimeSpan.FromSeconds(0)
-            };
-            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.SMALL_CARD_LENGTH + 10,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
-                KeyTime = TimeSpan.FromSeconds(0.3)
-            };
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
-
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
-
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesWidth = new DoubleAnimationUsingKeyFrames();
-            EasingDoubleKeyFrame easingDoubleKeyFrameWidth1 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
-                KeyTime = TimeSpan.FromSeconds(0)
-            };
-            EasingDoubleKeyFrame easingDoubleKeyFrameWidth2 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH + 10,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
-                KeyTime = TimeSpan.FromSeconds(0.3)
-            };
-            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth1);
-            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth2);
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFramesWidth.Clone()));
-
-            storyboard.Begin();
-        }
-
-        private Timeline CreatDoubleAnimation(UIElement uIElement, string propertyPath, DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames)
-        {
-
-            Storyboard.SetTarget(doubleAnimationUsingKeyFrames, uIElement);
-            Storyboard.SetTargetProperty(doubleAnimationUsingKeyFrames, new PropertyPath(propertyPath));
-            return doubleAnimationUsingKeyFrames;
-        }
-
-        private void Card_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
-            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.SMALL_CARD_LENGTH + 10,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
-                KeyTime = TimeSpan.FromSeconds(0)
-            };
-            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
-            {   
-                Value = Constants.SMALL_CARD_LENGTH,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
-                KeyTime = TimeSpan.FromSeconds(0.3)
-            };
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
-
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
-
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesWidth = new DoubleAnimationUsingKeyFrames();
-            EasingDoubleKeyFrame easingDoubleKeyFrameWidth1 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH + 10,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
-                KeyTime = TimeSpan.FromSeconds(0)
-            };
-            EasingDoubleKeyFrame easingDoubleKeyFrameWidth2 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
-                KeyTime = TimeSpan.FromSeconds(0.3)
-            };
-            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth1);
-            doubleAnimationUsingKeyFramesWidth.KeyFrames.Add(easingDoubleKeyFrameWidth2);
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFramesWidth.Clone()));
-            storyboard.Begin();
-        }
     }
     public class BigSquareCard : Card
     {
         public BigSquareCard()
         {
-
-            MouseEnter += Card_MouseEnter;
-            MouseLeave += Card_MouseLeave;
-            UniformCornerRadius = 15;
-            BorderThickness = new Thickness(5);
-            BorderBrush = Brushes.White;
-            Width = Constants.BIG_CARD_LENGTH;
-            Height = Constants.BIG_CARD_LENGTH;
-            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
-
-            // Create the StackPanel
-            stackPanel = new StackPanel();
-            stackPanel.Margin = new Thickness(10);
+            Width = stdWidth = Constants.BIG_CARD_LENGTH;
+            Height = stdHeight = Constants.BIG_CARD_LENGTH;
         }
         public new void SetPosition(Grid grid, int row, int colomn)
         {
@@ -346,66 +286,6 @@ namespace UIDisplay
             Grid.SetColumnSpan(this, 2);
             grid.Children.Add(this);
         }
-
-        private void Card_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
-            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
-                KeyTime = TimeSpan.FromSeconds(0)
-            };
-            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH + 10,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
-                KeyTime = TimeSpan.FromSeconds(0.3)
-            };
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
-
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
-
-            storyboard.Begin();
-        }
-
-        private Timeline CreatDoubleAnimation(UIElement uIElement, string propertyPath, DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames)
-        {
-
-            Storyboard.SetTarget(doubleAnimationUsingKeyFrames, uIElement);
-            Storyboard.SetTargetProperty(doubleAnimationUsingKeyFrames, new PropertyPath(propertyPath));
-            return doubleAnimationUsingKeyFrames;
-        }
-
-        private void Card_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
-            EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH + 10,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseIn },
-                KeyTime = TimeSpan.FromSeconds(0)
-            };
-            //if (IsChecked) target_num = 190;
-            EasingDoubleKeyFrame easingDoubleKeyFrame2 = new EasingDoubleKeyFrame()
-            {
-                Value = Constants.BIG_CARD_LENGTH,
-                EasingFunction = new CircleEase() { EasingMode = EasingMode.EaseOut },
-                KeyTime = TimeSpan.FromSeconds(0.3)
-            };
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame1);
-            doubleAnimationUsingKeyFrames.KeyFrames.Add(easingDoubleKeyFrame2);
-
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Height", doubleAnimationUsingKeyFrames.Clone()));
-            storyboard.Children.Add(CreatDoubleAnimation(this, "Width", doubleAnimationUsingKeyFrames));
-
-            storyboard.Begin();
-        }
-
     }
     public class ArxivCard : BigSquareCard
     {
@@ -413,18 +293,16 @@ namespace UIDisplay
         public string Title { get; set; }
         public string Summary { get; set; }
         public List<string> Categories { get; set; }
-
         public string Homepage { get; set; }
         public string Pdfpage { get; set; }
         public string Doipage { get; set; }
-
-
         public string PublishDate { get; set; }
         public string UpdateDate { get; set; }
         public string Publish { get; set; }
+
         TextBlock textBoxTitle;
 
-        public ArxivCard() :base() 
+        private void NewArticle()
         {
             ArxivArticle arxivArticle = arXivCrawl.GetOneRandomArticle();
             this.Authors = arxivArticle.Authors;
@@ -432,10 +310,9 @@ namespace UIDisplay
             this.Homepage = arxivArticle.Homepage;
             this.Pdfpage = arxivArticle.Pdfpage;
             this.PublishDate = arxivArticle.PublishDate;
-
-            stackPanel = new StackPanel();
-            stackPanel.Margin = new Thickness(10);
-
+        }
+        private void TitleInitialize()
+        {
             //Viewbox viewbox = new Viewbox();
             //TextBlock textBlock = new TextBlock();
             //viewbox.Width = Constants.BIG_CARD_LENGTH - 30;
@@ -455,11 +332,10 @@ namespace UIDisplay
             //textBoxTitle.FontSize = newFontSize;
             //viewbox.Child = textBoxTitle;
             //viewbox.Stretch = Stretch.Uniform;
-            stackPanel.Children.Add(textBoxTitle);
-
+        }
+        protected override void MenuInitialize()
+        {
             ContextMenu contextMenu = new ContextMenu();
-
-            // Add menu items for moving and deleting the Card
             MenuItem moveItem = new MenuItem();
             moveItem.Header = "Move Card";
             moveItem.Click += base.MoveItem_Click;
@@ -474,87 +350,33 @@ namespace UIDisplay
             changeItem.Header = "Change Paper";
             changeItem.Click += ChangePapaer_Click;
             contextMenu.Items.Add(changeItem);
-
-            // Attach the context menu to the Card
             this.ContextMenu = contextMenu;
+        }
+        public ArxivCard() :base() 
+        {
+            ClickCardInitialize();
+            NewArticle();
 
+            stackPanel = new StackPanel();
+            stackPanel.Margin = new Thickness(10);
+            TitleInitialize();
+            stackPanel.Children.Add(textBoxTitle);
+            MenuInitialize();
+            /*
             Image imageArxiv = new Image();
             BitmapImage bitmapArxiv = new BitmapImage(new Uri("../Images/arxiv.png", UriKind.RelativeOrAbsolute));
             imageArxiv.Source = bitmapArxiv;
             imageArxiv.Width = Constants.SMALL_CARD_LENGTH / 3;
-            //imageArxiv.HorizontalAlignment = HorizontalAlignment.Stretch;
-            //stackPanel.Children.Add(imageArxiv);
-
+            imageArxiv.HorizontalAlignment = HorizontalAlignment.Stretch;
+            stackPanel.Children.Add(imageArxiv);
+            */
             Content = stackPanel;
-
-            /*
-            TextBox textBox2 = new TextBox();
-            textBox2.Margin = new Thickness(10);
-            textBox2.Text = "Textbox 2";
-
-            TextBox textBox3 = new TextBox();
-            textBox3.Margin = new Thickness(10);
-            textBox3.Text = "Textbox 3";*/
         }
         private void ChangePapaer_Click(object sender, EventArgs e)
         {
-            ArxivArticle arxivArticle = arXivCrawl.GetOneRandomArticle();
-            this.Authors = arxivArticle.Authors;
-            this.Title = arxivArticle.Title;
-            this.Homepage = arxivArticle.Homepage;
-            this.Pdfpage = arxivArticle.Pdfpage;
-            this.PublishDate = arxivArticle.PublishDate;
+            NewArticle();
             textBoxTitle.Text = this.Title;
         }
     }
-    public class ClickCard : MaterialDesignThemes.Wpf.Card
-    {
-        private Grid gridOfClickCard;
-        /*
-        public ClickCard()
-        {
-            gridOfClickCard = new Grid();
-            gridOfClickCard.Width = Constants.SMALL_CARD_LENGTH * 2;
-            gridOfClickCard.Height = Constants.SMALL_CARD_LENGTH * 2; 
-            this.Width = Constants.SMALL_CARD_LENGTH * 2;
-            this.Height = Constants.SMALL_CARD_LENGTH * 2;
-            gridOfClickCard.Children.Add(this);
-        }*/
-        public ClickCard()
-        {
-            //MouseEnter+=Card_MouseEnter;
-            //MouseLeave+=Card_MouseLeave;
-            //stackPanel = new StackPanel();
-            //stackPanel.Margin = new Thickness(10);
-            gridOfClickCard = new Grid();
-            Panel.SetZIndex(gridOfClickCard, 1);
-            gridOfClickCard.Width = this.Width = Constants.BIG_CARD_LENGTH * 2;
-            gridOfClickCard.Height = this.Height = Constants.BIG_CARD_LENGTH * 2;
-            BorderThickness = new Thickness(5);
-            BorderBrush = Brushes.White;
-            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
-            gridOfClickCard.Children.Add(this);
-
-            //Content = stackPanel;
-        }
-        public void Appear(Grid overallGrid)
-        {
-            overallGrid.Children.Add(gridOfClickCard);
-        }
-        public void Disappear(Grid overallGrid)
-        {
-            if (overallGrid.Children.Contains(gridOfClickCard))
-            {
-                overallGrid.Children.Remove(gridOfClickCard);
-            }
-        }
-        private void Card_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
-        private void Card_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
-    }
+    
 }

@@ -13,6 +13,7 @@ namespace UIDisplay
     {
         public TomatoCard():base()
         {
+            MenuInitialize();
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
             stackPanel.Height = Constants.BIG_CARD_LENGTH - 30;
@@ -32,6 +33,7 @@ namespace UIDisplay
     {
         public TomatoRectCard()
         {
+            MenuInitialize();
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
             stackPanel.Height = Constants.SMALL_CARD_LENGTH - 20;

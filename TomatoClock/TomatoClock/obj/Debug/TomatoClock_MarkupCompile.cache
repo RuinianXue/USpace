@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\gitrepos\USpace\TomatoClock\TomatoClock\obj\Debug\
+D:\Github\USpace\TomatoClock\TomatoClock\obj\Debug\
 TomatoClock
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 1-144018496
 
 8498723949
-161568135206
+16391853324
 View\ClockMainWindow.xaml;
 
 False

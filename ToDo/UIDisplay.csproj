@@ -150,6 +150,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BLL\TodoManager.cs" />
+    <Compile Include="ClickCard.cs" />
     <Compile Include="Components\AddressUnit.xaml.cs">
       <DependentUpon>AddressUnit.xaml</DependentUpon>
     </Compile>
@@ -231,10 +232,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MarkdownEditorPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\ResourceDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -335,6 +332,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\arxiv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Cards\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

@@ -117,7 +117,7 @@ namespace UIDisplay.Pages
             //tmpbig3.SetPosition(inGrid, 2, 0);
             todoCard = new TodoCard();
             todoCard.SetPosition(inGrid, 2, 0);
-
+            todoCard.TodoCardDoubleClicked += TodoDoubleClick;
             TomatoRectCard tmpbig4 = new TomatoRectCard();
             tmpbig4.SetPosition(inGrid, 2, 2);
             /*
@@ -301,5 +301,15 @@ namespace UIDisplay.Pages
             this._dragdropPopup.IsOpen = true;
         }
         #endregion
+
+        public void TodoDoubleClick(object sender, EventArgs e)
+        {
+            DoubleClick_Dash();
+        }
+        public event EventHandler TodoCardDoubleClicked_Dash;
+        protected virtual void DoubleClick_Dash()
+        {
+            TodoCardDoubleClicked_Dash?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
