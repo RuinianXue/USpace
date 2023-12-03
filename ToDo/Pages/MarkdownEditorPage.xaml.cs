@@ -24,6 +24,8 @@ using Path = System.IO.Path;
 using Ookii.Dialogs.Wpf;
 using System.ComponentModel;
 using System.Drawing;
+using System.Windows.Media.Animation;
+using UIDisplay.Components;
 
 namespace UIDisplay.Pages
 {
@@ -43,6 +45,38 @@ namespace UIDisplay.Pages
         private bool isSourceOpen = true;
         private bool isPreviewOpen = true;
 
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadInAnimation(sender);
+           // todoList.Refresh();
+        }
+
+        private void LoadInAnimation(object sender)
+        {
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimation doubleAnimation = new DoubleAnimation()
+            {
+                From = 0.4,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.6),
+                DecelerationRatio = 0.6
+            };
+            DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+            {
+                From = 50,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.8),
+                DecelerationRatio = 0.6
+            };
+            Storyboard.SetTarget(doubleAnimation, (Page)sender);
+            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
+            storyboard.Children.Add(doubleAnimation);
+            Storyboard.SetTarget(doubleAnimation2, (Page)sender);
+            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.Y)"));
+            storyboard.Children.Add(doubleAnimation2);
+            storyboard.Begin();
+        }
         public MarkdownEditorPage()
         {
             InitializeComponent();
