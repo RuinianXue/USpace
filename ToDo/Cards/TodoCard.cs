@@ -16,22 +16,36 @@ namespace UIDisplay.Cards
         private TodoList todoList;
         public event EventHandler TodoCardDoubleClicked;
 
+        //public TodoCard()
+        //{
+        //    MenuInitialize();
+        //    stackPanel = new StackPanel();
+        //    stackPanel.Margin = new Thickness(10);
+        //    stackPanel.Height = Constants.BIG_CARD_LENGTH - 30;
+        //    stackPanel.Width = Constants.BIG_CARD_LENGTH - 30;
+        //    todoList = new TodoList();
+        //    Viewbox vb = new Viewbox();
+        //    vb.Child = todoList;
+        //    stackPanel.Children.Add(vb);
+        //    Content = stackPanel;
+
+        //    MouseDoubleClick += Card_DoubleClick;
+        //}
+
         public TodoCard()
         {
             MenuInitialize();
-            stackPanel = new StackPanel();
-            stackPanel.Margin = new Thickness(10);
-            stackPanel.Height = Constants.BIG_CARD_LENGTH - 30;
-            stackPanel.Width = Constants.BIG_CARD_LENGTH - 30;
+            ScrollViewer scrollViewer = new ScrollViewer();
+            scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            scrollViewer.Height = Constants.BIG_CARD_LENGTH - 30;
+            scrollViewer.Width = Constants.BIG_CARD_LENGTH - 30;
             todoList = new TodoList();
-            Viewbox vb = new Viewbox();
-            vb.Child = todoList;
-            stackPanel.Children.Add(vb);
-            Content = stackPanel;
+            scrollViewer.Content = todoList;
+            Content = scrollViewer;
 
             MouseDoubleClick += Card_DoubleClick;
         }
-        
+
         protected virtual void DoubleClick()
         {
             TodoCardDoubleClicked?.Invoke(this, EventArgs.Empty);

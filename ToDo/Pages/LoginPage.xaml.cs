@@ -59,61 +59,6 @@ namespace UIDisplay.Pages
             verificationCodeBox.Focus();
         }
 
-        private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
-        {
-            // 创建注册窗口实例
-            Register registerWindow = new Register();
-
-            // 显示注册窗口
-            registerWindow.Show();
-
-            // Start the fade out animation
-            //fadeOutAnimation.Begin();
-
-            //// Get the storyboard
-            //Storyboard fadeOutAnimation = this.FindResource("FadeOutAnimation") as Storyboard;
-
-            //// Set the target of the storyboard
-            //Storyboard.SetTarget(fadeOutAnimation, signUpBorder);
-
-            //// Start the storyboard
-            //fadeOutAnimation.Begin();
-
-            //// Create a new instance of MyRegisterForm
-            //MyRegisterForm registerControl = new MyRegisterForm();
-
-            //// Add the new MyRegisterForm to column 1 after the animation completes
-            //fadeOutAnimation.Completed += (s, eventArgs) =>
-            //{
-            //    // Remove the original content in column 1
-            //    loginGrid.Children.Remove(signUpBorder);
-
-            //    // Add the new MyRegisterForm to column 1
-            //    Grid.SetColumn(registerControl, 1);
-            //    loginGrid.Children.Add(registerControl);
-            //};
-
-            //// Create a new instance of RegisterUserControl
-            //MyRegisterForm registerControl = new MyRegisterForm();
-
-            //// Move the original content from column 0 to column 1
-            //Grid.SetColumn(signUpBorder, 1);
-
-            //// Add the new RegisterUserControl to column 0
-            //Grid.SetColumn(registerControl, 0);
-            //loginGrid.Children.Add(registerControl);
-
-            //// Perform the slide animation as before
-            //DoubleAnimation slideAnimation = new DoubleAnimation
-            //{
-            //    To = +this.ActualWidth, // Move the gridOfMask to the left by its own width
-            //    Duration = TimeSpan.FromSeconds(0.5) // Duration of the animation
-            //};
-            ////SlideTransform.BeginAnimation(TranslateTransform.XProperty, slideAnimation);
-            //signUpBorder.RenderTransform = new TranslateTransform();
-            //signUpBorder.RenderTransform.BeginAnimation(TranslateTransform.XProperty, slideAnimation);
-        }
-
         private void ButtonSignInByPassword_Click(object sender, RoutedEventArgs e)
         {
             string input = passwordBox.Password;
@@ -240,6 +185,7 @@ namespace UIDisplay.Pages
         {
             passwordBorder.Visibility = Visibility.Visible;
             SignInByPasswordButton.Visibility = Visibility.Visible;
+            CodeButton.Visibility= Visibility.Visible;
 
             PasswordButton.Visibility = Visibility.Collapsed;
             verificationCodeBorder.Visibility = Visibility.Collapsed;
@@ -247,7 +193,19 @@ namespace UIDisplay.Pages
             SignInByCodeButton.Visibility = Visibility.Collapsed;
         }
 
-        private void txtEmail_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void ButtonCode_Click(object sender, RoutedEventArgs e)
+        {
+            passwordBorder.Visibility = Visibility.Collapsed;
+            SignInByPasswordButton.Visibility = Visibility.Collapsed;
+            CodeButton.Visibility = Visibility.Collapsed;
+
+            PasswordButton.Visibility = Visibility.Visible;
+            verificationCodeBorder.Visibility = Visibility.Visible;
+            SendCodeButton.Visibility = Visibility.Visible;
+            SignInByCodeButton.Visibility = Visibility.Visible;
+        }
+
+        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtEmail.Text) && txtEmail.Text.Length > 0)
                 textEmail.Visibility = Visibility.Collapsed;

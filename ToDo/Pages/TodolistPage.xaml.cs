@@ -25,6 +25,7 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class TodoListPage : Page
     {
+        private CancellationTokenSource cancellationTokenSource;
         private const int RefreshInterval = 60000; // 毫秒
 
         public TodoListPage()
@@ -32,46 +33,43 @@ namespace UIDisplay.Pages
             InitializeComponent();
             TodoListPageInitialize();
         }
+
         private void TodoListPageInitialize()
         {
-            Task.Run(CheckTime);  
+            cancellationTokenSource = new CancellationTokenSource();
+            Task.Run(() => CheckTimeAsync(cancellationTokenSource.Token));
         }
-        private void CheckTime()
+
+        private async Task CheckTimeAsync(CancellationToken cancellationToken)
         {
-            while (true)
+            while (!cancellationToken.IsCancellationRequested)
             {
-                Dispatcher.BeginInvoke(new Action(delegate
+                await Dispatcher.InvokeAsync(() =>
                 {
-                    foreach (TodoUnit todoUnit in todoList.todoList0.Children)
-                    {
-                        if (DateTime.Now.AddMinutes(1) < todoUnit.todo.Date)
-                        {
-                            break;
-                        }
-                        else if (todoUnit.todo.Date >= DateTime.Now)
-                        {
-                            string[] emailList = todoUnit.todo.Teammate.Split(';');
-                            foreach (string email in emailList)
-                            {
-                                Console.WriteLine(email);
-                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todo.Content);
-                            }
-                        }
-                    }
-                    foreach (TodoUnit todoUnit in todoList.todoList1.Children)
-                    {
-                        if (DateTime.Now.AddMinutes(1) < todoUnit.todo.Date)
-                        {
-                            break;
-                        }
-                        else if (todoUnit.todo.Date >= DateTime.Now)
-                        {
-                            SendNotifications(todoUnit.todo);
-                        }
-                    }
-                }));
-                Thread.Sleep(RefreshInterval);
+                    CheckAndSendNotifications(todoList.todoList0.Children);
+                    CheckAndSendNotifications(todoList.todoList1.Children);
+                });
+
+                await Task.Delay(RefreshInterval);
             }
+        }
+
+        private void CheckAndSendNotifications(UIElementCollection children)
+        {
+            foreach (TodoUnit todoUnit in children.Cast<TodoUnit>().Where(todoUnit => DateTime.Now < todoUnit.todo.Date))
+            {
+                break;
+            }
+
+            foreach (TodoUnit todoUnit in children.Cast<TodoUnit>().Where(todoUnit => DateTime.Now >= todoUnit.todo.Date))
+            {
+                SendNotifications(todoUnit.todo);
+            }
+        }
+
+        private void StopTodoListPage()
+        {
+            cancellationTokenSource?.Cancel();
         }
 
         private void SendNotifications(Todo todo)
@@ -112,6 +110,11 @@ namespace UIDisplay.Pages
             LoadInAnimation(sender);
             Refresh_TodoList();
             Refresh_Addressbook();
+        }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            StopTodoListPage();
         }
 
         private void LoadInAnimation(object sender)

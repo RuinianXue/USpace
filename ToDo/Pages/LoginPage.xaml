@@ -138,7 +138,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{DynamicResource PrimaryBlueColorA}" />
+                    <Setter Property="Background" Value="#2d7a6c" />
                     <Setter Property="Foreground" Value="White" />
                 </Trigger>
                 <Trigger Property="IsMouseCaptured" Value="True">
@@ -291,7 +291,7 @@
 
         <Border Name="signUpBorder" Background="#FFFFFF" Grid.Column="1" CornerRadius="0 10 10 0" MouseDown="Border_MouseDown">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="Get Started" Foreground="{DynamicResource PrimaryBlueColorA}" Style="{StaticResource TitleText}" />
+                <TextBlock Text="Get Started" Foreground="#3AADA1" Style="{StaticResource TitleText}" />
                 <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
                 </StackPanel>
 
@@ -339,7 +339,7 @@
                 <Button x:Name="SignInByPasswordButton" Content="登录" Click="ButtonSignInByPassword_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
                 <Button x:Name="SignInByCodeButton" Content="登录/注册" Click="ButtonSignInByCode_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
                 <Button x:Name="PasswordButton" Content="密码登录" Click="ButtonPassword_Click" Style="{StaticResource mainButton}" />
-                <Button x:Name="CodeButton" Content="验证码登录" Click="ButtonPassword_Click" Style="{StaticResource mainButton}" Visibility="Collapsed" />
+                <Button x:Name="CodeButton" Content="验证码登录" Click="ButtonCode_Click" Style="{StaticResource mainButton}" Visibility="Collapsed" />
             </StackPanel>
         </Border>
     </Grid>
