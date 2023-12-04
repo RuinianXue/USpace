@@ -69,7 +69,7 @@ namespace UIDisplay.Cards
         public Card()
         {
             MouseEnterLeaveInitialize();
-            MouseDownUpInitialize();
+            //MouseDownUpInitialize();
             BasicLookInitialize();
             Content = stackPanel;
         }

@@ -150,9 +150,12 @@ namespace UIDisplay.Pages
             todoCard.SetPosition(inGrid, 2, 0);
             todoCard.TodoCardDoubleClicked += TodoDoubleClick;
 
-            CalendarCard tmpbig4 = new CalendarCard();
+            //CalendarCard tmpbig4 = new CalendarCard();
             //TomatoRectCard tmpbig4 = new TomatoRectCard();
-            tmpbig4.SetPosition(inGrid, 2, 2);
+            //tmpbig4.SetPosition(inGrid, 2, 2);
+            WeatherCardSmall weatherCardSmall = new WeatherCardSmall();
+            weatherCardSmall.SetPosition(inGrid, 2, 2);
+
             /*
             for (int i=1;i<=Constants.MAX_ROW;i++)
             {

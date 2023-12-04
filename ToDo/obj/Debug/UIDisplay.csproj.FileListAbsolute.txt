@@ -200,7 +200,6 @@ D:\Github\USpace\ToDo\obj\Debug\Pages\LoginPage.g.cs
 D:\Github\USpace\ToDo\obj\Debug\Pages\MarkdownEditorPage.g.cs
 D:\Github\USpace\ToDo\obj\Debug\Pages\RegisterPage.g.cs
 D:\Github\USpace\ToDo\obj\Debug\Pages\TodoListPage.g.cs
-D:\Github\USpace\ToDo\obj\Debug\Components\MyTextBox.g.cs
 D:\Github\USpace\ToDo\obj\Debug\App.g.cs
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay_Content.g.cs
 D:\Github\USpace\ToDo\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -366,7 +365,6 @@ D:\Github\USpace\ToDo\obj\Debug\Pages\RegisterPage.baml
 D:\Github\USpace\ToDo\obj\Debug\Pages\TodoListPage.baml
 D:\Github\USpace\ToDo\obj\Debug\Styles\MainStyle.baml
 D:\Github\USpace\ToDo\obj\Debug\Themes\LightTheme.baml
-D:\Github\USpace\ToDo\obj\Debug\Components\MyTextBox.baml
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.g.resources
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.Properties.Resources.resources
 D:\Github\USpace\ToDo\obj\Debug\UIDisplay.csproj.GenerateResource.cache

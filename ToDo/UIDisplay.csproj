@@ -153,6 +153,7 @@
     <Compile Include="Cards\ArxivCard.cs" />
     <Compile Include="Cards\CalendarCard.cs" />
     <Compile Include="Cards\ClickCard.cs" />
+    <Compile Include="Cards\WeatherCard.cs" />
     <Compile Include="Components\AddressUnit.xaml.cs">
       <DependentUpon>AddressUnit.xaml</DependentUpon>
     </Compile>
@@ -173,6 +174,8 @@
     <Compile Include="Utils\QiniuBase.cs" />
     <Compile Include="BLL\ContactManager.cs" />
     <Compile Include="Model\Contact.cs" />
+    <Compile Include="WeatherCrawl\WeatherAnalysis.cs" />
+    <Compile Include="WeatherCrawl\WeatherCrawl.cs" />
     <Page Include="Assets\Icons\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -287,6 +290,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <Resource Include="Styles\PingFang.ttc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

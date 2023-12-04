@@ -11,10 +11,10 @@
                 <ResourceDictionary Source="Assets/Icons/Icons.xaml"/>
 
                 <ResourceDictionary Source="Styles/MainStyle.xaml"/>
-
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="PingFang">Styles/PingFang.ttc</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
