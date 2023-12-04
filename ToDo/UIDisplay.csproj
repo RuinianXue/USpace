@@ -151,6 +151,7 @@
     </ApplicationDefinition>
     <Compile Include="BLL\TodoManager.cs" />
     <Compile Include="Cards\ArxivCard.cs" />
+    <Compile Include="Cards\CalendarCard.cs" />
     <Compile Include="Cards\ClickCard.cs" />
     <Compile Include="Components\AddressUnit.xaml.cs">
       <DependentUpon>AddressUnit.xaml</DependentUpon>
