@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:UIDisplay.Pages" xmlns:local1="clr-namespace:UIDisplay.Components"
+      xmlns:local="clr-namespace:UIDisplay.Components"
       xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:my="clr-namespace:UIDisplay.Components"
       mc:Ignorable="d" 
@@ -14,8 +14,7 @@
     </Page.RenderTransform>
     <Border Style="{StaticResource BorderClip}" x:Name="mainBorder" CornerRadius="20" Background="{DynamicResource SecondaryBlueColorA}">
         <Grid>
-            <local1:TodoList x:Name="todoList" Grid.ZIndex="0" Margin="32 72 32 112"/>
-            <StackPanel x:Name="todoListPanel" Grid.ZIndex="0" Margin="32 72 32 8"/>
+            <local:TodoList x:Name="todoList" Grid.ZIndex="0" Margin="32 72 32 112"/>
             <Border x:Name="b1" Grid.ZIndex="1" Height="70" VerticalAlignment="Top" Background="{DynamicResource SecondaryBlueColorA}" Opacity="0.8"/>
 
             <StackPanel x:Name="titlePanel" Grid.ZIndex="3" Orientation="Vertical" VerticalAlignment="Top"  Background="Transparent">

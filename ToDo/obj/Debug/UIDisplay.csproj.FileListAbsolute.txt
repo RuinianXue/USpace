@@ -147,7 +147,6 @@ E:\0temp\USpace\ToDo\bin\Debug\TomatoClock.pdb
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.AssemblyReference.cache
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.SuggestedBindingRedirects.cache
 E:\0temp\USpace\ToDo\obj\Debug\Assets\Icons\Icons.baml
-E:\0temp\USpace\ToDo\obj\Debug\Themes\ResourceDictionary.baml
 E:\0temp\USpace\ToDo\obj\Debug\Components\AddressUnit.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\Components\TodoList.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\Components\TodoUnit.g.cs

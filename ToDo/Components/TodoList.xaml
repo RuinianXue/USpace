@@ -10,7 +10,6 @@
     <Grid>
         <!--<ScrollViewer x:Name="todolistPanelScr" Grid.ZIndex="0" Margin="0" VerticalScrollBarVisibility="Auto" MouseDown="todolistPanelScr_MouseDown">-->
         <ScrollViewer x:Name="todolistPanelScr" Grid.ZIndex="0" Margin="0" VerticalScrollBarVisibility="Hidden">
-            <!--<Grid Margin="32 8 32 8">-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -37,7 +36,6 @@
                             <hc:SimpleText Text="已完成" Foreground="{DynamicResource TextPrimaryBlueColorA}"/>
                             <hc:SimpleText x:Name="todoDoneCount" Foreground="{DynamicResource TextPrimaryBlueColorA}" Margin="12 0 0 0" Text="0"/>
                         </StackPanel>
-
                     </Button.Content>
                 </Button>
                 <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Top">

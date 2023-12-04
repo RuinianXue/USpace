@@ -14,6 +14,7 @@ namespace UIDisplay.Cards
     internal class TodoCard : BigSquareCard
     {
         private TodoList todoList;
+        public event EventHandler TodoCardDoubleClicked;
 
         public TodoCard()
         {
@@ -30,7 +31,7 @@ namespace UIDisplay.Cards
 
             MouseDoubleClick += Card_DoubleClick;
         }
-        public event EventHandler TodoCardDoubleClicked;
+        
         protected virtual void DoubleClick()
         {
             TodoCardDoubleClicked?.Invoke(this, EventArgs.Empty);

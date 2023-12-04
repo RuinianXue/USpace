@@ -25,18 +25,16 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class TodoListPage : Page
     {
-        private bool IsShowMore { get; set; } = true;
-        //TodoList todoList;
+        private const int RefreshInterval = 60000; // 毫秒
+
         public TodoListPage()
         {
             InitializeComponent();
             TodoListPageInitialize();
-            Refresh_Addressbook();
         }
         private void TodoListPageInitialize()
         {
-            Task.Run(CheckTime);
-            Refresh_Addressbook();
+            Task.Run(CheckTime);  
         }
         private void CheckTime()
         {
@@ -68,16 +66,21 @@ namespace UIDisplay.Pages
                         }
                         else if (todoUnit.todo.Date >= DateTime.Now)
                         {
-                            string[] emailList = todoUnit.todo.Teammate.Split(';');
-                            foreach (string email in emailList)
-                            {
-                                Console.WriteLine(email);
-                                EmailManager.SendNotice(email, "您有一个任务有待完成", todoUnit.todo.Content);
-                            }
+                            SendNotifications(todoUnit.todo);
                         }
                     }
                 }));
-                Thread.Sleep(60000);
+                Thread.Sleep(RefreshInterval);
+            }
+        }
+
+        private void SendNotifications(Todo todo)
+        {
+            string[] emailList = todo.Teammate.Split(';');
+            foreach (string email in emailList)
+            {
+                Console.WriteLine(email);
+                EmailManager.SendNotice(email, "您有一个任务有待完成", todo.Content);
             }
         }
 
@@ -85,26 +88,30 @@ namespace UIDisplay.Pages
         {
             Task.Run(() =>
             {
-                ContactManager userDataControl = new ContactManager();
+                var userDataControl = new ContactManager();
                 DataTable dt = userDataControl.QueryUserInfo();
-                Dispatcher.BeginInvoke(new Action(delegate
+                Dispatcher.Invoke(() =>
                 {
                     wrapPanel.Children.Clear();
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    foreach (DataRow row in dt.Rows)
                     {
-                        DataRow row = dt.Rows[i];
-                        Contact userInfo = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
-                        AddressUnit addressUnit = new AddressUnit(userInfo, 1);
-                        wrapPanel.Children.Add(addressUnit);
+                        var userInfo = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
+                        wrapPanel.Children.Add(new AddressUnit(userInfo, 1));
                     }
-                }));
+                });
             });
+        }
+
+        private void Refresh_TodoList()
+        {
+            todoList.Refresh();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LoadInAnimation(sender);
-            todoList.Refresh();
+            Refresh_TodoList();
+            Refresh_Addressbook();
         }
 
         private void LoadInAnimation(object sender)
@@ -130,26 +137,6 @@ namespace UIDisplay.Pages
             Storyboard.SetTarget(doubleAnimation2, (Page)sender);
             Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.Y)"));
             storyboard.Children.Add(doubleAnimation2);
-            storyboard.Begin();
-        }
-
-        private void moreBtn_Click(object sender, RoutedEventArgs e)
-        {
-            IsShowMore = !IsShowMore;
-            double from = IsShowMore ? 0 : 90;
-            double to = IsShowMore ? 90 : 0;
-            todoList.todoList2.Visibility = IsShowMore ? Visibility.Visible : Visibility.Collapsed;
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimation doubleAnimation = new DoubleAnimation()
-            {
-                From = from,
-                To = to,
-                Duration = TimeSpan.FromSeconds(0.3),
-                DecelerationRatio = 0.5
-            };
-            Storyboard.SetTarget(doubleAnimation, todoList.moreIcon);
-            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("RenderTransform.(RotateTransform.Angle)"));
-            storyboard.Children.Add(doubleAnimation);
             storyboard.Begin();
         }
 
@@ -200,11 +187,6 @@ namespace UIDisplay.Pages
             teammateList.Text = "无";
         }
 
-        private void todolistPanelScr_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            todoTaskContentTextBox_LostFocus();
-        }
-
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && g1Focus1.Visibility == Visibility.Visible)
@@ -215,7 +197,7 @@ namespace UIDisplay.Pages
 
                     Task.Run(() =>
                     {
-                        InsertTodoInfo(tmp_todoInfo);
+                        todoList.InsertTodoInfo(tmp_todoInfo);
                     });
                     Task.Run(() =>
                     {
@@ -238,15 +220,15 @@ namespace UIDisplay.Pages
         {
             if (addressbookBorder.Visibility == Visibility.Visible)
             {
-                Storyboard storyboard = new Storyboard();
-                DoubleAnimation doubleAnimation = new DoubleAnimation()
+                var storyboard = new Storyboard();
+                var doubleAnimation = new DoubleAnimation
                 {
                     From = 1,
                     To = 0,
                     Duration = TimeSpan.FromSeconds(1),
                     DecelerationRatio = 0.6
                 };
-                DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+                var doubleAnimation2 = new DoubleAnimation
                 {
                     From = 0,
                     To = 50,
@@ -263,26 +245,25 @@ namespace UIDisplay.Pages
                 Task.Run(() =>
                 {
                     Thread.Sleep(1000);
-                    Dispatcher.BeginInvoke(new Action(delegate
+                    Dispatcher.Invoke(() =>
                     {
                         addressbookBorder.Visibility = Visibility.Collapsed;
-                    }));
+                    });
                     Refresh_Addressbook();
                 });
-
             }
             else
             {
                 addressbookBorder.Visibility = Visibility.Visible;
-                Storyboard storyboard = new Storyboard();
-                DoubleAnimation doubleAnimation = new DoubleAnimation()
+                var storyboard = new Storyboard();
+                var doubleAnimation = new DoubleAnimation
                 {
                     From = 0,
                     To = 1,
                     Duration = TimeSpan.FromSeconds(0.6),
                     DecelerationRatio = 0.6
                 };
-                DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+                var doubleAnimation2 = new DoubleAnimation
                 {
                     From = 50,
                     To = 0,
@@ -297,7 +278,6 @@ namespace UIDisplay.Pages
                 storyboard.Children.Add(doubleAnimation2);
                 storyboard.Begin();
             }
-
         }
 
         private void addressbookRefreshBtn_Click(object sender, RoutedEventArgs e)
@@ -309,8 +289,8 @@ namespace UIDisplay.Pages
         {
             await Task.Run(() =>
             {
-                string emailList = "";
-                Dispatcher.BeginInvoke(new Action(delegate
+                var emailList = "";
+                Dispatcher.Invoke(() =>
                 {
                     foreach (AddressUnit addressUnit in wrapPanel.Children)
                     {
@@ -321,17 +301,18 @@ namespace UIDisplay.Pages
                     }
                     if (emailList.Length == 0) emailList = "无";
                     teammateList.Text = emailList;
-                }));
+                });
             });
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimation doubleAnimation = new DoubleAnimation()
+
+            var storyboard = new Storyboard();
+            var doubleAnimation = new DoubleAnimation
             {
                 From = 1,
                 To = 0,
                 Duration = TimeSpan.FromSeconds(1),
                 DecelerationRatio = 0.6
             };
-            DoubleAnimation doubleAnimation2 = new DoubleAnimation()
+            var doubleAnimation2 = new DoubleAnimation
             {
                 From = 0,
                 To = 50,
@@ -345,65 +326,16 @@ namespace UIDisplay.Pages
             Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
             storyboard.Children.Add(doubleAnimation2);
             storyboard.Begin();
+
             await Task.Run(() =>
             {
                 Thread.Sleep(1000);
-                Dispatcher.BeginInvoke(new Action(delegate
+                Dispatcher.Invoke(() =>
                 {
                     addressbookBorder.Visibility = Visibility.Collapsed;
-                }));
+                });
                 Refresh_Addressbook();
             });
         }
-
-        public void InsertTodoInfo(Todo todoInfo)
-        {
-            Task.Run(() =>
-            {
-                int result = TodoManager.InsertTodoInfo(todoInfo);
-                if (result > 0)
-                {
-                    Growl.Success("待办任务新建成功！");
-                }
-                else
-                {
-                    Growl.Warning("待办任务新建失败！");
-                }
-            });
-        }
-
-        //public void UpdateTodoInfo(Todo todoInfo)
-        //{
-        //    Task.Run(() =>
-        //    {
-        //        int result = TodoManager.UpdateTodoInfo(todoInfo);
-        //        if (result > 0)
-        //        {
-        //            Growl.Success("待办任务更新成功！");
-        //        }
-        //        else
-        //        {
-        //            Growl.Warning("待办任务更新失败！");
-        //        }
-        //        Refresh_TodoDoneCount();
-        //    });
-        //}
-
-        //public void DeleteTodoInfo(Todo todoInfo)
-        //{
-        //    Task.Run(() =>
-        //    {
-        //        int result = TodoManager.DeleteTodoInfo(todoInfo);
-        //        if (result > 0)
-        //        {
-        //            Growl.Success("待办任务删除成功！");
-        //        }
-        //        else
-        //        {
-        //            Growl.Warning("待办任务删除失败！");
-        //        }
-        //        Refresh_TodoDoneCount();
-        //    });
-        //}
     }
 }

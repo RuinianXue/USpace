@@ -36,7 +36,7 @@ namespace UIDisplay.Components
             Refresh();
         }
 
-        public void Refresh()   //待修改：暂时改为public
+        internal void Refresh()  
         {
             Task.Run(() =>
             {
@@ -97,32 +97,6 @@ namespace UIDisplay.Components
             }));
         }
 
-        private void LoadInAnimation(object sender)
-        {
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimation doubleAnimation = new DoubleAnimation()
-            {
-                From = 0.4,
-                To = 1,
-                Duration = TimeSpan.FromSeconds(0.6),
-                DecelerationRatio = 0.6
-            };
-            DoubleAnimation doubleAnimation2 = new DoubleAnimation()
-            {
-                From = 50,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.8),
-                DecelerationRatio = 0.6
-            };
-            Storyboard.SetTarget(doubleAnimation, (Page)sender);
-            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-            storyboard.Children.Add(doubleAnimation);
-            Storyboard.SetTarget(doubleAnimation2, (Page)sender);
-            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.Y)"));
-            storyboard.Children.Add(doubleAnimation2);
-            storyboard.Begin();
-        }
-
         private void moreBtn_Click(object sender, RoutedEventArgs e)
         {
             IsShowMore = !IsShowMore;
@@ -143,21 +117,21 @@ namespace UIDisplay.Components
             storyboard.Begin();
         }
 
-        //public void InsertTodoInfo(Todo todoInfo)
-        //{
-        //    Task.Run(() =>
-        //    {
-        //        int result = TodoManager.InsertTodoInfo(todoInfo);
-        //        if (result > 0)
-        //        {
-        //            Growl.Success("待办任务新建成功！");
-        //        }
-        //        else
-        //        {
-        //            Growl.Warning("待办任务新建失败！");
-        //        }
-        //    });
-        //}
+        public void InsertTodoInfo(Todo todoInfo)
+        {
+            Task.Run(() =>
+            {
+                int result = TodoManager.InsertTodoInfo(todoInfo);
+                if (result > 0)
+                {
+                    Growl.Success("待办任务新建成功！");
+                }
+                else
+                {
+                    Growl.Warning("待办任务新建失败！");
+                }
+            });
+        }
 
         public void UpdateTodoInfo(Todo todoInfo)
         {
