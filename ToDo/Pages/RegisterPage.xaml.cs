@@ -43,8 +43,8 @@ namespace UIDisplay.Pages
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            string newPassword = txtPassword.Text; // 获取用户输入的密码
-            string confirmPassword = txtConfirmPassword.Text; // 获取用户输入的确认密码
+            string newPassword = txtPassword.Password; // 获取用户输入的密码
+            string confirmPassword = txtConfirmPassword.Password; // 获取用户输入的确认密码
             Growl.Info("Enter:" + newPassword + ", Again: " + confirmPassword);
             // 保存用户注册信息到数据库
             bool saveSuccess = SaveUserDataToDatabase();
@@ -65,8 +65,8 @@ namespace UIDisplay.Pages
 
         private bool SaveUserDataToDatabase()
         {
-            string newPassword = txtPassword.Text; // 获取用户输入的密码
-            string confirmPassword = txtConfirmPassword.Text; // 获取用户输入的确认密码
+            string newPassword = txtPassword.Password; // 获取用户输入的密码
+            string confirmPassword = txtConfirmPassword.Password; // 获取用户输入的确认密码
             Growl.Info("Enter:" + newPassword + ", Again: " + confirmPassword);
             if (newPassword != confirmPassword)
             {

@@ -151,13 +151,20 @@
     </ApplicationDefinition>
     <Compile Include="BLL\TodoManager.cs" />
     <Compile Include="Cards\ArxivCard.cs" />
+    <Compile Include="Cards\BatteryCard.cs" />
     <Compile Include="Cards\CalendarCard.cs" />
     <Compile Include="Cards\ClickCard.cs" />
     <Compile Include="Cards\WeatherCard.cs" />
     <Compile Include="Components\AddressUnit.xaml.cs">
       <DependentUpon>AddressUnit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\Battery.xaml.cs">
+      <DependentUpon>Battery.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\BlurMask.cs" />
+    <Compile Include="Components\Calendar.xaml.cs">
+      <DependentUpon>Calendar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\TodoList.xaml.cs">
       <DependentUpon>TodoList.xaml</DependentUpon>
     </Compile>
@@ -181,6 +188,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Components\AddressUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Battery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Calendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

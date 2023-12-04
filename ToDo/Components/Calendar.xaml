@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="UIDisplay.Components.Calendar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
+        <Calendar Margin="0" SelectionMode="MultipleRange"/>
+    </hc:TransitioningContentControl>
+</UserControl>

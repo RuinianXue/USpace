@@ -28,21 +28,12 @@ namespace UIDisplay.Components
     public partial class TodoUnit : UserControl
     {
         public Todo todo;
-        TodoListPage todoListPage;
         TodoList todoList;
 
         public TodoUnit()
         {
             InitializeComponent();
         }
-
-        //public TodoUnit(TodoListPage todolistPage, Todo todoInfo)
-        //{
-        //    InitializeComponent();
-        //    this.todo = todoInfo;
-        //    this.todoListPage = todolistPage;
-        //    Init();
-        //}
 
         public TodoUnit(TodoList todolist, Todo todoInfo)
         {

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 D:\gitrepos\USpace\ToDo\bin\Debug\chrome_100_percent.pak
 D:\gitrepos\USpace\ToDo\bin\Debug\chrome_200_percent.pak
 D:\gitrepos\USpace\ToDo\bin\Debug\chrome_elf.dll
@@ -375,6 +376,29 @@ D:\Github\USpace\ToDo\obj\Debug\UIDisplay.pdb
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.dll
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.pdb
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.xml
+=======
+E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.AssemblyReference.cache
+E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.SuggestedBindingRedirects.cache
+E:\0temp\USpace\ToDo\obj\Debug\Assets\Icons\Icons.baml
+E:\0temp\USpace\ToDo\obj\Debug\Components\Calendar.baml
+E:\0temp\USpace\ToDo\obj\Debug\Components\AddressUnit.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Components\Calendar.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Components\TodoList.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Components\TodoUnit.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Pages\AddressbookPage.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Pages\AddressUnitEdit.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Pages\Dashboard.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\MainWindow.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Pages\LoginPage.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Pages\MarkdownEditorPage.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Pages\RegisterPage.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\Pages\TodoListPage.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\App.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\UIDisplay_Content.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\0temp\USpace\ToDo\obj\Debug\UIDisplay_MarkupCompile.cache
+E:\0temp\USpace\ToDo\obj\Debug\UIDisplay_MarkupCompile.lref
+>>>>>>> Stashed changes
 E:\0temp\USpace\ToDo\bin\Debug\chrome_100_percent.pak
 E:\0temp\USpace\ToDo\bin\Debug\chrome_200_percent.pak
 E:\0temp\USpace\ToDo\bin\Debug\chrome_elf.dll
@@ -450,6 +474,9 @@ E:\0temp\USpace\ToDo\bin\Debug\CefSharp.BrowserSubprocess.Core.dll
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.BrowserSubprocess.Core.pdb
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.BrowserSubprocess.exe
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.BrowserSubprocess.pdb
+E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.dll
+E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.pdb
+E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.xml
 E:\0temp\USpace\ToDo\bin\Debug\UIDisplay.exe.config
 E:\0temp\USpace\ToDo\bin\Debug\UIDisplay.exe
 E:\0temp\USpace\ToDo\bin\Debug\UIDisplay.pdb
@@ -518,25 +545,6 @@ E:\0temp\USpace\ToDo\bin\Debug\System.Memory.xml
 E:\0temp\USpace\ToDo\bin\Debug\System.Numerics.Vectors.xml
 E:\0temp\USpace\ToDo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\0temp\USpace\ToDo\bin\Debug\TomatoClock.pdb
-E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.AssemblyReference.cache
-E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.SuggestedBindingRedirects.cache
-E:\0temp\USpace\ToDo\obj\Debug\Assets\Icons\Icons.baml
-E:\0temp\USpace\ToDo\obj\Debug\Components\AddressUnit.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Components\TodoList.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Components\TodoUnit.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Pages\AddressbookPage.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Pages\AddressUnitEdit.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Pages\Dashboard.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\MainWindow.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Pages\LoginPage.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Pages\MarkdownEditorPage.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Pages\RegisterPage.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Pages\TodoListPage.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\App.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\UIDisplay_Content.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\GeneratedInternalTypeHelper.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\UIDisplay_MarkupCompile.cache
-E:\0temp\USpace\ToDo\obj\Debug\UIDisplay_MarkupCompile.lref
 E:\0temp\USpace\ToDo\obj\Debug\App.baml
 E:\0temp\USpace\ToDo\obj\Debug\Components\AddressUnit.baml
 E:\0temp\USpace\ToDo\obj\Debug\Components\TodoList.baml
@@ -558,3 +566,5 @@ E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.CoreCompileInputs.cache
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.CopyComplete
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.exe
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.pdb
+E:\0temp\USpace\ToDo\obj\Debug\Components\Battery.baml
+E:\0temp\USpace\ToDo\obj\Debug\Components\Battery.g.cs

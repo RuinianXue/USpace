@@ -151,6 +151,11 @@ namespace UIDisplay.Pages
             todoCard.TodoCardDoubleClicked += TodoDoubleClick;
 
             //CalendarCard tmpbig4 = new CalendarCard();
+<<<<<<< Updated upstream
+=======
+            BatteryCard tmpbig4 = new BatteryCard();
+            //CalendarRectCard tmpbig4 = new CalendarRectCard();
+>>>>>>> Stashed changes
             //TomatoRectCard tmpbig4 = new TomatoRectCard();
             //tmpbig4.SetPosition(inGrid, 2, 2);
             WeatherCardSmall weatherCardSmall = new WeatherCardSmall();

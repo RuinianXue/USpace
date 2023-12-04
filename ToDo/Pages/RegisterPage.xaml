@@ -203,9 +203,9 @@
 
                     <TextBox x:Name="txtNickname" Grid.Column="1" Grid.Row="0" hc:InfoElement.Placeholder="Karim" Style="{StaticResource TextBoxExtend}"/>
                     <hc:DatePicker Grid.Column="1" Grid.Row="1" x:Name="dateTimePickers" SelectedDate="1980-12-10"  hc:InfoElement.TitlePlacement="Left"/>
-                    <TextBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2" 
-                    hc:InfoElement.Placeholder="Longer than 5 bits" Style="{StaticResource TextBoxExtend}"/>
-                    <TextBox x:Name="txtConfirmPassword" Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBoxExtend}"/>
+                    <hc:PasswordBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2" 
+                    hc:InfoElement.Placeholder="Longer than 5 bits"/>
+                    <hc:PasswordBox x:Name="txtConfirmPassword" Grid.Column="1" Grid.Row="3"/>
 
                     <Grid Grid.Column="1" Grid.Row="7" Margin="0 30 0 0">
                         <Grid.ColumnDefinitions>
