@@ -10,11 +10,19 @@ none
 false
 DEBUG;TRACE
 E:\0temp\USpace\ToDo\App.xaml
+<<<<<<< Updated upstream
 15-1567941843
 781484395870
 40-2077404357
 502006773706
 Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\AddressbookPage.xaml;Pages\AddressUnitEdit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;Components\MyTextBox.xaml;
+=======
+16141551237
+781484395870
+37221834985
+502006773706
+Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\AddressbookPage.xaml;Pages\AddressUnitEdit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Themes\ResourceDictionary.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;Components\MyTextBox.xaml;
+>>>>>>> Stashed changes
 
 True
 
