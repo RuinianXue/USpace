@@ -534,7 +534,6 @@ E:\0temp\USpace\ToDo\obj\Debug\Pages\LoginPage.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\Pages\MarkdownEditorPage.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\Pages\RegisterPage.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\Pages\TodoListPage.g.cs
-E:\0temp\USpace\ToDo\obj\Debug\Components\MyTextBox.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\App.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay_Content.g.cs
 E:\0temp\USpace\ToDo\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -554,7 +553,6 @@ E:\0temp\USpace\ToDo\obj\Debug\Pages\RegisterPage.baml
 E:\0temp\USpace\ToDo\obj\Debug\Pages\TodoListPage.baml
 E:\0temp\USpace\ToDo\obj\Debug\Styles\MainStyle.baml
 E:\0temp\USpace\ToDo\obj\Debug\Themes\LightTheme.baml
-E:\0temp\USpace\ToDo\obj\Debug\Components\MyTextBox.baml
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.g.resources
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.Properties.Resources.resources
 E:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.GenerateResource.cache

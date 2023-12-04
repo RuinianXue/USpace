@@ -172,9 +172,6 @@
     <Compile Include="Utils\QiniuBase.cs" />
     <Compile Include="BLL\ContactManager.cs" />
     <Compile Include="Model\Contact.cs" />
-    <Compile Include="Components\MyTextBox.xaml.cs">
-      <DependentUpon>MyTextBox.xaml</DependentUpon>
-    </Compile>
     <Page Include="Assets\Icons\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -249,10 +246,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\LightTheme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Components\MyTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

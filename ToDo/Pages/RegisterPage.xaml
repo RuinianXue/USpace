@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:uc="clr-namespace:UIDisplay.Components"
     mc:Ignorable="d" Height="500" Width="800" Background="Transparent" 
     WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
@@ -178,9 +179,6 @@
         <!--Input Section-->
         <Border Grid.Column="0" Padding="20" MouseDown="Border_MouseDown" Background="#ffffff" CornerRadius="25 0 0 25">
             <Grid>
-                <Image Source="/Images/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource iconApp}"/>
-                <Image Source="/Images/minimize.png" Width="20" Margin="0 7 40 0" Style="{StaticResource iconApp}"/>
-
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="160"/>
@@ -199,16 +197,17 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Text="Nickname" Style="{StaticResource text}"/>
-                    <!--<TextBlock Grid.Row="1" Text="Date of Birth" Style="{StaticResource text}"/>-->
+                    <TextBlock Grid.Row="1" Text="Date of Birth" Style="{StaticResource text}"/>
                     <TextBlock Grid.Row="2" Text="Password" Style="{StaticResource text}"/>
                     <TextBlock Grid.Row="3" Text="Confirm Password" Style="{StaticResource text}"/>
 
-                    <uc:MyTextBox x:Name="txtNickname" Grid.Column="1" Grid.Row="0" Hint="Karim"/>
-                    <!--<uc:MyTextBox Grid.Column="1" Grid.Row="1" Hint="01/02/1980"/>-->
-                    <uc:MyTextBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2" Hint="Longer than 5 bits"/>
-                    <uc:MyTextBox x:Name="txtConfirmPassword" Grid.Column="1" Grid.Row="3"/>
+                    <TextBox x:Name="txtNickname" Grid.Column="1" Grid.Row="0" hc:InfoElement.Placeholder="Karim" Style="{StaticResource TextBoxExtend}"/>
+                    <hc:DatePicker Grid.Column="1" Grid.Row="1" x:Name="dateTimePickers" SelectedDate="1980-12-10"  hc:InfoElement.TitlePlacement="Left"/>
+                    <TextBox x:Name="txtPassword" Grid.Column="1" Grid.Row="2" 
+                    hc:InfoElement.Placeholder="Longer than 5 bits" Style="{StaticResource TextBoxExtend}"/>
+                    <TextBox x:Name="txtConfirmPassword" Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBoxExtend}"/>
 
-                    <Grid Grid.Column="1" Grid.Row="7" Margin="0 40 0 0">
+                    <Grid Grid.Column="1" Grid.Row="7" Margin="0 30 0 0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
