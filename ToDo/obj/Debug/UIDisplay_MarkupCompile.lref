@@ -1,20 +1,4 @@
-﻿
-<<<<<<< Updated upstream
-FD:\Github\USpace\ToDo\App.xaml;;
-FD:\Github\USpace\ToDo\Components\AddressUnit.xaml;;
-FD:\Github\USpace\ToDo\Components\TodoList.xaml;;
-FD:\Github\USpace\ToDo\Components\TodoUnit.xaml;;
-FD:\Github\USpace\ToDo\Pages\AddressbookPage.xaml;;
-FD:\Github\USpace\ToDo\Pages\AddressUnitEdit.xaml;;
-FD:\Github\USpace\ToDo\Pages\Dashboard.xaml;;
-FD:\Github\USpace\ToDo\MainWindow.xaml;;
-FD:\Github\USpace\ToDo\Pages\LoginPage.xaml;;
-FD:\Github\USpace\ToDo\Pages\MarkdownEditorPage.xaml;;
-FD:\Github\USpace\ToDo\Pages\RegisterPage.xaml;;
-FD:\Github\USpace\ToDo\Pages\TodoListPage.xaml;;
-FD:\Github\USpace\ToDo\Styles\MainStyle.xaml;;
-FD:\Github\USpace\ToDo\Themes\LightTheme.xaml;;
-=======
+﻿E:\0temp\USpace\ToDo\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FE:\0temp\USpace\ToDo\App.xaml;;
 FE:\0temp\USpace\ToDo\Components\AddressUnit.xaml;;
 FE:\0temp\USpace\ToDo\Components\TodoList.xaml;;
@@ -29,5 +13,4 @@ FE:\0temp\USpace\ToDo\Pages\RegisterPage.xaml;;
 FE:\0temp\USpace\ToDo\Pages\TodoListPage.xaml;;
 FE:\0temp\USpace\ToDo\Styles\MainStyle.xaml;;
 FE:\0temp\USpace\ToDo\Themes\LightTheme.xaml;;
->>>>>>> Stashed changes
 

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\Github\USpace\TomatoClock\TomatoClock\obj\Debug\
+E:\0temp\USpace\TomatoClock\TomatoClock\obj\Debug\
 TomatoClock
 none
 false
@@ -12,13 +12,8 @@ DEBUG;TRACE
 
 1-144018496
 
-<<<<<<< Updated upstream
 9-1874465226
-16391853324
-=======
-8498723949
 16781886956
->>>>>>> Stashed changes
 View\ClockMainWindow.xaml;
 
 False

@@ -4,26 +4,17 @@
 winexe
 C#
 .cs
-D:\Github\USpace\ToDo\obj\Debug\
+E:\0temp\USpace\ToDo\obj\Debug\
 UIDisplay
 none
 false
 DEBUG;TRACE
-<<<<<<< Updated upstream
-D:\Github\USpace\ToDo\App.xaml
-141493697053
-78-1347016994
-42-2143644199
-50-1621972266
-Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\AddressbookPage.xaml;Pages\AddressUnitEdit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;
-=======
 E:\0temp\USpace\ToDo\App.xaml
 16-1500965544
 781484395870
-42-1913334920
+45-385921412
 502006773706
 Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\Battery.xaml;Components\Calendar.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\AddressbookPage.xaml;Pages\AddressUnitEdit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;
->>>>>>> Stashed changes
 
 False
 
