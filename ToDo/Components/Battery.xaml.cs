@@ -10,6 +10,7 @@ using System.Management;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.ComponentModel;
 
 namespace UIDisplay.Components
 {
@@ -26,6 +27,17 @@ namespace UIDisplay.Components
             DataContext = this;
             BatteryLevel = GetBatteryInfo();
         }
+
+        //public MainViewModel ViewModel { get; set; }
+
+        //public Battery()
+        //{
+        //    InitializeComponent();
+        //    ViewModel = new MainViewModel();
+        //    DataContext = ViewModel;
+        //    ViewModel.BatteryLevel = GetBatteryInfo();
+        //}
+
         private string GetBatteryInfo()
         {
             try
@@ -66,59 +78,53 @@ namespace UIDisplay.Components
         //}
     }
 
-    public class BatteryStatusToStyleConverter : IValueConverter
-    {
-        //public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        //{
-        //    if (value != null && value is string batteryStatus)
-        //    {
-        //        if (batteryStatus == "正在充电")
-        //        {
-        //            return new WaveProgressBarStyle { FillColor = Brushes.Green };
-        //        }
-        //        else if (batteryStatus == "未充电")
-        //        {
-        //            return new CircleProgressBarStyle { FillColor = Brushes.Red };
-        //        }
-        //        else
-        //        {
-        //            return new CircleProgressBarStyle { FillColor = Brushes.Gray };
-        //        }
-        //    }
-        //    return new CircleProgressBarStyle { FillColor = Brushes.Gray };
-        //}
+    //public class MainViewModel : INotifyPropertyChanged
+    //{
+    //    private string _batteryLevel;
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value != null && value is string batteryStatus)
-            {
-                if (batteryStatus == "正在充电")
-                {
-                    return new WaveProgressBar();
-                }
-                else
-                {
-                    return new CircleProgressBar();
-                }
-            }
-            return new CircleProgressBar();
-        }
+    //    public string BatteryLevel
+    //    {
+    //        get { return _batteryLevel; }
+    //        set
+    //        {
+    //            if (_batteryLevel != value)
+    //            {
+    //                _batteryLevel = value;
+    //                OnPropertyChanged(nameof(BatteryLevel));
+    //            }
+    //        }
+    //    }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //    private BatteryStatus _batteryStatus;
 
-    public class WaveProgressBarStyle
-    {
-        public Brush FillColor { get; set; }
-        // Add other properties for WaveProgressBar style
-    }
+    //    public BatteryStatus BatteryStatus
+    //    {
+    //        get { return _batteryStatus; }
+    //        set
+    //        {
+    //            if (_batteryStatus != value)
+    //            {
+    //                _batteryStatus = value;
+    //                OnPropertyChanged(nameof(BatteryStatus));
+    //            }
+    //        }
+    //    }
 
-    public class CircleProgressBarStyle
-    {
-        public Brush FillColor { get; set; }
-        // Add other properties for CircleProgressBar style
-    }
+    //    public event PropertyChangedEventHandler PropertyChanged;
+
+    //    protected virtual void OnPropertyChanged(string propertyName)
+    //    {
+    //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    //    }
+    //}
+
+    //public enum BatteryStatus
+    //{
+    //    Charging,
+    //    Discharging,
+    //    Full,
+    //    Low,
+    //    High,
+    //    Unknown
+    //}
 }

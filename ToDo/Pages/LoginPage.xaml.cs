@@ -130,7 +130,8 @@ namespace UIDisplay.Pages
 
         private void NavigateToRegistrationPage()
         {
-            Register register = new Register();
+            string email = txtEmail.Text;
+            RegisterPage register = new RegisterPage(email);
             register.Show();
             this.Close();
         }
@@ -156,16 +157,12 @@ namespace UIDisplay.Pages
 
                 if (verificationCode != null)
                 {
-                    // Verification code sent successfully, you can use the verificationCode as needed
                     Growl.Success($"Verification code sent to {email}. Check your email.");
 
-                    //passwordBorder.Visibility = Visibility.Collapsed;
-                    //PasswordButton.Visibility = Visibility.Collapsed;
                     verificationCodeBorder.Visibility = Visibility.Visible;
                     SendCodeButton.Visibility = Visibility.Collapsed;
                     SignInByCodeButton.Visibility = Visibility.Visible;
 
-                    // Start the countdown
                     StartCountdownTimer();
                 }
                 else
@@ -200,7 +197,6 @@ namespace UIDisplay.Pages
             CodeButton.Visibility = Visibility.Collapsed;
 
             PasswordButton.Visibility = Visibility.Visible;
-            verificationCodeBorder.Visibility = Visibility.Visible;
             SendCodeButton.Visibility = Visibility.Visible;
             SignInByCodeButton.Visibility = Visibility.Visible;
         }

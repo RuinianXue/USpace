@@ -20,11 +20,20 @@ namespace UIDisplay.Pages
     /// <summary>
     /// Register.xaml 的交互逻辑
     /// </summary>
-    public partial class Register : System.Windows.Window
+    public partial class RegisterPage : System.Windows.Window
     {
-        public Register()
+        private readonly string _newEmail;
+
+        public RegisterPage()   //临时写的，用来测试
         {
             InitializeComponent();
+            _newEmail = "2857809611@qq.com";
+        }
+
+        public RegisterPage(string newEmail)
+        {
+            InitializeComponent();
+            _newEmail = newEmail;
         }
 
         private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -38,53 +47,66 @@ namespace UIDisplay.Pages
             Login login = new Login(); // 创建登录页面实例
             login.Show();
             this.Close();
-            //this.NavigationService.Navigate(loginPage); // 使用导航服务导航到登录页面
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            string newPassword = txtPassword.Password; // 获取用户输入的密码
-            string confirmPassword = txtConfirmPassword.Password; // 获取用户输入的确认密码
-            Growl.Info("Enter:" + newPassword + ", Again: " + confirmPassword);
-            // 保存用户注册信息到数据库
-            bool saveSuccess = SaveUserDataToDatabase();
+            // Validate inputs first
+            if (!ValidateInputs()) return;
 
-            if (saveSuccess)
+            // Save user data to the database
+            if (SaveUserDataToDatabase())
             {
-                // 数据保存成功，导航到主页面
-                MainWindow mainWindow = new MainWindow();
+                // Data saved successfully, navigate to the main page
+                var mainWindow = new MainWindow();
                 mainWindow.Show();
-                this.Close();
+                Close();
             }
             else
             {
-                // 数据保存失败，可以进行相应的错误处理，例如显示错误消息给用户
+                // Data save failed, display an error message to the user
                 Growl.Error("Failed to save user data. Please try again.");
             }
         }
 
-        private bool SaveUserDataToDatabase()
+        private bool ValidateInputs()
         {
-            string newPassword = txtPassword.Password; // 获取用户输入的密码
-            string confirmPassword = txtConfirmPassword.Password; // 获取用户输入的确认密码
-            Growl.Info("Enter:" + newPassword + ", Again: " + confirmPassword);
-            if (newPassword != confirmPassword)
+            var newPassword = txtPassword?.Password;
+            var newConfirmPassword = txtConfirmPassword?.Password;
+
+            if(string.IsNullOrEmpty(txtNickname.Text))
             {
-                // 显示密码不匹配的错误消息
-                Growl.Error("Password and Confirm Password do not match");
-                return false; // 返回false表示保存操作失败
+                Growl.Error("Nickname cannot be empty");
+                return false;
             }
 
-            // 从界面获取用户输入的用户名、出生日期、邮箱和密码
-            string newUserName = txtNickname.Text;
-            DateTime newDateOfBirth = DateTime.Now;
-            string newEmail = "2857809611@qq.com";  //待修改!!!!!!!!!!
+            if (txtDateOfBirth.SelectedDate == null)
+            {
+                Growl.Error("Please select a valid date of birth");
+                return false;
+            }
 
-            bool flag = UserManager.InsertUser(newUserName, newDateOfBirth, newEmail, newPassword);
+            if (string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(newConfirmPassword))
+            {
+                Growl.Error("Password cannot be empty");
+                return false;
+            }
 
+            if (newPassword != newConfirmPassword)
+            {
+                Growl.Error("Password and Confirm Password do not match");
+                return false;
+            }
 
-            return flag;
-            //return UserManager.InsertUser(newUserName, newDateOfBirth, newEmail, newPassword);
+            return true;
+        }
+
+        private bool SaveUserDataToDatabase()
+        {
+            var newUserName = txtNickname.Text;
+            var newDateOfBirth = txtDateOfBirth.SelectedDate.Value;
+            var newPassword = txtPassword?.Password;
+            return UserManager.InsertUser(newUserName, newDateOfBirth, _newEmail, newPassword);
         }
     }
 }

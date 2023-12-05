@@ -6,9 +6,8 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:local="clr-namespace:UIDisplay.Components"
              mc:Ignorable="d">
-    <UserControl.Resources>
-        <local:BatteryStatusToStyleConverter x:Key="BatteryStatusConverter" />
-    </UserControl.Resources>
-    <hc:CircleProgressBar Value="{Binding Path=BatteryLevel}"/>
+    <StackPanel Orientation="Horizontal">
+        <hc:CircleProgressBar Value="{Binding Path=BatteryLevel}"/>
+    </StackPanel>
 </UserControl>
 
