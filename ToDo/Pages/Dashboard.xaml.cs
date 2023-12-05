@@ -151,11 +151,15 @@ namespace UIDisplay.Pages
             todoCard.TodoCardDoubleClicked += TodoDoubleClick;
 
             WeatherCardSmall weatherCardSmall = new WeatherCardSmall();
-            weatherCardSmall.SetPosition(inGrid, 2, 2);
+            //weatherCardSmall.SetPosition(inGrid, 2, 2);
+
+            WeatherCardBig wtc2 = new WeatherCardBig();
+            wtc2.SetPosition(inGrid, 2, 2);
+
             BatteryCard batteryCardSmall = new BatteryCard();
-            batteryCardSmall.SetPosition(inGrid, 2, 3);
+            //batteryCardSmall.SetPosition(inGrid, 2, 3);
             TomatoRectCard tmpbig4 = new TomatoRectCard();
-            tmpbig4.SetPosition(inGrid, 3, 2);
+            //tmpbig4.SetPosition(inGrid, 3, 2);
 
             /*
             for (int i=1;i<=Constants.MAX_ROW;i++)

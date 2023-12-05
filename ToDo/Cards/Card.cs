@@ -157,6 +157,10 @@ namespace UIDisplay.Cards
         {
             Grid.SetRow(this, row);
             Grid.SetColumn(this, colomn);
+            if((int)this.Width == Constants.BIG_CARD_LENGTH)
+                Grid.SetColumnSpan(this, 2);
+            if((int)this.Height == Constants.BIG_CARD_LENGTH)
+                Grid.SetRowSpan(this, 2);
             grid.Children.Add(this);
         }
         protected void Card_MouseEnter(object sender, MouseEventArgs e)
@@ -263,13 +267,6 @@ namespace UIDisplay.Cards
             Width = stdWidth = Constants.BIG_CARD_LENGTH;
             Height = stdHeight = Constants.SMALL_CARD_LENGTH;
         }
-        public new void SetPosition(Grid grid, int row, int colomn)
-        {
-            Grid.SetRow(this, row);
-            Grid.SetColumn(this, colomn);
-            Grid.SetColumnSpan(this, 2);
-            grid.Children.Add(this);
-        }
     }
     public class BigSquareCard : Card
     {
@@ -277,14 +274,6 @@ namespace UIDisplay.Cards
         {
             Width = stdWidth = Constants.BIG_CARD_LENGTH;
             Height = stdHeight = Constants.BIG_CARD_LENGTH;
-        }
-        public new void SetPosition(Grid grid, int row, int colomn)
-        {
-            Grid.SetRow(this, row);
-            Grid.SetRowSpan(this, 2);
-            Grid.SetColumn(this, colomn);
-            Grid.SetColumnSpan(this, 2);
-            grid.Children.Add(this);
         }
     }
 }

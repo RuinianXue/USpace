@@ -339,7 +339,14 @@
   <ItemGroup>
     <Resource Include="Images\arxiv.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\WeatherCard\humidity.png" />
+    <Resource Include="Images\WeatherCard\precipitation.png" />
+    <Resource Include="Images\WeatherCard\uvindex.png" />
+    <Resource Include="Images\WeatherCard\visibility.png" />
+    <Resource Include="Images\WeatherCard\winddescription.png" />
+    <Resource Include="Images\WeatherCard\windpower.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
