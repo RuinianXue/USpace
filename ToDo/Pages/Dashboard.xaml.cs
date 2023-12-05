@@ -151,12 +151,14 @@ namespace UIDisplay.Pages
             todoCard.TodoCardDoubleClicked += TodoDoubleClick;
 
             //CalendarCard tmpbig4 = new CalendarCard();
-            BatteryCard tmpbig4 = new BatteryCard();
-            //CalendarRectCard tmpbig4 = new CalendarRectCard();
             //TomatoRectCard tmpbig4 = new TomatoRectCard();
             //tmpbig4.SetPosition(inGrid, 2, 2);
             WeatherCardSmall weatherCardSmall = new WeatherCardSmall();
             weatherCardSmall.SetPosition(inGrid, 2, 2);
+            BatteryCard batteryCardSmall = new BatteryCard();
+            batteryCardSmall.SetPosition(inGrid, 2, 3);
+            CalendarRectCard calendarRectCard = new CalendarRectCard();
+            calendarRectCard.SetPosition(inGrid, 3, 2);
 
             /*
             for (int i=1;i<=Constants.MAX_ROW;i++)

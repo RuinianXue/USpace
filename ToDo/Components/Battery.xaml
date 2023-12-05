@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:local="clr-namespace:UIDisplay.Components"
              mc:Ignorable="d">
-    <StackPanel Orientation="Horizontal" Margin="5">
-        <hc:WaveProgressBar Value="{Binding ElementName=SliderDemo, Path=Value}" Margin="5"/>
-    </StackPanel>
+    <UserControl.Resources>
+        <local:BatteryStatusToStyleConverter x:Key="BatteryStatusConverter" />
+    </UserControl.Resources>
+    <hc:CircleProgressBar Value="{Binding Path=BatteryLevel}"/>
 </UserControl>
 

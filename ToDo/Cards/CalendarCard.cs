@@ -34,8 +34,8 @@ namespace UIDisplay.Cards
             MenuInitialize();
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
-            stackPanel.Height = Constants.SMALL_CARD_LENGTH - 20;
-            stackPanel.Width = Constants.SMALL_CARD_LENGTH - 20;
+            stackPanel.Height = Constants.BIG_CARD_LENGTH - 30;
+            stackPanel.Width = Constants.BIG_CARD_LENGTH - 30;
             CalendarWithClock clk = new CalendarWithClock();
             Viewbox vb = new Viewbox();
             vb.Child = clk;
