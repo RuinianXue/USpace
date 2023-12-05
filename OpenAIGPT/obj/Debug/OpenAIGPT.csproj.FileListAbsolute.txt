@@ -1,12 +1,9 @@
 D:\gitrepos\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.csproj.AssemblyReference.cache
 D:\gitrepos\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.csproj.CoreCompileInputs.cache
-D:\gitrepos\USpace\OpenAIGPT\bin\Debug\OpenAIGPT.exe.config
-D:\gitrepos\USpace\OpenAIGPT\bin\Debug\OpenAIGPT.exe
 D:\gitrepos\USpace\OpenAIGPT\bin\Debug\OpenAIGPT.pdb
 D:\gitrepos\USpace\OpenAIGPT\bin\Debug\Newtonsoft.Json.dll
 D:\gitrepos\USpace\OpenAIGPT\bin\Debug\Newtonsoft.Json.xml
 D:\gitrepos\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.csproj.CopyComplete
-D:\gitrepos\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.exe
 D:\gitrepos\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.pdb
 E:\0temp\USpace\OpenAIGPT\bin\Debug\OpenAIGPT.exe.config
 E:\0temp\USpace\OpenAIGPT\bin\Debug\OpenAIGPT.exe
@@ -30,3 +27,6 @@ D:\Github\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.csproj.CoreCompileInputs.cache
 D:\Github\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.csproj.CopyComplete
 D:\Github\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.exe
 D:\Github\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.pdb
+D:\gitrepos\USpace\OpenAIGPT\bin\Debug\OpenAIGPT.dll.config
+D:\gitrepos\USpace\OpenAIGPT\bin\Debug\OpenAIGPT.dll
+D:\gitrepos\USpace\OpenAIGPT\obj\Debug\OpenAIGPT.dll

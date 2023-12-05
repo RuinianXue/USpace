@@ -8,7 +8,7 @@ using static OpenAIGPT.GPTHelper.JsonRespond;
 
 namespace OpenAIGPT.GPTHelper
 {
-    internal class GPTRequest
+    public class GPTRequest
     {
         private static string apiKey;
         private static readonly string Model = "gpt-3.5-turbo";
@@ -18,10 +18,12 @@ namespace OpenAIGPT.GPTHelper
 
         private string reqContent;
 
+        public string LastResponse { get; set; }
+
         public GPTRequest(string ak)
         {
             //apiKey = ak;
-            apiKey = "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";
+            apiKey = "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";
         }
 
         private HttpClient CreateHttpClient()
@@ -35,22 +37,31 @@ namespace OpenAIGPT.GPTHelper
         {
             using (HttpClient client = CreateHttpClient())
             {
-                var request = new HttpRequestMessage
+                try
                 {
-                    Method = HttpMethod.Post,
-                    RequestUri = new Uri(apiUrl),
-                    Content = new StringContent(requestBody, Encoding.UTF8, "application/json")
-                };
+                    var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Post,
+                        RequestUri = new Uri(apiUrl),
+                        Content = new StringContent(requestBody, Encoding.UTF8, "application/json")
+                    };
 
-                HttpResponseMessage response = await client.SendAsync(request);
+                    HttpResponseMessage response = await client.SendAsync(request);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    return await response.Content.ReadAsStringAsync();
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return await response.Content.ReadAsStringAsync();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"错误：{response.StatusCode} - {response.ReasonPhrase}");
+                        Console.WriteLine(await response.Content.ReadAsStringAsync()); // 为调试打印响应内容
+                        return null;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
+                    Console.WriteLine($"异常：{ex.Message}");
                     return null;
                 }
             }
@@ -60,9 +71,7 @@ namespace OpenAIGPT.GPTHelper
         {
             reqContent = $"{{\"model\": \"{Model}\", \"messages\": [{{\"role\": \"user\", \"content\": \"{message}\"}}], \"temperature\": {Temperature}}}";
             string responseString = await SendRequestAsync(TurboApiUrl, reqContent);
-            Console.WriteLine(responseString);
-            OpenAIResponse myApiResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<OpenAIResponse>(responseString);
-            JsonToContent(responseString);
+            LastResponse =JsonToContent(responseString);
         }
 
         //可以使用davinci但没必要
@@ -71,13 +80,13 @@ namespace OpenAIGPT.GPTHelper
             int maxTokens = 60;
             string requestBody = $"{{\"prompt\": \"{message}\", \"max_tokens\": {maxTokens}}}";
             string responseString = await SendRequestAsync(DavinciApiUrl, requestBody);
-            JsonToContent (responseString);
+            LastResponse= JsonToContent (responseString);
         }
 
-        public void JsonToContent(string jsonString)
+        public string JsonToContent(string jsonString)
         {
             OpenAIResponse myApiResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<OpenAIResponse>(jsonString);
-            Console.WriteLine(myApiResponse.Choices[0].Message.Content);
+            return myApiResponse.Choices[0].Message.Content;
         }
 
     }

@@ -3,32 +3,56 @@
   "WorkspaceRootPath": "D:\\gitrepos\\USpace\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|d:\\gitrepos\\uspace\\arxiv_crawller\\arxiv\\arxivcrawl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|D:\\gitrepos\\USpace\\arxiv_crawller\\view\\arxivcardwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\view\\arxivcardwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|D:\\gitrepos\\USpace\\arxiv_crawller\\view\\arxivcardwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\view\\arxivcardwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|d:\\gitrepos\\uspace\\arxiv_crawller\\viewmodel\\arxivviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\viewmodel\\arxivviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\cards\\arxivcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\cards\\arxivcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|D:\\gitrepos\\USpace\\arxiv_crawller\\arxiv\\arxivcrawl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\arxiv\\arxivcrawl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\themes\\resourcedictionary.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\themes\\resourcedictionary.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\cards\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\cards\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\utils\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\utils\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|D:\\gitrepos\\USpace\\tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|solutionrelative:tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|d:\\gitrepos\\uspace\\tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|D:\\gitrepos\\USpace\\tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9E6516E1-15B5-46AC-92FD-F7CFFA162E14}|TomatoClock\\TomatoClock\\TomatoClock.csproj|solutionrelative:tomatoclock\\tomatoclock\\view\\clockmainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\tomatocard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\tomatocard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\pages\\dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\pages\\dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\gitrepos\\USpace\\ToDo\\Themes\\ResourceDictionary.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ToDo\\Themes\\ResourceDictionary.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\gitrepos\\USpace\\ToDo\\TomatoCard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ToDo\\TomatoCard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\gitrepos\\USpace\\ToDo\\Card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ToDo\\Card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,48 +62,120 @@
       "DocumentGroups": [
         {
           "DockedWidth": 270,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "arXivCrawl.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivCrawl.cs",
-              "RelativeDocumentMoniker": "arXiv_Crawller\\arXiv\\arXivCrawl.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivCrawl.cs",
-              "RelativeToolTip": "arXiv_Crawller\\arXiv\\arXivCrawl.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAmwBAAAAAJAAAA",
+              "DocumentIndex": 2,
+              "Title": "arXivViewModel.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
+              "RelativeDocumentMoniker": "arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
+              "RelativeToolTip": "arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAACEAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-02T12:33:22.532Z",
+              "WhenOpened": "2023-12-05T15:53:52.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "arXivCardWindow.xaml.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\View\\arXivCardWindow.xaml.cs",
+              "RelativeDocumentMoniker": "arXiv_Crawller\\View\\arXivCardWindow.xaml.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\View\\arXivCardWindow.xaml.cs",
+              "RelativeToolTip": "arXiv_Crawller\\View\\arXivCardWindow.xaml.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAADwvxsAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-05T15:51:52.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "arXivCardWindow.xaml",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\View\\arXivCardWindow.xaml",
+              "RelativeDocumentMoniker": "arXiv_Crawller\\View\\arXivCardWindow.xaml",
+              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\View\\arXivCardWindow.xaml",
+              "RelativeToolTip": "arXiv_Crawller\\View\\arXivCardWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2023-12-05T15:46:19.803Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ArxivCard.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Cards\\ArxivCard.cs",
+              "RelativeDocumentMoniker": "ToDo\\Cards\\ArxivCard.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Cards\\ArxivCard.cs",
+              "RelativeToolTip": "ToDo\\Cards\\ArxivCard.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAuwDsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-05T15:44:26.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Card.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Cards\\Card.cs",
+              "RelativeDocumentMoniker": "ToDo\\Cards\\Card.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Cards\\Card.cs",
+              "RelativeToolTip": "ToDo\\Cards\\Card.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-05T15:44:24.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Utils\\Settings.cs",
+              "RelativeDocumentMoniker": "ToDo\\Utils\\Settings.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Utils\\Settings.cs",
+              "RelativeToolTip": "ToDo\\Utils\\Settings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvw8AAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-05T15:43:37.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "arXivCrawl.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivCrawl.cs",
+              "RelativeDocumentMoniker": "arXiv_Crawller\\arXiv\\arXivCrawl.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivCrawl.cs",
+              "RelativeToolTip": "arXiv_Crawller\\arXiv\\arXivCrawl.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-02T12:33:22.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ClockMainWindow.xaml",
               "DocumentMoniker": "D:\\gitrepos\\USpace\\TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
               "RelativeDocumentMoniker": "TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
               "ToolTip": "D:\\gitrepos\\USpace\\TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
               "RelativeToolTip": "TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-11-28T15:07:22.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-28T15:07:22.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "ResourceDictionary.xaml",
               "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Themes\\ResourceDictionary.xaml",
               "RelativeDocumentMoniker": "ToDo\\Themes\\ResourceDictionary.xaml",
               "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Themes\\ResourceDictionary.xaml",
               "RelativeToolTip": "ToDo\\Themes\\ResourceDictionary.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-12-02T11:39:26.761Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-12-02T11:39:26.761Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "TomatoCard.cs",
               "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\TomatoCard.cs",
               "RelativeDocumentMoniker": "ToDo\\TomatoCard.cs",
@@ -91,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Dashboard.xaml.cs",
               "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Pages\\Dashboard.xaml.cs",
               "RelativeDocumentMoniker": "ToDo\\Pages\\Dashboard.xaml.cs",
@@ -103,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ClockMainWindow.xaml.cs",
               "DocumentMoniker": "D:\\gitrepos\\USpace\\TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml.cs",
               "RelativeDocumentMoniker": "TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml.cs",
@@ -111,12 +207,11 @@
               "RelativeToolTip": "TomatoClock\\TomatoClock\\View\\ClockMainWindow.xaml.cs",
               "ViewState": "AQIAADEAAAAAAAAAAAAkwBsAAABZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-02T10:08:50.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-12-02T10:08:50.752Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "Card.cs",
               "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Card.cs",
               "RelativeDocumentMoniker": "ToDo\\Card.cs",

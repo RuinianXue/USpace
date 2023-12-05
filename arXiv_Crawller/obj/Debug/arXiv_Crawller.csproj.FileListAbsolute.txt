@@ -1,9 +1,6 @@
-D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe.config
-D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe
 D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.pdb
 D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.AssemblyReference.cache
 D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CoreCompileInputs.cache
-D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.exe
 D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.pdb
 E:\0temp\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe.config
 E:\0temp\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.exe
@@ -21,3 +18,15 @@ D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.SuggestedBinding
 D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CoreCompileInputs.cache
 D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.exe
 D:\Github\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.pdb
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.dll.config
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\arXiv_Crawller.dll
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\OpenAIGPT.dll
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\Newtonsoft.Json.dll
+D:\gitrepos\USpace\arXiv_Crawller\bin\Debug\OpenAIGPT.pdb
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\View\arXivCardWindow.g.cs
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller_MarkupCompile.cache
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller_MarkupCompile.lref
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\View\arXivCardWindow.baml
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.g.resources
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CopyComplete
+D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.dll
