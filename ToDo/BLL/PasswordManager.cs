@@ -18,7 +18,6 @@ namespace UIDisplay.BLL
         // 验证密码
         public static bool VerifyPassword(string password, string hashedPassword)
         {
-            Console.WriteLine("Require: " + hashedPassword + ", Enter" + password);
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
     }

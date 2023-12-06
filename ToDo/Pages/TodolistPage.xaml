@@ -38,8 +38,8 @@
                             <my:AddressUnit Visibility="Visible"/>
                         </WrapPanel>
                     </ScrollViewer>
-                    <Button x:Name="addressbookRefreshBtn" Grid.ZIndex="2" Content="刷新" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 110 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource TEAL_C}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="addressbookRefreshBtn_Click"/>
-                    <Button x:Name="emailListConfirmBtn" Grid.ZIndex="1" Content="确认" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 15 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource PrimaryBrush}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="emailListConfirmBtn_Click"/>
+                    <Button x:Name="addressbookRefreshBtn" Grid.ZIndex="2" Content="刷新" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 110 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource TEAL_C}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="Btn_AddressbookRefresh_Click"/>
+                    <Button x:Name="emailListConfirmBtn" Grid.ZIndex="1" Content="确认" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 15 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource PrimaryBrush}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="Btn_EmailListConfirm_Click"/>
                 </Grid>
             </Border>
 
@@ -63,7 +63,7 @@
                         </Grid>
                         <Grid x:Name="g1Focus1" Grid.Column="1" VerticalAlignment="Center" Visibility="Collapsed">
                             <StackPanel Orientation="Vertical">
-                                <hc:TextBox x:Name="todoTaskContentTextBox" hc:InfoElement.Placeholder="请输入任务内容" TextChanged="todoTaskContentTextBox_TextChanged" Background="Transparent" Margin="0 0 8 0" GotFocus="todoTaskContentTextBox_GotFocus" LostFocus="todoTaskContentTextBox_LostFocus"/>
+                                <hc:TextBox x:Name="todoTaskContentTextBox" hc:InfoElement.Placeholder="请输入任务内容" TextChanged="TextBox_TodoTaskContent_TextChanged" Background="Transparent" Margin="0 0 8 0" GotFocus="TextBox_TodoTaskContent_GotFocus" LostFocus="TextBox_TodoTaskContent_LostFocus"/>
                                 <StackPanel Orientation="Horizontal" Margin="0 8 0 0">
                                     <hc:SimpleText Text="已选关联人:" Width="70"/>
                                     <hc:SimpleText x:Name="teammateList" Text="无"/>
@@ -73,7 +73,7 @@
                         <StackPanel x:Name="spFuncArea" Grid.Column="2" Orientation="Horizontal" Margin="0 0 8 0" Visibility="Collapsed">
                             <hc:Divider Orientation="Vertical" Width="10" Height="60"/>
                             <StackPanel x:Name="functionalArea" Grid.Column="2" VerticalAlignment="Center" Width="Auto" Orientation="Vertical">
-                                <Button x:Name="addEmaillistBtn" Style="{StaticResource ButtonPrimary}" Content="添加关联人" Width="200" Click="addEmaillistBtn_Click"/>
+                                <Button x:Name="addEmaillistBtn" Style="{StaticResource ButtonPrimary}" Content="添加关联人" Width="200" Click="Btn_AddEmailList_Click"/>
                                 <hc:DateTimePicker x:Name="dateTimePickers" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Title="提醒日期:" hc:InfoElement.TitlePlacement="Left" Margin="0 4 0 0"/>
                             </StackPanel>
                         </StackPanel>

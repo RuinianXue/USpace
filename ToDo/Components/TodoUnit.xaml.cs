@@ -129,7 +129,7 @@ namespace UIDisplay.Components
             storyboard.Begin();
 
             todo.IsDone = isDoneBtn.IsChecked == true ? 1 : 0;
-            todoList.UpdateTodoInfo(todo);
+            todoList.UpdateTodo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -156,7 +156,7 @@ namespace UIDisplay.Components
         private void isImportantBtn_Click(object sender, RoutedEventArgs e)
         {
             todo.Priority = isImportantBtn.IsChecked == true ? 5 : 0;
-            todoList.UpdateTodoInfo(todo);
+            todoList.UpdateTodo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -255,7 +255,7 @@ namespace UIDisplay.Components
 
         private void deleteMI_Click(object sender, RoutedEventArgs e)
         {
-            todoList.DeleteTodoInfo(todo);
+            todoList.DeleteTodo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate

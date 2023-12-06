@@ -65,19 +65,19 @@ namespace UIDisplay.Pages
         private void Refresh()
         {
             nameTextBox.Text = userInfo.Name;
-            phoneTextBox.Text = userInfo.PhoneNum;
+            phoneTextBox.Text = userInfo.Phone;
             emailTextBox.Text = userInfo.Email;
             img.Source = userInfo.getImg();
         }
-        private void backBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private async void insertBtn_Click(object sender, RoutedEventArgs e)
+        private async void Btn_Insert_Click(object sender, RoutedEventArgs e)
         {
             userInfo.Name = nameTextBox.Text;
-            userInfo.PhoneNum = phoneTextBox.Text;
+            userInfo.Phone = phoneTextBox.Text;
             userInfo.Email = emailTextBox.Text;
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
@@ -89,15 +89,15 @@ namespace UIDisplay.Pages
                 Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
             }
-            await Task.Run(uploadUserInfo);
-            _adbp.isLoaded = false;
+            await Task.Run(UploadContactInfo);
+            _adbp.IsLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private async void updateBtn_Click(object sender, RoutedEventArgs e)
+        private async void Btn_Update_Click(object sender, RoutedEventArgs e)
         {
             userInfo.Name = nameTextBox.Text;
-            userInfo.PhoneNum = phoneTextBox.Text;
+            userInfo.Phone = phoneTextBox.Text;
             userInfo.Email = emailTextBox.Text;
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
@@ -109,25 +109,24 @@ namespace UIDisplay.Pages
                 Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
             }
-            await Task.Run(uploadUserInfo);
-            _adbp.isLoaded = false;
+            await Task.Run(UploadContactInfo);
+            _adbp.IsLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private void uploadUserInfo()
+        private void UploadContactInfo()
         {
-            ContactManager userDataControl = new ContactManager();
             if (mode == 0)
             {
-                userDataControl.InsertUserInfo(userInfo);
+                ContactManager.InsertContact(userInfo);
             }
             else
             {
-                userDataControl.UpdateUserInfo(userInfo);
+                ContactManager.UpdateContact(userInfo);
             }
         }
 
-        private void uploadImgBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_UploadImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "jpg图像|*.jpg|png图像|*.png";

@@ -1,110 +1,42 @@
-﻿using HandyControl.Controls;
-using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Data;
+using UIDisplay.DAL;
 using UIDisplay.Model;
-using UIDisplay.Utils;
 
 namespace UIDisplay.BLL
 {
-    internal class ContactManager
+    public class ContactManager
     {
-        private MysqlBase mysqlBase;
-
-        public ContactManager()
+        public static bool InsertContact(Contact newContact)
         {
-            mysqlBase = new MysqlBase();
+            if (!ContactRepository.IsContactExists(newContact.Email))
+            {
+                return ContactRepository.InsertContact(newContact);
+            }
+            return false;
         }
 
-        public void InsertUserInfo(Contact userInfo)
+        public static bool UpdateContact(Contact updatedContact)
         {
-            string sql = "INSERT INTO userinfo (uuid, name, phone, email, imgpath) VALUES (@uuid, @name, @phone, @email, @imgpath)";
-            Console.WriteLine(sql);
-
-            MySqlParameter[] parameters = {
-                new MySqlParameter("@uuid", userInfo.UUID),
-                new MySqlParameter("@name", userInfo.Name),
-                new MySqlParameter("@phone", userInfo.PhoneNum),
-                new MySqlParameter("@email", userInfo.Email),
-                new MySqlParameter("@imgpath", userInfo.ImgPath)
-            };
-
-            int res = mysqlBase.CommonExecute(sql, parameters);
-
-            if (res > 0)
+            if (ContactRepository.IsContactExists(updatedContact.Email))
             {
-                Growl.Success("云端数据添加成功！");
+                return ContactRepository.UpdateContact(updatedContact);
             }
-            else
-            {
-                Growl.Warning("云端数据添加失败！");
-            }
+            return false;
         }
 
-        public void UpdateUserInfo(Contact userInfo)
+        public static bool DeleteContact(string contactID)
         {
-            string sql = "UPDATE userinfo SET name=@name, phone=@phone, email=@email, imgpath=@imgpath WHERE uuid=@uuid";
-            Console.WriteLine(sql);
-
-            MySqlParameter[] parameters = {
-                new MySqlParameter("@name", userInfo.Name),
-                new MySqlParameter("@phone", userInfo.PhoneNum),
-                new MySqlParameter("@email", userInfo.Email),
-                new MySqlParameter("@imgpath", userInfo.ImgPath),
-                new MySqlParameter("@uuid", userInfo.UUID)
-            };
-
-            int res = mysqlBase.CommonExecute(sql, parameters);
-
-            if (res > 0)
+            if (ContactRepository.IsContactExists(contactID))
             {
-                Growl.Success("云端数据更新成功！");
+                return ContactRepository.DeleteContactByID(contactID);
             }
-            else
-            {
-                Growl.Warning("云端数据更新失败！");
-            }
+            return false;
         }
 
-        public void DeleteUserInfo(Contact userInfo)
+        public static bool QueryAllContact(out DataTable result)
         {
-            string sql = "DELETE FROM userinfo WHERE uuid=@uuid";
-            Console.WriteLine(sql);
-
-            MySqlParameter[] parameters = {
-                new MySqlParameter("@uuid", userInfo.UUID)
-            };
-
-            int res = mysqlBase.CommonExecute(sql, parameters);
-
-            if (res > 0)
-            {
-                Growl.Success("云端数据删除成功！");
-            }
-            else
-            {
-                Growl.Warning("云端数据删除失败！");
-            }
-        }
-
-        public DataTable QueryUserInfo()
-        {
-            string sql = "SELECT uuid, name, phone, email, imgpath FROM userinfo";
-            Console.WriteLine(sql);
-
-            DataSet ds = mysqlBase.GetDataSet(sql, "userinfo");
-            DataTable dt = ds.Tables[0];
-
-            if (dt.Rows.Count != 0)
-            {
-                Growl.Success("云端数据拉取成功");
-                return dt;
-            }
-            else
-            {
-                Growl.Info("暂无数据");
-            }
-            return dt;
+            return ContactRepository.QueryAllContact(out result);
         }
     }
 }

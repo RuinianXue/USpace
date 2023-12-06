@@ -19,6 +19,8 @@ namespace UIDisplay.Utils
         public static string QiniuAccessKey { get; } = "fUWIthaPBIja3BGrphwZ0guP0lcd3pvDJWMwLbeK";
         public static string QiniuSecretKey { get; } = "c-jGS1qHO3tbY7B8yR-z4pHFs2_KZMxSfYjIZOk4";
 
+        // SMTP服务器
+        public static string SmtpClient { get; } = "smtp.qq.com";
         // 邮件服务发送方
         public static string EmailFrom { get; } = "2066892296@qq.com";
         // 邮件服务发送方授权码

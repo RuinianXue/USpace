@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HandyControl.Controls;
-using System.Data;
 using UIDisplay.BLL;
+using UIDisplay.Model;
 
 namespace UIDisplay.Pages
 {
@@ -41,7 +41,7 @@ namespace UIDisplay.Pages
             if (e.ChangedButton == MouseButton.Left) this.DragMove();
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void Btn_Cancel_Click(object sender, RoutedEventArgs e)
         {
             // 导航回登录页面
             Login login = new Login(); // 创建登录页面实例
@@ -49,7 +49,7 @@ namespace UIDisplay.Pages
             this.Close();
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
             // Validate inputs first
             if (!ValidateInputs()) return;
@@ -106,7 +106,16 @@ namespace UIDisplay.Pages
             var newUserName = txtNickname.Text;
             var newDateOfBirth = txtDateOfBirth.SelectedDate.Value;
             var newPassword = txtPassword?.Password;
-            return UserManager.InsertUser(newUserName, newDateOfBirth, _newEmail, newPassword);
+
+            User newUser = new User
+            {
+                Nickname = newUserName,
+                DateOfBirth = newDateOfBirth,
+                Email = _newEmail,
+                Password = newPassword
+            };
+
+            return UserManager.InsertUser(newUser);
         }
     }
 }

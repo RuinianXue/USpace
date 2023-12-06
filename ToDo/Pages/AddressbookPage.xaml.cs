@@ -1,4 +1,5 @@
-﻿using UIDisplay.Components;
+﻿using HandyControl.Controls;
+using UIDisplay.Components;
 using UIDisplay.Utils;
 using System;
 using System.Collections.Generic;
@@ -31,34 +32,49 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class AddressbookPage : Page
     {
-        public bool isLoaded { get; set; } = false;
+        public new bool IsLoaded { get; set; } = false;
         public AddressbookPage()
         {
             InitializeComponent();
         }
         public void Refresh()
         {
-            ContactManager userDataControl = new ContactManager();
-            DataTable dt = userDataControl.QueryUserInfo();
-            Dispatcher.BeginInvoke(new Action(delegate
+            DataTable dt;
+            bool success = ContactManager.QueryAllContact(out dt);
+
+            if (success)
             {
-                wrapPanel.Children.Clear();
-                for (int i = 0; i < dt.Rows.Count; i++)
+                Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    DataRow row = dt.Rows[i];
-                    Contact userInfo = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
-                    AddressUnit addressUnit = new AddressUnit(userInfo);
-                    wrapPanel.Children.Add(addressUnit);
-                }
-            }));
+                    wrapPanel.Children.Clear();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Contact contact = new Contact(
+                            row["uuid"].ToString(),
+                            row["name"].ToString(),
+                            row["phone"].ToString(),
+                            row["email"].ToString(),
+                            row["imgpath"].ToString()
+                        );
+
+                        AddressUnit addressUnit = new AddressUnit(contact);
+                        wrapPanel.Children.Add(addressUnit);
+                    }
+                }));
+                Growl.Success("联系人列表拉取成功！");
+            }
+            else
+            {
+                Growl.Error("联系人列表拉取失败！");
+            }
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LoadInAnimation(sender);
-            if (!isLoaded)
+            if (!IsLoaded)
             {
-                isLoaded = true;
+                IsLoaded = true;
                 await Task.Run(Refresh);
             }
         }
@@ -88,21 +104,20 @@ namespace UIDisplay.Pages
             storyboard.Begin();
         }
 
-        private void insertpersonBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_InsertContact_Click(object sender, RoutedEventArgs e)
         {
-            Contact userInfo = new Contact(Contact.genUUID(), "", "", "", "default.jpg");
-            AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, userInfo);
+            Contact newContact = new Contact(Contact.genUUID(), "", "", "", "default.jpg");
+            AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, newContact);
             NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
         }
 
-        private async void refreshBtn_Click(object sender, RoutedEventArgs e)
+        private async void Btn_Refresh_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(Refresh);
         }
 
-        private void deletepersonBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
         {
-            ContactManager userDataControl = new ContactManager();
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -112,11 +127,11 @@ namespace UIDisplay.Pages
                     {
                         if (addressUnit.IsChecked)
                         {
-                            if (addressUnit.userInfo.ImgPath != "default.jpg")
+                            if (addressUnit.ContactInfo.ImgPath != "default.jpg")
                             {
-                                QiniuBase.DeleteImg(addressUnit.userInfo.ImgPath);
+                                QiniuBase.DeleteImg(addressUnit.ContactInfo.ImgPath);
                             }
-                            userDataControl.DeleteUserInfo(addressUnit.userInfo);
+                            ContactManager.DeleteContact(addressUnit.ContactInfo.Email);
                             li.Add(addressUnit);
                         }
                     }
@@ -124,19 +139,18 @@ namespace UIDisplay.Pages
                     {
                         wrapPanel.Children.Remove(addressUnit1);
                     }
-                    //await Task.Run(Refresh);
                 }));
             });
 
         }
 
-        private void updatepersonBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_UpdateContact_Click(object sender, RoutedEventArgs e)
         {
             foreach (AddressUnit addressUnit in wrapPanel.Children)
             {
                 if (addressUnit.IsChecked)
                 {
-                    AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, addressUnit.userInfo, 1);
+                    AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, addressUnit.ContactInfo, 1);
                     NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
                     break;
                 }

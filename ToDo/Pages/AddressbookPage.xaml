@@ -24,11 +24,11 @@
                 </WrapPanel>
             </ScrollViewer>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="refreshBtn" Content="刷新" Style="{DynamicResource adbButtonsStyle}" Click="refreshBtn_Click"
+                <Button x:Name="refreshBtn" Content="刷新" Style="{DynamicResource adbButtonsStyle}" Click="Btn_Refresh_Click"
                         Background="{DynamicResource TextPrimaryBlueColorA}"/>
-                <Button x:Name="insertpersonBtn" Content="添加联系人" Style="{DynamicResource adbButtonsStyle}" Background="LightSeaGreen" Foreground="LightGoldenrodYellow" Click="insertpersonBtn_Click"/>
-                <Button x:Name="deletepersonBtn" Content="删除联系人" Style="{DynamicResource adbButtonsStyle}" Background="#F72626" Click="deletepersonBtn_Click" Cursor="Hand"/>
-                <Button x:Name="updatepersonBtn" Content="修改信息" Style="{DynamicResource adbButtonsStyle}" Background="#1890ff" Foreground="White" Click="updatepersonBtn_Click"/>
+                <Button x:Name="insertpersonBtn" Content="添加联系人" Style="{DynamicResource adbButtonsStyle}" Background="LightSeaGreen" Foreground="LightGoldenrodYellow" Click="Btn_InsertContact_Click"/>
+                <Button x:Name="deletepersonBtn" Content="删除联系人" Style="{DynamicResource adbButtonsStyle}" Background="#F72626" Click="Btn_DeleteContact_Click" Cursor="Hand"/>
+                <Button x:Name="updatepersonBtn" Content="修改信息" Style="{DynamicResource adbButtonsStyle}" Background="#1890ff" Foreground="White" Click="Btn_UpdateContact_Click"/>
             </StackPanel>
         </Grid>
     </Border>

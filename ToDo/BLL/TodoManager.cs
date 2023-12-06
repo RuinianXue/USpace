@@ -1,32 +1,30 @@
 ﻿using System.Data;
-using UIDisplay.Model;
+using System.Threading.Tasks;
 using UIDisplay.DAL;
+using UIDisplay.Model;
 
 namespace UIDisplay.BLL
 {
     public class TodoManager
     {
-        public static int InsertTodoInfo(Todo todo)
+        public static bool InsertTodo(Todo todo)
         {
-            int res = TodoRepository.InsertTodo(todo);
-            return res;
+            return TodoRepository.InsertTodo(todo);
         }
 
-        public static int UpdateTodoInfo(Todo todo)
+        public static bool UpdateTodo(Todo todo)
         {
-            int res = TodoRepository.UpdateTodo(todo);
-            return res;
+            return TodoRepository.UpdateTodo(todo);
         }
 
-        public static int DeleteTodoInfo(Todo todo)
+        public static bool DeleteTodo(Todo todo)
         {
-            int res = TodoRepository.DeleteTodo(todo);
-            return res;
+            return TodoRepository.DeleteTodo(todo);
         }
 
-        public static DataTable QueryTodoInfo()
+        public static async Task<DataTable> QueryTodoAsync()
         {
-            return TodoRepository.QueryTodo();
+            return await TodoRepository.QueryTodoAsync();
         }
     }
 }

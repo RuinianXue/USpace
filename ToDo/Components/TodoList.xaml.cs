@@ -36,58 +36,58 @@ namespace UIDisplay.Components
             Refresh();
         }
 
-        internal void Refresh()  
+        internal async void Refresh()
         {
-            Task.Run(() =>
-            {
-                List<Todo> todoUnitList0, todoUnitList1, todoUnitList2;
-                todoUnitList0 = new List<Todo>();
-                todoUnitList1 = new List<Todo>();
-                todoUnitList2 = new List<Todo>();
-                DataTable dt = TodoManager.QueryTodoInfo();
-                foreach (DataRow row in dt.Rows)
-                {
-                    string uuid = Convert.ToString(row[0]);
-                    string content = Convert.ToString(row[1]);
-                    DateTime date = Convert.ToDateTime(row[2]);
-                    int priority = Convert.ToInt32(row[3]);
-                    int isdone = Convert.ToInt32(row[4]);
-                    string teammate = Convert.ToString(row[5]);
+            DataTable dt = await TodoManager.QueryTodoAsync();
 
-                    if (isdone == 0 && priority > 0)
-                    {
-                        todoUnitList0.Add(new Todo(uuid, content, date, priority, isdone, teammate));
-                    }
-                    else if (isdone == 0)
-                    {
-                        todoUnitList1.Add(new Todo(uuid, content, date, priority, isdone, teammate));
-                    }
-                    else
-                    {
-                        todoUnitList2.Add(new Todo(uuid, content, date, priority, isdone, teammate));
-                    }
-                }
-                Dispatcher.BeginInvoke(new Action(delegate
-                {
-                    todoList0.Children.Clear();
-                    foreach (Todo sub_todoInfo in todoUnitList0)
-                    {
-                        todoList0.Children.Add(new TodoUnit(this, sub_todoInfo));
-                    }
-                    todoList1.Children.Clear();
-                    foreach (Todo sub_todoInfo in todoUnitList1)
-                    {
-                        todoList1.Children.Add(new TodoUnit(this, sub_todoInfo));
-                    }
-                    todoList2.Children.Clear();
-                    foreach (Todo sub_todoInfo in todoUnitList2)
-                    {
-                        todoList2.Children.Add(new TodoUnit(this, sub_todoInfo));
-                    }
-                    Refresh_TodoDoneCount();
-                }));
-            });
+            List<Todo> todoUnitList0 = ExtractTodoList(dt, 0, priority => priority > 0);
+            List<Todo> todoUnitList1 = ExtractTodoList(dt, 0, priority => priority <= 0);
+            List<Todo> todoUnitList2 = ExtractTodoList(dt, 1, priority => true);
+
+            UpdateUI(todoUnitList0, todoList0);
+            UpdateUI(todoUnitList1, todoList1);
+            UpdateUI(todoUnitList2, todoList2);
+
+            Refresh_TodoDoneCount();
         }
+
+        private List<Todo> ExtractTodoList(DataTable dt, int isDoneValue, Func<int, bool> priorityCondition)
+        {
+            List<Todo> todoList = new List<Todo>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string uuid = row.Field<string>(0);
+                string content = row.Field<string>(1);
+                DateTime date = row.Field<DateTime>(2);
+
+                // 处理可能的 DBNull 值
+                int priority = row.IsNull(3) ? 0 : row.Field<int>(3);
+                int isDone = Convert.ToInt32(row.IsNull(4) ? 0 : row[4]);
+
+                string teammate = row.Field<string>(5);
+
+                if (isDone == isDoneValue && priorityCondition(priority))
+                {
+                    todoList.Add(new Todo(uuid, content, date, priority, isDone, teammate));
+                }
+            }
+
+            return todoList;
+        }
+
+        private void UpdateUI(List<Todo> todoList, Panel targetPanel)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                targetPanel.Children.Clear();
+                foreach (Todo subTodo in todoList)
+                {
+                    targetPanel.Children.Add(new TodoUnit(this, subTodo));
+                }
+            }));
+        }
+
 
         private void Refresh_TodoDoneCount()
         {
@@ -117,12 +117,12 @@ namespace UIDisplay.Components
             storyboard.Begin();
         }
 
-        public void InsertTodoInfo(Todo todoInfo)
+        public void InsertTodo(Todo todo)
         {
             Task.Run(() =>
             {
-                int result = TodoManager.InsertTodoInfo(todoInfo);
-                if (result > 0)
+                bool success = TodoManager.InsertTodo(todo);
+                if (success)
                 {
                     Growl.Success("待办任务新建成功！");
                 }
@@ -133,12 +133,12 @@ namespace UIDisplay.Components
             });
         }
 
-        public void UpdateTodoInfo(Todo todoInfo)
+        public void UpdateTodo(Todo todo)
         {
             Task.Run(() =>
             {
-                int result = TodoManager.UpdateTodoInfo(todoInfo);
-                if (result > 0)
+                bool success = TodoManager.UpdateTodo(todo);
+                if (success)
                 {
                     Growl.Success("待办任务更新成功！");
                 }
@@ -150,12 +150,12 @@ namespace UIDisplay.Components
             });
         }
 
-        public void DeleteTodoInfo(Todo todoInfo)
+        public void DeleteTodo(Todo todo)
         {
             Task.Run(() =>
             {
-                int result = TodoManager.DeleteTodoInfo(todoInfo);
-                if (result > 0)
+                bool success = TodoManager.DeleteTodo(todo);
+                if (success)
                 {
                     Growl.Success("待办任务删除成功！");
                 }

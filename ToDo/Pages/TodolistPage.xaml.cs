@@ -84,10 +84,11 @@ namespace UIDisplay.Pages
 
         private void Refresh_Addressbook()
         {
-            Task.Run(() =>
+            DataTable dt;
+            bool success = ContactManager.QueryAllContact(out dt);
+
+            if (success)
             {
-                var userDataControl = new ContactManager();
-                DataTable dt = userDataControl.QueryUserInfo();
                 Dispatcher.Invoke(() =>
                 {
                     wrapPanel.Children.Clear();
@@ -97,7 +98,12 @@ namespace UIDisplay.Pages
                         wrapPanel.Children.Add(new AddressUnit(userInfo, 1));
                     }
                 });
-            });
+                Growl.Success("联系人列表拉取成功！");
+            }
+            else
+            {
+                Growl.Error("联系人列表拉取失败！");
+            }
         }
 
         private void Refresh_TodoList()
@@ -143,7 +149,7 @@ namespace UIDisplay.Pages
             storyboard.Begin();
         }
 
-        private void todoTaskContentTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_TodoTaskContent_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (todoTaskContentTextBox.Text.Length > 0)
             {
@@ -155,7 +161,7 @@ namespace UIDisplay.Pages
             }
         }
 
-        private void todoTaskContentTextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBox_TodoTaskContent_GotFocus(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("todoTaskContentTextBox: " + "focus");
 
@@ -175,12 +181,12 @@ namespace UIDisplay.Pages
             }
         }
 
-        private void todoTaskContentTextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBox_TodoTaskContent_LostFocus(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("todoTaskContentTextBox: " + "lost_focus");
         }
 
-        private void todoTaskContentTextBox_LostFocus()
+        private void TextBox_TodoTaskContent_LostFocus()
         {
             todoTaskContentTextBox.Text = null;
             g0Focus0.Visibility = Visibility.Visible;
@@ -200,7 +206,7 @@ namespace UIDisplay.Pages
 
                     Task.Run(() =>
                     {
-                        todoList.InsertTodoInfo(tmp_todoInfo);
+                        todoList.InsertTodo(tmp_todoInfo);
                     });
                     Task.Run(() =>
                     {
@@ -210,7 +216,7 @@ namespace UIDisplay.Pages
                             todoUnit.addTodoUnitIntoTodoList();
                         }));
                     });
-                    todoTaskContentTextBox_LostFocus();
+                    TextBox_TodoTaskContent_LostFocus();
                 }
                 else
                 {
@@ -219,76 +225,67 @@ namespace UIDisplay.Pages
             }
         }
 
-        private void addEmaillistBtn_Click(object sender, RoutedEventArgs e)
+        private void ToggleAddressbookVisibility(bool isVisible)
+        {
+            var opacityFrom = isVisible ? 0 : 1;
+            var opacityTo = isVisible ? 1 : 0;
+            var translateXFrom = isVisible ? 50 : 0;
+            var translateXTo = isVisible ? 0 : 50;
+            var duration = isVisible ? TimeSpan.FromSeconds(0.6) : TimeSpan.FromSeconds(1);
+
+            var storyboard = new Storyboard();
+            var doubleAnimation = new DoubleAnimation
+            {
+                From = opacityFrom,
+                To = opacityTo,
+                Duration = duration,
+                DecelerationRatio = 0.6
+            };
+            var doubleAnimation2 = new DoubleAnimation
+            {
+                From = translateXFrom,
+                To = translateXTo,
+                Duration = duration,
+                DecelerationRatio = 0.6
+            };
+            Storyboard.SetTarget(doubleAnimation, addressbookBorder);
+            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
+            storyboard.Children.Add(doubleAnimation);
+            Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
+            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
+            storyboard.Children.Add(doubleAnimation2);
+            storyboard.Begin();
+
+            if (!isVisible)
+            {
+                Task.Run(() =>
+                {
+                    Thread.Sleep((int)duration.TotalMilliseconds);
+                    Dispatcher.Invoke(() => addressbookBorder.Visibility = Visibility.Collapsed);
+                    Refresh_Addressbook();
+                });
+            }
+        }
+
+        private void Btn_AddEmailList_Click(object sender, RoutedEventArgs e)
         {
             if (addressbookBorder.Visibility == Visibility.Visible)
             {
-                var storyboard = new Storyboard();
-                var doubleAnimation = new DoubleAnimation
-                {
-                    From = 1,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(1),
-                    DecelerationRatio = 0.6
-                };
-                var doubleAnimation2 = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 50,
-                    Duration = TimeSpan.FromSeconds(1),
-                    DecelerationRatio = 0.6
-                };
-                Storyboard.SetTarget(doubleAnimation, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-                storyboard.Children.Add(doubleAnimation);
-                Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
-                storyboard.Children.Add(doubleAnimation2);
-                storyboard.Begin();
-                Task.Run(() =>
-                {
-                    Thread.Sleep(1000);
-                    Dispatcher.Invoke(() =>
-                    {
-                        addressbookBorder.Visibility = Visibility.Collapsed;
-                    });
-                    Refresh_Addressbook();
-                });
+                ToggleAddressbookVisibility(false);
             }
             else
             {
                 addressbookBorder.Visibility = Visibility.Visible;
-                var storyboard = new Storyboard();
-                var doubleAnimation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 1,
-                    Duration = TimeSpan.FromSeconds(0.6),
-                    DecelerationRatio = 0.6
-                };
-                var doubleAnimation2 = new DoubleAnimation
-                {
-                    From = 50,
-                    To = 0,
-                    Duration = TimeSpan.FromSeconds(0.8),
-                    DecelerationRatio = 0.6
-                };
-                Storyboard.SetTarget(doubleAnimation, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-                storyboard.Children.Add(doubleAnimation);
-                Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
-                Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
-                storyboard.Children.Add(doubleAnimation2);
-                storyboard.Begin();
+                ToggleAddressbookVisibility(true);
             }
         }
 
-        private void addressbookRefreshBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_AddressbookRefresh_Click(object sender, RoutedEventArgs e)
         {
             Refresh_Addressbook();
         }
 
-        private async void emailListConfirmBtn_Click(object sender, RoutedEventArgs e)
+        private async void Btn_EmailListConfirm_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(() =>
             {
@@ -307,38 +304,7 @@ namespace UIDisplay.Pages
                 });
             });
 
-            var storyboard = new Storyboard();
-            var doubleAnimation = new DoubleAnimation
-            {
-                From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(1),
-                DecelerationRatio = 0.6
-            };
-            var doubleAnimation2 = new DoubleAnimation
-            {
-                From = 0,
-                To = 50,
-                Duration = TimeSpan.FromSeconds(1),
-                DecelerationRatio = 0.6
-            };
-            Storyboard.SetTarget(doubleAnimation, addressbookBorder);
-            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-            storyboard.Children.Add(doubleAnimation);
-            Storyboard.SetTarget(doubleAnimation2, addressbookBorder);
-            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
-            storyboard.Children.Add(doubleAnimation2);
-            storyboard.Begin();
-
-            await Task.Run(() =>
-            {
-                Thread.Sleep(1000);
-                Dispatcher.Invoke(() =>
-                {
-                    addressbookBorder.Visibility = Visibility.Collapsed;
-                });
-                Refresh_Addressbook();
-            });
+            ToggleAddressbookVisibility(false);
         }
     }
 }
