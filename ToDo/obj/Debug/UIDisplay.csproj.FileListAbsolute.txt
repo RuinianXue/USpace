@@ -79,7 +79,6 @@ E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.xml
 E:\0temp\USpace\ToDo\bin\Debug\UIDisplay.exe.config
 E:\0temp\USpace\ToDo\bin\Debug\UIDisplay.exe
 E:\0temp\USpace\ToDo\bin\Debug\UIDisplay.pdb
-E:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.exe
 E:\0temp\USpace\ToDo\bin\Debug\BCrypt.Net.dll
 E:\0temp\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.dll
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.Core.dll
@@ -99,7 +98,6 @@ E:\0temp\USpace\ToDo\bin\Debug\Microsoft.Xaml.Behaviors.dll
 E:\0temp\USpace\ToDo\bin\Debug\MySql.Data.dll
 E:\0temp\USpace\ToDo\bin\Debug\Newtonsoft.Json.dll
 E:\0temp\USpace\ToDo\bin\Debug\Ookii.Dialogs.Wpf.dll
-E:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.exe
 E:\0temp\USpace\ToDo\bin\Debug\Qiniu.dll
 E:\0temp\USpace\ToDo\bin\Debug\System.Buffers.dll
 E:\0temp\USpace\ToDo\bin\Debug\System.Memory.dll
@@ -108,9 +106,7 @@ E:\0temp\USpace\ToDo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 E:\0temp\USpace\ToDo\bin\Debug\TomatoClock.dll
 E:\0temp\USpace\ToDo\bin\Debug\ZstdNet.dll
 E:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.pdb
-E:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.exe.config
 E:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.pdb
-E:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.exe.config
 E:\0temp\USpace\ToDo\bin\Debug\BCrypt.Net.xml
 E:\0temp\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.xml
 E:\0temp\USpace\ToDo\bin\Debug\CefSharp.pdb
@@ -561,3 +557,7 @@ D:\gitrepos\USpace\ToDo\obj\Debug\UIDisplay.csproj.CoreCompileInputs.cache
 D:\gitrepos\USpace\ToDo\obj\Debug\UIDisplay.csproj.CopyComplete
 D:\gitrepos\USpace\ToDo\obj\Debug\UIDisplay.exe
 D:\gitrepos\USpace\ToDo\obj\Debug\UIDisplay.pdb
+E:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.dll
+E:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.dll
+E:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.dll.config
+E:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.dll.config

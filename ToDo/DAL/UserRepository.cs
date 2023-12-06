@@ -57,7 +57,7 @@ namespace UIDisplay.DAL
             string query = "SELECT * FROM User WHERE Email = @userEmail";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
-        new MySqlParameter("@userEmail", email)
+                new MySqlParameter("@userEmail", email)
             };
 
             result = mysqlBase.Query(query, parameters);

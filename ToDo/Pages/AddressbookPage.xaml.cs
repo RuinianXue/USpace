@@ -38,19 +38,33 @@ namespace UIDisplay.Pages
         }
         public void Refresh()
         {
-            ContactManager userDataControl = new ContactManager();
-            DataTable dt = userDataControl.QueryUserInfo();
-            Dispatcher.BeginInvoke(new Action(delegate
+            DataTable dt;
+            bool success = ContactManager.SearchAllContact(out dt);
+
+            if (success)
             {
-                wrapPanel.Children.Clear();
-                for (int i = 0; i < dt.Rows.Count; i++)
+                Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    DataRow row = dt.Rows[i];
-                    Contact userInfo = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
-                    AddressUnit addressUnit = new AddressUnit(userInfo);
-                    wrapPanel.Children.Add(addressUnit);
-                }
-            }));
+                    wrapPanel.Children.Clear();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Contact userInfo = new Contact(
+                            row["uuid"].ToString(),
+                            row["name"].ToString(),
+                            row["phone"].ToString(),
+                            row["email"].ToString(),
+                            row["imgpath"].ToString()
+                        );
+
+                        AddressUnit addressUnit = new AddressUnit(userInfo);
+                        wrapPanel.Children.Add(addressUnit);
+                    }
+                }));
+            }
+            else
+            {
+                // 处理搜索失败的情况，可能记录日志或者显示错误消息
+            }
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
@@ -102,7 +116,6 @@ namespace UIDisplay.Pages
 
         private void deletepersonBtn_Click(object sender, RoutedEventArgs e)
         {
-            ContactManager userDataControl = new ContactManager();
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
@@ -112,11 +125,11 @@ namespace UIDisplay.Pages
                     {
                         if (addressUnit.IsChecked)
                         {
-                            if (addressUnit.userInfo.ImgPath != "default.jpg")
+                            if (addressUnit.ContactInfo.ImgPath != "default.jpg")
                             {
-                                QiniuBase.DeleteImg(addressUnit.userInfo.ImgPath);
+                                QiniuBase.DeleteImg(addressUnit.ContactInfo.ImgPath);
                             }
-                            userDataControl.DeleteUserInfo(addressUnit.userInfo);
+                            ContactManager.DeleteContact(addressUnit.ContactInfo.Email);
                             li.Add(addressUnit);
                         }
                     }
@@ -124,7 +137,6 @@ namespace UIDisplay.Pages
                     {
                         wrapPanel.Children.Remove(addressUnit1);
                     }
-                    //await Task.Run(Refresh);
                 }));
             });
 
@@ -136,7 +148,7 @@ namespace UIDisplay.Pages
             {
                 if (addressUnit.IsChecked)
                 {
-                    AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, addressUnit.userInfo, 1);
+                    AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, addressUnit.ContactInfo, 1);
                     NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
                     break;
                 }

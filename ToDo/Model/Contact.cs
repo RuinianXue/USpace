@@ -13,20 +13,20 @@ namespace UIDisplay.Model
     public class Contact
     {
         private readonly string IMG_PATH_PREFIX = "https://src.star-tears.cn/hznu/class-img-bed/";
-        public string UUID { get; set; }
+        public string CID { get; set; }
         public string Name { get; set; }
-        public string PhoneNum { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
         public string ImgPath { get; set; }
 
         public Contact()
         {
         }
-        public Contact(string uUID, string name = "", string phoneNum = "", string email = "", string imgPath = "")
+        public Contact(string cID, string name = "", string phoneNum = "", string email = "", string imgPath = "")
         {
-            UUID = uUID;
+            CID = cID;
             Name = name;
-            PhoneNum = phoneNum;
+            Phone = phoneNum;
             Email = email;
             ImgPath = imgPath;
         }

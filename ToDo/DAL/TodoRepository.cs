@@ -11,7 +11,7 @@ namespace UIDisplay.DAL
 
         public static int InsertTodo(Todo todo)
         {
-            string sql = "INSERT INTO todoinfo (uuid, content, date, priority, isdone, teammate) VALUES (@UUID, @Content, @Date, @Priority, @IsDone, @Teammate)";
+            string sql = "INSERT INTO todo (uuid, content, date, priority, isdone, teammate) VALUES (@UUID, @Content, @Date, @Priority, @IsDone, @Teammate)";
             var parameters = new MySql.Data.MySqlClient.MySqlParameter[]
             {
                 new MySql.Data.MySqlClient.MySqlParameter("@UUID", todo.UUID),
@@ -27,7 +27,7 @@ namespace UIDisplay.DAL
 
         public static int UpdateTodo(Todo todo)
         {
-            string sql = "UPDATE todoinfo SET content = @Content, date = @Date, priority = @Priority, isdone = @IsDone, teammate = @Teammate WHERE uuid = @UUID";
+            string sql = "UPDATE todo SET content = @Content, date = @Date, priority = @Priority, isdone = @IsDone, teammate = @Teammate WHERE uuid = @UUID";
             var parameters = new MySql.Data.MySqlClient.MySqlParameter[]
             {
                 new MySql.Data.MySqlClient.MySqlParameter("@Content", todo.Content),
@@ -43,7 +43,7 @@ namespace UIDisplay.DAL
 
         public static int DeleteTodo(Todo todo)
         {
-            string sql = "DELETE FROM todoinfo WHERE uuid = @UUID";
+            string sql = "DELETE FROM todo WHERE uuid = @UUID";
             var parameters = new MySql.Data.MySqlClient.MySqlParameter[]
             {
                 new MySql.Data.MySqlClient.MySqlParameter("@UUID", todo.UUID),
@@ -54,7 +54,7 @@ namespace UIDisplay.DAL
 
         public static DataTable QueryTodo()
         {
-            string sql = "SELECT uuid, content, date, priority, isdone, teammate FROM todoinfo ORDER BY priority DESC, date";
+            string sql = "SELECT uuid, content, date, priority, isdone, teammate FROM todo ORDER BY priority DESC, date";
             DataSet ds = mysqlBase.GetDataSet(sql, "todoinfo");
             return ds.Tables[0];
         }

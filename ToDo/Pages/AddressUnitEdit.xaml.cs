@@ -65,7 +65,7 @@ namespace UIDisplay.Pages
         private void Refresh()
         {
             nameTextBox.Text = userInfo.Name;
-            phoneTextBox.Text = userInfo.PhoneNum;
+            phoneTextBox.Text = userInfo.Phone;
             emailTextBox.Text = userInfo.Email;
             img.Source = userInfo.getImg();
         }
@@ -77,7 +77,7 @@ namespace UIDisplay.Pages
         private async void insertBtn_Click(object sender, RoutedEventArgs e)
         {
             userInfo.Name = nameTextBox.Text;
-            userInfo.PhoneNum = phoneTextBox.Text;
+            userInfo.Phone = phoneTextBox.Text;
             userInfo.Email = emailTextBox.Text;
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
@@ -89,7 +89,7 @@ namespace UIDisplay.Pages
                 Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
             }
-            await Task.Run(uploadUserInfo);
+            await Task.Run(UploadUserInfo);
             _adbp.isLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
         }
@@ -97,7 +97,7 @@ namespace UIDisplay.Pages
         private async void updateBtn_Click(object sender, RoutedEventArgs e)
         {
             userInfo.Name = nameTextBox.Text;
-            userInfo.PhoneNum = phoneTextBox.Text;
+            userInfo.Phone = phoneTextBox.Text;
             userInfo.Email = emailTextBox.Text;
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
@@ -109,21 +109,20 @@ namespace UIDisplay.Pages
                 Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
             }
-            await Task.Run(uploadUserInfo);
+            await Task.Run(UploadUserInfo);
             _adbp.isLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private void uploadUserInfo()
+        private void UploadUserInfo()
         {
-            ContactManager userDataControl = new ContactManager();
             if (mode == 0)
             {
-                userDataControl.InsertUserInfo(userInfo);
+                ContactManager.InsertContact(userInfo);
             }
             else
             {
-                userDataControl.UpdateUserInfo(userInfo);
+                ContactManager.UpdateContact(userInfo);
             }
         }
 

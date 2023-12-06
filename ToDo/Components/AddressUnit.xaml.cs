@@ -35,10 +35,10 @@ namespace UIDisplay.Components
                 this.a = a;
             }
         }
-        private List<MyColor> myColors = new List<MyColor>();
-        private int mode = 0;
+        private readonly List<MyColor> myColors = new List<MyColor>();
+        private readonly int mode = 0;
         public bool IsChecked { get; set; } = false;
-        public Contact userInfo { get; set; }
+        public Contact ContactInfo { get; set; }
         public AddressUnit()
         {
             InitializeComponent();
@@ -49,11 +49,11 @@ namespace UIDisplay.Components
             myColors.Add(new MyColor(255, 85, 85, 255));
             myColors.Add(new MyColor(102, 221, 209, 255));
             this.mode = mode;
-            userInfo = uI;
-            nameLabel.Text = userInfo.Name;
-            phoneLabel.Text = userInfo.PhoneNum;
-            emailLabel.Text = userInfo.Email;
-            BitmapImage bitmapImage = userInfo.getImg();
+            ContactInfo = uI;
+            nameLabel.Text = ContactInfo.Name;
+            phoneLabel.Text = ContactInfo.Phone;
+            emailLabel.Text = ContactInfo.Email;
+            BitmapImage bitmapImage = ContactInfo.getImg();
             img.Source = bitmapImage;
             bitmapImage.DownloadCompleted += (o, earg) =>
             {

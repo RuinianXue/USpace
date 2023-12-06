@@ -84,10 +84,11 @@ namespace UIDisplay.Pages
 
         private void Refresh_Addressbook()
         {
-            Task.Run(() =>
+            DataTable dt;
+            bool success = ContactManager.SearchAllContact(out dt);
+
+            if (success)
             {
-                var userDataControl = new ContactManager();
-                DataTable dt = userDataControl.QueryUserInfo();
                 Dispatcher.Invoke(() =>
                 {
                     wrapPanel.Children.Clear();
@@ -97,7 +98,12 @@ namespace UIDisplay.Pages
                         wrapPanel.Children.Add(new AddressUnit(userInfo, 1));
                     }
                 });
-            });
+                Growl.Success("联系人列表拉取成功！");
+            }
+            else
+            {
+                Growl.Error("联系人列表拉取失败！");
+            }
         }
 
         private void Refresh_TodoList()

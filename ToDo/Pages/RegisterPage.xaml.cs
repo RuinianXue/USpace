@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HandyControl.Controls;
-using System.Data;
 using UIDisplay.BLL;
+using UIDisplay.Model;
 
 namespace UIDisplay.Pages
 {
@@ -106,7 +106,16 @@ namespace UIDisplay.Pages
             var newUserName = txtNickname.Text;
             var newDateOfBirth = txtDateOfBirth.SelectedDate.Value;
             var newPassword = txtPassword?.Password;
-            return UserManager.InsertUser(newUserName, newDateOfBirth, _newEmail, newPassword);
+
+            User newUser = new User
+            {
+                Nickname = newUserName,
+                DateOfBirth = newDateOfBirth,
+                Email = _newEmail,
+                Password = newPassword
+            };
+
+            return UserManager.InsertUser(newUser);
         }
     }
 }
