@@ -156,7 +156,7 @@ namespace UIDisplay.Cards
                 Grid.SetRowSpan(this, 2);
             grid.Children.Add(this);*/
         }
-        private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        protected void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             ((Card)sender).ContextMenu.IsOpen = true;
         }

@@ -69,6 +69,10 @@ namespace UIDisplay.Components
         }
         public void Appear(Grid outGrid)
         {
+            if (outGrid.Children.Contains(gridOfMask))
+            {
+                outGrid.Children.Remove(gridOfMask);
+            }
             outGrid.Children.Add(gridOfMask);
         }
         public void Disappear(Grid outGrid)

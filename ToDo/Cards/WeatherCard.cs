@@ -89,11 +89,70 @@ namespace UIDisplay.Cards
         {
             return "";
         }
+        private void refreshItem_Click(object sender, EventArgs e)
+        {
+            refreshWeather();
+        }
+        private void WuhanClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "武汉";
+            refreshWeather();
+        }
+        private void BeijingClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "北京";
+            refreshWeather();
+        }
+        private void ChongqingClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "重庆";
+            refreshWeather();
+        }
+        private void ShanghaiClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "上海";
+            refreshWeather();
+        }
+        protected override void MenuInitialize()
+        {
+            ContextMenu contextMenu = new ContextMenu();
+            //MenuItem moveItem = new MenuItem();
+            //moveItem.Header = "Move Card";
+            //moveItem.Click += MoveItem_Click;
+            //contextMenu.Items.Add(moveItem);
+            MenuItem deleteItem = new MenuItem();
+            deleteItem.Header = "Delete Card";
+            deleteItem.Click += DeleteItem_Click;
+            contextMenu.Items.Add(deleteItem);
+            MenuItem refreshItem = new MenuItem();
+            refreshItem.Header = "Refresh Weather";
+            refreshItem.Click += refreshItem_Click;
+            contextMenu.Items.Add(refreshItem);
+            this.ContextMenu = contextMenu;
+            MenuItem choosePlace = new MenuItem();
+            choosePlace.Header = "Choose Place";
+
+            choosePlace.Items.Add(CreateSubMenuItem("Wuhan", WuhanClick));
+            choosePlace.Items.Add(CreateSubMenuItem("Chongqing", ChongqingClick));
+            choosePlace.Items.Add(CreateSubMenuItem("Beijing", BeijingClick));
+            choosePlace.Items.Add(CreateSubMenuItem("Shanghai", ShanghaiClick));
+
+            //choosePlace.Click += choosePlaceClick;
+            contextMenu.Items.Add(choosePlace);
+            this.ContextMenu = contextMenu;
+            this.MouseRightButtonDown += Card_MouseRightButtonDown;
+        }
+        private MenuItem CreateSubMenuItem(string header, RoutedEventHandler clickHandler)
+        {
+            MenuItem subMenuItem = new MenuItem { Header = header };
+            subMenuItem.Click += clickHandler;
+            return subMenuItem;
+        }
         private static BlurMask blurmask = new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
         protected override void ClickCardInitialize()
         {
             MouseDoubleClick += Card_DoubleClick;
-            clickCardOfWeather = new ClickCardOfWeather();
+            clickCardOfWeather = new ClickCardOfWeather(this.placeChosen) ;
             blurmask.MaskClicked += Mask_ClickClose;
         }
         protected override void Mask_ClickClose(object sender, EventArgs e)
@@ -109,7 +168,7 @@ namespace UIDisplay.Cards
         public override void SetPosition(Grid grid, int row, int colomn)
         {
             base.SetPosition(grid, row, colomn);
-            IgnoredCard tmp = new IgnoredCard(this, 5);
+            IgnoredCard tmp = new IgnoredCard(this, 5,this.placeChosen);
             Dashboard.loadDashJson.AddCard(tmp);
         }
         private void Initialize()
@@ -144,6 +203,10 @@ namespace UIDisplay.Cards
         public WeatherCardSmall()
         {
             this.placeChosen = "武汉";
+            GetWeatherData();
+        }
+        public void refreshWeather()
+        {
             GetWeatherData();
         }
         public WeatherCardSmall(string Place)
@@ -200,7 +263,7 @@ namespace UIDisplay.Cards
             MediumDisp tempdisp = new MediumDisp(weatherAnalysis.Temperature + "°");
             SmallDisp wth = new SmallDisp(this.weatherdisp);
             SmallDisp temprangedisp = new SmallDisp("L:" + weatherAnalysis.TempRange_low + "  " + "H:" + weatherAnalysis.TempRange_high);
-            SmallDisp icon = new SmallDisp("☀️");
+            SmallDisp icon = new SmallDisp("  ");
             StackPanel smallnew1 = new StackPanel();
             smallnew1.Orientation = Orientation.Vertical;
             smallnew1.Children.Clear();
@@ -387,6 +450,69 @@ namespace UIDisplay.Cards
             stackPanel.Children.Add(dispThirdWeatherGrid);
 
         }
+        private void refreshItem_Click(object sender, EventArgs e)
+        {
+            refreshWeather();
+        }
+        private void WuhanClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "武汉";
+            refreshWeather();
+        }
+        private void BeijingClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "北京";
+            refreshWeather();
+        }
+        private void ChongqingClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "重庆";
+            refreshWeather();
+        }
+        private void ShanghaiClick(object sender, EventArgs e)
+        {
+            this.placeChosen = "上海";
+            refreshWeather();
+        }
+        protected override void MenuInitialize()
+        {
+            ContextMenu contextMenu = new ContextMenu();
+            //MenuItem moveItem = new MenuItem();
+            //moveItem.Header = "Move Card";
+            //moveItem.Click += MoveItem_Click;
+            //contextMenu.Items.Add(moveItem);
+            MenuItem deleteItem = new MenuItem();
+            deleteItem.Header = "Delete Card";
+            deleteItem.Click += DeleteItem_Click;
+            contextMenu.Items.Add(deleteItem);
+            MenuItem refreshItem = new MenuItem();
+            refreshItem.Header = "Refresh Weather";
+            refreshItem.Click += refreshItem_Click;
+            contextMenu.Items.Add(refreshItem);
+            this.ContextMenu = contextMenu;
+            MenuItem choosePlace = new MenuItem();
+            choosePlace.Header = "Choose Place";
+
+            choosePlace.Items.Add(CreateSubMenuItem("Wuhan", WuhanClick));
+            choosePlace.Items.Add(CreateSubMenuItem("Chongqing", ChongqingClick));
+            choosePlace.Items.Add(CreateSubMenuItem("Beijing", BeijingClick));
+            choosePlace.Items.Add(CreateSubMenuItem("Shanghai", ShanghaiClick));
+
+            //choosePlace.Click += choosePlaceClick;
+            contextMenu.Items.Add(choosePlace);
+            this.ContextMenu = contextMenu;
+            this.MouseRightButtonDown += Card_MouseRightButtonDown;
+        }
+        public void refreshWeather()
+        {
+            GetWeatherData();
+        }
+        private MenuItem CreateSubMenuItem(string header, RoutedEventHandler clickHandler)
+        {
+            MenuItem subMenuItem = new MenuItem { Header = header };
+            subMenuItem.Click += clickHandler;
+            return subMenuItem;
+        }
         private void Initialize()
         {
             typeOfCard = 3;
@@ -411,7 +537,7 @@ namespace UIDisplay.Cards
         }
         public WeatherCardBig()
         {
-            this.placeChosen = "武汉";
+            this.placeChosen = "湖北武汉";
             GetWeatherData();
         }
         public WeatherCardBig(string place)
@@ -422,7 +548,7 @@ namespace UIDisplay.Cards
         public override void SetPosition(Grid grid, int row, int colomn)
         {
             base.SetPosition(grid, row, colomn);
-            IgnoredCard tmp = new IgnoredCard(this, 3);
+            IgnoredCard tmp = new IgnoredCard(this, 3,this.placeChosen);
             Dashboard.loadDashJson.AddCard(tmp);
         }
     }
@@ -431,6 +557,10 @@ namespace UIDisplay.Cards
         private Grid gridOfClickCard;
         public void Appear(Grid overallGrid)
         {
+            if (overallGrid.Children.Contains(gridOfClickCard))
+            {
+                overallGrid.Children.Remove(gridOfClickCard);
+            }
             overallGrid.Children.Add(gridOfClickCard);
         }
         public void Disappear(Grid overallGrid)
@@ -445,8 +575,14 @@ namespace UIDisplay.Cards
             gridOfClickCard = new Grid();
             Panel.SetZIndex(gridOfClickCard, 1);
             BorderThickness = new Thickness(5);
-            //BorderBrush = Brushes.White;
-            //Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
+            gridOfClickCard.Children.Add(this);
+        }
+        public ClickCardOfWeather(string place)
+        {
+            this.placeChosen = place;
+            gridOfClickCard = new Grid();
+            Panel.SetZIndex(gridOfClickCard, 1);
+            BorderThickness = new Thickness(5);
             gridOfClickCard.Children.Add(this);
         }
         public override void SetPosition(Grid grid, int row, int colomn)

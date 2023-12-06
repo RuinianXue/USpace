@@ -21,8 +21,9 @@ namespace UIDisplay.Utils
         public int col { get; set; }
         public int typeNum { get; set; }
         public string type;
+        public string place { get; set; }
         public IgnoredCard() { }
-        public IgnoredCard(Card card, int typenum)
+        public IgnoredCard(Card card, int typenum, string place = "")
         {
             this.width = card.stdWidth;
             this.height = card.stdHeight;
@@ -30,6 +31,8 @@ namespace UIDisplay.Utils
             this.col = card.colomn;
             this.typeNum = typenum;
             this.type = enumsofType[typenum];
+            //this.place = 0;
+            this.place = place;
         }
     }
     public class LoadDashJson
@@ -118,7 +121,7 @@ namespace UIDisplay.Utils
                         Dashboard.AddNewTodoCard(todoCard);
                         break;
                     case 3:
-                        WeatherCardBig weatherCardBig = new WeatherCardBig();
+                        WeatherCardBig weatherCardBig = new WeatherCardBig(cardIgnored.place);
                         SetCardPosition(Dashboard.inGrid, cardIgnored.row, cardIgnored.col, weatherCardBig);
                         break;
                     case 4:
@@ -126,7 +129,7 @@ namespace UIDisplay.Utils
                         SetCardPosition(Dashboard.inGrid, cardIgnored.row, cardIgnored.col, tomatoCard);
                         break;
                     case 5:
-                        WeatherCardSmall weatherCardSmall = new WeatherCardSmall();
+                        WeatherCardSmall weatherCardSmall = new WeatherCardSmall(cardIgnored.place);
                         SetCardPosition(Dashboard.inGrid, cardIgnored.row, cardIgnored.col, weatherCardSmall);
                         break;
                 }
