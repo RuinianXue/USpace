@@ -73,12 +73,13 @@
                             </EventTrigger>
                         </ToggleButton.Triggers>
                     </ToggleButton>
-                    <StackPanel Grid.Row="4">
+                    <StackPanel Grid.Row="4" x:Name="mainstack">
                         <RadioButton x:Name="Dashboard" IsChecked="True" Content=" Dashboard" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="dashboard_Click" Cursor="Hand"/>
                         <!--<RadioButton x:Name="rdAddressbook" Content=" 通讯录" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource addressbook}" Click="rdAddressbook_Click" Checked="rdAddressbook_Checked" Cursor="Hand"/>-->
                         <RadioButton x:Name="rdAddressbook" Content=" 通讯录" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource addressbook}" Click="rdAddressbook_Click" Cursor="Hand"/>
                         <RadioButton x:Name="rdTodolist" Content=" To Do List" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="rdTodolist_Click" Cursor="Hand"/>
                         <RadioButton x:Name="MarkdownEditor" Content=" Markdown" Style="{DynamicResource MenuRadioButtonStyle}" Tag="{DynamicResource todo}" Click="markdownEditor_Click" Cursor="Hand"/>
+                    
                     </StackPanel>
                 </Grid>
             </Border>

@@ -93,8 +93,8 @@
     <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.8.0.31\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Ookii.Dialogs.Wpf, Version=5.0.0.0, Culture=neutral, PublicKeyToken=66aa232afad40158, processorArchitecture=MSIL">
       <HintPath>..\packages\Ookii.Dialogs.Wpf.5.0.1\lib\net462\Ookii.Dialogs.Wpf.dll</HintPath>
@@ -174,9 +174,11 @@
     <Compile Include="Pages\AddressUnitEdit.xaml.cs">
       <DependentUpon>AddressUnitEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\LoadDashJson.cs" />
     <Compile Include="Utils\QiniuBase.cs" />
     <Compile Include="BLL\ContactManager.cs" />
     <Compile Include="Model\Contact.cs" />
+    <Compile Include="Utils\MenuBarMain.cs" />
     <Compile Include="WeatherCrawl\WeatherAnalysis.cs" />
     <Compile Include="WeatherCrawl\WeatherCrawl.cs" />
     <Page Include="Assets\Icons\Icons.xaml">
@@ -346,6 +348,14 @@
     <Resource Include="Images\WeatherCard\visibility.png" />
     <Resource Include="Images\WeatherCard\winddescription.png" />
     <Resource Include="Images\WeatherCard\windpower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WeatherCard\clothes.png" />
+    <Resource Include="Images\WeatherCard\life.png" />
+    <Resource Include="Images\WeatherCard\tavel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

@@ -18,15 +18,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using UIDisplay.Pages;
 using UIDisplay.Components;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Cards
 {
     public class Card : MaterialDesignThemes.Wpf.Card
     {
-        public StackPanel stackPanel;
-        public ClickCard clickCard;
-        protected int stdHeight;
-        protected int stdWidth;
+        protected StackPanel stackPanel;
+        protected ClickCard clickCard;
+        public int stdHeight;
+        public int stdWidth;
+        public int row;
+        public int colomn;
         protected void MouseEnterLeaveInitialize()
         {
             MouseEnter += Card_MouseEnter;
@@ -153,10 +156,13 @@ namespace UIDisplay.Cards
         {
             
         }
-        public void SetPosition(Grid grid, int row,int colomn)
+        public virtual void SetPosition(Grid grid, int row,int colomn)
         {
             Grid.SetRow(this, row);
             Grid.SetColumn(this, colomn);
+            this.colomn = colomn;
+            this.row = row;
+
             if((int)this.Width == Constants.BIG_CARD_LENGTH)
                 Grid.SetColumnSpan(this, 2);
             if((int)this.Height == Constants.BIG_CARD_LENGTH)

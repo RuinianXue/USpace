@@ -18,10 +18,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using UIDisplay.Pages;
 using UIDisplay.Components;
-
+using UIDisplay.Utils;
 namespace UIDisplay.Cards
 {
     public class ArxivCard : BigSquareCard
+        //Type 0
     {
         public List<string> Authors { get; set; }
         public string Title { get; set; }
@@ -35,6 +36,12 @@ namespace UIDisplay.Cards
         public string Publish { get; set; }
 
         TextBlock textBoxTitle;
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            base.SetPosition(grid, row, colomn);
+            IgnoredCard tmp = new IgnoredCard(this,0);
+            Dashboard.loadDashJson.AddCard(tmp);
+        }
 
         private void NewArticle()
         {

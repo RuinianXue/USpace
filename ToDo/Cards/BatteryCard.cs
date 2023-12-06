@@ -7,10 +7,13 @@ using System.Windows;
 using System.Windows.Controls;
 using UIDisplay.Components;
 using System.Management;
+using UIDisplay.Pages;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Cards
 {
     public class BatteryCard: SmallSquareCard
+    //Type 1
     {
         public BatteryCard() : base()
         {
@@ -24,6 +27,12 @@ namespace UIDisplay.Cards
             vb.Child = battery;
             stackPanel.Children.Add(vb);
             Content = stackPanel;
+        }
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            base.SetPosition(grid, row, colomn);
+            IgnoredCard tmp = new IgnoredCard(this, 1);
+            Dashboard.loadDashJson.AddCard(tmp);
         }
     }
 }

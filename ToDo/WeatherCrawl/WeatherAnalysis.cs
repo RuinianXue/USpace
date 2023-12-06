@@ -235,13 +235,13 @@ namespace UIDisplay.WeatherCrawl
             Description = smallCardDetails["bodytemp_info"];
             TempRange_high = smallCardDetails["temperature_day"];
             TempRange_low = smallCardDetails["temperature_night"];
-
+            
             string tmpText = "";
             foreach (var kvp in smallCardDetails)
             {
                 tmpText += ($"{kvp.Key}: {kvp.Value}\n");
             }
-            Console.WriteLine(tmpText);
+            //Console.WriteLine(tmpText);
             //"weather", "temperature", "bodytemp_info", "temperature_night","temperature_day",
             List<string> bigCardKey = new List<string> { "uv_num", "uv", "wind_direction", "wind_power", "precipitation_probability", "humidity", "pressure", "visibility" };
             Dictionary<string, string> bigCardDetails = MatchTemperatureDetails(bigCardKey);

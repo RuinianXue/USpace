@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 using UIDisplay.WeatherCrawl;
 using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
+using UIDisplay.Pages;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Cards
 {
+    //Type 4
     class SmallDisp : TextBlock
     {
         public SmallDisp()
@@ -321,6 +324,12 @@ namespace UIDisplay.Cards
         {
             this.placeChosen = place;
             GetWeatherData();
+        }
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            base.SetPosition(grid, row, colomn);
+            IgnoredCard tmp = new IgnoredCard(this, 4);
+            Dashboard.loadDashJson.AddCard(tmp);
         }
     }
 }

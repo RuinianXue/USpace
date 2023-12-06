@@ -20,6 +20,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UIDisplay.Components;
 using UIDisplay.Cards;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Pages
 {
@@ -37,9 +38,15 @@ namespace UIDisplay.Pages
         public static Grid inGrid = new Grid();
         public static Grid outGrid = new Grid();
         public static Grid overallGrid = new Grid();
-        private TodoCard todoCard;  //临时写在这，主要每次Load的时候得刷新内容
+        private static List<TodoCard> todoCards;  //临时写在这，主要每次Load的时候得刷新内容
+        public static void AddNewTodoCard(TodoCard todo)
+        {
+            todoCards.Add(todo);
+        }
+        public static LoadDashJson loadDashJson;
         public void InitializeDashboard()
         {
+            todoCards = new List<TodoCard>();
             overallGrid.Children.Add(outGrid);
             outGrid.Children.Add(mainGrid);
             inGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f3f3f3")); // 将整个Grid填充为蓝色
@@ -47,9 +54,9 @@ namespace UIDisplay.Pages
             mainGrid.Children.Add(inGrid);
             inGrid.ClipToBounds = false;
             inGrid.Margin = new Thickness(Constants.EDGE);
-            inGrid.Height = Constants.MAX_ROW * Constants.SQUARE_GRID_LENGTH ;
+            inGrid.Height = Constants.MAX_ROW * Constants.SQUARE_GRID_LENGTH;
             inGrid.Width = Constants.MAX_COLOMN * Constants.SQUARE_GRID_LENGTH;
-            for (int i=1;i<=Constants.MAX_COLOMN;i++)
+            for (int i = 1; i <= Constants.MAX_COLOMN; i++)
             {
                 inGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(4, GridUnitType.Star) });
             }
@@ -61,6 +68,10 @@ namespace UIDisplay.Pages
             inGrid.ClipToBounds = false;
             Grid.SetColumn(inGrid, 0);
             this.Content = overallGrid;
+            MenuBarMain toolBarInMain = new MenuBarMain();
+            outGrid.Children.Add(toolBarInMain.button);
+            //outGrid.Children.Add(toolBarInMain.menu);
+
         }
         /*
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -95,9 +106,21 @@ namespace UIDisplay.Pages
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            todoCard.Refresh();
+            //todoCard.Refresh();
+            if(todoCards == null || todoCards.Count == 0) { return; }
+            foreach (var todoCard in todoCards)
+            {
+                todoCard.Refresh();
+            }
         }
-
+        private void TodoSubscribe()
+        {
+            if (todoCards == null || todoCards.Count == 0) { return; }
+            foreach (var todoCard in todoCards)
+            {
+                todoCard.TodoCardDoubleClicked += TodoDoubleClick;
+            }
+        }
         public void Answer_CardDoubleClick()
         {
             //BlurMask blurMask = new BlurMask(mainGrid,outGrid);
@@ -106,7 +129,7 @@ namespace UIDisplay.Pages
         {
             //this.maskGrid.Visibility = Visibility.Visible;
         }
-        public void DrawinGridBorder(int i,int j)
+        public void DrawinGridBorder(int i, int j)
         {
             // 创建边框元素
             Border border = new Border();
@@ -134,22 +157,24 @@ namespace UIDisplay.Pages
             this.Height = Constants.INSIDE_HEIGHT;
             this.Width = Constants.INSIDE_WIDTH;
             InitializeDashboard();
-            
+            loadDashJson = new LoadDashJson();
+
+            /*
             BigSquareCard tmpbig1 = new BigSquareCard();
             //tmpbig1.SetPosition(inGrid, 0, 0);
             TomatoCard tmpbig2 = new TomatoCard();
             tmpbig2.SetPosition(inGrid, 0, 2);
             ArxivCard tmp1 = new ArxivCard();
-            tmp1.SetPosition(inGrid,0,0);
+            tmp1.SetPosition(inGrid, 0, 0);
 
             //Card tmp2 = new Card();
             //tmp2.SetPosition(inGrid,1,4);
             //BigRectangleCard tmpbig3 = new BigRectangleCard();
-            //tmpbig3.SetPosition(inGrid, 2, 0);
-            todoCard = new TodoCard();
-            todoCard.SetPosition(inGrid, 2, 0);
-            todoCard.TodoCardDoubleClicked += TodoDoubleClick;
-
+            //tmpbig3.SetPosition(inGrid, 2, 0);*/
+            //TodoCard todoCard = new TodoCard();
+            //todoCard.SetPosition(inGrid, 2, 0);
+            TodoSubscribe();
+            /*
             WeatherCardSmall weatherCardSmall = new WeatherCardSmall();
             //weatherCardSmall.SetPosition(inGrid, 2, 2);
 
@@ -160,8 +185,7 @@ namespace UIDisplay.Pages
             //batteryCardSmall.SetPosition(inGrid, 2, 3);
             TomatoRectCard tmpbig4 = new TomatoRectCard();
             //tmpbig4.SetPosition(inGrid, 3, 2);
-
-            /*
+            
             for (int i=1;i<=Constants.MAX_ROW;i++)
             {
                 for(int j=1;j<=Constants.MAX_COLOMN;j++)

@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using TomatoClock;
+using UIDisplay.Pages;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Cards
 {
     internal class TomatoCard : BigSquareCard
+    //Type 3
     {
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            base.SetPosition(grid, row, colomn);
+            IgnoredCard tmp = new IgnoredCard(this, 3);
+            Dashboard.loadDashJson.AddCard(tmp);
+        }
         public TomatoCard():base()
         {
             MenuInitialize();

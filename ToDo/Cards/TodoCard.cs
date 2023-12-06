@@ -8,14 +8,22 @@ using System.Windows;
 using System.Windows.Controls;
 using UIDisplay.Components;
 using UIDisplay.Pages;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Cards
 {
-    internal class TodoCard : BigSquareCard
+    public class TodoCard : BigSquareCard
+        //Type 2
     {
         private TodoList todoList;
         public event EventHandler TodoCardDoubleClicked;
-
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            base.SetPosition(grid, row, colomn);
+            IgnoredCard tmp = new IgnoredCard(this, 2);
+            Dashboard.loadDashJson.AddCard(tmp);
+            Dashboard.AddNewTodoCard(this);
+        }
         //public TodoCard()
         //{
         //    MenuInitialize();
