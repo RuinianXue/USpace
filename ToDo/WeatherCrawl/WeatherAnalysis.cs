@@ -13,7 +13,6 @@ namespace UIDisplay.WeatherCrawl
     public class WeatherAnalysis
     {
         private string placeOfChoose;
-        private string filePath;
         private string inputFileString;
 
         private string weatherLine;
@@ -75,21 +74,19 @@ namespace UIDisplay.WeatherCrawl
         }
         public WeatherAnalysis()
         {
-            filePath = WeatherCrawl.filePath;
-            inputFileString = File.ReadAllText(filePath);
             if (weatherLine == null) weatherLine = "";
             if (weatherPM25Line == null) weatherPM25Line = "";
             if (weatherFeatureLine == null) weatherFeatureLine = "";
             placeOfChoose = "湖北武汉";
+            inputFileString = "";
         }
         public WeatherAnalysis(string place)
         {
-            this.filePath = WeatherCrawl.filePath;
-            inputFileString = File.ReadAllText(filePath);
             if (weatherLine == null) weatherLine = "";
             if (weatherPM25Line == null) weatherPM25Line = "";
             if (weatherFeatureLine == null) weatherFeatureLine = "";
             placeOfChoose = place;
+            inputFileString = "";
         }
         public string MatchFeatureLine()
         {
@@ -220,10 +217,13 @@ namespace UIDisplay.WeatherCrawl
             }
             return temperatureMap;
         }
+        private WeatherCrawl weatherCrawl;
         public async Task<string> getAnalysis()
         {
-            WeatherCrawl weatherCrawl = new WeatherCrawl(this.placeOfChoose);
+            weatherCrawl = new WeatherCrawl(this.placeOfChoose);
             await weatherCrawl.GenerateTxt();
+            inputFileString = weatherCrawl.htmlstring;
+            Console.WriteLine("!!!!!" + inputFileString);
             MatchLinesInitial();
             MatchAirCondition();//AQI AQIQuality
             MatchSunSetAndRise();//sunrise sunset

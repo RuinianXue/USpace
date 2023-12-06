@@ -6,13 +6,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
+using CefSharp.Web;
 
 
 namespace UIDisplay.WeatherCrawl
 {
     public class WeatherCrawl
     {
-        public static string filePath = "../weather.txt";
+        public string htmlstring;
         private string placeName;
         private async Task<string> DownloadHtmlAsync(string url)
         {
@@ -59,8 +60,8 @@ namespace UIDisplay.WeatherCrawl
             string url = this.urlGen();
             string html = await CrawlAsync(url);
             //Console.WriteLine(html);
-            File.WriteAllText(filePath, string.Empty);
-            File.WriteAllText(filePath, html);
+            htmlstring = "";
+            htmlstring = html;
         }
     }
 }
