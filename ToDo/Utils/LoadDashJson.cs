@@ -48,12 +48,31 @@ namespace UIDisplay.Utils
             string json = JsonConvert.SerializeObject(dashboardCardList);
             File.WriteAllText(filePath, json);
         }
-        public void RemoveCard(IgnoredCard card)
+
+        public void RemoveCard(IgnoredCard cardToRemove)
         {
-            dashboardCardList.Remove(card);
+            List<IgnoredCard> originalList = new List<IgnoredCard>(dashboardCardList);
+
+            foreach (IgnoredCard card in originalList)
+            {
+                if (IsCardToRemove(card, cardToRemove))
+                {
+                    dashboardCardList.Remove(card);
+                }
+            }
+            File.WriteAllText(filePath, string.Empty);
             string json = JsonConvert.SerializeObject(dashboardCardList);
             File.WriteAllText(filePath, json);
         }
+
+        private bool IsCardToRemove(IgnoredCard currentCard, IgnoredCard cardToRemove)
+        {
+            return currentCard.width == cardToRemove.width &&
+                   currentCard.height == cardToRemove.height &&
+                   currentCard.row == cardToRemove.row &&
+                   currentCard.col == cardToRemove.col && currentCard.type == cardToRemove.type;
+        }
+
         public void SetCardPosition(Grid grid, int row, int colomn, Card card)
         {
             Grid.SetRow(card, row);

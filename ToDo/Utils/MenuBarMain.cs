@@ -9,6 +9,8 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using HandyControl.Controls;
 using System.Windows.Media.Imaging;
+using UIDisplay.Cards;
+using UIDisplay.Pages;
 
 namespace UIDisplay.Utils
 {
@@ -34,17 +36,34 @@ namespace UIDisplay.Utils
             menu = new ContextMenu();
             //public static string[] enumsofType = new string[6] { "arxiv", "battery", "todo", "weather", "tomato", "weathersmall" };
             MenuItem arxivItem = new MenuItem { Header = "Arxiv" };
-            //arxivItem.Items.Add(new MenuItem { Header = "Big" });
-            //arxivItem.Items.Add(new MenuItem { Header = "" });
-            //arxivItem.Items.Add(new MenuItem { Header = "Exit" });
+            arxivItem.Click += ArxivItem_Click;
             menu.Items.Add(arxivItem);
 
             MenuItem batteryItem = new MenuItem { Header = "Battery" };
-            //fileMenuItem.Items.Add(new MenuItem { Header = "Exit" });
+            batteryItem.Click += BatteryItem_Click;
             menu.Items.Add(batteryItem);
 
             MenuItem todoItem = new MenuItem { Header = "Todo" };
-            //fileMenuItem.Items.Add(new MenuItem { Header = "Exit" });
+            todoItem.Click += TodoItem_Click;
+            menu.Items.Add(todoItem);
+
+            MenuItem weatherItem = new MenuItem { Header = "Weather" };
+            weatherItem.Items.Add(CreateSubMenuItem("small", WeatherBig_Click));
+            weatherItem.Items.Add(CreateSubMenuItem("big", WeatherSmall_Click));
+            menu.Items.Add(weatherItem);
+
+            MenuItem tomatoItem = new MenuItem { Header = "Tomato Clock" };
+            tomatoItem.Items.Add(CreateSubMenuItem("medium", TomatoBig_Click));
+            tomatoItem.Items.Add(CreateSubMenuItem("big", TomatoSmall_Click));
+            menu.Items.Add(tomatoItem);
+            /*
+            MenuItem arxivItem = new MenuItem { Header = "Arxiv" };
+            menu.Items.Add(arxivItem);
+
+            MenuItem batteryItem = new MenuItem { Header = "Battery" };
+            menu.Items.Add(batteryItem);
+
+            MenuItem todoItem = new MenuItem { Header = "Todo" };
             menu.Items.Add(todoItem);
 
             MenuItem weatherItem = new MenuItem { Header = "Weather" };
@@ -56,7 +75,7 @@ namespace UIDisplay.Utils
             tomatoItem.Items.Add(new MenuItem { Header = "medium" });
             tomatoItem.Items.Add(new MenuItem { Header = "big" });
             menu.Items.Add(tomatoItem);
-
+            */
             button.HorizontalAlignment = HorizontalAlignment.Right;
             button.VerticalAlignment = VerticalAlignment.Top;
             button.Margin = new Thickness(10);
@@ -67,6 +86,52 @@ namespace UIDisplay.Utils
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.menu.IsOpen = true;
+        }
+        private void ArxivItem_Click(object sender, RoutedEventArgs e)
+        {
+            ArxivCard arxivCard = new ArxivCard();
+            arxivCard.SetPosition(Dashboard.inGrid, 0, 0);
+        }
+        private void BatteryItem_Click(object sender, RoutedEventArgs e)
+        {
+            BatteryCard batteryCardSmall = new BatteryCard();
+            batteryCardSmall.SetPosition(Dashboard.inGrid, 0, 0);
+
+        }
+        private void TodoItem_Click(object sender, RoutedEventArgs e)
+        {
+            TodoCard todoCard = new TodoCard();
+            Dashboard.AddNewTodoCard(todoCard);
+            todoCard.SetPosition(Dashboard.inGrid, 0, 0);
+
+        }
+        private void WeatherBig_Click(object sender, RoutedEventArgs e)
+        {
+            WeatherCardBig weatherCardBig = new WeatherCardBig();
+            weatherCardBig.SetPosition(Dashboard.inGrid, 0, 0);
+
+        }
+        private void WeatherSmall_Click(object sender, RoutedEventArgs e)
+        {
+            WeatherCardSmall weatherCardSmall = new WeatherCardSmall();
+            weatherCardSmall.SetPosition(Dashboard.inGrid, 0, 0);
+
+        }
+        private void TomatoBig_Click(object sender, RoutedEventArgs e)
+        {
+            TomatoCard tomatoCard = new TomatoCard();
+            tomatoCard.SetPosition(Dashboard.inGrid, 0, 0);
+
+        }
+        private void TomatoSmall_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private MenuItem CreateSubMenuItem(string header, RoutedEventHandler clickHandler)
+        {
+            MenuItem subMenuItem = new MenuItem { Header = header };
+            subMenuItem.Click += clickHandler;
+            return subMenuItem;
         }
     }
 }

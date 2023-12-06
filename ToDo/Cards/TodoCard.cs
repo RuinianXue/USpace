@@ -42,6 +42,8 @@ namespace UIDisplay.Cards
 
         public TodoCard()
         {
+            typeOfCard = 2;
+
             MenuInitialize();
             ScrollViewer scrollViewer = new ScrollViewer();
             scrollViewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;

@@ -14,7 +14,7 @@ using UIDisplay.Utils;
 
 namespace UIDisplay.Cards
 {
-    //Type 4
+    //Type 3
     class SmallDisp : TextBlock
     {
         public SmallDisp()
@@ -298,6 +298,7 @@ namespace UIDisplay.Cards
         }
         private void Initialize()
         {
+            typeOfCard = 3;
             ClickCardInitialize();
             stackPanel = new StackPanel();
             stackPanel.Width = this.Width - 40;

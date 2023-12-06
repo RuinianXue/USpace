@@ -97,6 +97,7 @@ namespace UIDisplay.Cards
         {
             ClickCardInitialize();
             NewArticle();
+            typeOfCard = 0;
 
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);

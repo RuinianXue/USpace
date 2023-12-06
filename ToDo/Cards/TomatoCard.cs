@@ -12,7 +12,7 @@ using UIDisplay.Utils;
 namespace UIDisplay.Cards
 {
     internal class TomatoCard : BigSquareCard
-    //Type 3
+    //Type 4
     {
         public override void SetPosition(Grid grid, int row, int colomn)
         {
@@ -22,6 +22,7 @@ namespace UIDisplay.Cards
         }
         public TomatoCard():base()
         {
+            typeOfCard = 4;
             MenuInitialize();
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
@@ -43,6 +44,7 @@ namespace UIDisplay.Cards
         public TomatoRectCard()
         {
             MenuInitialize();
+            typeOfCard = 3;
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);
             stackPanel.Height = Constants.SMALL_CARD_LENGTH - 20;

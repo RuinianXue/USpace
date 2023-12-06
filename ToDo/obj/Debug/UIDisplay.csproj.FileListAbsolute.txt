@@ -263,7 +263,6 @@ D:\Github\USpace\ToDo\bin\Debug\CefSharp.BrowserSubprocess.pdb
 D:\Github\USpace\ToDo\bin\Debug\UIDisplay.exe.config
 D:\Github\USpace\ToDo\bin\Debug\UIDisplay.exe
 D:\Github\USpace\ToDo\bin\Debug\UIDisplay.pdb
-D:\Github\USpace\ToDo\bin\Debug\arXiv_Crawller.exe
 D:\Github\USpace\ToDo\bin\Debug\BCrypt.Net.dll
 D:\Github\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.dll
 D:\Github\USpace\ToDo\bin\Debug\CefSharp.Core.dll
@@ -283,7 +282,6 @@ D:\Github\USpace\ToDo\bin\Debug\Microsoft.Xaml.Behaviors.dll
 D:\Github\USpace\ToDo\bin\Debug\MySql.Data.dll
 D:\Github\USpace\ToDo\bin\Debug\Newtonsoft.Json.dll
 D:\Github\USpace\ToDo\bin\Debug\Ookii.Dialogs.Wpf.dll
-D:\Github\USpace\ToDo\bin\Debug\OpenAIGPT.exe
 D:\Github\USpace\ToDo\bin\Debug\Qiniu.dll
 D:\Github\USpace\ToDo\bin\Debug\System.Buffers.dll
 D:\Github\USpace\ToDo\bin\Debug\System.Memory.dll
@@ -292,9 +290,7 @@ D:\Github\USpace\ToDo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\Github\USpace\ToDo\bin\Debug\TomatoClock.dll
 D:\Github\USpace\ToDo\bin\Debug\ZstdNet.dll
 D:\Github\USpace\ToDo\bin\Debug\arXiv_Crawller.pdb
-D:\Github\USpace\ToDo\bin\Debug\arXiv_Crawller.exe.config
 D:\Github\USpace\ToDo\bin\Debug\OpenAIGPT.pdb
-D:\Github\USpace\ToDo\bin\Debug\OpenAIGPT.exe.config
 D:\Github\USpace\ToDo\bin\Debug\BCrypt.Net.xml
 D:\Github\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.xml
 D:\Github\USpace\ToDo\bin\Debug\CefSharp.pdb
@@ -561,3 +557,7 @@ E:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.dll
 E:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.dll
 E:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.dll.config
 E:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.dll.config
+D:\Github\USpace\ToDo\bin\Debug\arXiv_Crawller.dll
+D:\Github\USpace\ToDo\bin\Debug\OpenAIGPT.dll
+D:\Github\USpace\ToDo\bin\Debug\arXiv_Crawller.dll.config
+D:\Github\USpace\ToDo\bin\Debug\OpenAIGPT.dll.config

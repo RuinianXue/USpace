@@ -17,6 +17,7 @@ namespace UIDisplay.Cards
     {
         public BatteryCard() : base()
         {
+            typeOfCard = 1;
             MenuInitialize();
             stackPanel = new StackPanel();
             stackPanel.Margin = new Thickness(10);

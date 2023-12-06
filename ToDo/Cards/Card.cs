@@ -30,6 +30,8 @@ namespace UIDisplay.Cards
         public int stdWidth;
         public int row;
         public int colomn;
+        protected int typeOfCard;
+        protected static int indexOfCard = 0;
         protected void MouseEnterLeaveInitialize()
         {
             MouseEnter += Card_MouseEnter;
@@ -71,6 +73,7 @@ namespace UIDisplay.Cards
         }
         public Card()
         {
+            typeOfCard = 0;
             MouseEnterLeaveInitialize();
             //MouseDownUpInitialize();
             BasicLookInitialize();
@@ -150,6 +153,8 @@ namespace UIDisplay.Cards
             if (this.Parent is Panel panel)
             {
                 panel.Children.Remove(this);
+                IgnoredCard ignoredCard = new IgnoredCard(this,this.typeOfCard);
+                Dashboard.loadDashJson.RemoveCard(ignoredCard);
             }
         }
         public void MoveItem_Click(object sender, RoutedEventArgs e)

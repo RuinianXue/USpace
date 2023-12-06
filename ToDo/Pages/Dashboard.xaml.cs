@@ -39,6 +39,11 @@ namespace UIDisplay.Pages
         public static Grid outGrid = new Grid();
         public static Grid overallGrid = new Grid();
         private static List<TodoCard> todoCards;  //临时写在这，主要每次Load的时候得刷新内容
+        private static bool CheckinGrid()//inGrid
+        {
+
+            return false;
+        }
         public static void AddNewTodoCard(TodoCard todo)
         {
             todoCards.Add(todo);
@@ -158,7 +163,7 @@ namespace UIDisplay.Pages
             this.Width = Constants.INSIDE_WIDTH;
             InitializeDashboard();
             loadDashJson = new LoadDashJson();
-
+            TodoSubscribe();
             /*
             BigSquareCard tmpbig1 = new BigSquareCard();
             //tmpbig1.SetPosition(inGrid, 0, 0);
@@ -173,7 +178,6 @@ namespace UIDisplay.Pages
             //tmpbig3.SetPosition(inGrid, 2, 0);*/
             //TodoCard todoCard = new TodoCard();
             //todoCard.SetPosition(inGrid, 2, 0);
-            TodoSubscribe();
             /*
             WeatherCardSmall weatherCardSmall = new WeatherCardSmall();
             //weatherCardSmall.SetPosition(inGrid, 2, 2);
