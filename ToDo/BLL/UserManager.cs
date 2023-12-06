@@ -35,15 +35,15 @@ namespace UIDisplay.BLL
             return false; 
         }
 
-        public static bool SearchUser(string email, out DataTable result)
+        public static bool QueryUser(string email, out DataTable result)
         {
-            return UserRepository.SearchUserByEmail(email, out result);
+            return UserRepository.QueryUserByEmail(email, out result);
         }
 
         public static bool VerifyUserPassword(string email, string password)
         {
             DataTable result;
-            if (UserRepository.SearchUserByEmail(email, out result))
+            if (UserRepository.QueryUserByEmail(email, out result))
             {
                 string storedHashedPassword = result.Rows[0]["Password"].ToString();
                 Console.WriteLine(password + " → " + storedHashedPassword);

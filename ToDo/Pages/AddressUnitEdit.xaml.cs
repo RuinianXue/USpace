@@ -69,32 +69,12 @@ namespace UIDisplay.Pages
             emailTextBox.Text = userInfo.Email;
             img.Source = userInfo.getImg();
         }
-        private void backBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private async void insertBtn_Click(object sender, RoutedEventArgs e)
-        {
-            userInfo.Name = nameTextBox.Text;
-            userInfo.Phone = phoneTextBox.Text;
-            userInfo.Email = emailTextBox.Text;
-            if (tmp_img_path != null && tmp_img_path.Length > 0)
-            {
-                if (userInfo.ImgPath != "default.jpg")
-                {
-                    QiniuBase.DeleteImg(userInfo.ImgPath);
-                }
-                userInfo.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
-                Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
-                QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
-            }
-            await Task.Run(UploadUserInfo);
-            _adbp.isLoaded = false;
-            NavigationService.GetNavigationService(this).GoBack();
-        }
-
-        private async void updateBtn_Click(object sender, RoutedEventArgs e)
+        private async void Btn_Insert_Click(object sender, RoutedEventArgs e)
         {
             userInfo.Name = nameTextBox.Text;
             userInfo.Phone = phoneTextBox.Text;
@@ -109,12 +89,32 @@ namespace UIDisplay.Pages
                 Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
             }
-            await Task.Run(UploadUserInfo);
-            _adbp.isLoaded = false;
+            await Task.Run(UploadContactInfo);
+            _adbp.IsLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private void UploadUserInfo()
+        private async void Btn_Update_Click(object sender, RoutedEventArgs e)
+        {
+            userInfo.Name = nameTextBox.Text;
+            userInfo.Phone = phoneTextBox.Text;
+            userInfo.Email = emailTextBox.Text;
+            if (tmp_img_path != null && tmp_img_path.Length > 0)
+            {
+                if (userInfo.ImgPath != "default.jpg")
+                {
+                    QiniuBase.DeleteImg(userInfo.ImgPath);
+                }
+                userInfo.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
+                Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
+                QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
+            }
+            await Task.Run(UploadContactInfo);
+            _adbp.IsLoaded = false;
+            NavigationService.GetNavigationService(this).GoBack();
+        }
+
+        private void UploadContactInfo()
         {
             if (mode == 0)
             {
@@ -126,7 +126,7 @@ namespace UIDisplay.Pages
             }
         }
 
-        private void uploadImgBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_UploadImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "jpg图像|*.jpg|png图像|*.png";

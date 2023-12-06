@@ -175,7 +175,7 @@ namespace UIDisplay.Pages {
             this.refreshBtn = ((System.Windows.Controls.Button)(target));
             
             #line 27 "..\..\..\Pages\AddressbookPage.xaml"
-            this.refreshBtn.Click += new System.Windows.RoutedEventHandler(this.refreshBtn_Click);
+            this.refreshBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_Refresh_Click);
             
             #line default
             #line hidden
@@ -184,7 +184,7 @@ namespace UIDisplay.Pages {
             this.insertpersonBtn = ((System.Windows.Controls.Button)(target));
             
             #line 29 "..\..\..\Pages\AddressbookPage.xaml"
-            this.insertpersonBtn.Click += new System.Windows.RoutedEventHandler(this.insertpersonBtn_Click);
+            this.insertpersonBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_InsertContact_Click);
             
             #line default
             #line hidden
@@ -193,7 +193,7 @@ namespace UIDisplay.Pages {
             this.deletepersonBtn = ((System.Windows.Controls.Button)(target));
             
             #line 30 "..\..\..\Pages\AddressbookPage.xaml"
-            this.deletepersonBtn.Click += new System.Windows.RoutedEventHandler(this.deletepersonBtn_Click);
+            this.deletepersonBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_DeleteContact_Click);
             
             #line default
             #line hidden
@@ -202,7 +202,7 @@ namespace UIDisplay.Pages {
             this.updatepersonBtn = ((System.Windows.Controls.Button)(target));
             
             #line 31 "..\..\..\Pages\AddressbookPage.xaml"
-            this.updatepersonBtn.Click += new System.Windows.RoutedEventHandler(this.updatepersonBtn_Click);
+            this.updatepersonBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_UpdateContact_Click);
             
             #line default
             #line hidden

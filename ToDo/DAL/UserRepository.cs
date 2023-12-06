@@ -52,7 +52,7 @@ namespace UIDisplay.DAL
             return mysqlBase.CommonExecute(query, parameters) > 0;
         }
 
-        public static bool SearchUserByEmail(string email, out DataTable result)
+        public static bool QueryUserByEmail(string email, out DataTable result)
         {
             string query = "SELECT * FROM User WHERE Email = @userEmail";
             MySqlParameter[] parameters = new MySqlParameter[]

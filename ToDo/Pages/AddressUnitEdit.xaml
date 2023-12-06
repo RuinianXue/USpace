@@ -19,12 +19,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top">
-                <Button x:Name="backBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource PrimaryBlueColor}" Margin="5 50 5 5" Content="返回" Click="backBtn_Click"/>
+                <Button x:Name="backBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource PrimaryBlueColor}" Margin="5 50 5 5" Content="返回" Click="Btn_Back_Click"/>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Bottom" Margin="0 0 0 45">
-                <Button x:Name="uploadImgBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource PURPLE_B}"  Content="上传头像" Click="uploadImgBtn_Click"/>
-                <Button x:Name="insertBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource GREEN_B}"  Content="确认添加" Click="insertBtn_Click"/>
-                <Button x:Name="updateBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource GOLD_B}" Content="确认修改" Click="updateBtn_Click"/>
+                <Button x:Name="uploadImgBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource PURPLE_B}"  Content="上传头像" Click="Btn_UploadImg_Click"/>
+                <Button x:Name="insertBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource GREEN_B}"  Content="确认添加" Click="Btn_Insert_Click"/>
+                <Button x:Name="updateBtn" Style="{DynamicResource adbButtonsStyle}" Background="{DynamicResource GOLD_B}" Content="确认修改" Click="Btn_Update_Click"/>
             </StackPanel>
             <Border Grid.Column="1" Opacity="0.8" CornerRadius="10" Background="{DynamicResource SecondaryBackgroundColor}" Margin="45 45 45 45">
                 <Grid>

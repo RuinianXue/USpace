@@ -49,17 +49,17 @@ namespace UIDisplay.Pages
                 textVerificationCode.Visibility = Visibility.Visible;
         }
 
-        private void textPassword_MouseDown(object sender, MouseButtonEventArgs e)
+        private void TextBlock_Password_MouseDown(object sender, MouseButtonEventArgs e)
         {
             passwordBox.Focus();
         }
 
-        private void textVerificationCode_MouseDown(object sender, MouseButtonEventArgs e)
+        private void TextBlock_VerificationCode_MouseDown(object sender, MouseButtonEventArgs e)
         {
             verificationCodeBox.Focus();
         }
 
-        private void ButtonSignInByPassword_Click(object sender, RoutedEventArgs e)
+        private void Btn_SignInByPassword_Click(object sender, RoutedEventArgs e)
         {
             string input = passwordBox.Password;
 
@@ -87,7 +87,7 @@ namespace UIDisplay.Pages
             }
         }
 
-        private void ButtonSignInByCode_Click(object sender, RoutedEventArgs e)
+        private void Btn_SignInByCode_Click(object sender, RoutedEventArgs e)
         {
             string input = verificationCodeBox.Password;
             string email = txtEmail.Text; // Assuming txtEmail is the TextBox for entering email
@@ -125,7 +125,7 @@ namespace UIDisplay.Pages
         private bool CheckIfEmailIsRegistered(string email)
         {
             DataTable result;
-            return UserManager.SearchUser(email, out result);
+            return UserManager.QueryUser(email, out result);
         }
 
         private void NavigateToRegistrationPage()
@@ -147,7 +147,7 @@ namespace UIDisplay.Pages
             this.Close();
         }
 
-        private void ButtonSendCode_Click(object sender, RoutedEventArgs e)
+        private void Btn_SendCode_Click(object sender, RoutedEventArgs e)
         {
             string email = txtEmail.Text;
 
@@ -178,7 +178,7 @@ namespace UIDisplay.Pages
             }
         }
 
-        private void ButtonPassword_Click(object sender, RoutedEventArgs e)
+        private void Btn_Password_Click(object sender, RoutedEventArgs e)
         {
             passwordBorder.Visibility = Visibility.Visible;
             SignInByPasswordButton.Visibility = Visibility.Visible;
@@ -190,7 +190,7 @@ namespace UIDisplay.Pages
             SignInByCodeButton.Visibility = Visibility.Collapsed;
         }
 
-        private void ButtonCode_Click(object sender, RoutedEventArgs e)
+        private void Btn_Code_Click(object sender, RoutedEventArgs e)
         {
             passwordBorder.Visibility = Visibility.Collapsed;
             SignInByPasswordButton.Visibility = Visibility.Collapsed;
@@ -201,7 +201,7 @@ namespace UIDisplay.Pages
             SignInByCodeButton.Visibility = Visibility.Visible;
         }
 
-        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_Email_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtEmail.Text) && txtEmail.Text.Length > 0)
                 textEmail.Visibility = Visibility.Collapsed;
@@ -209,7 +209,7 @@ namespace UIDisplay.Pages
                 textEmail.Visibility = Visibility.Visible;
         }
 
-        private void textEmail_MouseDown(object sender, MouseButtonEventArgs e)
+        private void TextBox_Email_MouseDown(object sender, MouseButtonEventArgs e)
         {
             txtEmail.Focus();
         }

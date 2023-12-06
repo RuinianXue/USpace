@@ -34,9 +34,9 @@ namespace UIDisplay.BLL
             return false;
         }
 
-        public static bool SearchAllContact(out DataTable result)
+        public static bool QueryAllContact(out DataTable result)
         {
-            return ContactRepository.SearchAllContact(out result);
+            return ContactRepository.QueryAllContact(out result);
         }
     }
 }

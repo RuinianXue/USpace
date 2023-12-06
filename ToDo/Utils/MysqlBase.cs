@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace UIDisplay.Utils
 {
@@ -99,18 +100,18 @@ namespace UIDisplay.Utils
             }
         }
 
-        public DataSet GetDataSet(string sql, string tablename, params MySqlParameter[] parameters)
+        public async Task<DataSet> GetDataSetAsync(string sql, string tablename, params MySqlParameter[] parameters)
         {
             using (conn)
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (command = new MySqlCommand(sql, conn))
                 {
                     command.Parameters.AddRange(parameters);
                     DataSet dataset = new DataSet();
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                     {
-                        adapter.Fill(dataset, tablename);
+                        await adapter.FillAsync(dataset, tablename);
                     }
                     return dataset;
                 }

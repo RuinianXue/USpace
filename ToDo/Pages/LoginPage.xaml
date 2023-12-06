@@ -303,8 +303,8 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/Images/Email.png" Height="20" />
-                        <TextBlock x:Name="textEmail" MouseDown="textEmail_MouseDown" Text="Email" Style="{StaticResource textHint}" />
-                        <TextBox Name="txtEmail" TextChanged="txtEmail_TextChanged" Style="{StaticResource textBox}" />
+                        <TextBlock x:Name="textEmail" MouseDown="TextBox_Email_MouseDown" Text="Email" Style="{StaticResource textHint}" />
+                        <TextBox Name="txtEmail" TextChanged="TextBox_Email_TextChanged" Style="{StaticResource textBox}" />
                     </Grid>
                 </Border>
 
@@ -316,7 +316,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/Images/Lock.png" Height="20" />
-                        <TextBlock x:Name="textPassword" MouseDown="textPassword_MouseDown" Text="Password" Style="{StaticResource textHint}" />
+                        <TextBlock x:Name="textPassword" MouseDown="TextBlock_Password_MouseDown" Text="Password" Style="{StaticResource textHint}" />
                         <PasswordBox x:Name="passwordBox" PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource textBox}" />
                     </Grid>
                 </Border>
@@ -329,17 +329,17 @@
                         </Grid.ColumnDefinitions>
 
                         <Image Source="/Images/Lock.png" Height="20" />
-                        <TextBlock x:Name="textVerificationCode" MouseDown="textVerificationCode_MouseDown" Text="VerificationCode" Style="{StaticResource textHint}" />
+                        <TextBlock x:Name="textVerificationCode" MouseDown="TextBlock_VerificationCode_MouseDown" Text="VerificationCode" Style="{StaticResource textHint}" />
                         <PasswordBox x:Name="verificationCodeBox" PasswordChanged="VerificationCodeBox_CodeChanged" Style="{StaticResource textBox}" />
                     </Grid>
                 </Border>
 
-                <Button x:Name="SendCodeButton" Content="发送验证码" Click="ButtonSendCode_Click" Style="{StaticResource mainButton}" />
+                <Button x:Name="SendCodeButton" Content="发送验证码" Click="Btn_SendCode_Click" Style="{StaticResource mainButton}" />
                 <TextBlock x:Name="CountdownLabel" Text="" Foreground="Black" Margin="20 30 20 30" Style="{StaticResource NormalText}" Visibility="Collapsed"/>
-                <Button x:Name="SignInByPasswordButton" Content="登录" Click="ButtonSignInByPassword_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
-                <Button x:Name="SignInByCodeButton" Content="登录/注册" Click="ButtonSignInByCode_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
-                <Button x:Name="PasswordButton" Content="密码登录" Click="ButtonPassword_Click" Style="{StaticResource mainButton}" />
-                <Button x:Name="CodeButton" Content="验证码登录" Click="ButtonCode_Click" Style="{StaticResource mainButton}" Visibility="Collapsed" />
+                <Button x:Name="SignInByPasswordButton" Content="登录" Click="Btn_SignInByPassword_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
+                <Button x:Name="SignInByCodeButton" Content="登录/注册" Click="Btn_SignInByCode_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
+                <Button x:Name="PasswordButton" Content="密码登录" Click="Btn_Password_Click" Style="{StaticResource mainButton}" />
+                <Button x:Name="CodeButton" Content="验证码登录" Click="Btn_Code_Click" Style="{StaticResource mainButton}" Visibility="Collapsed" />
             </StackPanel>
         </Border>
     </Grid>

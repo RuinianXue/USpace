@@ -1,4 +1,5 @@
-﻿using UIDisplay.Components;
+﻿using HandyControl.Controls;
+using UIDisplay.Components;
 using UIDisplay.Utils;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class AddressbookPage : Page
     {
-        public bool isLoaded { get; set; } = false;
+        public new bool IsLoaded { get; set; } = false;
         public AddressbookPage()
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace UIDisplay.Pages
         public void Refresh()
         {
             DataTable dt;
-            bool success = ContactManager.SearchAllContact(out dt);
+            bool success = ContactManager.QueryAllContact(out dt);
 
             if (success)
             {
@@ -48,7 +49,7 @@ namespace UIDisplay.Pages
                     wrapPanel.Children.Clear();
                     foreach (DataRow row in dt.Rows)
                     {
-                        Contact userInfo = new Contact(
+                        Contact contact = new Contact(
                             row["uuid"].ToString(),
                             row["name"].ToString(),
                             row["phone"].ToString(),
@@ -56,23 +57,24 @@ namespace UIDisplay.Pages
                             row["imgpath"].ToString()
                         );
 
-                        AddressUnit addressUnit = new AddressUnit(userInfo);
+                        AddressUnit addressUnit = new AddressUnit(contact);
                         wrapPanel.Children.Add(addressUnit);
                     }
                 }));
+                Growl.Success("联系人列表拉取成功！");
             }
             else
             {
-                // 处理搜索失败的情况，可能记录日志或者显示错误消息
+                Growl.Error("联系人列表拉取失败！");
             }
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LoadInAnimation(sender);
-            if (!isLoaded)
+            if (!IsLoaded)
             {
-                isLoaded = true;
+                IsLoaded = true;
                 await Task.Run(Refresh);
             }
         }
@@ -102,19 +104,19 @@ namespace UIDisplay.Pages
             storyboard.Begin();
         }
 
-        private void insertpersonBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_InsertContact_Click(object sender, RoutedEventArgs e)
         {
-            Contact userInfo = new Contact(Contact.genUUID(), "", "", "", "default.jpg");
-            AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, userInfo);
+            Contact newContact = new Contact(Contact.genUUID(), "", "", "", "default.jpg");
+            AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, newContact);
             NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
         }
 
-        private async void refreshBtn_Click(object sender, RoutedEventArgs e)
+        private async void Btn_Refresh_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(Refresh);
         }
 
-        private void deletepersonBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
         {
             Task.Run(() =>
             {
@@ -142,7 +144,7 @@ namespace UIDisplay.Pages
 
         }
 
-        private void updatepersonBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_UpdateContact_Click(object sender, RoutedEventArgs e)
         {
             foreach (AddressUnit addressUnit in wrapPanel.Children)
             {

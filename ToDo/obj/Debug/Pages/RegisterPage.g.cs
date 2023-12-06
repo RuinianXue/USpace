@@ -137,7 +137,7 @@ namespace UIDisplay.Pages {
             case 6:
             
             #line 204 "..\..\..\Pages\RegisterPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.CancelButton_Click);
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Btn_Cancel_Click);
             
             #line default
             #line hidden
@@ -145,7 +145,7 @@ namespace UIDisplay.Pages {
             case 7:
             
             #line 205 "..\..\..\Pages\RegisterPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.SaveButton_Click);
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Btn_Save_Click);
             
             #line default
             #line hidden

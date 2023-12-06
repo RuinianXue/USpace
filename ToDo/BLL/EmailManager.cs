@@ -23,18 +23,18 @@ namespace UIDisplay.BLL
                 // Create a MailMessage instance
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress("2066892296@qq.com"),
+                    From = new MailAddress(Settings.EmailFrom),
                     To = { new MailAddress(email) },
-                    Subject = "Verification Code",
+                    Subject = "【USPace】Verification Code",
                     Body = "Your verification code: " + verificationCode
                 };
 
                 // Create a SmtpClient instance
-                using (SmtpClient client = new SmtpClient("smtp.qq.com"))
+                using (SmtpClient client = new SmtpClient(Settings.SmtpClient))
                 {
                     client.EnableSsl = true;
                     client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("2066892296@qq.com", "nrzayyqhvyiccjae");
+                    client.Credentials = new NetworkCredential(Settings.EmailFrom, Settings.EmailPwd);
 
                     // Send the email
                     client.Send(mailMessage);
@@ -51,14 +51,14 @@ namespace UIDisplay.BLL
             }
         }
 
-        public static void SendNotice(string emailTo, string subject = "Test email", string body = "This is a test email from link-todo.")
+        public static void SendNotice(string emailTo, string subject, string body)
         {
             // 指定发件人、收件人、邮件主题和内容
             string from = Settings.EmailFrom;
             string to = emailTo;
 
             // 创建一个 SmtpClient 对象
-            SmtpClient smtpClient = new SmtpClient("smtp.qq.com", 587);
+            SmtpClient smtpClient = new SmtpClient(Settings.SmtpClient, 587);
 
             // 指定发件人的用户名和密码
             smtpClient.Credentials = new NetworkCredential(Settings.EmailFrom, Settings.EmailPwd);

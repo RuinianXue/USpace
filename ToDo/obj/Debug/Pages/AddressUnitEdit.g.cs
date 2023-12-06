@@ -158,7 +158,7 @@ namespace UIDisplay.Pages {
             this.backBtn = ((System.Windows.Controls.Button)(target));
             
             #line 22 "..\..\..\Pages\AddressUnitEdit.xaml"
-            this.backBtn.Click += new System.Windows.RoutedEventHandler(this.backBtn_Click);
+            this.backBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_Back_Click);
             
             #line default
             #line hidden
@@ -167,7 +167,7 @@ namespace UIDisplay.Pages {
             this.uploadImgBtn = ((System.Windows.Controls.Button)(target));
             
             #line 25 "..\..\..\Pages\AddressUnitEdit.xaml"
-            this.uploadImgBtn.Click += new System.Windows.RoutedEventHandler(this.uploadImgBtn_Click);
+            this.uploadImgBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_UploadImg_Click);
             
             #line default
             #line hidden
@@ -176,7 +176,7 @@ namespace UIDisplay.Pages {
             this.insertBtn = ((System.Windows.Controls.Button)(target));
             
             #line 26 "..\..\..\Pages\AddressUnitEdit.xaml"
-            this.insertBtn.Click += new System.Windows.RoutedEventHandler(this.insertBtn_Click);
+            this.insertBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_Insert_Click);
             
             #line default
             #line hidden
@@ -185,7 +185,7 @@ namespace UIDisplay.Pages {
             this.updateBtn = ((System.Windows.Controls.Button)(target));
             
             #line 27 "..\..\..\Pages\AddressUnitEdit.xaml"
-            this.updateBtn.Click += new System.Windows.RoutedEventHandler(this.updateBtn_Click);
+            this.updateBtn.Click += new System.Windows.RoutedEventHandler(this.Btn_Update_Click);
             
             #line default
             #line hidden

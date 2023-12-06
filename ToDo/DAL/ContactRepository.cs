@@ -56,7 +56,7 @@ namespace UIDisplay.DAL
             return mysqlBase.CommonExecute(sql, parameters) > 0;
         }
 
-        public static bool SearchAllContact(out DataTable result)
+        public static bool QueryAllContact(out DataTable result)
         {
             string query = "SELECT uuid, name, phone, email, imgpath FROM contact";
 
