@@ -1,4 +1,4 @@
-﻿using arXivCrawller;
+﻿using arXiv_Crawller;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace arXivCrawller
+namespace arXiv_Crawller
 {
 
     public class arXivCrawl
@@ -18,8 +18,8 @@ namespace arXivCrawller
             string query = arXivCategory.Instance().RandomQuery();
             Console.WriteLine(query);
             ArxivArticle[] articles = arXivCrawl.ArXivCrawlBySearch(query, 1);
-            if(articles.Length < 1)
-                return GetOneRandomArticle();
+            /*if(articles.Length < 1)
+                return GetOneRandomArticle();*/
             return articles[0];
         }
         public static ArxivArticle[] ArXivCrawlBySearch(string query, int maxResult)

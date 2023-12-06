@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows;
+
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +25,7 @@ namespace OpenAIGPT.GPTHelper
         public GPTRequest(string ak)
         {
             //apiKey = ak;
-            apiKey = "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";
+            apiKey = "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";
         }
 
         private HttpClient CreateHttpClient()
@@ -47,6 +49,7 @@ namespace OpenAIGPT.GPTHelper
                     };
 
                     HttpResponseMessage response = await client.SendAsync(request);
+                    Console.WriteLine(response.StatusCode);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -69,8 +72,10 @@ namespace OpenAIGPT.GPTHelper
 
         public async Task SendTurboRequest(string message)
         {
+            message = message.Replace("\"", "");
             reqContent = $"{{\"model\": \"{Model}\", \"messages\": [{{\"role\": \"user\", \"content\": \"{message}\"}}], \"temperature\": {Temperature}}}";
             string responseString = await SendRequestAsync(TurboApiUrl, reqContent);
+            Console.WriteLine(responseString);
             LastResponse =JsonToContent(responseString);
         }
 
@@ -85,8 +90,20 @@ namespace OpenAIGPT.GPTHelper
 
         public string JsonToContent(string jsonString)
         {
-            OpenAIResponse myApiResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<OpenAIResponse>(jsonString);
-            return myApiResponse.Choices[0].Message.Content;
+            try
+            {
+                OpenAIResponse myApiResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<OpenAIResponse>(jsonString);
+
+                return myApiResponse.Choices[0].Message.Content;
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine($"ArgumentNullException: {ex.Message}"); return "生成AI建议中…";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An unexpected error occurred: {ex.Message}"); return "生成AI建议中…";
+            }
         }
 
     }

@@ -13,7 +13,7 @@ using System.Windows.Controls.Primitives;
 using MySqlX.XDevAPI.Relational;
 using HandyControl.Controls;
 using System.Data.Common;
-using arXivCrawller;
+using arXiv_Crawller;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using UIDisplay.Pages;

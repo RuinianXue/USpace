@@ -447,7 +447,6 @@ D:\gitrepos\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.xml
 D:\gitrepos\USpace\ToDo\bin\Debug\UIDisplay.exe.config
 D:\gitrepos\USpace\ToDo\bin\Debug\UIDisplay.exe
 D:\gitrepos\USpace\ToDo\bin\Debug\UIDisplay.pdb
-D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.exe
 D:\gitrepos\USpace\ToDo\bin\Debug\BCrypt.Net.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\CefSharp.Core.dll
@@ -467,7 +466,6 @@ D:\gitrepos\USpace\ToDo\bin\Debug\Microsoft.Xaml.Behaviors.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\MySql.Data.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\Newtonsoft.Json.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\Ookii.Dialogs.Wpf.dll
-D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.exe
 D:\gitrepos\USpace\ToDo\bin\Debug\Qiniu.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\System.Buffers.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\System.Memory.dll
@@ -476,9 +474,7 @@ D:\gitrepos\USpace\ToDo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\TomatoClock.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\ZstdNet.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.pdb
-D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.exe.config
 D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.pdb
-D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.exe.config
 D:\gitrepos\USpace\ToDo\bin\Debug\BCrypt.Net.xml
 D:\gitrepos\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.xml
 D:\gitrepos\USpace\ToDo\bin\Debug\CefSharp.pdb
@@ -749,3 +745,7 @@ S:\CODE\GitHub\USpace\ToDo\obj\Debug\UIDisplay.csproj.CoreCompileInputs.cache
 S:\CODE\GitHub\USpace\ToDo\obj\Debug\UIDisplay.csproj.CopyComplete
 S:\CODE\GitHub\USpace\ToDo\obj\Debug\UIDisplay.exe
 S:\CODE\GitHub\USpace\ToDo\obj\Debug\UIDisplay.pdb
+D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.dll
+D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.dll
+D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.dll.config
+D:\gitrepos\USpace\ToDo\obj\Debug\Styles\arXivCardResourceDictionary.baml
