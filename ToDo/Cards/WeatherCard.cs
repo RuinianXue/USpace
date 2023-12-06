@@ -537,7 +537,7 @@ namespace UIDisplay.Cards
         }
         public WeatherCardBig()
         {
-            this.placeChosen = "湖北武汉";
+            this.placeChosen = "武汉";
             GetWeatherData();
         }
         public WeatherCardBig(string place)
