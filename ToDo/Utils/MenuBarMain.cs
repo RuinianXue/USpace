@@ -48,13 +48,13 @@ namespace UIDisplay.Utils
             menu.Items.Add(todoItem);
 
             MenuItem weatherItem = new MenuItem { Header = "Weather" };
-            weatherItem.Items.Add(CreateSubMenuItem("small", WeatherBig_Click));
-            weatherItem.Items.Add(CreateSubMenuItem("big", WeatherSmall_Click));
+            weatherItem.Items.Add(CreateSubMenuItem("small", WeatherSmall_Click));
+            weatherItem.Items.Add(CreateSubMenuItem("big", WeatherBig_Click));
             menu.Items.Add(weatherItem);
 
             MenuItem tomatoItem = new MenuItem { Header = "Tomato Clock" };
-            tomatoItem.Items.Add(CreateSubMenuItem("medium", TomatoBig_Click));
-            tomatoItem.Items.Add(CreateSubMenuItem("big", TomatoSmall_Click));
+            tomatoItem.Items.Add(CreateSubMenuItem("medium", TomatoSmall_Click));
+            tomatoItem.Items.Add(CreateSubMenuItem("big", TomatoBig_Click));
             menu.Items.Add(tomatoItem);
             /*
             MenuItem arxivItem = new MenuItem { Header = "Arxiv" };
@@ -76,16 +76,16 @@ namespace UIDisplay.Utils
             tomatoItem.Items.Add(new MenuItem { Header = "big" });
             menu.Items.Add(tomatoItem);
             */
-            button.HorizontalAlignment = HorizontalAlignment.Right;
-            button.VerticalAlignment = VerticalAlignment.Top;
-            button.Margin = new Thickness(10);
+            button.HorizontalAlignment = HorizontalAlignment.Center;
+            button.VerticalAlignment = VerticalAlignment.Center;
+            //button.Margin = new Thickness(10);
             button.Background = Brushes.Transparent;
             button.BorderThickness = new Thickness(0);
-
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.menu.IsOpen = true;
+            Dashboard.intoEditMode();
         }
         private void ArxivItem_Click(object sender, RoutedEventArgs e)
         {

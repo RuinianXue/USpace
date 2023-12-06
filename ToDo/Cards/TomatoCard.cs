@@ -17,7 +17,7 @@ namespace UIDisplay.Cards
         public override void SetPosition(Grid grid, int row, int colomn)
         {
             base.SetPosition(grid, row, colomn);
-            IgnoredCard tmp = new IgnoredCard(this, 3);
+            IgnoredCard tmp = new IgnoredCard(this, 4);
             Dashboard.loadDashJson.AddCard(tmp);
         }
         public TomatoCard():base()

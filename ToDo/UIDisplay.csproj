@@ -355,13 +355,16 @@
   <ItemGroup>
     <Resource Include="Images\WeatherCard\clothes.png" />
     <Resource Include="Images\WeatherCard\life.png" />
-    <Resource Include="Images\WeatherCard\tavel.png" />
+    <Resource Include="Images\WeatherCard\travel.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\edit.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\editing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

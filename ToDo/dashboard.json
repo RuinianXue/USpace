@@ -1,1 +1,1 @@
-[{"type":"weather","width":300,"height":300,"row":0,"col":2,"typeNum":3},{"type":"tomato","width":300,"height":300,"row":2,"col":2,"typeNum":4},{"type":"todo","width":300,"height":300,"row":2,"col":0,"typeNum":2}]
+[{"type":"tomato","width":300,"height":300,"row":2,"col":0,"typeNum":4},{"type":"battery","width":140,"height":140,"row":0,"col":3,"typeNum":1},{"type":"weather","width":300,"height":300,"row":0,"col":0,"typeNum":3},{"type":"weathersmall","width":140,"height":140,"row":0,"col":2,"typeNum":5},{"type":"todo","width":300,"height":300,"row":2,"col":2,"typeNum":2}]

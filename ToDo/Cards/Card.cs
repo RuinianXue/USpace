@@ -46,10 +46,10 @@ namespace UIDisplay.Cards
         protected virtual void MenuInitialize()
         {
             ContextMenu contextMenu = new ContextMenu();
-            MenuItem moveItem = new MenuItem();
-            moveItem.Header = "Move Card";
-            moveItem.Click += MoveItem_Click;
-            contextMenu.Items.Add(moveItem);
+            //MenuItem moveItem = new MenuItem();
+            //moveItem.Header = "Move Card";
+            //moveItem.Click += MoveItem_Click;
+            //contextMenu.Items.Add(moveItem);
             MenuItem deleteItem = new MenuItem();
             deleteItem.Header = "Delete Card";
             deleteItem.Click += DeleteItem_Click;
@@ -57,7 +57,7 @@ namespace UIDisplay.Cards
             this.ContextMenu = contextMenu;
             this.MouseRightButtonDown += Card_MouseRightButtonDown;
         }
-        protected void ClickCardInitialize()
+        protected virtual void ClickCardInitialize()
         {
             MouseDoubleClick += Card_DoubleClick;
             clickCard = new ClickCard();
@@ -75,17 +75,17 @@ namespace UIDisplay.Cards
         {
             typeOfCard = 0;
             MouseEnterLeaveInitialize();
-            //MouseDownUpInitialize();
+            MouseDownUpInitialize();
             BasicLookInitialize();
             Content = stackPanel;
         }
-        protected void Mask_ClickClose(object sender, EventArgs e)
+        protected virtual void Mask_ClickClose(object sender, EventArgs e)
         {
             blurmask.Disappear(Dashboard.outGrid);
             clickCard.Disappear(Dashboard.overallGrid);
         }
-        static BlurMask blurmask= new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
-        protected void Card_DoubleClick(object sender, EventArgs e)
+        private static BlurMask blurmask= new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
+        protected virtual void Card_DoubleClick(object sender, EventArgs e)
         {
             blurmask.Appear(Dashboard.outGrid);
             clickCard.Appear(Dashboard.overallGrid);
@@ -111,7 +111,7 @@ namespace UIDisplay.Cards
         //长按进入编辑模式
         private bool Check_EditMode()
         {
-            return (DateTime.Now - mouseDownTime).TotalSeconds > 2;
+            return ((DateTime.Now - mouseDownTime).TotalSeconds > 1) && Dashboard.editmode;
         }
         private int PlaceCardMode(Grid grid,int row, int column)
         { return 1; }
@@ -141,7 +141,20 @@ namespace UIDisplay.Cards
         private void UnbinAndRebindGrid(Grid grid, int row, int column)
         {
             grid.Children.Remove(this);
-            SetPosition(grid, row, column);
+            IgnoredCard ignoredCard = new IgnoredCard(this, this.typeOfCard);
+            Dashboard.loadDashJson.RemoveCard(ignoredCard);
+            this.SetPosition(grid,row,column);
+            /*
+            Grid.SetRow(this, row);
+            Grid.SetColumn(this, colomn);
+            this.colomn = column;
+            this.row = row;
+
+            if ((int)this.Width == Constants.BIG_CARD_LENGTH)
+                Grid.SetColumnSpan(this, 2);
+            if ((int)this.Height == Constants.BIG_CARD_LENGTH)
+                Grid.SetRowSpan(this, 2);
+            grid.Children.Add(this);*/
         }
         private void Card_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -161,11 +174,11 @@ namespace UIDisplay.Cards
         {
             
         }
-        public virtual void SetPosition(Grid grid, int row,int colomn)
+        public virtual void SetPosition(Grid grid, int row,int column)
         {
             Grid.SetRow(this, row);
-            Grid.SetColumn(this, colomn);
-            this.colomn = colomn;
+            Grid.SetColumn(this, column);
+            this.colomn = column;
             this.row = row;
 
             if((int)this.Width == Constants.BIG_CARD_LENGTH)

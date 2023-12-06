@@ -11,10 +11,15 @@ using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
 using UIDisplay.Pages;
 using UIDisplay.Utils;
+using UIDisplay.Components;
+using System.Configuration;
+using HandyControl.Controls;
+using HandyControl.Data;
+using System.Windows.Input;
 
 namespace UIDisplay.Cards
 {
-    //Type 3
+    //Type 3 & 5
     class SmallDisp : TextBlock
     {
         public SmallDisp()
@@ -30,15 +35,19 @@ namespace UIDisplay.Cards
             this.Text = str;
         }
     }
-    class InsideStackPanel : StackPanel
+    class InsideGrid : Grid
     {
-        public InsideStackPanel()
+        public InsideGrid()
         {
 
         }
-        public InsideStackPanel(IconImage upimage, SmallInBigDisp downsmall)
+        public InsideGrid(IconImage upimage, SmallInBigDisp downsmall)
         {
-            this.Orientation = Orientation.Vertical;
+            this.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(40, GridUnitType.Pixel) });
+            this.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(30, GridUnitType.Pixel) });
+
+            Grid.SetRow(upimage, 0);
+            Grid.SetRow(downsmall, 1);
             this.Children.Add(upimage);
             this.Children.Add(downsmall);
         }
@@ -75,19 +84,44 @@ namespace UIDisplay.Cards
         protected string placeChosen;
         protected WeatherAnalysis weatherAnalysis;
         protected string weatherdisp;
+        ClickCardOfWeather clickCardOfWeather;
         protected string GetWeatherIcon()
         {
             return "";
         }
+        private static BlurMask blurmask = new BlurMask(Dashboard.mainGrid, Dashboard.outGrid);
+        protected override void ClickCardInitialize()
+        {
+            MouseDoubleClick += Card_DoubleClick;
+            clickCardOfWeather = new ClickCardOfWeather();
+            blurmask.MaskClicked += Mask_ClickClose;
+        }
+        protected override void Mask_ClickClose(object sender, EventArgs e)
+        {
+            blurmask.Disappear(Dashboard.outGrid);
+            clickCardOfWeather.Disappear(Dashboard.overallGrid);
+        }
+        protected override void Card_DoubleClick(object sender, EventArgs e)
+        {
+            blurmask.Appear(Dashboard.outGrid);
+            clickCardOfWeather.Appear(Dashboard.overallGrid);
+        }
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            base.SetPosition(grid, row, colomn);
+            IgnoredCard tmp = new IgnoredCard(this, 5);
+            Dashboard.loadDashJson.AddCard(tmp);
+        }
         private void Initialize()
         {
+            MenuInitialize();
             ClickCardInitialize();
             stackPanel = new StackPanel();
             stackPanel.Width = this.Width - 25;
             stackPanel.Height = this.Height - 25;
             stackPanel.Children.Clear();
             stackPanel.Orientation = Orientation.Vertical;
-
+            typeOfCard = 5;
             weatherdisp = weatherAnalysis.Weather;
 
             SmallDisp placedisp = new SmallDisp(this.placeChosen);
@@ -128,6 +162,7 @@ namespace UIDisplay.Cards
             this.Width = 30;//46
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
         }
+        
         public IconImage(string title)
         {
             BitmapImage bitmapArxiv = new BitmapImage(new Uri(pathOfIcon + title + ".png", UriKind.RelativeOrAbsolute));
@@ -135,14 +170,16 @@ namespace UIDisplay.Cards
             this.Width = 30;//46
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
         }
+
     }
-    internal class WeatherCardBig : BigSquareCard
+    public class WeatherCardBig : BigSquareCard
     {
         protected string placeChosen;
         protected WeatherAnalysis weatherAnalysis;
         protected string weatherdisp;
         private Grid dispTopWeatherGrid;
         private Grid dispSecondWeatherGrid;
+        private Grid dispThirdWeatherGrid;
         private void FirstPart()
         {
             dispTopWeatherGrid = new Grid();
@@ -220,37 +257,31 @@ namespace UIDisplay.Cards
             dispSecondWeatherGrid.ColumnDefinitions.Add(tmpGridColumnDef4);
             dispSecondWeatherGrid.ColumnDefinitions.Add(tmpGridColumnDef5);
             dispSecondWeatherGrid.ColumnDefinitions.Add(tmpGridColumnDef6);
-            /*
-            RowDefinition tmpRowDef1 = new RowDefinition();
-            RowDefinition tmpRowDef2 = new RowDefinition();
-            tmpRowDef1.Height = new GridLength(3, GridUnitType.Star);
-            tmpRowDef2.Height = new GridLength(1, GridUnitType.Star);
-            */
 
             IconImage humidity = new IconImage("humidity");
             SmallInBigDisp hum = new SmallInBigDisp(weatherAnalysis.Humidity);
-            InsideStackPanel s1 = new InsideStackPanel(humidity,hum);
+            InsideGrid s1 = new InsideGrid(humidity, hum);
 
             IconImage uvindex = new IconImage("uvindex");
             SmallInBigDisp uv = new SmallInBigDisp(weatherAnalysis.UVIndex);
-            InsideStackPanel s2 = new InsideStackPanel(uvindex, uv);
+            InsideGrid s2 = new InsideGrid(uvindex, uv);
 
             IconImage windpower = new IconImage("windpower");
             SmallInBigDisp wp = new SmallInBigDisp(weatherAnalysis.WindPower);
-            InsideStackPanel s3 = new InsideStackPanel(windpower, wp);
+            InsideGrid s3 = new InsideGrid(windpower, wp);
 
 
             IconImage winddescription = new IconImage("winddescription");
             SmallInBigDisp wd = new SmallInBigDisp(weatherAnalysis.WindDescription);
-            InsideStackPanel s4 = new InsideStackPanel(winddescription, wd);
+            InsideGrid s4 = new InsideGrid(winddescription, wd);
 
             IconImage precipitation = new IconImage("precipitation");
             SmallInBigDisp perc = new SmallInBigDisp(weatherAnalysis.Precipitation);
-            InsideStackPanel s5 = new InsideStackPanel(precipitation, perc);
+            InsideGrid s5 = new InsideGrid(precipitation, perc);
 
             IconImage visibility = new IconImage("visibility");
             SmallInBigDisp vis = new SmallInBigDisp(weatherAnalysis.Visibility);
-            InsideStackPanel s6 = new InsideStackPanel(visibility, vis);
+            InsideGrid s6 = new InsideGrid(visibility, vis);
 
             /*
             UVIndex
@@ -275,17 +306,10 @@ namespace UIDisplay.Cards
             dispSecondWeatherGrid.Children.Add(s4);
             dispSecondWeatherGrid.Children.Add(s5);
             dispSecondWeatherGrid.Children.Add(s6);
-            /*
-            dispSecondWeatherGrid.Children.Add(hum);
-            dispSecondWeatherGrid.Children.Add(uv);
-            dispSecondWeatherGrid.Children.Add(wp);
-            dispSecondWeatherGrid.Children.Add(wd);
-            dispSecondWeatherGrid.Children.Add(perc);
-            dispSecondWeatherGrid.Children.Add(vis);*/
+
             stackPanel.Children.Add(dispSecondWeatherGrid);
 
             Line horizontalLine = new Line();
-
             horizontalLine.X1 = 0;
             horizontalLine.Y1 = 20;
             horizontalLine.X2 = 280;
@@ -296,10 +320,78 @@ namespace UIDisplay.Cards
             stackPanel.Children.Add(horizontalLine);
 
         }
+        private void Image_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // 创建 Poptip 控件
+            Poptip poptip = new Poptip();
+            poptip.Content = "Your Tooltip Content";
+            poptip.PlacementType = PlacementType.Bottom;
+
+
+            // 将 Poptip 添加到 mainGrid 上
+            //dispThirdWeatherGrid.Children.Add(poptip);
+
+
+            // 设置 Poptip 的位置
+            Point position = e.GetPosition(dispThirdWeatherGrid);
+            Canvas.SetLeft(poptip, position.X);
+            Canvas.SetTop(poptip, position.Y);
+            //poptip.IsOpen = true;
+        }
+
+        private void Image_MouseLeave(object sender, MouseEventArgs e)
+        {
+            // 移除 Poptip 控件
+            Poptip poptip = dispThirdWeatherGrid.Children.OfType<Poptip>().FirstOrDefault();
+            if (poptip != null)
+            {
+                poptip.IsOpen = false;
+                dispThirdWeatherGrid.Children.Remove(poptip);
+            }
+        }
+        private void ThirdPart()
+        {
+            dispThirdWeatherGrid = new Grid();
+            dispThirdWeatherGrid.Margin = new Thickness(-5, 15, 0, 0);
+            ColumnDefinition tmpGridColumnDef1 = new ColumnDefinition();
+            ColumnDefinition tmpGridColumnDef2 = new ColumnDefinition();
+            ColumnDefinition tmpGridColumnDef3 = new ColumnDefinition();
+            tmpGridColumnDef1.Width = new GridLength(1, GridUnitType.Star);
+            tmpGridColumnDef2.Width = new GridLength(1, GridUnitType.Star);
+            tmpGridColumnDef3.Width = new GridLength(1, GridUnitType.Star);
+            dispThirdWeatherGrid.ColumnDefinitions.Add(tmpGridColumnDef1);
+            dispThirdWeatherGrid.ColumnDefinitions.Add(tmpGridColumnDef2);
+            dispThirdWeatherGrid.ColumnDefinitions.Add(tmpGridColumnDef3);
+
+            IconImage clothes = new IconImage("clothes");
+            SmallInBigDisp clo = new SmallInBigDisp("");
+            InsideGrid s1 = new InsideGrid(clothes, clo);
+            //clothes.MouseEnter += Image_MouseEnter;
+            //clothes.MouseLeave += Image_MouseLeave;
+            IconImage life = new IconImage("life");
+            SmallInBigDisp lf = new SmallInBigDisp("");
+            InsideGrid s2 = new InsideGrid(life, lf);
+
+            IconImage travel = new IconImage("travel");
+            SmallInBigDisp tv = new SmallInBigDisp("");
+            InsideGrid s3 = new InsideGrid(travel, tv);
+
+            Grid.SetColumn(s1, 0);
+            Grid.SetColumn(s2, 1);
+            Grid.SetColumn(s3, 2);
+
+            dispThirdWeatherGrid.Children.Add(s1);
+            dispThirdWeatherGrid.Children.Add(s2);
+            dispThirdWeatherGrid.Children.Add(s3);
+
+            stackPanel.Children.Add(dispThirdWeatherGrid);
+
+        }
         private void Initialize()
         {
             typeOfCard = 3;
-            ClickCardInitialize();
+            MenuInitialize();
+            //ClickCardInitialize();
             stackPanel = new StackPanel();
             stackPanel.Width = this.Width - 40;
             stackPanel.Height = this.Height - 40;
@@ -308,6 +400,7 @@ namespace UIDisplay.Cards
 
             FirstPart();
             SecondPart();
+            ThirdPart();
             Content = stackPanel;
         }
         private async void GetWeatherData()
@@ -329,8 +422,36 @@ namespace UIDisplay.Cards
         public override void SetPosition(Grid grid, int row, int colomn)
         {
             base.SetPosition(grid, row, colomn);
-            IgnoredCard tmp = new IgnoredCard(this, 4);
+            IgnoredCard tmp = new IgnoredCard(this, 3);
             Dashboard.loadDashJson.AddCard(tmp);
+        }
+    }
+    public class ClickCardOfWeather : WeatherCardBig
+    {
+        private Grid gridOfClickCard;
+        public void Appear(Grid overallGrid)
+        {
+            overallGrid.Children.Add(gridOfClickCard);
+        }
+        public void Disappear(Grid overallGrid)
+        {
+            if (overallGrid.Children.Contains(gridOfClickCard))
+            {
+                overallGrid.Children.Remove(gridOfClickCard);
+            }
+        }
+        public ClickCardOfWeather()
+        {
+            gridOfClickCard = new Grid();
+            Panel.SetZIndex(gridOfClickCard, 1);
+            BorderThickness = new Thickness(5);
+            //BorderBrush = Brushes.White;
+            //Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F6F6F8"));
+            gridOfClickCard.Children.Add(this);
+        }
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            //base.SetPosition(grid, row, colomn);
         }
     }
 }

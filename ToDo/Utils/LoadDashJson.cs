@@ -36,10 +36,14 @@ namespace UIDisplay.Utils
     {
         string filePath = "../../dashboard.json";
         List<IgnoredCard> dashboardCardList;
+        public void DeleteAll()
+        {
+            File.WriteAllText(filePath, string.Empty);
+            RecoveryInitial();
+        }
         public LoadDashJson()
         {
             dashboardCardList = new List<IgnoredCard>();
-            //File.WriteAllText(filePath, string.Empty);
             RecoveryInitial();
         }
         public void AddCard(IgnoredCard card)

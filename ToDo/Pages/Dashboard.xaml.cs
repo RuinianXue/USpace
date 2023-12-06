@@ -21,6 +21,10 @@ using System.Windows.Shapes;
 using UIDisplay.Components;
 using UIDisplay.Cards;
 using UIDisplay.Utils;
+using Org.BouncyCastle.Asn1.X509;
+using System.Reflection;
+using System.Linq;
+using HandyControl.Data.Enum;
 
 namespace UIDisplay.Pages
 {
@@ -39,6 +43,9 @@ namespace UIDisplay.Pages
         public static Grid outGrid = new Grid();
         public static Grid overallGrid = new Grid();
         private static List<TodoCard> todoCards;  //临时写在这，主要每次Load的时候得刷新内容
+        private static Button editButton;
+        private Button clearButton;
+        public static bool editmode = false;
         private static bool CheckinGrid()//inGrid
         {
 
@@ -49,8 +56,36 @@ namespace UIDisplay.Pages
             todoCards.Add(todo);
         }
         public static LoadDashJson loadDashJson;
+        private void EditModeInitialize()
+        {
+            editmode = false;
+            /*
+            borderOfInGrid = new Border();
+            borderOfInGrid.BorderBrush = Brushes.LightBlue;
+            borderOfInGrid.BorderThickness = new Thickness(1);
+            */
+            borderOfEdit = new Rectangle();
+            borderOfEdit.Width = Constants.INSIDE_WIDTH - 50;
+            borderOfEdit.Height = Constants.INSIDE_HEIGHT - 50;
+            borderOfEdit.HorizontalAlignment = HorizontalAlignment.Center;
+            borderOfEdit.VerticalAlignment = VerticalAlignment.Center;
+            borderOfEdit.Stroke = Brushes.LightGray; // 设置边框颜色
+            borderOfEdit.StrokeThickness = 2;    // 设置边框宽度
+            borderOfEdit.RadiusX = 10; // 设置水平方向的圆角半径
+            borderOfEdit.RadiusY = 10; // 设置垂直方向的圆角半径
+        }
+        public void DeleteAllCards()
+        {
+            var cardsToRemove = inGrid.Children.OfType<UIDisplay.Cards.Card>().ToList();
+            foreach (var card in cardsToRemove)
+            {
+                inGrid.Children.Remove(card);
+            }
+        }
         public void InitializeDashboard()
         {
+            EditModeInitialize();
+
             todoCards = new List<TodoCard>();
             overallGrid.Children.Add(outGrid);
             outGrid.Children.Add(mainGrid);
@@ -73,10 +108,95 @@ namespace UIDisplay.Pages
             inGrid.ClipToBounds = false;
             Grid.SetColumn(inGrid, 0);
             this.Content = overallGrid;
+
+            Grid rightLeftGrid = new Grid();
+            rightLeftGrid.HorizontalAlignment = HorizontalAlignment.Right;
+            rightLeftGrid.VerticalAlignment = VerticalAlignment.Top;
+            rightLeftGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            rightLeftGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+            rightLeftGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+
             MenuBarMain toolBarInMain = new MenuBarMain();
-            outGrid.Children.Add(toolBarInMain.button);
+            Grid.SetColumn(toolBarInMain.button, 2);
+            rightLeftGrid.Children.Add(toolBarInMain.button);
+
+            Image pngEdit = new Image();
+            BitmapImage bitmap = new BitmapImage(new Uri("../Images/edit.png", UriKind.RelativeOrAbsolute));
+            pngEdit.Source = bitmap;
+            //pngEdit.Width = 28;
+            pngEdit.Height = 25;
+            editButton = new Button();
+            editButton.Content = pngEdit;
+            editButton.HorizontalAlignment = HorizontalAlignment.Center;
+            editButton.VerticalAlignment = VerticalAlignment.Center;
+            editButton.Background = Brushes.Transparent;
+            editButton.BorderThickness = new Thickness(0);
+            editButton.Click += editButtonClick;
+            Grid.SetColumn(editButton, 1);
+
+            Image pngClear = new Image();
+            BitmapImage bitmap2 = new BitmapImage(new Uri("../Images/clear.png", UriKind.RelativeOrAbsolute));
+            pngClear.Source = bitmap2;
+            pngClear.Width = 18;
+            //pngClear.Height = 18;
+            clearButton = new Button();
+            clearButton.Content = pngClear;
+            clearButton.HorizontalAlignment = HorizontalAlignment.Center;
+            clearButton.VerticalAlignment = VerticalAlignment.Center;
+            clearButton.Background = Brushes.Transparent;
+            clearButton.BorderThickness = new Thickness(0);
+            clearButton.Click += clearButtonClick;
+            Grid.SetColumn(clearButton, 0);
+
+            rightLeftGrid.Children.Add(clearButton);
+            rightLeftGrid.Children.Add(editButton);
+
+
+            outGrid.Children.Add(rightLeftGrid);
             //outGrid.Children.Add(toolBarInMain.menu);
 
+        }
+        private static Rectangle borderOfEdit;
+        private Border borderOfInGrid;
+        private void clearButtonClick(object sender, EventArgs e)
+        {
+            loadDashJson.DeleteAll();
+            loadDashJson.RecoveryInitial();
+            DeleteAllCards();
+        }
+        public static void intoEditMode()
+        {
+            editmode = true;
+            Image image = new Image();
+            BitmapImage bitmap = new BitmapImage(new Uri("../Images/editing.png", UriKind.RelativeOrAbsolute));
+            image.Source = bitmap;
+            image.Width = 25;
+            image.Height = 25;
+            editButton.Content = image;
+            mainGrid.Children.Remove(borderOfEdit);
+            mainGrid.Children.Add(borderOfEdit);
+        }
+        private void editButtonClick(object sender, RoutedEventArgs e)
+        {
+            editmode = !editmode;
+            Image image = new Image();
+            if (editmode)
+            {
+                BitmapImage bitmap = new BitmapImage(new Uri("../Images/editing.png", UriKind.RelativeOrAbsolute));
+                image.Source = bitmap;
+                image.Width = 25;
+                image.Height = 25;
+                mainGrid.Children.Add(borderOfEdit);
+            }
+            else
+            {
+                BitmapImage bitmap = new BitmapImage(new Uri("../Images/edit.png", UriKind.RelativeOrAbsolute));
+                image.Source = bitmap;
+                image.Width = 25;
+                image.Height = 25;
+                mainGrid.Children.Remove(borderOfEdit);
+            }
+            editButton.Content = image;
         }
         /*
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -112,7 +232,7 @@ namespace UIDisplay.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             //todoCard.Refresh();
-            if(todoCards == null || todoCards.Count == 0) { return; }
+            if (todoCards == null || todoCards.Count == 0) { return; }
             foreach (var todoCard in todoCards)
             {
                 todoCard.Refresh();

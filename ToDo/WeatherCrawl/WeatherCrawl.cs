@@ -10,7 +10,7 @@ using System.IO;
 
 namespace UIDisplay.WeatherCrawl
 {
-    internal class WeatherCrawl
+    public class WeatherCrawl
     {
         public static string filePath = "../weather.txt";
         private string placeName;

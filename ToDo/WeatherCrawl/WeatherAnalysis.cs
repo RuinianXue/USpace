@@ -10,7 +10,7 @@ using System.Windows.Documents;
 
 namespace UIDisplay.WeatherCrawl
 {
-    internal class WeatherAnalysis
+    public class WeatherAnalysis
     {
         private string placeOfChoose;
         private string filePath;
