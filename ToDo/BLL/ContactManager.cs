@@ -10,29 +10,25 @@ namespace UIDisplay.BLL
     {
         public static bool InsertContact(Contact newContact)
         {
-            if (!ContactRepository.IsContactExists(newContact.CID))
-            {
-                return ContactRepository.InsertContact(newContact);
-            }
-            return false;
+            return ContactRepository.InsertContact(newContact);
         }
 
         public static bool UpdateContact(Contact updatedContact)
         {
-            if (ContactRepository.IsContactExists(updatedContact.CID))
-            {
+            //if (ContactRepository.IsContactExists(updatedContact.CID))
+            //{
                 return ContactRepository.UpdateContact(updatedContact);
-            }
-            return false;
+            //}
+            //return false;
         }
 
         public static bool DeleteContact(string contactID)
         {
-            if (ContactRepository.IsContactExists(contactID))
-            {
+            //if (ContactRepository.IsContactExists(contactID))
+            //{
                 return ContactRepository.DeleteContactByID(contactID);
-            }
-            return false;
+            //}
+            //return false;
         }
 
         public static bool QueryAllContacts(string userID, out DataTable result)

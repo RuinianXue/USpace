@@ -34,7 +34,7 @@ namespace UIDisplay.DAL
 
         public static bool UpdateContact(Contact contact)
         {
-            string sql = "UPDATE Contact SET Name=@name, Phone=@phone, Email=@email, ImgPath=@imgpath, UID=@uid WHERE CID=@cid";
+            string sql = "UPDATE Contact SET Name=@name, Phone=@phone, Email=@email, UID=@uid, ImgPath=@imgpath WHERE CID=@cid";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@name", contact.Name),
@@ -61,7 +61,7 @@ namespace UIDisplay.DAL
 
         public static bool QueryAllContacts(string userID, out DataTable result)
         {
-            string query = "SELECT CID, Name, Phone, Email, ImgPath, UID FROM Contact WHERE UID=@UID";
+            string query = "SELECT CID, Name, Phone, Email, UID, ImgPath FROM Contact WHERE UID=@UID";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@UID", userID)
@@ -99,7 +99,7 @@ namespace UIDisplay.DAL
 
         public static bool IsContactExists(string CID)
         {
-            string query = "SELECT COUNT(*) FROM Contact WHERE CID = @cid";
+            string query = "SELECT COUNT(*) FROM Contact WHERE CID=@cid";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@cid", CID)
