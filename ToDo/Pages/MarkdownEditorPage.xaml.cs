@@ -102,9 +102,9 @@ namespace UIDisplay.Pages
                 string style = @"<style>
                                     body {
                                         font-family: 'Roboto Slab', serif; 
-                                        background-color: #2a2d31; 
+                                        background-color: #F0F8FF; 
                                         border-radius: 5px; 
-                                        color: #FFFFFF;
+                                        color: #000000;
                                     } 
                                     a {
                                         color: #b4ccfe;
@@ -126,7 +126,7 @@ namespace UIDisplay.Pages
                                     } 
                                     pre {
                                         padding: 5px; 
-                                        background-color: #474850; 
+                                        background-color: #F9F9F9; 
                                         border-radius: 5px; 
                                         overflow: scroll; 
                                         overflow-y: auto; 
@@ -134,7 +134,7 @@ namespace UIDisplay.Pages
                                     } 
                                     p > code {
                                         padding: 5px; 
-                                        background-color: #474850; 
+                                        background-color: #F9F9F9; 
                                         border-radius: 5px;
                                     } 
                                     p {
@@ -142,7 +142,7 @@ namespace UIDisplay.Pages
                                         white-space: normal;
                                     } 
                                     td, th {
-                                        border: 1px solid #474850;  
+                                        border: 1px solid #F9F9F9;  
                                         padding: 8px; 
                                         margin: 0;
                                     } 
@@ -150,7 +150,7 @@ namespace UIDisplay.Pages
                                         padding-top: 10px;  
                                         padding-bottom: 10px;  
                                         text-align: center;  
-                                        background-color: #474850;
+                                        background-color: #F9F9F9;
                                     } 
                                     table {
                                         border-collapse: collapse;
@@ -215,7 +215,7 @@ namespace UIDisplay.Pages
 
             string formattedPath = path;
 
-            pathTxt.Text = formattedPath.Substring(rootPath.Length);
+            // pathTxt.Text = formattedPath.Substring(rootPath.Length);
             browser.LoadError += browser_LoadError;
         }
 
@@ -337,12 +337,13 @@ namespace UIDisplay.Pages
                 txtRaw.Text = File.ReadAllText(tooltip);
                 path = tooltip;
                 isOpened = true;
+                Console.WriteLine(txtRaw.Text);
             }
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
-            filePanel.Items.Clear();
+            // filePanel.Items.Clear();
         }
 
         private void openFolderBtn_Click(object sender, RoutedEventArgs e)
@@ -363,7 +364,7 @@ namespace UIDisplay.Pages
 
                         string[] files = Directory.GetFiles(path, "*.md", SearchOption.AllDirectories);
 
-                        filePanel.Items.Clear();
+                        // filePanel.Items.Clear();
 
                         for (int i = files.Length - 1; i >= 0; i--)
                         {
@@ -389,7 +390,7 @@ namespace UIDisplay.Pages
 
                     string[] files = Directory.GetFiles(path, "*.md", SearchOption.AllDirectories);
 
-                    filePanel.Items.Clear();
+                    // filePanel.Items.Clear();
 
                     for (int i = files.Length - 1; i >= 0; i--)
                     {
@@ -453,7 +454,7 @@ namespace UIDisplay.Pages
             fileButton.Content = Path.GetFileName(filePath);
             fileButton.ToolTip = filePath;
             fileButton.Click += fileBtn_Click;
-            filePanel.Items.Insert(0, fileButton);
+            // filePanel.Items.Insert(0, fileButton);
         }
 
         // ============================================
@@ -462,13 +463,13 @@ namespace UIDisplay.Pages
         {
             if (isExplorerOpen)
             {
-                fileColumn.Width = new GridLength(0);
+                // fileColumn.Width = new GridLength(0);
                 explorerWindowBtn.Foreground = System.Windows.Media.Brushes.Gray;
                 isExplorerOpen = false;
             }
             else
             {
-                fileColumn.Width = new GridLength(300);
+                // fileColumn.Width = new GridLength(300);
                 explorerWindowBtn.Foreground = System.Windows.Media.Brushes.LightSkyBlue;
                 isExplorerOpen = true;
             }

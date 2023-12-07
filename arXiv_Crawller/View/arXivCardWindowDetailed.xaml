@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="arXiv_Crawller.arXivCardWindowDetailed"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:arXiv_Crawller"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/arXivCardResourceDictionary.xaml"/>
+                <!-- 其他资源字典 -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="TitleRow" Grid.Row="0" Text="{Binding Title}" TextWrapping="Wrap" FontSize="29" VerticalAlignment="Center" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockGen}" FontWeight="Bold"/>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="DetailedRow"  Text="{Binding Summary}" Background="#eaebec" TextWrapping="Wrap" FontSize="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockGen}" FontWeight="Light"/>
+            </ScrollViewer>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="home"  Grid.Column="0" Style="{StaticResource LinkButton}" Click="OpenLink" Tag="{Binding Home}">
+                    <Image Source="/arXiv_Crawller;component/Resources/browser.png" Margin="20"/>
+                </Button>
+                <Button x:Name="pdf" Grid.Column="1" Style="{StaticResource LinkButton}" Click="OpenLink" Tag="{Binding Pdf}">
+                    <Image Source="/arXiv_Crawller;component/Resources/pdf.png" Margin="20"/>
+                </Button>
+                <Button x:Name="doi" Grid.Column="2" Style="{StaticResource LinkButton}" Click="OpenLink" Tag="{Binding Doi}">
+                    <Image Source="/arXiv_Crawller;component/Resources/doi.png" Margin="20"/>
+                </Button>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</UserControl>

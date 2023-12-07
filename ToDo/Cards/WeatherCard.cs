@@ -95,22 +95,38 @@ namespace UIDisplay.Cards
         }
         private void WuhanClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "武汉";
+            IgnoredCard newtmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         private void BeijingClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "北京";
+            IgnoredCard newtmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         private void ChongqingClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "重庆";
+            IgnoredCard newtmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         private void ShanghaiClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "上海";
+            IgnoredCard newtmp = new IgnoredCard(this, 5, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         protected override void MenuInitialize()
@@ -456,22 +472,38 @@ namespace UIDisplay.Cards
         }
         private void WuhanClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this,3,this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "武汉";
+            IgnoredCard newtmp = new IgnoredCard(this, 3, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         private void BeijingClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this, 3, this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "北京";
+            IgnoredCard newtmp = new IgnoredCard(this, 3, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         private void ChongqingClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this, 3, this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "重庆";
+            IgnoredCard newtmp = new IgnoredCard(this, 3, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         private void ShanghaiClick(object sender, EventArgs e)
         {
+            IgnoredCard tmp = new IgnoredCard(this, 3, this.placeChosen);
+            Dashboard.loadDashJson.RemoveCard(tmp);
             this.placeChosen = "上海";
+            IgnoredCard newtmp = new IgnoredCard(this, 3, this.placeChosen);
+            Dashboard.loadDashJson.AddCard(newtmp);
             refreshWeather();
         }
         protected override void MenuInitialize()
@@ -537,7 +569,7 @@ namespace UIDisplay.Cards
         }
         public WeatherCardBig()
         {
-            this.placeChosen = "湖北武汉";
+            this.placeChosen = "武汉";
             GetWeatherData();
         }
         public WeatherCardBig(string place)
@@ -547,6 +579,7 @@ namespace UIDisplay.Cards
         }
         public override void SetPosition(Grid grid, int row, int colomn)
         {
+
             base.SetPosition(grid, row, colomn);
             IgnoredCard tmp = new IgnoredCard(this, 3,this.placeChosen);
             Dashboard.loadDashJson.AddCard(tmp);

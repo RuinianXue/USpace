@@ -14,8 +14,8 @@ namespace OpenAIGPT
         static async Task Main(string[] args)
         {
             GPTRequest req01 = new GPTRequest("这里填apiKey");
-            //测试获取结果
-            await req01.SendTurboRequest("Say this is a test");
+           
+            await req01.SendTurboRequest("say this is a test");
             Console.WriteLine(req01.LastResponse);
 
             //为啥我await都没结束主线程先退出了，以下措施用来保险

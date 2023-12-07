@@ -42,6 +42,10 @@
     </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="arXiv_Crawller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\arXiv_Crawller\obj\Debug\arXiv_Crawller.dll</HintPath>
+    </Reference>
     <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
     </Reference>
@@ -254,6 +258,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\arXivCardResourceDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\MainStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -317,10 +325,6 @@
     <Resource Include="Images\icon_markdowneditor.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\arXiv_Crawller\arXiv_Crawller.csproj">
-      <Project>{b1965a8e-449b-4e88-aff1-7f025dcc03d3}</Project>
-      <Name>arXiv_Crawller</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OpenAIGPT\OpenAIGPT.csproj">
       <Project>{02a36fdc-445a-46fb-ab86-63cd2d6986c4}</Project>
       <Name>OpenAIGPT</Name>
@@ -365,6 +369,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
