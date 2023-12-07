@@ -1,4 +1,5 @@
-﻿using UIDisplay.Pages;
+﻿using HandyControl.Controls;
+using UIDisplay.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UIDisplay.Utils;
+using UIDisplay.BLL;
 
 namespace UIDisplay
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         AddressbookPage addressbookPage;
         TodoListPage todolistPage;
@@ -97,27 +99,44 @@ namespace UIDisplay
             WindowState = WindowState.Minimized;
         }
 
-        private void rdAddressbook_Click(object sender, RoutedEventArgs e)
+        private void rdAddressBook_Click(object sender, RoutedEventArgs e)
         {
             now_dashboard = false;
             PagesNavigation.Navigate(addressbookPage);
         }
 
-        private void rdTodolist_Click(object sender, RoutedEventArgs e)
+        private void rdTodoList_Click(object sender, RoutedEventArgs e)
         {
             now_dashboard = false;
             PagesNavigation.Navigate(todolistPage);
         }
+
         private void markdownEditor_Click(object sender, RoutedEventArgs e)
         {
+            now_dashboard = false;
             PagesNavigation.Navigate(markdownEditor);
         }
+
+        private void rdLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            now_dashboard = false;
+            MessageBoxResult result = HandyControl.Controls.MessageBox.Show("确定要退出当前用户吗？", "用户登出确认", MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.OK)
+            {
+                LoginPage loginPage = new LoginPage();
+                loginPage.Show(); 
+                Close();             
+            }
+        }
+
         bool now_dashboard = false;
         private void dashboard_Click(object sender, RoutedEventArgs e)
         {
             now_dashboard = true;
             PagesNavigation.Navigate(dashboardPage);
         }
+
         private void MainPage_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             if(now_dashboard)
@@ -135,6 +154,5 @@ namespace UIDisplay
         {
             // 在这里处理查看最近删除的逻辑
         }
-
     }
 }
