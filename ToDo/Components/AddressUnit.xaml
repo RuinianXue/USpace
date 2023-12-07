@@ -43,7 +43,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Border x:Name="imgBorder" Style="{StaticResource BorderClip}" Grid.Row="0" CornerRadius="10" Margin="10 5 10 4">
-                    <Image x:Name="img" Source="https://src.star-tears.cn/img-bed/gitee-img-bed-before/4k%E5%A3%81%E7%BA%B8.jpg" Stretch="UniformToFill"/>
+                    <!--<Image x:Name="img" Source="https://src.star-tears.cn/img-bed/gitee-img-bed-before/4k%E5%A3%81%E7%BA%B8.jpg" Stretch="UniformToFill"/>-->
+                    <Image x:Name="img" Source="http://s4u6u3ckk.hn-bkt.clouddn.com/default.jpg" Stretch="UniformToFill"/>
                 </Border>
                 <!--#region 姓名-->
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">

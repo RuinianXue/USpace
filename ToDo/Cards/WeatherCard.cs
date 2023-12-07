@@ -579,7 +579,6 @@ namespace UIDisplay.Cards
         }
         public override void SetPosition(Grid grid, int row, int colomn)
         {
-
             base.SetPosition(grid, row, colomn);
             IgnoredCard tmp = new IgnoredCard(this, 3,this.placeChosen);
             Dashboard.loadDashJson.AddCard(tmp);

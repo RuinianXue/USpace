@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using UIDisplay.Pages;
 using UIDisplay.Components;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Cards
 {
@@ -61,6 +62,13 @@ namespace UIDisplay.Cards
             Content = stackPanel;
 
             clickCard = new arXivClickCard();
+        }
+
+        public override void SetPosition(Grid grid, int row, int colomn)
+        {
+            base.SetPosition(grid, row, colomn);
+            IgnoredCard tmp = new IgnoredCard(this, 0);
+            Dashboard.loadDashJson.AddCard(tmp);
         }
 
         private void ChangePapaer_Click(object sender, EventArgs e)

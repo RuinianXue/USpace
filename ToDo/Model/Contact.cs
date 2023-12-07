@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Qiniu.Storage;
+using Qiniu.Util;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UIDisplay.Utils;
 
 namespace UIDisplay.Model
 {
@@ -36,14 +39,18 @@ namespace UIDisplay.Model
 
         public string GetCompeleteImgPath()
         {
-            string temp = IMG_PATH_PREFIX + ImgPath + ".jpg";
-            return temp;
+            string temp = IMG_PATH_PREFIX + ImgPath;
+            
+            //Console.WriteLine(privateUrl);
+            //return "https://src.star-tears.cn/img-bed/gitee-img-bed-before/4k%E5%A3%81%E7%BA%B8.jpg";
+            return QiniuBase.GetUrl(ImgPath);
         }
 
         public BitmapImage GetImg()
         {
             return new BitmapImage(new Uri(GetCompeleteImgPath()));
         }
+
         public static BitmapImage LoadImage(string fileName)
         {
             FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read);

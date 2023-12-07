@@ -51,6 +51,18 @@ namespace UIDisplay.Utils
             Console.WriteLine("form upload result: " + result.ToString());
             Growl.Info("form upload result: " + result.ToString());
         }
+
+        public static string GetUrl(string target_img_name)
+        {
+            string AccessKey = Settings.QiniuAccessKey;
+            string SecretKey = Settings.QiniuSecretKey;
+            Mac mac = new Mac(AccessKey, SecretKey);
+            string domain = "http://s4u6u3ckk.hn-bkt.clouddn.com";
+            string key = target_img_name;
+            string privateUrl = DownloadManager.CreatePrivateUrl(mac, domain, key, 3600);
+            return privateUrl;
+        }
+
         public static void DeleteImg(string target_img_name)
         {
             string AccessKey = Settings.QiniuAccessKey;

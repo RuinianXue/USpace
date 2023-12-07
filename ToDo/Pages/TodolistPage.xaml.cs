@@ -77,7 +77,7 @@ namespace UIDisplay.Pages
             string[] nameList = todo.Teammate.Split(';');
             foreach (string name in nameList)
             {
-                if (!string.IsNullOrWhiteSpace(name))
+                if (!string.IsNullOrWhiteSpace(name) && name != "无")
                 {
                     if (ContactManager.GetEmailByName(name, out string email))
                     {

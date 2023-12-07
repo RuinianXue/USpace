@@ -99,7 +99,7 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                contact.ImgPath = IDManager.genUUID();
+                contact.ImgPath = IDManager.genUUID() + ".jpg";
                 Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
@@ -132,7 +132,7 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                contact.ImgPath = IDManager.genUUID();
+                contact.ImgPath = IDManager.genUUID() + ".jpg";
                 Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
@@ -157,7 +157,7 @@ namespace UIDisplay.Pages
         private void Btn_UploadImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "jpg图像|*.jpg|png图像|*.png";
+            openFileDialog.Filter = "jpg图像|*.jpg";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() == true)
