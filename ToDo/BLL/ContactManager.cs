@@ -28,11 +28,11 @@ namespace UIDisplay.BLL
 
         public static bool DeleteContact(string contactID)
         {
-            //if (ContactRepository.IsContactExists(contactID))
-            //{
+            if (ContactRepository.IsContactExists(contactID))
+            {
                 return ContactRepository.DeleteContactByID(contactID);
-            //}
-            //return false;
+            }
+            return false;
         }
 
         public static bool QueryAllContacts(string userID, out DataTable result)

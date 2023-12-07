@@ -119,12 +119,36 @@ namespace UIDisplay.Pages
             await Task.Run(Refresh);
         }
 
+        //private void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Task.Run(() =>
+        //    {
+        //        Dispatcher.BeginInvoke(new Action(delegate
+        //        {
+        //            List<AddressUnit> li = new List<AddressUnit>();
+        //            foreach (AddressUnit addressUnit in wrapPanel.Children)
+        //            {
+        //                if (addressUnit.IsChecked)
+        //                {
+        //                    if (addressUnit.ContactInfo.ImgPath != "default.jpg")
+        //                    {
+        //                        QiniuBase.DeleteImg(addressUnit.ContactInfo.ImgPath);
+        //                    }
+        //                    ContactManager.DeleteContact(addressUnit.ContactInfo.CID);
+        //                    li.Add(addressUnit);
+        //                }
+        //            }
+        //            foreach (AddressUnit addressUnit1 in li)
+        //            {
+        //                wrapPanel.Children.Remove(addressUnit1);
+        //            }
+        //        }));
+        //    });
+
+        //}
+
         private void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
         {
-            Task.Run(() =>
-            {
-                Dispatcher.BeginInvoke(new Action(delegate
-                {
                     List<AddressUnit> li = new List<AddressUnit>();
                     foreach (AddressUnit addressUnit in wrapPanel.Children)
                     {
@@ -142,9 +166,6 @@ namespace UIDisplay.Pages
                     {
                         wrapPanel.Children.Remove(addressUnit1);
                     }
-                }));
-            });
-
         }
 
         private void Btn_UpdateContact_Click(object sender, RoutedEventArgs e)

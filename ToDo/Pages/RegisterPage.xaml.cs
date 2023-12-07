@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using HandyControl.Controls;
 using UIDisplay.BLL;
 using UIDisplay.Model;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace UIDisplay.Pages
 {
@@ -100,6 +102,7 @@ namespace UIDisplay.Pages
             var newUserName = txtNickname.Text;
             var newDateOfBirth = txtDateOfBirth.SelectedDate.Value;
             var newPassword = txtPassword?.Password;
+            var newJsonFilePath = $"../../../AppData/{newUID}.json";
 
             User newUser = new User
             {
@@ -108,11 +111,31 @@ namespace UIDisplay.Pages
                 DateOfBirth = newDateOfBirth,
                 Email = _newEmail,
                 Password = newPassword,
-                JsonFilePath = $"D:\\0temp\\USpace\\ToDo\\dashboard.json"
-                //JsonFilePath = $"D:\\0temp\\USpace\\ToDo\\{newUID}.json"
+                //JsonFilePath = $"D:\\0temp\\USpace\\ToDo\\dashboard.json"
+                JsonFilePath = newJsonFilePath
             };
 
-            return UserManager.InsertUser(newUser);
+            bool insertSuccess = UserManager.InsertUser(newUser);
+
+            if (insertSuccess)
+            {
+                CreateJson(newJsonFilePath);
+            }
+
+            return insertSuccess;
+        }
+
+        private void CreateJson(string filePath)
+        {
+            try
+            {
+                File.WriteAllText(filePath, "");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error creating JSON file: {ex.Message}");
+                Growl.Error("生成Json文件失败！");
+            }
         }
 
         private void PerformLogin()

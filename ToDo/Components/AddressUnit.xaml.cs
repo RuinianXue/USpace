@@ -53,7 +53,7 @@ namespace UIDisplay.Components
             nameLabel.Text = ContactInfo.Name;
             phoneLabel.Text = ContactInfo.Phone;
             emailLabel.Text = ContactInfo.Email;
-            BitmapImage bitmapImage = ContactInfo.getImg();
+            BitmapImage bitmapImage = ContactInfo.GetImg();
             img.Source = bitmapImage;
             bitmapImage.DownloadCompleted += (o, earg) =>
             {

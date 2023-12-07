@@ -68,14 +68,14 @@ namespace UIDisplay.Pages
             nameTextBox.Text = contact.Name;
             phoneTextBox.Text = contact.Phone;
             emailTextBox.Text = contact.Email;
-            img.Source = contact.getImg();
+            img.Source = contact.GetImg();
         }
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private async void Btn_Insert_Click(object sender, RoutedEventArgs e)
+        private void Btn_Insert_Click(object sender, RoutedEventArgs e)
         {
             contact.Name = nameTextBox.Text;
             contact.Phone = phoneTextBox.Text;
@@ -99,16 +99,16 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                contact.ImgPath = IDManager.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
+                contact.ImgPath = IDManager.genUUID();
                 Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
-            await Task.Run(UploadContactInfo);
+            UploadContactInfo();
             _adbp.IsLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private async void Btn_Update_Click(object sender, RoutedEventArgs e)
+        private void Btn_Update_Click(object sender, RoutedEventArgs e)
         {
             contact.Name = nameTextBox.Text;
             contact.Phone = phoneTextBox.Text;
@@ -132,12 +132,12 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                contact.ImgPath = IDManager.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
+                contact.ImgPath = IDManager.genUUID();
                 Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
             ContactManager.UpdateContact(contact);
-            await Task.Run(UploadContactInfo);
+            UploadContactInfo();
             _adbp.IsLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
         }
@@ -157,7 +157,7 @@ namespace UIDisplay.Pages
         private void Btn_UploadImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "jpg图像|*.jpg;png图像|*.png";
+            openFileDialog.Filter = "jpg图像|*.jpg|png图像|*.png";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() == true)

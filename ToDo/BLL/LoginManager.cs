@@ -12,7 +12,7 @@ namespace UIDisplay.BLL
 {
     public class LoginManager
     {
-        public static string CurrentUserID { get; private set; } = "30ac9590-ae09-4167-82cc-a6a158fa93f5";  //待修改：仅测试用途
+        public static string CurrentUserID { get; private set; } = "a241898c-a7d9-41bd-b390-6b6194e58d21";  //待修改：仅测试用途
 
         public static bool PerformLogin(string email)
         {

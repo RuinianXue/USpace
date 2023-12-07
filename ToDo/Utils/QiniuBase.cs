@@ -71,7 +71,7 @@ namespace UIDisplay.Utils
             if (deleteRet.Code != (int)HttpCode.OK)
             {
                 Console.WriteLine("delete error: " + deleteRet.ToString());
-                Growl.Error("delete error: " + deleteRet.ToString());
+                //Growl.Error("delete error: " + deleteRet.ToString());
             }
         }
     }

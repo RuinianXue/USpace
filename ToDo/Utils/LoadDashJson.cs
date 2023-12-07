@@ -44,10 +44,15 @@ namespace UIDisplay.Utils
             File.WriteAllText(filePath, string.Empty);
             RecoveryInitial();
         }
-        public LoadDashJson()
+        public LoadDashJson(string userID)
         {
             dashboardCardList = new List<IgnoredCard>();
+            SetFilePath(userID);
             RecoveryInitial();
+        }
+        private void SetFilePath(string userID)
+        {
+            filePath = $"../../../AppData/{userID}.json";
         }
         public void AddCard(IgnoredCard card)
         {

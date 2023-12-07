@@ -12,7 +12,7 @@ namespace UIDisplay.Model
 {
     public class Contact
     {
-        private readonly string IMG_PATH_PREFIX = "https://src.star-tears.cn/hznu/class-img-bed/";
+        private readonly string IMG_PATH_PREFIX = "http://s4u6u3ckk.hn-bkt.clouddn.com/";
         public string CID { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
@@ -30,17 +30,19 @@ namespace UIDisplay.Model
             Name = name;
             Phone = phone;
             Email = email;
-            ImgPath = imgPath;
             UID = uid;
+            ImgPath = imgPath;
         }
 
-        public string getCompeleteImgPath()
+        public string GetCompeleteImgPath()
         {
-            return IMG_PATH_PREFIX + ImgPath;
+            string temp = IMG_PATH_PREFIX + ImgPath + ".jpg";
+            return temp;
         }
-        public BitmapImage getImg()
+
+        public BitmapImage GetImg()
         {
-            return new BitmapImage(new Uri(getCompeleteImgPath()));
+            return new BitmapImage(new Uri(GetCompeleteImgPath()));
         }
         public static BitmapImage LoadImage(string fileName)
         {

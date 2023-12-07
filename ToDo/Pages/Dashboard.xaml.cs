@@ -25,6 +25,7 @@ using Org.BouncyCastle.Asn1.X509;
 using System.Reflection;
 using System.Linq;
 using HandyControl.Data.Enum;
+using UIDisplay.BLL;
 
 namespace UIDisplay.Pages
 {
@@ -282,7 +283,7 @@ namespace UIDisplay.Pages
             this.Height = Constants.INSIDE_HEIGHT;
             this.Width = Constants.INSIDE_WIDTH;
             InitializeDashboard();
-            loadDashJson = new LoadDashJson();
+            loadDashJson = new LoadDashJson(LoginManager.CurrentUserID);
             TodoSubscribe();
             /*
             BigSquareCard tmpbig1 = new BigSquareCard();

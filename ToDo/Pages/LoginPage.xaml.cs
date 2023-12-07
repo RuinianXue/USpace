@@ -61,7 +61,7 @@ namespace UIDisplay.Pages
 
             if (string.IsNullOrEmpty(input))
             {
-                Growl.Error("请输入密码。");
+                Growl.Error("请输入密码！");
                 return;
             }
 
@@ -138,8 +138,6 @@ namespace UIDisplay.Pages
                     verificationCodeBorder.Visibility = Visibility.Visible;
                     SendCodeButton.Visibility = Visibility.Collapsed;
                     SignInByCodeButton.Visibility = Visibility.Visible;
-
-                    StartCountdownTimer();
                 }
                 else
                 {
@@ -200,31 +198,6 @@ namespace UIDisplay.Pages
             {
                 Growl.Error("登录失败！请稍后再试。");
             }
-        }
-
-        private void StartCountdownTimer()
-        {
-            int countdownSeconds = 60;
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += (sender, e) =>
-            {
-                countdownSeconds--;
-
-                if (countdownSeconds > 0)
-                {
-                    CountdownLabel.Text = $"{countdownSeconds} 秒后重新发送";
-                    CountdownLabel.IsEnabled = false;
-                }
-                else
-                {
-                    timer.Stop();
-                    CountdownLabel.IsEnabled = true;
-                    CountdownLabel.Text = "发送验证码";
-                }
-            };
-
-            timer.Start();
         }
     }
 }
