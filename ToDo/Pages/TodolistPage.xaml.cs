@@ -117,11 +117,11 @@ namespace UIDisplay.Pages
                         wrapPanel.Children.Add(new AddressUnit(userInfo, 1));
                     }
                 });
-                Growl.Success("联系人列表拉取成功！");
+                //Growl.Success("联系人列表拉取成功！");
             }
             else
             {
-                //Growl.Error("联系人列表拉取失败！");
+                //Growl.Info("联系人列表为空！");
             }
         }
 

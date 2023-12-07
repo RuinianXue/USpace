@@ -42,8 +42,7 @@
     </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="arXiv_Crawller, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="arXiv_Crawller">
       <HintPath>..\arXiv_Crawller\obj\Debug\arXiv_Crawller.dll</HintPath>
     </Reference>
     <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
@@ -323,12 +322,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon_markdowneditor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OpenAIGPT\OpenAIGPT.csproj">
-      <Project>{02a36fdc-445a-46fb-ab86-63cd2d6986c4}</Project>
-      <Name>OpenAIGPT</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\avatar1.jpg" />

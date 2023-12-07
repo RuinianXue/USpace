@@ -60,3 +60,7 @@ D:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CoreCompileInputs
 D:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.csproj.CopyComplete
 D:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.dll
 D:\0temp\USpace\arXiv_Crawller\obj\Debug\arXiv_Crawller.pdb
+D:\0temp\USpace\arXiv_Crawller\bin\Debug\Newtonsoft.Json.dll
+D:\0temp\USpace\arXiv_Crawller\bin\Debug\Newtonsoft.Json.xml
+D:\0temp\USpace\arXiv_Crawller\obj\Debug\View\arXivCardWindowDetailed.g.cs
+D:\0temp\USpace\arXiv_Crawller\obj\Debug\View\arXivCardWindowDetailed.baml

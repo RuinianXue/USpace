@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\gitrepos\USpace\arXiv_Crawller\obj\Debug\
+D:\0temp\USpace\arXiv_Crawller\obj\Debug\
 arXiv_Crawller
 none
 false
@@ -13,8 +13,8 @@ DEBUG;TRACE
 2-539832210
 
 10-890909933
-15-531225149
+151815144445
 View\arXivCardWindow.xaml;View\arXivCardWindowDetailed.xaml;
 
-False
+True
 
