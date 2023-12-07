@@ -21,6 +21,7 @@ using System.Windows.Shapes;
 using System.Xml.Linq;
 using UIDisplay.Model;
 using UIDisplay.BLL;
+using HandyControl.Controls;
 
 namespace UIDisplay.Pages
 {
@@ -79,6 +80,19 @@ namespace UIDisplay.Pages
             contact.Name = nameTextBox.Text;
             contact.Phone = phoneTextBox.Text;
             contact.Email = emailTextBox.Text;
+
+            if (!ContactManager.ValidatePhoneNumber(contact.Phone))
+            {
+                Growl.Error("请输入有效的电话号码！");
+                return;
+            }
+
+            if (!ContactManager.ValidateEmail(contact.Email))
+            {
+                Growl.Error("请输入有效的电子邮件地址！");
+                return;
+            }
+
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
                 if (contact.ImgPath != "default.jpg")
@@ -99,6 +113,19 @@ namespace UIDisplay.Pages
             contact.Name = nameTextBox.Text;
             contact.Phone = phoneTextBox.Text;
             contact.Email = emailTextBox.Text;
+
+            if (!ContactManager.ValidatePhoneNumber(contact.Phone))
+            {
+                Growl.Error("请输入有效的电话号码！");
+                return;
+            }
+
+            if (!ContactManager.ValidateEmail(contact.Email))
+            {
+                Growl.Error("请输入有效的电子邮件地址！");
+                return;
+            }
+
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
                 if (contact.ImgPath != "default.jpg")
@@ -109,6 +136,7 @@ namespace UIDisplay.Pages
                 Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
+            ContactManager.UpdateContact(contact);
             await Task.Run(UploadContactInfo);
             _adbp.IsLoaded = false;
             NavigationService.GetNavigationService(this).GoBack();
@@ -129,7 +157,7 @@ namespace UIDisplay.Pages
         private void Btn_UploadImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "jpg图像|*.jpg|png图像|*.png";
+            openFileDialog.Filter = "jpg图像|*.jpg;png图像|*.png";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() == true)

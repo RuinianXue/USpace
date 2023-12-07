@@ -61,7 +61,7 @@ namespace UIDisplay.DAL
 
         public static bool QueryAllContacts(string userID, out DataTable result)
         {
-            string query = "SELECT CID, Name, Phone, Email, ImgPath, UID FROM Contact WHERE UID = @UID";
+            string query = "SELECT CID, Name, Phone, Email, ImgPath, UID FROM Contact WHERE UID=@UID";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@UID", userID)
@@ -79,7 +79,7 @@ namespace UIDisplay.DAL
 
         public static bool QueryEmailByName(string contactName, out string email)
         {
-            string query = "SELECT Email FROM Contact WHERE Name = @name";
+            string query = "SELECT Email FROM Contact WHERE Name=@name";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@name", contactName)
@@ -97,12 +97,12 @@ namespace UIDisplay.DAL
             return false;
         }
 
-        public static bool IsContactExists(string contactName)
+        public static bool IsContactExists(string CID)
         {
-            string query = "SELECT COUNT(*) FROM Contact WHERE Name = @name";
+            string query = "SELECT COUNT(*) FROM Contact WHERE CID = @cid";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
-                new MySqlParameter("@name", contactName)
+                new MySqlParameter("@cid", CID)
             };
 
             int count = mysqlBase.CommonExecute(query, parameters);

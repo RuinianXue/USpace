@@ -12,7 +12,7 @@ namespace UIDisplay.BLL
 {
     public class LoginManager
     {
-        public static string CurrentUserID { get; private set; }
+        public static string CurrentUserID { get; private set; } = "30ac9590-ae09-4167-82cc-a6a158fa93f5";  //待修改：仅测试用途
 
         public static bool PerformLogin(string email)
         {
@@ -30,12 +30,6 @@ namespace UIDisplay.BLL
             // Use a simple regex pattern for email validation
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return Regex.IsMatch(email, pattern);
-        }
-
-        public static bool ValidatePassword(string password)
-        {
-            // Add your password validation logic here
-            return !string.IsNullOrEmpty(password);
         }
 
         public static bool CheckIfEmailIsRegistered(string email)

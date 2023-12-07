@@ -1,15 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using System.Text.RegularExpressions;
-using System.Windows.Threading;
-using System;
-using UIDisplay.Components;
+﻿using HandyControl.Controls;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
+using System.Windows.Input;
+using System.Windows.Threading;
+using System.Windows;
+using System;
 using UIDisplay.BLL;
-using HandyControl.Controls;
-using System.Data;
+using System.Threading.Tasks;
 
 namespace UIDisplay.Pages
 {
@@ -65,37 +61,34 @@ namespace UIDisplay.Pages
 
             if (string.IsNullOrEmpty(input))
             {
-                Growl.Error("Please enter the password.");
+                Growl.Error("请输入密码。");
                 return;
             }
 
             string email = txtEmail.Text;
             string password = passwordBox.Password;
 
-            // 验证用户输入的密码是否正确
             if (LoginManager.VerifyPassword(email, password))
             {
                 PerformLogin();
             }
             else
             {
-                // 密码错误
-                Growl.Error("Invalid email or password. Please try again.");
+                Growl.Error("请输入有效的邮箱或密码！");
             }
         }
 
         private void Btn_SignInByCode_Click(object sender, RoutedEventArgs e)
         {
             string input = verificationCodeBox.Password;
-            string email = txtEmail.Text; // Assuming txtEmail is the TextBox for entering email
+            string email = txtEmail.Text;
 
             if (string.IsNullOrEmpty(input))
             {
-                Growl.Error("Please enter the verification code.");
+                Growl.Error("请输入验证码！");
                 return;
             }
 
-            // Check if the email is registered
             bool isEmailRegistered = LoginManager.CheckIfEmailIsRegistered(email);
 
             if (input == verificationCode)
@@ -107,11 +100,11 @@ namespace UIDisplay.Pages
                 else
                 {
                     PerformLogin();
-                }              
+                }
             }
             else
             {
-                Growl.Error("Invalid verification code. Please try again.");
+                Growl.Error("请输入有效的验证码！");
             }
         }
 
@@ -125,26 +118,22 @@ namespace UIDisplay.Pages
 
         private void NavigateToMainPage()
         {
-            // 创建主页面实例
             MainWindow mainWindow = new MainWindow();
-
-            // 导航到主页面
             mainWindow.Show();
-
             this.Close();
         }
 
-        private void Btn_SendCode_Click(object sender, RoutedEventArgs e)
+        private async void Btn_SendCode_Click(object sender, RoutedEventArgs e)
         {
             string email = txtEmail.Text;
 
             if (LoginManager.ValidateEmail(email))
             {
-                verificationCode = EmailManager.SendVerificationCode(email);
+                verificationCode = await Task.Run(() => EmailManager.SendVerificationCode(email));
 
                 if (verificationCode != null)
                 {
-                    Growl.Success($"Verification code sent to {email}. Check your email.");
+                    Growl.Success($"验证码已发送至 {email}。请查看您的邮箱。");
 
                     verificationCodeBorder.Visibility = Visibility.Visible;
                     SendCodeButton.Visibility = Visibility.Collapsed;
@@ -154,14 +143,12 @@ namespace UIDisplay.Pages
                 }
                 else
                 {
-                    // Handle error sending verification code
-                    Growl.Error("Failed to send verification code. Please try again.");
+                    Growl.Error("发送验证码失败。请重试。");
                 }
             }
             else
             {
-                // Handle invalid email format
-                Growl.Error("Invalid email format. Please enter a valid email address.");
+                Growl.Error("请输入有效的邮箱地址！");
             }
         }
 
@@ -169,7 +156,7 @@ namespace UIDisplay.Pages
         {
             passwordBorder.Visibility = Visibility.Visible;
             SignInByPasswordButton.Visibility = Visibility.Visible;
-            CodeButton.Visibility= Visibility.Visible;
+            CodeButton.Visibility = Visibility.Visible;
 
             PasswordButton.Visibility = Visibility.Collapsed;
             verificationCodeBorder.Visibility = Visibility.Collapsed;
@@ -204,8 +191,8 @@ namespace UIDisplay.Pages
         private void PerformLogin()
         {
             bool success = LoginManager.PerformLogin(txtEmail.Text);
-            if (success) 
-            { 
+            if (success)
+            {
                 Growl.Success("登录成功");
                 NavigateToMainPage();
             }
@@ -215,7 +202,7 @@ namespace UIDisplay.Pages
             }
         }
 
-        private void StartCountdownTimer()  // 待修改：增加验证码倒计时
+        private void StartCountdownTimer()
         {
             int countdownSeconds = 60;
             DispatcherTimer timer = new DispatcherTimer();
@@ -226,24 +213,17 @@ namespace UIDisplay.Pages
 
                 if (countdownSeconds > 0)
                 {
-                    // Update the CountdownLabel
-                    CountdownLabel.Text = $"{countdownSeconds} seconds left to resend";
-
-                    // Disable the label during countdown
+                    CountdownLabel.Text = $"{countdownSeconds} 秒后重新发送";
                     CountdownLabel.IsEnabled = false;
                 }
                 else
                 {
-                    // Countdown is complete
                     timer.Stop();
-
-                    // Enable the label and reset the CountdownLabel
                     CountdownLabel.IsEnabled = true;
-                    CountdownLabel.Text = "Send Code";
+                    CountdownLabel.Text = "发送验证码";
                 }
             };
 
-            // Start the timer
             timer.Start();
         }
     }

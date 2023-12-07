@@ -24,6 +24,8 @@ using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using UIDisplay.Model;
 using UIDisplay.BLL;
+using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace UIDisplay.Pages
 {
@@ -132,7 +134,7 @@ namespace UIDisplay.Pages
                             {
                                 QiniuBase.DeleteImg(addressUnit.ContactInfo.ImgPath);
                             }
-                            ContactManager.DeleteContact(addressUnit.ContactInfo.Email);
+                            ContactManager.DeleteContact(addressUnit.ContactInfo.CID);
                             li.Add(addressUnit);
                         }
                     }

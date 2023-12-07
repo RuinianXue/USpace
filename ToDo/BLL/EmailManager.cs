@@ -14,7 +14,7 @@ namespace UIDisplay.BLL
     { 
         private static readonly Random random = new Random();
 
-        public static string SendVerificationCode(string email)
+        public static async Task<string> SendVerificationCode(string email)
         {
             string verificationCode = GenerateVerificationCode();
 
@@ -37,7 +37,7 @@ namespace UIDisplay.BLL
                     client.Credentials = new NetworkCredential(Settings.EmailFrom, Settings.EmailPwd);
 
                     // Send the email
-                    client.Send(mailMessage);
+                    await client.SendMailAsync(mailMessage);
                 }
 
                 // Return the verification code for further processing if needed
