@@ -18,17 +18,19 @@ namespace UIDisplay.Model
         public string Phone { get; set; }
         public string Email { get; set; }
         public string ImgPath { get; set; }
+        public string UID { get; set; }
 
         public Contact()
         {
         }
-        public Contact(string cID, string name = "", string phoneNum = "", string email = "", string imgPath = "")
+        public Contact(string cid, string name,  string email, string uid, string phoneNum = "", string imgPath = "")
         {
-            CID = cID;
+            CID = cid;
             Name = name;
             Phone = phoneNum;
             Email = email;
             ImgPath = imgPath;
+            UID = uid;
         }
         public string getCompeleteImgPath()
         {
@@ -42,7 +44,7 @@ namespace UIDisplay.Model
         {
             Guid myUUId = Guid.NewGuid();
             string convertedUUID = myUUId.ToString();
-            Console.WriteLine("Current UUID is: " + convertedUUID);
+            Console.WriteLine("Current TID is: " + convertedUUID);
             return convertedUUID;
         }
         public static BitmapImage LoadImage(string fileName)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Threading.Tasks;
 using UIDisplay.Model;
 using UIDisplay.Utils;
@@ -12,15 +11,16 @@ namespace UIDisplay.DAL
 
         public static bool InsertTodo(Todo todo)
         {
-            string sql = "INSERT INTO todo (uuid, content, date, priority, isdone, teammate) VALUES (@UUID, @Content, @Date, @Priority, @IsDone, @Teammate)";
+            string sql = "INSERT INTO Todo (TID, Content, Date, Priority, IsDone, Teammate, UID) VALUES (@TID, @Content, @Date, @Priority, @IsDone, @Teammate, @UID)";
             var parameters = new MySql.Data.MySqlClient.MySqlParameter[]
             {
-                new MySql.Data.MySqlClient.MySqlParameter("@UUID", todo.UUID),
+                new MySql.Data.MySqlClient.MySqlParameter("@TID", todo.TID),
                 new MySql.Data.MySqlClient.MySqlParameter("@Content", todo.Content),
                 new MySql.Data.MySqlClient.MySqlParameter("@Date", todo.Date),
                 new MySql.Data.MySqlClient.MySqlParameter("@Priority", todo.Priority),
                 new MySql.Data.MySqlClient.MySqlParameter("@IsDone", todo.IsDone),
                 new MySql.Data.MySqlClient.MySqlParameter("@Teammate", todo.Teammate),
+                new MySql.Data.MySqlClient.MySqlParameter("@UID", todo.UID), 
             };
 
             return mysqlBase.CommonExecute(sql, parameters) > 0;
@@ -28,7 +28,7 @@ namespace UIDisplay.DAL
 
         public static bool UpdateTodo(Todo todo)
         {
-            string sql = "UPDATE todo SET content = @Content, date = @Date, priority = @Priority, isdone = @IsDone, teammate = @Teammate WHERE uuid = @UUID";
+            string sql = "UPDATE Todo SET Content = @Content, Date = @Date, Priority = @Priority, IsDone = @IsDone, Teammate = @Teammate, UID = @UID WHERE TID = @TID";
             var parameters = new MySql.Data.MySqlClient.MySqlParameter[]
             {
                 new MySql.Data.MySqlClient.MySqlParameter("@Content", todo.Content),
@@ -36,7 +36,8 @@ namespace UIDisplay.DAL
                 new MySql.Data.MySqlClient.MySqlParameter("@Priority", todo.Priority),
                 new MySql.Data.MySqlClient.MySqlParameter("@IsDone", todo.IsDone),
                 new MySql.Data.MySqlClient.MySqlParameter("@Teammate", todo.Teammate),
-                new MySql.Data.MySqlClient.MySqlParameter("@UUID", todo.UUID),
+                new MySql.Data.MySqlClient.MySqlParameter("@UID", todo.UID),
+                new MySql.Data.MySqlClient.MySqlParameter("@TID", todo.TID),
             };
 
             return mysqlBase.CommonExecute(sql, parameters) > 0;
@@ -44,10 +45,10 @@ namespace UIDisplay.DAL
 
         public static bool DeleteTodo(Todo todo)
         {
-            string sql = "DELETE FROM todo WHERE uuid = @UUID";
+            string sql = "DELETE FROM Todo WHERE TID = @TID";
             var parameters = new MySql.Data.MySqlClient.MySqlParameter[]
             {
-                new MySql.Data.MySqlClient.MySqlParameter("@UUID", todo.UUID),
+                new MySql.Data.MySqlClient.MySqlParameter("@TID", todo.TID),
             };
 
             return mysqlBase.CommonExecute(sql, parameters) > 0;
@@ -55,7 +56,7 @@ namespace UIDisplay.DAL
 
         public static async Task<DataTable> QueryTodoAsync()
         {
-            string sql = "SELECT uuid, content, date, priority, isdone, teammate FROM todo ORDER BY priority DESC, date";
+            string sql = "SELECT TID, Content, Date, Priority, IsDone, Teammate FROM Todo ORDER BY Priority DESC, Date";
             DataSet dataset = await mysqlBase.GetDataSetAsync(sql, "todoinfo");
             return dataset.Tables[0];
         }

@@ -8,10 +8,11 @@ namespace UIDisplay.Model
 {
     public class User
     {
-        public int UID { get; set; }
+        public string UID { get; set; }
         public string Nickname { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string JsonFilePath { get; set; }
     }
 }

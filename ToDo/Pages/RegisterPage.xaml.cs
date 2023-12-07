@@ -43,7 +43,7 @@ namespace UIDisplay.Pages
 
         private void Btn_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login(); 
+            LoginPage login = new LoginPage(); 
             login.Show();
             this.Close();
         }
@@ -54,9 +54,7 @@ namespace UIDisplay.Pages
 
             if (SaveUserDataToDatabase())
             {
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-                Close();
+                PerformLogin();
             }
             else
             {
@@ -98,19 +96,48 @@ namespace UIDisplay.Pages
 
         private bool SaveUserDataToDatabase()
         {
+            var newUID = IDManager.genUUID();
             var newUserName = txtNickname.Text;
             var newDateOfBirth = txtDateOfBirth.SelectedDate.Value;
             var newPassword = txtPassword?.Password;
 
             User newUser = new User
             {
+                UID = newUID,
                 Nickname = newUserName,
                 DateOfBirth = newDateOfBirth,
                 Email = _newEmail,
-                Password = newPassword
+                Password = newPassword,
+                JsonFilePath = $"D:\\0temp\\USpace\\ToDo\\dashboard.json"
+                //JsonFilePath = $"D:\\0temp\\USpace\\ToDo\\{newUID}.json"
             };
 
             return UserManager.InsertUser(newUser);
+        }
+
+        private void PerformLogin()
+        {
+            bool success = LoginManager.PerformLogin(_newEmail);
+            if (success)
+            {
+                Growl.Success("登录成功");
+                NavigateToMainPage();
+            }
+            else
+            {
+                Growl.Error("登录失败！请稍后再试。");
+            }
+        }
+
+        private void NavigateToMainPage()
+        {
+            // 创建主页面实例
+            MainWindow mainWindow = new MainWindow();
+
+            // 导航到主页面
+            mainWindow.Show();
+
+            this.Close();
         }
     }
 }

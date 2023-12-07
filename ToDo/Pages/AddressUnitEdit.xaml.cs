@@ -29,8 +29,8 @@ namespace UIDisplay.Pages
     /// </summary>
     public partial class AddressUnitEdit : Page
     {
-        private Contact userInfo;
-        private int mode;
+        private readonly Contact contact;
+        private readonly int mode;
         private string tmp_img_path { get; set; }
         private AddressbookPage _adbp;
         public AddressUnitEdit()
@@ -40,13 +40,13 @@ namespace UIDisplay.Pages
         /// <summary>
         /// 初始化页面
         /// </summary>
-        /// <param name="user">user信息</param>
+        /// <param name="contact">contact信息</param>
         /// <param name="mode">模式，默认0（添加新联系人），1（修改信息）</param>
-        public AddressUnitEdit(AddressbookPage adbp, Contact user, int mode = 0)
+        public AddressUnitEdit(AddressbookPage adbp, Contact contact, int mode = 0)
         {
             InitializeComponent();
             _adbp = adbp;
-            this.userInfo = user;
+            this.contact = contact;
             this.mode = mode;
             Init();
         }
@@ -64,10 +64,10 @@ namespace UIDisplay.Pages
         }
         private void Refresh()
         {
-            nameTextBox.Text = userInfo.Name;
-            phoneTextBox.Text = userInfo.Phone;
-            emailTextBox.Text = userInfo.Email;
-            img.Source = userInfo.getImg();
+            nameTextBox.Text = contact.Name;
+            phoneTextBox.Text = contact.Phone;
+            emailTextBox.Text = contact.Email;
+            img.Source = contact.getImg();
         }
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
@@ -76,18 +76,18 @@ namespace UIDisplay.Pages
 
         private async void Btn_Insert_Click(object sender, RoutedEventArgs e)
         {
-            userInfo.Name = nameTextBox.Text;
-            userInfo.Phone = phoneTextBox.Text;
-            userInfo.Email = emailTextBox.Text;
+            contact.Name = nameTextBox.Text;
+            contact.Phone = phoneTextBox.Text;
+            contact.Email = emailTextBox.Text;
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
-                if (userInfo.ImgPath != "default.jpg")
+                if (contact.ImgPath != "default.jpg")
                 {
-                    QiniuBase.DeleteImg(userInfo.ImgPath);
+                    QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                userInfo.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
-                Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
-                QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
+                contact.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
+                Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
+                QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
             await Task.Run(UploadContactInfo);
             _adbp.IsLoaded = false;
@@ -96,18 +96,18 @@ namespace UIDisplay.Pages
 
         private async void Btn_Update_Click(object sender, RoutedEventArgs e)
         {
-            userInfo.Name = nameTextBox.Text;
-            userInfo.Phone = phoneTextBox.Text;
-            userInfo.Email = emailTextBox.Text;
+            contact.Name = nameTextBox.Text;
+            contact.Phone = phoneTextBox.Text;
+            contact.Email = emailTextBox.Text;
             if (tmp_img_path != null && tmp_img_path.Length > 0)
             {
-                if (userInfo.ImgPath != "default.jpg")
+                if (contact.ImgPath != "default.jpg")
                 {
-                    QiniuBase.DeleteImg(userInfo.ImgPath);
+                    QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                userInfo.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
-                Console.WriteLine("Now user imgpath is: " + userInfo.ImgPath);
-                QiniuBase.UploadImg(tmp_img_path, userInfo.ImgPath);
+                contact.ImgPath = Contact.genUUID() + tmp_img_path.Substring(tmp_img_path.Length - 4);
+                Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
+                QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
             await Task.Run(UploadContactInfo);
             _adbp.IsLoaded = false;
@@ -118,11 +118,11 @@ namespace UIDisplay.Pages
         {
             if (mode == 0)
             {
-                ContactManager.InsertContact(userInfo);
+                ContactManager.InsertContact(contact);
             }
             else
             {
-                ContactManager.UpdateContact(userInfo);
+                ContactManager.UpdateContact(contact);
             }
         }
 

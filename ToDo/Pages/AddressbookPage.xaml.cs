@@ -50,11 +50,12 @@ namespace UIDisplay.Pages
                     foreach (DataRow row in dt.Rows)
                     {
                         Contact contact = new Contact(
-                            row["uuid"].ToString(),
+                            row["tid"].ToString(),
                             row["name"].ToString(),
                             row["phone"].ToString(),
                             row["email"].ToString(),
-                            row["imgpath"].ToString()
+                            row["imgpath"].ToString(),
+                            row["uid"].ToString()
                         );
 
                         AddressUnit addressUnit = new AddressUnit(contact);
@@ -106,7 +107,7 @@ namespace UIDisplay.Pages
 
         private void Btn_InsertContact_Click(object sender, RoutedEventArgs e)
         {
-            Contact newContact = new Contact(Contact.genUUID(), "", "", "", "default.jpg");
+            Contact newContact = new Contact(Contact.genUUID(), "", "", "", "default.jpg", LoginManager.CurrentUserID);
             AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, newContact);
             NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
         }

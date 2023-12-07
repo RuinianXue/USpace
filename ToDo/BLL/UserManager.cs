@@ -10,7 +10,7 @@ namespace UIDisplay.BLL
     {
         public static bool InsertUser(User newUser)
         {
-            if (!UserRepository.IsUserExists(newUser.Email))
+            if (!UserRepository.IsUserExists(newUser.UID))
             {
                 return UserRepository.InsertUser(newUser);
             }
@@ -26,11 +26,11 @@ namespace UIDisplay.BLL
             return false;
         }
 
-        public static bool DeleteUser(int userID)
+        public static bool DeleteUser(string userID)
         {
             if (UserRepository.IsUserExists(userID))
             {
-                return UserRepository.DeleteUserByID(userID);
+                return UserRepository.DeleteUserByUID(userID);
             }
             return false; 
         }
@@ -38,6 +38,13 @@ namespace UIDisplay.BLL
         public static bool QueryUser(string email, out DataTable result)
         {
             return UserRepository.QueryUserByEmail(email, out result);
+        }
+
+        public static bool QueryUserIDByEmail(string email, out string userID)
+        {
+            DataTable result;
+            bool success = UserRepository.QueryUserIDByEmail(email, out result, out userID);
+            return success;
         }
 
         public static bool VerifyUserPassword(string email, string password)

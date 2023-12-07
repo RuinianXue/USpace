@@ -745,3 +745,6 @@ D:\0temp\USpace\ToDo\obj\Debug\UIDisplay.exe
 D:\0temp\USpace\ToDo\obj\Debug\UIDisplay.pdb
 D:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.dll
 D:\0temp\USpace\ToDo\bin\Debug\arXiv_Crawller.pdb
+D:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.dll
+D:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.pdb
+D:\0temp\USpace\ToDo\bin\Debug\OpenAIGPT.dll.config

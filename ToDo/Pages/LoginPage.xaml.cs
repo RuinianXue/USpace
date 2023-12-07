@@ -13,16 +13,16 @@ using System.Data;
 
 namespace UIDisplay.Pages
 {
-    public partial class Login : System.Windows.Window
+    public partial class LoginPage : System.Windows.Window
     {
         string verificationCode = null;
 
-        public Login()
+        public LoginPage()
         {
             InitializeComponent();
         }
 
-        private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
@@ -73,12 +73,9 @@ namespace UIDisplay.Pages
             string password = passwordBox.Password;
 
             // 验证用户输入的密码是否正确
-            if (UserManager.VerifyUserPassword(email, password))
+            if (LoginManager.VerifyPassword(email, password))
             {
-                // 密码正确，执行登录操作
-                // Your login logic here
-                Growl.Success("Successfully logged in!");
-                NavigateToMainPage(); // Assuming you have a function to navigate to the main page
+                PerformLogin();
             }
             else
             {
@@ -99,7 +96,7 @@ namespace UIDisplay.Pages
             }
 
             // Check if the email is registered
-            bool isEmailRegistered = CheckIfEmailIsRegistered(email);
+            bool isEmailRegistered = LoginManager.CheckIfEmailIsRegistered(email);
 
             if (!isEmailRegistered)
             {
@@ -110,22 +107,13 @@ namespace UIDisplay.Pages
                 // Email is registered, proceed with login
                 if (input == verificationCode)
                 {
-                    // Login successful
-                    Growl.Success("Successfully logged in!");
-                    // Navigate to main page
-                    NavigateToMainPage();
+                    PerformLogin();
                 }
                 else
                 {
                     Growl.Error("Invalid verification code. Please try again.");
                 }
             }
-        }
-
-        private bool CheckIfEmailIsRegistered(string email)
-        {
-            DataTable result;
-            return UserManager.QueryUser(email, out result);
         }
 
         private void NavigateToRegistrationPage()
@@ -151,7 +139,7 @@ namespace UIDisplay.Pages
         {
             string email = txtEmail.Text;
 
-            if (IsValidEmail(email))
+            if (LoginManager.ValidateEmail(email))
             {
                 verificationCode = EmailManager.SendVerificationCode(email);
 
@@ -214,14 +202,21 @@ namespace UIDisplay.Pages
             txtEmail.Focus();
         }
 
-        private bool IsValidEmail(string email)
+        private void PerformLogin()
         {
-            // Use a simple regex pattern for email validation
-            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            return Regex.IsMatch(email, pattern);
+            bool success = LoginManager.PerformLogin(txtEmail.Text);
+            if (success) 
+            { 
+                Growl.Success("登录成功");
+                NavigateToMainPage();
+            }
+            else
+            {
+                Growl.Error("登录失败！请稍后再试。");
+            }
         }
 
-        private void StartCountdownTimer()
+        private void StartCountdownTimer()  // 待修改：增加验证码倒计时
         {
             int countdownSeconds = 60;
             DispatcherTimer timer = new DispatcherTimer();

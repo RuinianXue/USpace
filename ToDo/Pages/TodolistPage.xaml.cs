@@ -87,15 +87,12 @@ namespace UIDisplay.Pages
                         }
                         else
                         {
-                            Console.WriteLine($"Email not found for teammate: {name}");
-                            // 处理邮箱未找到的情况
-                            // 待修改：处理待办关联人已被删除的情况
+                            Growl.Error($"未找到关联人{name}的邮箱");
                         }
                     }
                     else
                     {
-                        Console.WriteLine($"Error while getting email for teammate: {name}");
-                        // 处理获取邮箱时的错误情况
+                        Growl.Error($"未找到关联人{name}的邮箱");
                     }
                 }
             }
@@ -113,15 +110,14 @@ namespace UIDisplay.Pages
                     wrapPanel.Children.Clear();
                     foreach (DataRow row in dt.Rows)
                     {
-                        var userInfo = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
-                        wrapPanel.Children.Add(new AddressUnit(userInfo, 1));
+                        var contact = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
+                        wrapPanel.Children.Add(new AddressUnit(contact, 1));
                     }
                 });
-                //Growl.Success("联系人列表拉取成功！");
             }
             else
             {
-                //Growl.Info("联系人列表为空！");
+                Console.WriteLine();
             }
         }
 
@@ -223,7 +219,7 @@ namespace UIDisplay.Pages
                 {
                     string teammate = (teammateList.Text == "无") ? null : teammateList.Text;
 
-                    Todo tmp_todoInfo = new Todo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
+                    Todo tmp_todoInfo = new Todo(IDManager.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text, LoginManager.CurrentUserID);
 
                     Task.Run(() =>
                     {

@@ -5,7 +5,7 @@ namespace UIDisplay.Utils
     internal class Settings
     {
         // 数据库名
-        public static string DatbaseName { get; } = "todo";
+        public static string DatbaseName { get; } = "uspace";
         // 数据库所在服务器域名或ip
         public static string DatabaseHost { get; } = "localhost";
         // 数据库端口号

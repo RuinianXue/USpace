@@ -16,15 +16,16 @@ namespace UIDisplay.DAL
 
         public static bool InsertContact(Contact contact)
         {
-            string sql = "INSERT INTO contact (uuid, name, phone, email, imgpath) VALUES (@uuid, @name, @phone, @email, @imgpath)";
+            string sql = "INSERT INTO Contact (CID, Name, Phone, Email, ImgPath, UID) VALUES (@cid, @name, @phone, @email, @imgpath, @uid)";
 
             MySqlParameter[] parameters = new MySqlParameter[]
             {
-                new MySqlParameter("@uuid", contact.CID),
+                new MySqlParameter("@cid", contact.CID),
                 new MySqlParameter("@name", contact.Name),
                 new MySqlParameter("@phone", contact.Phone),
                 new MySqlParameter("@email", contact.Email),
-                new MySqlParameter("@imgpath", contact.ImgPath)
+                new MySqlParameter("@imgpath", contact.ImgPath),
+                new MySqlParameter("@uid", contact.UID)
             };
 
             return mysqlBase.CommonExecute(sql, parameters) > 0;
@@ -32,14 +33,15 @@ namespace UIDisplay.DAL
 
         public static bool UpdateContact(Contact contact)
         {
-            string sql = "UPDATE contact SET name=@name, phone=@phone, email=@email, imgpath=@imgpath WHERE uuid=@uuid";
+            string sql = "UPDATE Contact SET Name=@name, Phone=@phone, Email=@email, ImgPath=@imgpath, UID=@uid WHERE CID=@cid";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@name", contact.Name),
                 new MySqlParameter("@phone", contact.Phone),
                 new MySqlParameter("@email", contact.Email),
                 new MySqlParameter("@imgpath", contact.ImgPath),
-                new MySqlParameter("@uuid", contact.CID)
+                new MySqlParameter("@uid", contact.UID),
+                new MySqlParameter("@cid", contact.CID)
             };
 
             return mysqlBase.CommonExecute(sql, parameters) > 0;
@@ -47,10 +49,10 @@ namespace UIDisplay.DAL
 
         public static bool DeleteContactByID(string contactID)
         {
-            string sql = "DELETE FROM contact WHERE uuid=@uuid";
+            string sql = "DELETE FROM Contact WHERE CID=@cid";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
-                new MySqlParameter("@uuid", contactID)
+                new MySqlParameter("@cid", contactID)
             };
 
             return mysqlBase.CommonExecute(sql, parameters) > 0;
@@ -58,7 +60,7 @@ namespace UIDisplay.DAL
 
         public static bool QueryAllContact(out DataTable result)
         {
-            string query = "SELECT uuid, name, phone, email, imgpath FROM contact";
+            string query = "SELECT CID, Name, Phone, Email, ImgPath, UID FROM Contact";
 
             result = mysqlBase.Query(query);
 
@@ -72,7 +74,7 @@ namespace UIDisplay.DAL
 
         public static bool QueryEmailByName(string contactName, out string email)
         {
-            string query = "SELECT email FROM contact WHERE Name = @name";
+            string query = "SELECT Email FROM Contact WHERE Name = @name";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@name", contactName)
@@ -82,7 +84,7 @@ namespace UIDisplay.DAL
 
             if (result.Rows.Count > 0)
             {
-                email = result.Rows[0]["email"].ToString();
+                email = result.Rows[0]["Email"].ToString();
                 return true;
             }
 
@@ -92,7 +94,7 @@ namespace UIDisplay.DAL
 
         public static bool IsContactExists(string contactName)
         {
-            string query = "SELECT COUNT(*) FROM contact WHERE Name = @name";
+            string query = "SELECT COUNT(*) FROM Contact WHERE Name = @name";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
                 new MySqlParameter("@name", contactName)

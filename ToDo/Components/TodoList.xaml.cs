@@ -57,9 +57,10 @@ namespace UIDisplay.Components
 
             foreach (DataRow row in dt.Rows)
             {
-                string uuid = row.Field<string>(0);
+                string tid = row.Field<string>(0);
                 string content = row.Field<string>(1);
                 DateTime date = row.Field<DateTime>(2);
+                string uid = LoginManager.CurrentUserID;
 
                 // 处理可能的 DBNull 值
                 int priority = row.IsNull(3) ? 0 : row.Field<int>(3);
@@ -69,7 +70,7 @@ namespace UIDisplay.Components
 
                 if (isDone == isDoneValue && priorityCondition(priority))
                 {
-                    todoList.Add(new Todo(uuid, content, date, priority, isDone, teammate));
+                    todoList.Add(new Todo(tid, content, date, priority, isDone, teammate, uid));
                 }
             }
 
