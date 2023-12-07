@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `todoinfo`
+-- Table structure for table `todo`
 --
 
-DROP TABLE IF EXISTS `todoinfo`;
+DROP TABLE IF EXISTS `todo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `todoinfo` (
+CREATE TABLE `todo` (
   `uuid` varchar(64) NOT NULL,
   `content` text,
   `date` datetime DEFAULT NULL,
@@ -33,23 +33,23 @@ CREATE TABLE `todoinfo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `todoinfo`
+-- Dumping data for table `todo`
 --
 
-LOCK TABLES `todoinfo` WRITE;
-/*!40000 ALTER TABLE `todoinfo` DISABLE KEYS */;
-INSERT INTO `todoinfo` VALUES ('e7bd8dcb-5e90-4d38-8316-c060e47f7f68','吃饭','2023-11-14 15:10:31',0,1,'无'),('040b2477-724e-40c2-b345-8b5ad44d5c1f','睡觉','2023-11-14 15:10:36',0,1,'无'),('68e5fa09-68e8-40a6-bf4d-03d1f9ced4e7','吃饭','2023-11-15 09:31:36',0,1,'无');
-/*!40000 ALTER TABLE `todoinfo` ENABLE KEYS */;
+LOCK TABLES `todo` WRITE;
+/*!40000 ALTER TABLE `todo` DISABLE KEYS */;
+INSERT INTO `todo` VALUES ('e7bd8dcb-5e90-4d38-8316-c060e47f7f68','吃饭','2023-11-14 15:10:31',0,1,'无'),('040b2477-724e-40c2-b345-8b5ad44d5c1f','睡觉','2023-11-14 15:10:36',0,1,'无'),('68e5fa09-68e8-40a6-bf4d-03d1f9ced4e7','吃饭','2023-11-15 09:31:36',0,1,'无');
+/*!40000 ALTER TABLE `todo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `userinfo`
+-- Table structure for table `contact`
 --
 
-DROP TABLE IF EXISTS `userinfo`;
+DROP TABLE IF EXISTS `contact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `userinfo` (
+CREATE TABLE `contact` (
   `uuid` varchar(64) NOT NULL,
   `name` varchar(32) DEFAULT NULL,
   `phone` varchar(16) DEFAULT NULL,
@@ -59,12 +59,12 @@ CREATE TABLE `userinfo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `userinfo`
+-- Dumping data for table `contact`
 --
 
-LOCK TABLES `userinfo` WRITE;
-/*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
+LOCK TABLES `contact` WRITE;
+/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

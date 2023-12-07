@@ -65,7 +65,7 @@ namespace UIDisplay.Pages
             }
             else
             {
-                Growl.Error("联系人列表拉取失败！");
+                //Growl.Error("联系人列表拉取失败！");
             }
         }
 

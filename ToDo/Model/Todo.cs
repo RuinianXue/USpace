@@ -14,7 +14,7 @@ namespace UIDisplay.Model
         public DateTime Date { get; set; }
         public int Priority { get; set; }
         public int IsDone { get; set; }
-        public string Teammate { get; set; }    //待修改：Teammate应该直接定义为对象 建立两个数据库的联系
+        public string Teammate { get; set; }    
 
         public Todo(string uUID,string content, DateTime date,int priority,int isDone,string teammate)
         {

@@ -53,27 +53,34 @@ namespace UIDisplay.BLL
 
         public static void SendNotice(string emailTo, string subject, string body)
         {
-            // 指定发件人、收件人、邮件主题和内容
-            string from = Settings.EmailFrom;
-            string to = emailTo;
-
-            // 创建一个 SmtpClient 对象
-            SmtpClient smtpClient = new SmtpClient(Settings.SmtpClient, 587);
-
-            // 指定发件人的用户名和密码
-            smtpClient.Credentials = new NetworkCredential(Settings.EmailFrom, Settings.EmailPwd);
-
-            // 启用安全连接
-            smtpClient.EnableSsl = true;
-
-
             try
             {
+                // 验证电子邮件地址格式
+                MailAddress mailAddress = new MailAddress(emailTo);
+
+                // 指定发件人、收件人、邮件主题和内容
+                string from = Settings.EmailFrom;
+
+                // 创建一个 SmtpClient 对象
+                SmtpClient smtpClient = new SmtpClient(Settings.SmtpClient, 587);
+
+                // 指定发件人的用户名和密码
+                smtpClient.Credentials = new NetworkCredential(Settings.EmailFrom, Settings.EmailPwd);
+
+                // 启用安全连接
+                smtpClient.EnableSsl = true;
+
                 // 创建一个 MailMessage 对象
-                MailMessage mailMessage = new MailMessage(from, to, subject, body);
+                MailMessage mailMessage = new MailMessage(from, emailTo, subject, body);
 
                 // 发送邮件
                 smtpClient.Send(mailMessage);
+            }
+            catch (FormatException ex)
+            {
+                // 处理格式异常，可能是因为 emailTo 不是有效的电子邮件地址格式
+                Console.WriteLine("Invalid email address format: " + emailTo);
+                Console.WriteLine(ex.ToString());
             }
             catch (Exception ex)
             {

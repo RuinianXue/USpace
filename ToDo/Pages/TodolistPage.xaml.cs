@@ -74,11 +74,30 @@ namespace UIDisplay.Pages
 
         private void SendNotifications(Todo todo)
         {
-            string[] emailList = todo.Teammate.Split(';');
-            foreach (string email in emailList)
+            string[] nameList = todo.Teammate.Split(';');
+            foreach (string name in nameList)
             {
-                Console.WriteLine(email);
-                EmailManager.SendNotice(email, "您有一个任务有待完成", todo.Content);
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    if (ContactManager.GetEmailByName(name, out string email))
+                    {
+                        if (!string.IsNullOrWhiteSpace(email))
+                        {
+                            EmailManager.SendNotice(email, "您有一个任务有待完成", todo.Content);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Email not found for teammate: {name}");
+                            // 处理邮箱未找到的情况
+                            // 待修改：处理待办关联人已被删除的情况
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error while getting email for teammate: {name}");
+                        // 处理获取邮箱时的错误情况
+                    }
+                }
             }
         }
 
@@ -102,7 +121,7 @@ namespace UIDisplay.Pages
             }
             else
             {
-                Growl.Error("联系人列表拉取失败！");
+                //Growl.Error("联系人列表拉取失败！");
             }
         }
 
@@ -202,6 +221,8 @@ namespace UIDisplay.Pages
             {
                 if (todoTaskContentTextBox.Text.Length > 0)
                 {
+                    string teammate = (teammateList.Text == "无") ? null : teammateList.Text;
+
                     Todo tmp_todoInfo = new Todo(MyUtils.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text);
 
                     Task.Run(() =>
@@ -285,22 +306,22 @@ namespace UIDisplay.Pages
             Refresh_Addressbook();
         }
 
-        private async void Btn_EmailListConfirm_Click(object sender, RoutedEventArgs e)
+        private async void Btn_ContactListConfirm_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(() =>
             {
-                var emailList = "";
+                var teammateList = "";
                 Dispatcher.Invoke(() =>
                 {
                     foreach (AddressUnit addressUnit in wrapPanel.Children)
                     {
                         if (addressUnit.IsChecked == true)
                         {
-                            emailList += addressUnit.emailLabel.Text + ";";
+                            teammateList += addressUnit.nameLabel.Text + ";";
                         }
                     }
-                    if (emailList.Length == 0) emailList = "无";
-                    teammateList.Text = emailList;
+                    if (teammateList.Length == 0) teammateList = "无";
+                    this.teammateList.Text = teammateList;
                 });
             });
 

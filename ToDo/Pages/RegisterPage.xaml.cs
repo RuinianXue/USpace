@@ -24,7 +24,7 @@ namespace UIDisplay.Pages
     {
         private readonly string _newEmail;
 
-        public RegisterPage()   //临时写的，用来测试
+        public RegisterPage()   //待修改：临时写的，用来测试
         {
             InitializeComponent();
             _newEmail = "2857809611@qq.com";
@@ -43,28 +43,23 @@ namespace UIDisplay.Pages
 
         private void Btn_Cancel_Click(object sender, RoutedEventArgs e)
         {
-            // 导航回登录页面
-            Login login = new Login(); // 创建登录页面实例
+            Login login = new Login(); 
             login.Show();
             this.Close();
         }
 
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            // Validate inputs first
             if (!ValidateInputs()) return;
 
-            // Save user data to the database
             if (SaveUserDataToDatabase())
             {
-                // Data saved successfully, navigate to the main page
                 var mainWindow = new MainWindow();
                 mainWindow.Show();
                 Close();
             }
             else
             {
-                // Data save failed, display an error message to the user
                 Growl.Error("Failed to save user data. Please try again.");
             }
         }

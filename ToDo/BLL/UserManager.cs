@@ -19,7 +19,7 @@ namespace UIDisplay.BLL
 
         public static bool UpdateUser(User updatedUser)
         {
-            if (UserRepository.IsUserExists(updatedUser.ID))
+            if (UserRepository.IsUserExists(updatedUser.UID))
             {
                 return UserRepository.UpdateUser(updatedUser);
             }

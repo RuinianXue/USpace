@@ -70,12 +70,32 @@ namespace UIDisplay.DAL
             return false;
         }
 
-        public static bool IsContactExists(string email)
+        public static bool QueryEmailByName(string contactName, out string email)
         {
-            string query = "SELECT COUNT(*) FROM contact WHERE Email = @contactEmail";
+            string query = "SELECT email FROM contact WHERE Name = @name";
             MySqlParameter[] parameters = new MySqlParameter[]
             {
-        new MySqlParameter("@contactEmail", email)
+                new MySqlParameter("@name", contactName)
+            };
+
+            DataTable result = mysqlBase.Query(query, parameters);
+
+            if (result.Rows.Count > 0)
+            {
+                email = result.Rows[0]["email"].ToString();
+                return true;
+            }
+
+            email = null;
+            return false;
+        }
+
+        public static bool IsContactExists(string contactName)
+        {
+            string query = "SELECT COUNT(*) FROM contact WHERE Name = @name";
+            MySqlParameter[] parameters = new MySqlParameter[]
+            {
+                new MySqlParameter("@name", contactName)
             };
 
             int count = mysqlBase.CommonExecute(query, parameters);

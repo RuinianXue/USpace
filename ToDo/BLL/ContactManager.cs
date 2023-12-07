@@ -38,5 +38,10 @@ namespace UIDisplay.BLL
         {
             return ContactRepository.QueryAllContact(out result);
         }
+
+        public static bool GetEmailByName(string contactName, out string email)
+        {
+            return ContactRepository.QueryEmailByName(contactName, out email);
+        }
     }
 }

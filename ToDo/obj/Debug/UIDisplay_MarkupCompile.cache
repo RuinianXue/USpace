@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Github\USpace\ToDo\obj\Debug\
+D:\0temp\USpace\ToDo\obj\Debug\
 UIDisplay
 none
 false
 DEBUG;TRACE
-D:\Github\USpace\ToDo\App.xaml
+D:\0temp\USpace\ToDo\App.xaml
 15-630096232
-78-1347016994
+78-1878456798
 45-297070396
-50-642935154
+50-700533666
 Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\Battery.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\AddressbookPage.xaml;Pages\AddressUnitEdit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;
 
 False

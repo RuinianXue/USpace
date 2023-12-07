@@ -39,7 +39,7 @@
                         </WrapPanel>
                     </ScrollViewer>
                     <Button x:Name="addressbookRefreshBtn" Grid.ZIndex="2" Content="刷新" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 110 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource TEAL_C}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="Btn_AddressbookRefresh_Click"/>
-                    <Button x:Name="emailListConfirmBtn" Grid.ZIndex="1" Content="确认" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 15 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource PrimaryBrush}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="Btn_EmailListConfirm_Click"/>
+                    <Button x:Name="emailListConfirmBtn" Grid.ZIndex="1" Content="确认" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 15 10" hc:BorderElement.CornerRadius="5" Background="{DynamicResource PrimaryBrush}" Foreground="{DynamicResource TextIconBrush}" Height="42" Width="85" FontSize="16" Click="Btn_ContactListConfirm_Click"/>
                 </Grid>
             </Border>
 

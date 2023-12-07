@@ -34,7 +34,7 @@ namespace UIDisplay.DAL
                 new MySqlParameter("@dob", user.DateOfBirth),
                 new MySqlParameter("@email", user.Email),
                 new MySqlParameter("@password", PasswordManager.HashPassword(user.Password)),
-                new MySqlParameter("@userID", user.ID)
+                new MySqlParameter("@userID", user.UID)
             };
 
             return mysqlBase.CommonExecute(query, parameters) > 0;
