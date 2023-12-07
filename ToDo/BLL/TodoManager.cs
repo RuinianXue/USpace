@@ -22,9 +22,9 @@ namespace UIDisplay.BLL
             return TodoRepository.DeleteTodo(todo);
         }
 
-        public static async Task<DataTable> QueryTodoAsync()
+        public static async Task<DataTable> QueryTodoAsync(string userID)
         {
-            return await TodoRepository.QueryTodoAsync();
+            return await TodoRepository.QueryTodoAsync(userID);
         }
     }
 }

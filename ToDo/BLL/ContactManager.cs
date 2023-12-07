@@ -34,9 +34,9 @@ namespace UIDisplay.BLL
             return false;
         }
 
-        public static bool QueryAllContact(out DataTable result)
+        public static bool QueryAllContacts(string userID, out DataTable result)
         {
-            return ContactRepository.QueryAllContact(out result);
+            return ContactRepository.QueryAllContacts(userID, out result);
         }
 
         public static bool GetEmailByName(string contactName, out string email)

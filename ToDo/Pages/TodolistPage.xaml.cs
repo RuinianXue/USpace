@@ -101,7 +101,7 @@ namespace UIDisplay.Pages
         private void Refresh_Addressbook()
         {
             DataTable dt;
-            bool success = ContactManager.QueryAllContact(out dt);
+            bool success = ContactManager.QueryAllContacts(LoginManager.CurrentUserID, out dt);
 
             if (success)
             {
@@ -110,7 +110,14 @@ namespace UIDisplay.Pages
                     wrapPanel.Children.Clear();
                     foreach (DataRow row in dt.Rows)
                     {
-                        var contact = new Contact(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
+                        var contact = new Contact(
+                            row[0].ToString(),
+                            row[1].ToString(),
+                            row[2].ToString(),
+                            row[3].ToString(),
+                            row[4].ToString(),
+                            row[5].ToString()
+                        );
                         wrapPanel.Children.Add(new AddressUnit(contact, 1));
                     }
                 });

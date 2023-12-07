@@ -38,7 +38,7 @@ namespace UIDisplay.Components
 
         internal async void Refresh()
         {
-            DataTable dt = await TodoManager.QueryTodoAsync();
+            DataTable dt = await TodoManager.QueryTodoAsync(LoginManager.CurrentUserID);
 
             List<Todo> todoUnitList0 = ExtractTodoList(dt, 0, priority => priority > 0);
             List<Todo> todoUnitList1 = ExtractTodoList(dt, 0, priority => priority <= 0);
@@ -88,7 +88,6 @@ namespace UIDisplay.Components
                 }
             }));
         }
-
 
         private void Refresh_TodoDoneCount()
         {

@@ -7,6 +7,7 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using UIDisplay.Model;
 using UIDisplay.Utils;
+using UIDisplay.BLL;
 
 namespace UIDisplay.DAL
 {
@@ -58,11 +59,15 @@ namespace UIDisplay.DAL
             return mysqlBase.CommonExecute(sql, parameters) > 0;
         }
 
-        public static bool QueryAllContact(out DataTable result)
+        public static bool QueryAllContacts(string userID, out DataTable result)
         {
-            string query = "SELECT CID, Name, Phone, Email, ImgPath, UID FROM Contact";
+            string query = "SELECT CID, Name, Phone, Email, ImgPath, UID FROM Contact WHERE UID = @UID";
+            MySqlParameter[] parameters = new MySqlParameter[]
+            {
+                new MySqlParameter("@UID", userID)
+            };
 
-            result = mysqlBase.Query(query);
+            result = mysqlBase.Query(query, parameters);
 
             if (result.Rows.Count > 0)
             {

@@ -40,7 +40,7 @@ namespace UIDisplay.Pages
         public void Refresh()
         {
             DataTable dt;
-            bool success = ContactManager.QueryAllContact(out dt);
+            bool success = ContactManager.QueryAllContacts(LoginManager.CurrentUserID, out dt);
 
             if (success)
             {
@@ -50,12 +50,12 @@ namespace UIDisplay.Pages
                     foreach (DataRow row in dt.Rows)
                     {
                         Contact contact = new Contact(
-                            row["tid"].ToString(),
-                            row["name"].ToString(),
-                            row["phone"].ToString(),
-                            row["email"].ToString(),
-                            row["imgpath"].ToString(),
-                            row["uid"].ToString()
+                            row[0].ToString(),
+                            row[1].ToString(),   
+                            row[2].ToString(),
+                            row[3].ToString(),    
+                            row[4].ToString(),
+                            row[5].ToString()
                         );
 
                         AddressUnit addressUnit = new AddressUnit(contact);
@@ -107,7 +107,7 @@ namespace UIDisplay.Pages
 
         private void Btn_InsertContact_Click(object sender, RoutedEventArgs e)
         {
-            Contact newContact = new Contact(Contact.genUUID(), "", "", "", "default.jpg", LoginManager.CurrentUserID);
+            Contact newContact = new Contact(IDManager.genUUID(), "", "", "", LoginManager.CurrentUserID, "default.jpg");
             AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, newContact);
             NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
         }

@@ -98,21 +98,20 @@ namespace UIDisplay.Pages
             // Check if the email is registered
             bool isEmailRegistered = LoginManager.CheckIfEmailIsRegistered(email);
 
-            if (!isEmailRegistered)
+            if (input == verificationCode)
             {
-                NavigateToRegistrationPage();
-            }
-            else
-            {
-                // Email is registered, proceed with login
-                if (input == verificationCode)
+                if (!isEmailRegistered)
                 {
-                    PerformLogin();
+                    NavigateToRegistrationPage();
                 }
                 else
                 {
-                    Growl.Error("Invalid verification code. Please try again.");
-                }
+                    PerformLogin();
+                }              
+            }
+            else
+            {
+                Growl.Error("Invalid verification code. Please try again.");
             }
         }
 
