@@ -11,11 +11,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Markup;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -24,8 +19,6 @@ using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using UIDisplay.Model;
 using UIDisplay.BLL;
-using MySql.Data.MySqlClient;
-using System.Security.Cryptography;
 
 namespace UIDisplay.Pages
 {
@@ -113,7 +106,7 @@ namespace UIDisplay.Pages
 
         private void Btn_InsertContact_Click(object sender, RoutedEventArgs e)
         {
-            Contact newContact = new Contact(IDManager.genUUID(), "", "", "", LoginManager.CurrentUserID, "default.jpg");
+            Contact newContact = new Contact(IDGenerator.genUUID(), "", "", "", LoginManager.CurrentUserID, "default.jpg");
             AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, newContact);
             NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
             addressUnitEdit.ContactSaved += (s, args) =>

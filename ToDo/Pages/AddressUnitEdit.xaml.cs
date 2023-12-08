@@ -101,7 +101,7 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                contact.ImgPath = IDManager.genUUID() + ".jpg";
+                contact.ImgPath = IDGenerator.genUUID() + ".jpg";
                 Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
@@ -136,7 +136,7 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                contact.ImgPath = IDManager.genUUID() + ".jpg";
+                contact.ImgPath = IDGenerator.genUUID() + ".jpg";
                 Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }

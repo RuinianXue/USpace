@@ -31,7 +31,6 @@ namespace UIDisplay.BLL
         }
 
         public static (DateTime? ParsedDateTime, string Content) ParseTime(string input)
-        //待修改：目前暂时没调用 需要编写代码将它和右下角的时间显示相对应
         {
             DateTime now = DateTime.Now;
             DayOfWeek currentDayOfWeek = now.DayOfWeek;

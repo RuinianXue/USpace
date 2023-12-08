@@ -15,6 +15,7 @@ using HandyControl.Controls;
 using UIDisplay.BLL;
 using UIDisplay.Model;
 using System.IO;
+using UIDisplay.Utils;
 using Newtonsoft.Json;
 
 namespace UIDisplay.Pages
@@ -25,12 +26,6 @@ namespace UIDisplay.Pages
     public partial class RegisterPage : System.Windows.Window
     {
         private readonly string _newEmail;
-
-        public RegisterPage()   //待修改：临时写的，用来测试
-        {
-            InitializeComponent();
-            _newEmail = "2857809611@qq.com";
-        }
 
         public RegisterPage(string newEmail)
         {
@@ -98,7 +93,7 @@ namespace UIDisplay.Pages
 
         private bool SaveUserDataToDatabase()
         {
-            var newUID = IDManager.genUUID();
+            var newUID = IDGenerator.genUUID();
             var newUserName = txtNickname.Text;
             var newDateOfBirth = txtDateOfBirth.SelectedDate.Value;
             var newPassword = txtPassword?.Password;

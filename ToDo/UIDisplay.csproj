@@ -283,7 +283,7 @@
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\MysqlBase.cs" />
-    <Compile Include="BLL\IDManager.cs" />
+    <Compile Include="Utils\IDGenerator.cs" />
     <Compile Include="Utils\Settings.cs" />
     <Compile Include="Model\Todo.cs" />
     <Compile Include="Pages\TodoListPage.xaml.cs">

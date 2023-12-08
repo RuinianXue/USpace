@@ -237,7 +237,7 @@ namespace UIDisplay.Pages
                 {
                     string teammate = (teammateList.Text == "无") ? null : teammateList.Text;
 
-                    Todo tmp_todoInfo = new Todo(IDManager.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text, LoginManager.CurrentUserID);
+                    Todo tmp_todoInfo = new Todo(IDGenerator.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text, LoginManager.CurrentUserID);
 
                     Task.Run(() =>
                     {
