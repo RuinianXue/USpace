@@ -176,6 +176,7 @@ namespace UIDisplay.Pages
             if (todoTaskContentTextBox.Text.Length > 0)
             {
                 spFuncArea.Visibility = Visibility.Visible;
+                SetSelectedDateTimeFromText(todoTaskContentTextBox.Text);
             }
             else
             {
@@ -216,6 +217,16 @@ namespace UIDisplay.Pages
             g1Focus0.Visibility = Visibility.Visible;
             g1Focus1.Visibility = Visibility.Collapsed;
             teammateList.Text = "无";
+        }
+
+        private void SetSelectedDateTimeFromText(string text)
+        {
+            var result = TodoManager.ParseTime(text);
+            DateTime? dt = result.ParsedDateTime;
+            if (dt != null)
+            {
+                dateTimePickers.SelectedDateTime = dt;
+            }
         }
 
         private void Page_KeyDown(object sender, KeyEventArgs e)

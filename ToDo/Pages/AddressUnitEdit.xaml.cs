@@ -34,6 +34,7 @@ namespace UIDisplay.Pages
         private readonly int mode;
         private string tmp_img_path { get; set; }
         private AddressbookPage _adbp;
+        public event EventHandler<ContactSaveEventArgs> ContactSaved;
         public AddressUnitEdit()
         {
             InitializeComponent();
@@ -80,6 +81,7 @@ namespace UIDisplay.Pages
             contact.Name = nameTextBox.Text;
             contact.Phone = phoneTextBox.Text;
             contact.Email = emailTextBox.Text;
+            OnContactSaved(false);
 
             if (!ContactManager.ValidatePhoneNumber(contact.Phone))
             {
@@ -104,8 +106,9 @@ namespace UIDisplay.Pages
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
             UploadContactInfo();
+            //OnContactSaved(true);
             _adbp.IsLoaded = false;
-            NavigationService.GetNavigationService(this).GoBack();
+            NavigationService.GetNavigationService(this).GoBack();         
         }
 
         private void Btn_Update_Click(object sender, RoutedEventArgs e)
@@ -113,6 +116,7 @@ namespace UIDisplay.Pages
             contact.Name = nameTextBox.Text;
             contact.Phone = phoneTextBox.Text;
             contact.Email = emailTextBox.Text;
+            OnContactSaved(false);
 
             if (!ContactManager.ValidatePhoneNumber(contact.Phone))
             {
@@ -152,6 +156,7 @@ namespace UIDisplay.Pages
             {
                 ContactManager.UpdateContact(contact);
             }
+            OnContactSaved(true);
         }
 
         private void Btn_UploadImg_Click(object sender, RoutedEventArgs e)
@@ -197,5 +202,15 @@ namespace UIDisplay.Pages
             storyboard.Children.Add(doubleAnimation2);
             storyboard.Begin();
         }
+
+        protected virtual void OnContactSaved(bool success)
+        {
+            ContactSaved?.Invoke(this, new ContactSaveEventArgs { Success = success });
+        }
+    }
+
+    public class ContactSaveEventArgs : EventArgs
+    {
+        public bool Success { get; set; }
     }
 }

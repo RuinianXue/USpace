@@ -15,7 +15,6 @@ namespace UIDisplay.Model
 {
     public class Contact
     {
-        private readonly string IMG_PATH_PREFIX = "http://s4u6u3ckk.hn-bkt.clouddn.com/";
         public string CID { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
@@ -39,10 +38,6 @@ namespace UIDisplay.Model
 
         public string GetCompeleteImgPath()
         {
-            string temp = IMG_PATH_PREFIX + ImgPath;
-            
-            //Console.WriteLine(privateUrl);
-            //return "https://src.star-tears.cn/img-bed/gitee-img-bed-before/4k%E5%A3%81%E7%BA%B8.jpg";
             return QiniuBase.GetUrl(ImgPath);
         }
 

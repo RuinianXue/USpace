@@ -20,12 +20,9 @@ namespace UIDisplay.Utils
             string SecretKey = Settings.QiniuSecretKey;
             Mac mac = new Mac(AccessKey, SecretKey);
             // 上传文件名
-            //string key = "hznu/class-img-bed/" + target_img_name;
             string key = target_img_name;
-            //string key = "1.jpg";
             // 本地文件路径
             string filePath = img_local_path;
-            //string filePath = "D:\\Desktop\\1.jpg";
             // 存储空间名
             string Bucket = "uspace1";
             // 设置上传策略
@@ -34,8 +31,6 @@ namespace UIDisplay.Utils
             putPolicy.Scope = Bucket;
             // 上传策略的过期时间(单位:秒)
             putPolicy.SetExpires(3600);
-            //// 文件上传完毕后，在多少天后自动被删除
-            //putPolicy.DeleteAfterDays = 1;
             // 生成上传token
             string token = Auth.CreateUploadToken(mac, putPolicy.ToJsonString());
             Config config = new Config();
@@ -68,8 +63,6 @@ namespace UIDisplay.Utils
             string AccessKey = Settings.QiniuAccessKey;
             string SecretKey = Settings.QiniuSecretKey;
             Mac mac = new Mac(AccessKey, SecretKey);
-            // 删除文件名
-            //string key = "hznu/class-img-bed/" + target_img_name;
             string key = target_img_name;
             Console.WriteLine(key);
             // 存储空间名
@@ -83,7 +76,6 @@ namespace UIDisplay.Utils
             if (deleteRet.Code != (int)HttpCode.OK)
             {
                 Console.WriteLine("delete error: " + deleteRet.ToString());
-                //Growl.Error("delete error: " + deleteRet.ToString());
             }
         }
     }

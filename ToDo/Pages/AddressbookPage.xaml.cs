@@ -64,7 +64,7 @@ namespace UIDisplay.Pages
                         wrapPanel.Children.Add(addressUnit);
                     }
                 }));
-                Growl.Success("联系人列表拉取成功！");
+                //Growl.Success("联系人列表拉取成功！");
             }
             else
             {
@@ -106,49 +106,39 @@ namespace UIDisplay.Pages
             storyboard.Children.Add(doubleAnimation2);
             storyboard.Begin();
         }
+        private async void Btn_Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(Refresh);
+        }
 
         private void Btn_InsertContact_Click(object sender, RoutedEventArgs e)
         {
             Contact newContact = new Contact(IDManager.genUUID(), "", "", "", LoginManager.CurrentUserID, "default.jpg");
             AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, newContact);
             NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
+            addressUnitEdit.ContactSaved += (s, args) =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    if (args.Success)
+                    {
+                        Growl.Success("联系人插入成功");
+                    }
+                    else
+                    {
+                        Growl.Error("联系人插入失败");
+                    }
+                });
+            };
         }
-
-        private async void Btn_Refresh_Click(object sender, RoutedEventArgs e)
-        {
-            await Task.Run(Refresh);
-        }
-
-        //private void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Task.Run(() =>
-        //    {
-        //        Dispatcher.BeginInvoke(new Action(delegate
-        //        {
-        //            List<AddressUnit> li = new List<AddressUnit>();
-        //            foreach (AddressUnit addressUnit in wrapPanel.Children)
-        //            {
-        //                if (addressUnit.IsChecked)
-        //                {
-        //                    if (addressUnit.ContactInfo.ImgPath != "default.jpg")
-        //                    {
-        //                        QiniuBase.DeleteImg(addressUnit.ContactInfo.ImgPath);
-        //                    }
-        //                    ContactManager.DeleteContact(addressUnit.ContactInfo.CID);
-        //                    li.Add(addressUnit);
-        //                }
-        //            }
-        //            foreach (AddressUnit addressUnit1 in li)
-        //            {
-        //                wrapPanel.Children.Remove(addressUnit1);
-        //            }
-        //        }));
-        //    });
-
-        //}
 
         private void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
         {
+            Task.Run(() =>
+            {
+                Dispatcher.BeginInvoke(new Action(delegate
+                {
+                    bool success = true;
                     List<AddressUnit> li = new List<AddressUnit>();
                     foreach (AddressUnit addressUnit in wrapPanel.Children)
                     {
@@ -158,7 +148,11 @@ namespace UIDisplay.Pages
                             {
                                 QiniuBase.DeleteImg(addressUnit.ContactInfo.ImgPath);
                             }
-                            ContactManager.DeleteContact(addressUnit.ContactInfo.CID);
+                            if (!ContactManager.DeleteContact(addressUnit.ContactInfo.CID))
+                            {
+                                Growl.Error($"删除联系人{addressUnit.ContactInfo.Name}时出错");
+                                success = false;
+                            }                           
                             li.Add(addressUnit);
                         }
                     }
@@ -166,6 +160,12 @@ namespace UIDisplay.Pages
                     {
                         wrapPanel.Children.Remove(addressUnit1);
                     }
+                    if (success) 
+                    {
+                        Growl.Success("联系人删除成功！");
+                    }
+                }));
+            });
         }
 
         private void Btn_UpdateContact_Click(object sender, RoutedEventArgs e)
@@ -176,7 +176,20 @@ namespace UIDisplay.Pages
                 {
                     AddressUnitEdit addressUnitEdit = new AddressUnitEdit(this, addressUnit.ContactInfo, 1);
                     NavigationService.GetNavigationService(this).Navigate(addressUnitEdit);
-                    break;
+                    addressUnitEdit.ContactSaved += (s, args) =>
+                    {
+                        Dispatcher.Invoke(() =>
+                        {
+                            if (args.Success)
+                            {
+                                Growl.Success("联系人更新成功");
+                            }
+                            else
+                            {
+                                Growl.Error("联系人更新失败");
+                            }
+                        });
+                    };
                 }
             }
         }
