@@ -172,11 +172,11 @@
     <Compile Include="DAL\TodoRepository.cs" />
     <Compile Include="Cards\TodoCard.cs" />
     <Compile Include="Cards\TomatoCard.cs" />
-    <Compile Include="Pages\AddressbookPage.xaml.cs">
-      <DependentUpon>AddressbookPage.xaml</DependentUpon>
+    <Compile Include="Pages\ContactListPage.xaml.cs">
+      <DependentUpon>ContactListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddressUnitEdit.xaml.cs">
-      <DependentUpon>AddressUnitEdit.xaml</DependentUpon>
+    <Compile Include="Pages\ContactEditUnit.xaml.cs">
+      <DependentUpon>ContactEditUnit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\LoadDashJson.cs" />
     <Compile Include="Utils\QiniuBase.cs" />
@@ -205,11 +205,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AddressbookPage.xaml">
+    <Page Include="Pages\ContactListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AddressUnitEdit.xaml">
+    <Page Include="Pages\ContactEditUnit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

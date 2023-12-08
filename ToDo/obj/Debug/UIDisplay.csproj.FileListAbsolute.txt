@@ -712,8 +712,6 @@ D:\0temp\USpace\ToDo\obj\Debug\Components\AddressUnit.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\Components\Battery.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\Components\TodoList.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\Components\TodoUnit.g.cs
-D:\0temp\USpace\ToDo\obj\Debug\Pages\AddressbookPage.g.cs
-D:\0temp\USpace\ToDo\obj\Debug\Pages\AddressUnitEdit.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\Pages\Dashboard.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\MainWindow.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\Pages\LoginPage.g.cs
@@ -730,8 +728,6 @@ D:\0temp\USpace\ToDo\obj\Debug\Components\AddressUnit.baml
 D:\0temp\USpace\ToDo\obj\Debug\Components\Battery.baml
 D:\0temp\USpace\ToDo\obj\Debug\Components\TodoList.baml
 D:\0temp\USpace\ToDo\obj\Debug\Components\TodoUnit.baml
-D:\0temp\USpace\ToDo\obj\Debug\Pages\AddressbookPage.baml
-D:\0temp\USpace\ToDo\obj\Debug\Pages\AddressUnitEdit.baml
 D:\0temp\USpace\ToDo\obj\Debug\Pages\Dashboard.baml
 D:\0temp\USpace\ToDo\obj\Debug\MainWindow.baml
 D:\0temp\USpace\ToDo\obj\Debug\Pages\LoginPage.baml
@@ -748,3 +744,7 @@ D:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.CoreCompileInputs.cache
 D:\0temp\USpace\ToDo\obj\Debug\UIDisplay.csproj.CopyComplete
 D:\0temp\USpace\ToDo\obj\Debug\UIDisplay.exe
 D:\0temp\USpace\ToDo\obj\Debug\UIDisplay.pdb
+D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactListPage.g.cs
+D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactEditUnit.g.cs
+D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactListPage.baml
+D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactEditUnit.baml

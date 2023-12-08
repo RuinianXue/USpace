@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\0temp\USpace\ToDo\App.xaml
-16705092432
+16868733999
 78-1878456798
-47-758977072
+471699578465
 50-701924188
-Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\Battery.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\AddressbookPage.xaml;Pages\AddressUnitEdit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\arXivCardResourceDictionary.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;
+Assets\Icons\Icons.xaml;Components\AddressUnit.xaml;Components\Battery.xaml;Components\TodoList.xaml;Components\TodoUnit.xaml;Pages\ContactListPage.xaml;Pages\ContactEditUnit.xaml;Pages\Dashboard.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\MarkdownEditorPage.xaml;Pages\RegisterPage.xaml;Pages\TodoListPage.xaml;Styles\arXivCardResourceDictionary.xaml;Styles\MainStyle.xaml;Themes\LightTheme.xaml;
 
-False
+True
 

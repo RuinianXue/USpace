@@ -24,7 +24,7 @@ namespace UIDisplay
     /// </summary>
     public partial class MainWindow : System.Windows.Window
     {
-        AddressbookPage addressbookPage;
+        ContactListPage addressbookPage;
         TodoListPage todolistPage;
         Dashboard dashboardPage;
         MarkdownEditorPage markdownEditor;
@@ -55,7 +55,7 @@ namespace UIDisplay
             this.Height = Constants.INSIDE_HEIGHT + 30;
             PagesNavigation.Height = Constants.INSIDE_HEIGHT;
             PagesNavigation.Width = Constants.INSIDE_WIDTH;
-            addressbookPage = new AddressbookPage();
+            addressbookPage = new ContactListPage();
             todolistPage =new TodoListPage();
             dashboardPage = new Dashboard();
             dashboardPage.TodoCardDoubleClicked_Dash += todoRedirect;
