@@ -13,7 +13,7 @@ namespace OpenAIGPT
     {
         static async Task Main(string[] args)
         {
-            GPTRequest req01 = new GPTRequest("这里填apiKey");
+            GPTRequest req01 = new GPTRequest();
            
             await req01.SendTurboRequest("say this is a test");
             Console.WriteLine(req01.LastResponse);

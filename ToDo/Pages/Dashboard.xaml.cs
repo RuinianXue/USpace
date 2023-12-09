@@ -88,11 +88,20 @@ namespace UIDisplay.Pages
             EditModeInitialize();
 
             todoCards = new List<TodoCard>();
-            overallGrid.Children.Add(outGrid);
-            outGrid.Children.Add(mainGrid);
+            if (!overallGrid.Children.Contains(outGrid))
+            {
+                overallGrid.Children.Add(outGrid);
+            }
+            if (!outGrid.Children.Contains(mainGrid))
+            {
+                outGrid.Children.Add(mainGrid);
+            }
             inGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f3f3f3")); // 将整个Grid填充为蓝色
             mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(Constants.INSIDE_WIDTH, GridUnitType.Pixel) });
-            mainGrid.Children.Add(inGrid);
+            if (!mainGrid.Children.Contains(inGrid))
+            {
+                mainGrid.Children.Add(inGrid);
+            }
             inGrid.ClipToBounds = false;
             inGrid.Margin = new Thickness(Constants.EDGE);
             inGrid.Height = Constants.MAX_ROW * Constants.SQUARE_GRID_LENGTH;

@@ -193,11 +193,10 @@ namespace arXiv_Crawller.ViewModel
 
         public async Task RefreshSuggestion()
         {
-            GPTRequest req = new GPTRequest("apikey");
-            string safe = EscapeStringForJson(Summary);
+            GPTRequest req = new GPTRequest();
             try
             {
-                await req.SendTurboRequest("以下是一片论文的摘要，用三句话说出你对它的感想，用中文回答。" + safe);
+                await req.SendTurboRequest("以下是一片论文的摘要，用三句话说出你对它的感想，用中文回答。" + Summary);
             }catch(Exception error)
             {
                 Console.WriteLine(error.Message);
@@ -207,9 +206,5 @@ namespace arXiv_Crawller.ViewModel
             Suggestion = req.LastResponse;
         }
 
-        static string EscapeStringForJson(string input)
-        {
-            return JsonConvert.ToString(input);
-        }
     }
 }

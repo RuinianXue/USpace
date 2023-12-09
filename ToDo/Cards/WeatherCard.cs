@@ -16,6 +16,8 @@ using System.Configuration;
 using HandyControl.Controls;
 using HandyControl.Data;
 using System.Windows.Input;
+using Org.BouncyCastle.Ocsp;
+using OpenAIGPT.GPTHelper;
 
 namespace UIDisplay.Cards
 {
@@ -428,7 +430,7 @@ namespace UIDisplay.Cards
                 dispThirdWeatherGrid.Children.Remove(poptip);
             }
         }
-        private void ThirdPart()
+        private async void ThirdPart()
         {
             dispThirdWeatherGrid = new Grid();
             dispThirdWeatherGrid.Margin = new Thickness(-5, 15, 0, 0);
@@ -454,6 +456,29 @@ namespace UIDisplay.Cards
             IconImage travel = new IconImage("travel");
             SmallInBigDisp tv = new SmallInBigDisp("");
             InsideGrid s3 = new InsideGrid(travel, tv);
+
+            GPTRequest req01 = new GPTRequest();
+            GPTRequest req02 = new GPTRequest();
+            GPTRequest req03 = new GPTRequest();
+
+            ToolTip clotip = new ToolTip();
+            ToolTip lftip = new ToolTip();
+            ToolTip tvtip = new ToolTip();
+
+            var task1 = req01.SendTurboRequest("今天的天气是" + weatherAnalysis.Temperature + "，" + weatherAnalysis.Weather + "，给我一句穿衣建议");
+            var task2 = req02.SendTurboRequest("今天的天气是" + weatherAnalysis.Temperature + "，" + "湿度：" + weatherAnalysis.Humidity + "，给我一句饮食建议");
+            var task3 = req03.SendTurboRequest("今天的天气是" + weatherAnalysis.Temperature + "，" + weatherAnalysis.Weather + "，给我一句出行建议");
+
+            await Task.WhenAll(task1, task2, task3);
+
+            clotip.Content = req01.LastResponse;
+            lftip.Content = req02.LastResponse;
+            tvtip.Content = req03.LastResponse;
+
+            s1.ToolTip = clotip;
+            s2.ToolTip = lftip;
+            s3.ToolTip = tvtip;
+
 
             Grid.SetColumn(s1, 0);
             Grid.SetColumn(s2, 1);
@@ -579,6 +604,7 @@ namespace UIDisplay.Cards
         }
         public override void SetPosition(Grid grid, int row, int colomn)
         {
+
             base.SetPosition(grid, row, colomn);
             IgnoredCard tmp = new IgnoredCard(this, 3,this.placeChosen);
             Dashboard.loadDashJson.AddCard(tmp);

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using static OpenAIGPT.GPTHelper.JsonRespond;
+using Newtonsoft.Json;
 
 
 
@@ -22,10 +23,9 @@ namespace OpenAIGPT.GPTHelper
 
         public string LastResponse { get; set; }
 
-        public GPTRequest(string ak)
+        public GPTRequest()
         {
-            //apiKey = ak;
-            apiKey = "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";
+            apiKey = "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";
         }
 
         private HttpClient CreateHttpClient()
@@ -72,6 +72,7 @@ namespace OpenAIGPT.GPTHelper
 
         public async Task SendTurboRequest(string message)
         {
+            message = EscapeStringForJson(message);
             message = message.Replace("\"", "");
             reqContent = $"{{\"model\": \"{Model}\", \"messages\": [{{\"role\": \"user\", \"content\": \"{message}\"}}], \"temperature\": {Temperature}}}";
             string responseString = await SendRequestAsync(TurboApiUrl, reqContent);
@@ -82,6 +83,8 @@ namespace OpenAIGPT.GPTHelper
         //可以使用davinci但没必要
         public async Task SendDavinciRequest(string message)
         {
+            message = EscapeStringForJson(message);
+            message = message.Replace("\"", "");
             int maxTokens = 60;
             string requestBody = $"{{\"prompt\": \"{message}\", \"max_tokens\": {maxTokens}}}";
             string responseString = await SendRequestAsync(DavinciApiUrl, requestBody);
@@ -104,6 +107,11 @@ namespace OpenAIGPT.GPTHelper
             {
                 Console.WriteLine($"An unexpected error occurred: {ex.Message}"); return "生成AI建议中…";
             }
+        }
+
+        static string EscapeStringForJson(string input)
+        {
+            return JsonConvert.ToString(input);
         }
 
     }
