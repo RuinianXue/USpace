@@ -39,10 +39,10 @@ namespace UIDisplay.Pages
         public SeriesCollection LastHourSeries1 { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
-        public static Grid mainGrid = new Grid();
-        public static Grid inGrid = new Grid();
-        public static Grid outGrid = new Grid();
-        public static Grid overallGrid = new Grid();
+        public static Grid mainGrid;
+        public static Grid inGrid;
+        public static Grid outGrid;
+        public static Grid overallGrid;
         private static List<TodoCard> todoCards;  //临时写在这，主要每次Load的时候得刷新内容
         private static Button editButton;
         private Button clearButton;
@@ -88,20 +88,17 @@ namespace UIDisplay.Pages
             EditModeInitialize();
 
             todoCards = new List<TodoCard>();
-            if (!overallGrid.Children.Contains(outGrid))
-            {
-                overallGrid.Children.Add(outGrid);
-            }
-            if (!outGrid.Children.Contains(mainGrid))
-            {
-                outGrid.Children.Add(mainGrid);
-            }
+
+            mainGrid = new Grid();
+            inGrid = new Grid();
+            outGrid = new Grid();
+            overallGrid = new Grid();
+
+            overallGrid.Children.Add(outGrid);
+            outGrid.Children.Add(mainGrid);
             inGrid.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f3f3f3")); // 将整个Grid填充为蓝色
             mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(Constants.INSIDE_WIDTH, GridUnitType.Pixel) });
-            if (!mainGrid.Children.Contains(inGrid))
-            {
-                mainGrid.Children.Add(inGrid);
-            }
+            mainGrid.Children.Add(inGrid);
             inGrid.ClipToBounds = false;
             inGrid.Margin = new Thickness(Constants.EDGE);
             inGrid.Height = Constants.MAX_ROW * Constants.SQUARE_GRID_LENGTH;

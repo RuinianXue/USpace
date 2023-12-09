@@ -25,7 +25,7 @@ namespace OpenAIGPT.GPTHelper
 
         public GPTRequest()
         {
-            apiKey = "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";
+            apiKey = "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";
         }
 
         private HttpClient CreateHttpClient()
