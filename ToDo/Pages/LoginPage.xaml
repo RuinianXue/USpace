@@ -122,15 +122,16 @@
 
         <Style x:Key="mainButton" TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Margin" Value="0 20 0 0" />
             <Setter Property="Width" Value="200" />
-            <Setter Property="Background" Value="#3AB19B" />
-            <Setter Property="Foreground" Value="#FDFEFE" />
+            <Setter Property="Background" Value="#479feb"/>
+            <Setter Property="Foreground" Value="#FFFFFF" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="#49B7A3" Padding="15" BorderThickness="1">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="#2e2e2e" Padding="15" BorderThickness="0">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
@@ -138,11 +139,11 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#2d7a6c" />
+                    <Setter Property="Background" Value="#2a6aeb" />
                     <Setter Property="Foreground" Value="White" />
                 </Trigger>
                 <Trigger Property="IsMouseCaptured" Value="True">
-                    <Setter Property="Background" Value="#2d7a6c" />
+                    <Setter Property="Background" Value="#2a6aeb" />
                     <Setter Property="Foreground" Value="White" />
                 </Trigger>
             </Style.Triggers>
@@ -237,7 +238,7 @@
             <Setter Property="Foreground" Value="#ffffff" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#4ec7a8" />
+                    <Setter Property="Background" Value="{DynamicResource PrimaryBlueColor}" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
             </Style.Triggers>
@@ -269,17 +270,26 @@
         <Border CornerRadius="10 0 0 10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#3AA9AD" Offset="0" />
-                    <GradientStop Color="#3AADA1" Offset="1" />
+                    <GradientStop Color="#2a6aeb" Offset="0" />
+                    <GradientStop Color="#2aa7eb" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
 
             <Grid>
                 <Canvas>
-                    <Polygon Points="0,20 230,140 0,270" Fill="#4EB1B6" />
-                    <Polygon Points="100,400 200,370 180,470" Fill="#4EB1B6" />
-                    <Ellipse Margin="250 450 0 0" Width="40" Height="40" Fill="#4EB1B6" />
-                    <Ellipse Margin="50 400 0 0" Width="20" Height="20" Fill="#4EB1B6" />
+                    <Polygon Points="0,20 230,140 0,270" Fill="#488ae2" />
+                    <Polygon Points="100,400 200,370 180,470" Fill="#48a3ea" Canvas.Left="210" Canvas.Top="91" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+                        <Polygon.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="53.287"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Polygon.RenderTransform>
+                    </Polygon>
+                    <Ellipse Width="114" Height="120" Fill="#88b2e6" Canvas.Left="270" Canvas.Top="287" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <Ellipse Margin="50 400 0 0" Width="20" Height="20" Fill="#2aa7eb" />
                 </Canvas>
 
                 <StackPanel VerticalAlignment="Center">
@@ -291,7 +301,7 @@
 
         <Border Name="signUpBorder" Background="#FFFFFF" Grid.Column="1" CornerRadius="0 10 10 0" MouseDown="Border_MouseDown">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="Get Started" Foreground="#3AADA1" Style="{StaticResource TitleText}" />
+                <TextBlock Text="Get Started" Foreground="#2e2e2e" Style="{StaticResource TitleText}" />
                 <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
                 </StackPanel>
 
@@ -334,12 +344,12 @@
                     </Grid>
                 </Border>
 
-                <Button x:Name="SendCodeButton" Content="发送验证码" Click="Btn_SendCode_Click" Style="{StaticResource mainButton}" />
+                <Button x:Name="SendCodeButton" Content="Continue" Click="Btn_SendCode_Click" Style="{StaticResource mainButton}" />
                 <TextBlock x:Name="CountdownLabel" Text="" Foreground="Black" Margin="20 30 20 30" Style="{StaticResource NormalText}" Visibility="Collapsed"/>
-                <Button x:Name="SignInByPasswordButton" Content="登录" Click="Btn_SignInByPassword_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
-                <Button x:Name="SignInByCodeButton" Content="登录/注册" Click="Btn_SignInByCode_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
-                <Button x:Name="PasswordButton" Content="密码登录" Click="Btn_Password_Click" Style="{StaticResource mainButton}" />
-                <Button x:Name="CodeButton" Content="验证码登录" Click="Btn_Code_Click" Style="{StaticResource mainButton}" Visibility="Collapsed" />
+                <Button x:Name="SignInByPasswordButton" Content="Sign In" Click="Btn_SignInByPassword_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
+                <Button x:Name="SignInByCodeButton" Content="Sign In/Out" Click="Btn_SignInByCode_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
+                <Button x:Name="PasswordButton" Content="Use Password" Click="Btn_Password_Click" Style="{StaticResource mainButton}" />
+                <Button x:Name="CodeButton" Content="Use Verification Code" Click="Btn_Code_Click" Style="{StaticResource mainButton}" Visibility="Collapsed" />
             </StackPanel>
         </Border>
     </Grid>

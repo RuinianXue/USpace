@@ -12,7 +12,7 @@
 
     <!-- Secondary Colors -->
     <SolidColorBrush x:Key="SecondaryBlueColor" Color="#CEE8FB"/>
-    <SolidColorBrush x:Key="SecondaryBlueColorA" Color="#dfedf9"/>
+    <SolidColorBrush x:Key="SecondaryBlueColorA" Color="#1873e2"/>
     <SolidColorBrush x:Key="SecondaryGrayColor" Color="#EEEEEE"/>
     <SolidColorBrush x:Key="SecondaryRedColorA" Color="#FF5555"/>
 

@@ -12,7 +12,7 @@
     </UserControl.RenderTransform>
     <Border CornerRadius="10" Width="200" Height="200" >
         <Border.Background>
-            <SolidColorBrush Color="#dfedf9" Opacity="0"/>
+            <SolidColorBrush Color="#1873e2" Opacity="0"/>
         </Border.Background>
         <Border x:Name="mainBorder" CornerRadius="10" Background="{StaticResource SecondaryBackgroundColor}" Opacity="0.7" Width="180" Height="180" Cursor="Hand">
             <Border.Triggers>

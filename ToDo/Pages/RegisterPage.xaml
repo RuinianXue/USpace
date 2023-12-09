@@ -120,12 +120,12 @@
         </Style>
 
 
-        <Style x:Key="buttonMainGreen" TargetType="Button" BasedOn="{StaticResource buttonMain}">
-            <Setter Property="Background" Value="#5FE7C4" />
+        <Style x:Key="buttonMainBlue" TargetType="Button" BasedOn="{StaticResource buttonMain}">
+            <Setter Property="Background" Value="#479feb" />
             <Setter Property="Foreground" Value="#ffffff" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#4ec7a8" />
+                    <Setter Property="Background" Value="#2a6aeb" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
             </Style.Triggers>
@@ -154,14 +154,37 @@
         </Grid.ColumnDefinitions>
 
         <!--Left Section-->
-        <Border Grid.Column="1" Background="#FFD500" Padding="30" CornerRadius="0 25 25 0">
-            <StackPanel VerticalAlignment="Center">
-                <Image Source="/Images/img.png" Margin="0 0 0 40" Width="160" Height="160" RenderTransformOrigin="1,1"/>
-
-                <TextBlock TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Text="SET UP" Foreground="#363636"/>
-                <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Margin="0 20 0 20" Foreground="#363636" Text="it should only take a couple of minutes to pair with your watch"/>
-            </StackPanel>
+        <Border Grid.Column="1" Padding="30" CornerRadius="0 25 25 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#2a6aeb" Offset="0" />
+                    <GradientStop Color="#2aa7eb" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Canvas>
+                    <Polygon Points="0,20 230,140 0,270" Fill="#488ae2" Canvas.Left="-32" Canvas.Top="-34" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <Polygon Points="100,400 200,370 180,470" Fill="#48a3ea" Canvas.Left="186" Canvas.Top="57" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+                        <Polygon.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="53.287"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Polygon.RenderTransform>
+                    </Polygon>
+                    <Ellipse Width="114" Height="120" Fill="#88b2e6" Canvas.Left="246" Canvas.Top="253" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                    <Ellipse Width="20" Height="20" Fill="#2aa7eb" Canvas.Left="50" Canvas.Top="387" />
+                </Canvas>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Text="SET UP" Foreground="#FFFFFF"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Margin="20 30 20 30" Opacity="0.8" Foreground="#FFFFFF" Text="It should only take a couple of seconds to finish"/>
+                </StackPanel>
+            </Grid>
         </Border>
+
+
 
         <!--Input Section-->
         <Border Grid.Column="0" Padding="20" MouseDown="Border_MouseDown" Background="#ffffff" CornerRadius="25 0 0 25">
@@ -202,7 +225,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Button Style="{StaticResource buttonMain}" Margin="0 0 10 0" Content="Cancel" Click="Btn_Cancel_Click" />
-                        <Button Grid.Column="1" Style="{StaticResource buttonMainGreen}" Margin="10 0 0 0" Content="Save" Click="Btn_Save_Click" />
+                        <Button Grid.Column="1" Style="{StaticResource buttonMainBlue}" Margin="10 0 0 0" Content="Save" Click="Btn_Save_Click" />
                     </Grid>
 
                 </Grid>

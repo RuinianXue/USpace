@@ -14,7 +14,7 @@ namespace UIDisplay.Utils
 {
     public class IgnoredCard
     {
-        public static string[] enumsofType = new string[7] { "arxiv", "battery", "todo", "weather", "tomato", "weathersmall","tomatomedium" };
+        public static string[] enumsofType = new string[6] { "arxiv", "battery", "todo", "weather", "tomato", "weathersmall" };
         public int width { get; set; }
         public int height { get; set; }
         public int row { get; set; }

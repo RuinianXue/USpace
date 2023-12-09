@@ -53,8 +53,7 @@ namespace UIDisplay.Utils
             menu.Items.Add(weatherItem);
 
             MenuItem tomatoItem = new MenuItem { Header = "Tomato Clock" };
-            tomatoItem.Items.Add(CreateSubMenuItem("medium", TomatoSmall_Click));
-            tomatoItem.Items.Add(CreateSubMenuItem("big", TomatoBig_Click));
+            tomatoItem.Click += TomatoBig_Click;
             menu.Items.Add(tomatoItem);
             /*
             MenuItem arxivItem = new MenuItem { Header = "Arxiv" };
