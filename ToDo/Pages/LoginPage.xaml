@@ -347,7 +347,7 @@
                 <Button x:Name="SendCodeButton" Content="Continue" Click="Btn_SendCode_Click" Style="{StaticResource mainButton}" />
                 <TextBlock x:Name="CountdownLabel" Text="" Foreground="Black" Margin="20 30 20 30" Style="{StaticResource NormalText}" Visibility="Collapsed"/>
                 <Button x:Name="SignInByPasswordButton" Content="Sign In" Click="Btn_SignInByPassword_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
-                <Button x:Name="SignInByCodeButton" Content="Sign In/Out" Click="Btn_SignInByCode_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
+                <Button x:Name="SignInByCodeButton" Content="Sign In/Up" Click="Btn_SignInByCode_Click" Style="{StaticResource mainButton}"  Visibility="Collapsed"/>
                 <Button x:Name="PasswordButton" Content="Use Password" Click="Btn_Password_Click" Style="{StaticResource mainButton}" />
                 <Button x:Name="CodeButton" Content="Use Verification Code" Click="Btn_Code_Click" Style="{StaticResource mainButton}" Visibility="Collapsed" />
             </StackPanel>

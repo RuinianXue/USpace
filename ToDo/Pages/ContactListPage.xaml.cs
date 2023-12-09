@@ -61,7 +61,11 @@ namespace UIDisplay.Pages
             }
             else
             {
-                Growl.Info("联系人列表为空！");
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    wrapPanel.Children.Clear();
+                    Growl.Info("联系人列表为空！");
+                }));
             }
         }
 

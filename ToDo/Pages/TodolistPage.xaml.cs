@@ -124,7 +124,11 @@ namespace UIDisplay.Pages
             }
             else
             {
-                Console.WriteLine();
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    wrapPanel.Children.Clear();
+                    Growl.Info("联系人列表为空！");
+                }));
             }
         }
 
