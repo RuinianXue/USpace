@@ -447,7 +447,6 @@ D:\gitrepos\USpace\ToDo\bin\Debug\CefSharp.Core.Runtime.xml
 D:\gitrepos\USpace\ToDo\bin\Debug\UIDisplay.exe.config
 D:\gitrepos\USpace\ToDo\bin\Debug\UIDisplay.exe
 D:\gitrepos\USpace\ToDo\bin\Debug\UIDisplay.pdb
-D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.exe
 D:\gitrepos\USpace\ToDo\bin\Debug\BCrypt.Net.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\CefSharp.Core.dll
@@ -467,7 +466,6 @@ D:\gitrepos\USpace\ToDo\bin\Debug\Microsoft.Xaml.Behaviors.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\MySql.Data.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\Newtonsoft.Json.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\Ookii.Dialogs.Wpf.dll
-D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.exe
 D:\gitrepos\USpace\ToDo\bin\Debug\Qiniu.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\System.Buffers.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\System.Memory.dll
@@ -476,9 +474,7 @@ D:\gitrepos\USpace\ToDo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\TomatoClock.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\ZstdNet.dll
 D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.pdb
-D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.exe.config
 D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.pdb
-D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.exe.config
 D:\gitrepos\USpace\ToDo\bin\Debug\BCrypt.Net.xml
 D:\gitrepos\USpace\ToDo\bin\Debug\BouncyCastle.Crypto.xml
 D:\gitrepos\USpace\ToDo\bin\Debug\CefSharp.pdb
@@ -518,8 +514,6 @@ D:\gitrepos\USpace\ToDo\obj\Debug\Components\AddressUnit.g.cs
 D:\gitrepos\USpace\ToDo\obj\Debug\Components\Battery.g.cs
 D:\gitrepos\USpace\ToDo\obj\Debug\Components\TodoList.g.cs
 D:\gitrepos\USpace\ToDo\obj\Debug\Components\TodoUnit.g.cs
-D:\gitrepos\USpace\ToDo\obj\Debug\Pages\AddressbookPage.g.cs
-D:\gitrepos\USpace\ToDo\obj\Debug\Pages\AddressUnitEdit.g.cs
 D:\gitrepos\USpace\ToDo\obj\Debug\Pages\Dashboard.g.cs
 D:\gitrepos\USpace\ToDo\obj\Debug\MainWindow.g.cs
 D:\gitrepos\USpace\ToDo\obj\Debug\Pages\LoginPage.g.cs
@@ -536,8 +530,6 @@ D:\gitrepos\USpace\ToDo\obj\Debug\Components\AddressUnit.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\Components\Battery.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\Components\TodoList.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\Components\TodoUnit.baml
-D:\gitrepos\USpace\ToDo\obj\Debug\Pages\AddressbookPage.baml
-D:\gitrepos\USpace\ToDo\obj\Debug\Pages\AddressUnitEdit.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\Pages\Dashboard.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\MainWindow.baml
 D:\gitrepos\USpace\ToDo\obj\Debug\Pages\LoginPage.baml
@@ -748,3 +740,11 @@ D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactListPage.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactEditUnit.g.cs
 D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactListPage.baml
 D:\0temp\USpace\ToDo\obj\Debug\Pages\ContactEditUnit.baml
+D:\gitrepos\USpace\ToDo\bin\Debug\arXiv_Crawller.dll
+D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.dll
+D:\gitrepos\USpace\ToDo\bin\Debug\OpenAIGPT.dll.config
+D:\gitrepos\USpace\ToDo\obj\Debug\Pages\ContactListPage.g.cs
+D:\gitrepos\USpace\ToDo\obj\Debug\Pages\ContactEditUnit.g.cs
+D:\gitrepos\USpace\ToDo\obj\Debug\Pages\ContactListPage.baml
+D:\gitrepos\USpace\ToDo\obj\Debug\Pages\ContactEditUnit.baml
+D:\gitrepos\USpace\ToDo\obj\Debug\Styles\arXivCardResourceDictionary.baml

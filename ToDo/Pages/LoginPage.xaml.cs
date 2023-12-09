@@ -167,10 +167,10 @@ namespace UIDisplay.Pages
             passwordBorder.Visibility = Visibility.Collapsed;
             SignInByPasswordButton.Visibility = Visibility.Collapsed;
             CodeButton.Visibility = Visibility.Collapsed;
+            SignInByCodeButton.Visibility = Visibility.Collapsed;
 
             PasswordButton.Visibility = Visibility.Visible;
             SendCodeButton.Visibility = Visibility.Visible;
-            SignInByCodeButton.Visibility = Visibility.Visible;
         }
 
         private void TextBox_Email_TextChanged(object sender, TextChangedEventArgs e)
