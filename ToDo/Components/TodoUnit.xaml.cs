@@ -23,18 +23,26 @@ using UIDisplay.Model;
 namespace UIDisplay.Components
 {
     /// <summary>
-    /// TodoUnit.xaml 的交互逻辑
+    /// 表示一个待办事项单元的用户界面组件。
     /// </summary>
     public partial class TodoUnit : UserControl
     {
         public Todo todo;
         TodoList todoList;
 
+        /// <summary>
+        /// 初始化 <see cref="TodoUnit"/> 类的新实例。
+        /// </summary>
         public TodoUnit()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 初始化 <see cref="TodoUnit"/> 类的新实例，并指定所属的待办事项列表和待办事项信息。
+        /// </summary>
+        /// <param name="todolist">所属的待办事项列表。</param>
+        /// <param name="todoInfo">待办事项信息。</param>
         public TodoUnit(TodoList todolist, Todo todoInfo)
         {
             InitializeComponent();
@@ -50,7 +58,7 @@ namespace UIDisplay.Components
             todoTeammateListText.Text = todo.Teammate;
             if (todo.IsDone > 0)
             {
-                isDoneBtn.IsChecked = true;
+                Btn_IsDone.IsChecked = true;
             }
             if (todo.Priority > 0)
             {
@@ -103,39 +111,19 @@ namespace UIDisplay.Components
             starPath.Fill = (SolidColorBrush)this.FindResource("PrimaryGrayColor");
         }
 
-        private void isDoneBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_IsDone_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("isDoneBtn: " + isDoneBtn.IsChecked);
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimation doubleAnimation = new DoubleAnimation()
-            {
-                From = 1,
-                To = 0,
-                Duration = TimeSpan.FromSeconds(0.8)
-            };
-            DoubleAnimation doubleAnimation2 = new DoubleAnimation()
-            {
-                From = 0,
-                To = 200,
-                Duration = TimeSpan.FromSeconds(0.8),
-                DecelerationRatio = 1
-            };
-            Storyboard.SetTarget(doubleAnimation, mainBorder);
-            Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("Opacity"));
-            storyboard.Children.Add(doubleAnimation);
-            Storyboard.SetTarget(doubleAnimation2, mainBorder);
-            Storyboard.SetTargetProperty(doubleAnimation2, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
-            storyboard.Children.Add(doubleAnimation2);
-            storyboard.Begin();
+            Console.WriteLine("Btn_IsDone: " + Btn_IsDone.IsChecked);
+            AnimateFadeOutAndSlideLeft(mainBorder);
 
-            todo.IsDone = isDoneBtn.IsChecked == true ? 1 : 0;
+            todo.IsDone = Btn_IsDone.IsChecked == true ? 1 : 0;
             todoList.UpdateTodo(todo);
             Task.Run(() =>
             {
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
 
-                    if (isDoneBtn.IsChecked == false)
+                    if (Btn_IsDone.IsChecked == false)
                     {
                         todoList.todoList2.Children.Remove(this);
                     }
@@ -147,13 +135,41 @@ namespace UIDisplay.Components
                     {
                         todoList.todoList1.Children.Remove(this);
                     }
-                    addTodoUnitIntoTodoList();
+                    AddTodoUnitIntoTodoList();
                 }));
             });
-
         }
 
-        private void isImportantBtn_Click(object sender, RoutedEventArgs e)
+        private void AnimateFadeOutAndSlideLeft(UIElement element)
+        {
+            Storyboard storyboard = new Storyboard();
+
+            DoubleAnimation opacityAnimation = new DoubleAnimation()
+            {
+                From = 1,
+                To = 0,
+                Duration = TimeSpan.FromSeconds(0.8)
+            };
+            Storyboard.SetTarget(opacityAnimation, element);
+            Storyboard.SetTargetProperty(opacityAnimation, new PropertyPath("Opacity"));
+            storyboard.Children.Add(opacityAnimation);
+
+            DoubleAnimation slideLeftAnimation = new DoubleAnimation()
+            {
+                From = 0,
+                To = 200,
+                Duration = TimeSpan.FromSeconds(0.8),
+                DecelerationRatio = 1
+            };
+            Storyboard.SetTarget(slideLeftAnimation, element);
+            Storyboard.SetTargetProperty(slideLeftAnimation, new PropertyPath("RenderTransform.(TranslateTransform.X)"));
+            storyboard.Children.Add(slideLeftAnimation);
+
+            storyboard.Begin();
+        }
+
+
+        private void Btn_IsImportant_Click(object sender, RoutedEventArgs e)
         {
             todo.Priority = isImportantBtn.IsChecked == true ? 5 : 0;
             todoList.UpdateTodo(todo);
@@ -161,7 +177,7 @@ namespace UIDisplay.Components
             {
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
-                    if (isDoneBtn.IsChecked == true)
+                    if (Btn_IsDone.IsChecked == true)
                     {
                         todoList.todoList2.Children.Remove(this);
                     }
@@ -173,15 +189,14 @@ namespace UIDisplay.Components
                     {
                         todoList.todoList0.Children.Remove(this);
                     }
-                    addTodoUnitIntoTodoList();
-
+                    AddTodoUnitIntoTodoList();
                 }));
             });
-
         }
-        public void addTodoUnitIntoTodoList()
+
+        public void AddTodoUnitIntoTodoList()
         {
-            if (isDoneBtn.IsChecked == true)
+            if (Btn_IsDone.IsChecked == true)
             {
                 todoList.todoList2.Children.Insert(0, this);
             }
@@ -219,7 +234,7 @@ namespace UIDisplay.Components
                 todoList.todoList1.Children.Insert(pos, this);
             }
         }
-        private void isDoneBtn_Checked(object sender, RoutedEventArgs e)
+        private void Btn_IsDone_Checked(object sender, RoutedEventArgs e)
         {
             todoContentText.Opacity = 0.7;
             todoContentText.TextDecorations = TextDecorations.Strikethrough;
@@ -231,7 +246,7 @@ namespace UIDisplay.Components
             todoDateTimeText.Opacity = 0.7;
         }
 
-        private void isDoneBtn_Unchecked(object sender, RoutedEventArgs e)
+        private void Btn_IsDone_Unchecked(object sender, RoutedEventArgs e)
         {
             todoContentText.Opacity = 1;
             todoContentText.TextDecorations = null;
@@ -253,7 +268,7 @@ namespace UIDisplay.Components
             mainBorder.Background = (SolidColorBrush)this.FindResource("PrimaryBackgroundColor");
         }
 
-        private void deleteMI_Click(object sender, RoutedEventArgs e)
+        private void MI_Delete_Click(object sender, RoutedEventArgs e)
         {
             todoList.DeleteTodo(todo);
             Task.Run(() =>
@@ -261,7 +276,7 @@ namespace UIDisplay.Components
                 Dispatcher.BeginInvoke(new Action(delegate
                 {
 
-                    if (isDoneBtn.IsChecked == true)
+                    if (Btn_IsDone.IsChecked == true)
                     {
                         todoList.todoList2.Children.Remove(this);
                     }

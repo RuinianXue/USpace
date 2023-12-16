@@ -21,21 +21,29 @@ using UIDisplay.Model;
 namespace UIDisplay.Components
 {
     /// <summary>
-    /// TodoList.xaml 的交互逻辑
+    /// 表示一个待办事项列表的用户界面组件。
     /// </summary>
     public partial class TodoList : UserControl
     {
         private bool IsShowMore { get; set; } = true;
+
+        /// <summary>
+        /// 初始化 <see cref="TodoList"/> 类的新实例。
+        /// </summary>
         public TodoList()
         {
             InitializeComponent();
             TodoListInitialize();
         }
+
         private void TodoListInitialize()
         {
             Refresh();
         }
 
+        /// <summary>
+        /// 刷新待办事项列表。
+        /// </summary>
         internal async void Refresh()
         {
             DataTable dt = await TodoManager.QueryTodoAsync(LoginManager.CurrentUserID);
@@ -97,7 +105,10 @@ namespace UIDisplay.Components
             }));
         }
 
-        private void moreBtn_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// 更多按钮点击事件处理。
+        /// </summary>
+        private void Btn_More_Click(object sender, RoutedEventArgs e)
         {
             IsShowMore = !IsShowMore;
             double from = IsShowMore ? 0 : 90;
@@ -117,6 +128,10 @@ namespace UIDisplay.Components
             storyboard.Begin();
         }
 
+        /// <summary>
+        /// 插入待办事项。
+        /// </summary>
+        /// <param name="todo">待插入的待办事项。</param>
         public void InsertTodo(Todo todo)
         {
             Task.Run(() =>
@@ -133,6 +148,10 @@ namespace UIDisplay.Components
             });
         }
 
+        /// <summary>
+        /// 更新待办事项。
+        /// </summary>
+        /// <param name="todo">待更新的待办事项。</param>
         public void UpdateTodo(Todo todo)
         {
             Task.Run(() =>
@@ -150,6 +169,10 @@ namespace UIDisplay.Components
             });
         }
 
+        /// <summary>
+        /// 删除待办事项。
+        /// </summary>
+        /// <param name="todo">待删除的待办事项。</param>
         public void DeleteTodo(Todo todo)
         {
             Task.Run(() =>

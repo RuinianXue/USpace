@@ -15,31 +15,26 @@ namespace UIDisplay.Cards
     public class TodoCard : BigSquareCard
         //Type 2
     {
-        private TodoList todoList;
+        private readonly TodoList todoList;
         public event EventHandler TodoCardDoubleClicked;
-        public override void SetPosition(Grid grid, int row, int colomn)
+
+        /// <summary>
+        /// 设置卡片在网格中的位置
+        /// </summary>
+        /// <param name="grid">所在的网格</param>
+        /// <param name="row">行</param>
+        /// <param name="column">列</param>
+        public override void SetPosition(Grid grid, int row, int column)
         {
-            base.SetPosition(grid, row, colomn);
+            base.SetPosition(grid, row, column);
             IgnoredCard tmp = new IgnoredCard(this, 2);
             Dashboard.loadDashJson.AddCard(tmp);
             Dashboard.AddNewTodoCard(this);
         }
-        //public TodoCard()
-        //{
-        //    MenuInitialize();
-        //    stackPanel = new StackPanel();
-        //    stackPanel.Margin = new Thickness(10);
-        //    stackPanel.Height = Constants.BIG_CARD_LENGTH - 30;
-        //    stackPanel.Width = Constants.BIG_CARD_LENGTH - 30;
-        //    todoList = new TodoList();
-        //    Viewbox vb = new Viewbox();
-        //    vb.Child = todoList;
-        //    stackPanel.Children.Add(vb);
-        //    Content = stackPanel;
 
-        //    MouseDoubleClick += Card_DoubleClick;
-        //}
-
+        /// <summary>
+        /// 构造函数，初始化TodoCard
+        /// </summary>
         public TodoCard()
         {
             typeOfCard = 2;
@@ -56,14 +51,27 @@ namespace UIDisplay.Cards
             MouseDoubleClick += Card_DoubleClick;
         }
 
+        /// <summary>
+        /// 触发双击事件
+        /// </summary>
         protected virtual void DoubleClick()
         {
             TodoCardDoubleClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        /// <summary>
+        /// 处理卡片双击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Card_DoubleClick(object sender, RoutedEventArgs e)
         {
             DoubleClick();
         }
+
+        /// <summary>
+        /// 刷新TodoList
+        /// </summary>
         public void Refresh()
         {
             todoList.Refresh();

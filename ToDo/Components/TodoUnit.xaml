@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.ContextMenu>
         <ContextMenu>
-            <MenuItem Name="deleteMI" Header="删除" Click="deleteMI_Click"/>
+            <MenuItem Name="deleteMI" Header="删除" Click="MI_Delete_Click"/>
         </ContextMenu>
     </UserControl.ContextMenu>
     <Border x:Name="mainBorder" Height="60" CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}" Margin="0 1.6 0 1.6" Opacity="0.85" Loaded="Border_Loaded" RenderTransformOrigin="0.5,0.5" MouseEnter="mainBorder_MouseEnter" MouseLeave="mainBorder_MouseLeave">
@@ -22,7 +22,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
-            <ToggleButton x:Name="isDoneBtn" Grid.Column="0" BorderThickness="0" IsChecked="False" Style="{StaticResource ToggleButtonFlip}" Width="24" Height="24" Click="isDoneBtn_Click" Checked="isDoneBtn_Checked" Unchecked="isDoneBtn_Unchecked">
+            <ToggleButton x:Name="Btn_IsDone" Grid.Column="0" BorderThickness="0" IsChecked="False" Style="{StaticResource ToggleButtonFlip}" Width="24" Height="24" Click="Btn_IsDone_Click" Checked="Btn_IsDone_Checked" Unchecked="Btn_IsDone_Unchecked">
                 <hc:StatusSwitchElement.CheckedElement>
                     <Border Background="{DynamicResource PrimaryBrush}">
                         <Path Data="{DynamicResource checked}" Stretch="Fill" Fill="{DynamicResource BackgroundBrush}" Width="12" Height="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -59,7 +59,7 @@
                 </Grid>
             </Grid>
             <hc:SimplePanel Grid.Column="2">
-                <ToggleButton x:Name="isImportantBtn" Grid.Column="0" BorderThickness="0" IsChecked="False" Style="{StaticResource ToggleButtonFlip}" Width="24" Height="24" Background="Transparent" Click="isImportantBtn_Click">
+                <ToggleButton x:Name="isImportantBtn" Grid.Column="0" BorderThickness="0" IsChecked="False" Style="{StaticResource ToggleButtonFlip}" Width="24" Height="24" Background="Transparent" Click="Btn_IsImportant_Click">
                     <hc:StatusSwitchElement.CheckedElement>
                         <Border>
                             <Path Data="{DynamicResource starfilled}" Stretch="Fill" Fill="{DynamicResource PrimaryBrush}" Width="20" Height="20" HorizontalAlignment="Center"/>

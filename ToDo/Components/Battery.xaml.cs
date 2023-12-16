@@ -1,26 +1,24 @@
 ﻿using HandyControl.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Management;
 using System.Windows;
 using System.Windows.Controls;
-using System.Management;
-using System.Globalization;
-using System.Windows.Data;
-using System.Windows.Media;
-using System.ComponentModel;
 
 namespace UIDisplay.Components
 {
     /// <summary>
-    /// Battery.xaml 的交互逻辑
+    /// 表示一个显示电池信息的用户界面组件。
     /// </summary>
     public partial class Battery : UserControl
     {
+        /// <summary>
+        /// 获取或设置电池电量。
+        /// </summary>
         public string BatteryLevel { get; set; }
 
+        /// <summary>
+        /// 初始化 <see cref="Battery"/> 类的新实例。
+        /// </summary>
         public Battery()
         {
             InitializeComponent();
@@ -28,6 +26,10 @@ namespace UIDisplay.Components
             BatteryLevel = GetBatteryInfo();
         }
 
+        /// <summary>
+        /// 获取电池信息。
+        /// </summary>
+        /// <returns>以字符串形式表示的电池电量。</returns>
         private string GetBatteryInfo()
         {
             try
@@ -43,7 +45,7 @@ namespace UIDisplay.Components
             }
             catch
             {
-                return $"获取电池电量失败";
+                return $"无法获取电池电量";
             }
             return string.Empty;
         }

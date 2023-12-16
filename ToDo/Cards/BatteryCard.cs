@@ -13,7 +13,7 @@ using UIDisplay.Utils;
 namespace UIDisplay.Cards
 {
     public class BatteryCard: SmallSquareCard
-    //Type 1
+    //Type 
     {
         public BatteryCard() : base()
         {

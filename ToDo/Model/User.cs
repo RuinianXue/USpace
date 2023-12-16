@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UIDisplay.Model
 {
     public class User
     {
-        public string UID { get; set; }
-        public string Nickname { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string JsonFilePath { get; set; }
+        public string UID { get; set; } // 用户唯一标识符
+        public string Nickname { get; set; } // 用户昵称
+        public DateTime DateOfBirth { get; set; } // 用户出生日期
+        public string Email { get; set; } // 用户电子邮箱
+        public string Password { get; set; } // 用户密码
+        public string JsonFilePath { get; set; } // 用户JSON文件路径
     }
 }

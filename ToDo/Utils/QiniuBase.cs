@@ -14,60 +14,69 @@ namespace UIDisplay.Utils
 {
     internal class QiniuBase
     {
+        /// <summary>
+        /// 上传图片到七牛云存储
+        /// </summary>
+        /// <param name="img_local_path">本地图片路径</param>
+        /// <param name="target_img_name">目标图片名称</param>
         public static void UploadImg(string img_local_path, string target_img_name)
         {
             string AccessKey = Settings.QiniuAccessKey;
             string SecretKey = Settings.QiniuSecretKey;
             Mac mac = new Mac(AccessKey, SecretKey);
-            // 上传文件名
+
             string key = target_img_name;
-            // 本地文件路径
             string filePath = img_local_path;
-            // 存储空间名
             string Bucket = "uspace1";
-            // 设置上传策略
+
             PutPolicy putPolicy = new PutPolicy();
-            // 设置要上传的目标空间
             putPolicy.Scope = Bucket;
-            // 上传策略的过期时间(单位:秒)
             putPolicy.SetExpires(3600);
-            // 生成上传token
             string token = Auth.CreateUploadToken(mac, putPolicy.ToJsonString());
+
             Config config = new Config();
-            // 设置上传区域
             config.Zone = Zone.ZONE_CN_South;
-            // 设置 http 或者 https 上传
             config.UseHttps = true;
             config.UseCdnDomains = true;
             config.ChunkSize = ChunkUnit.U512K;
-            // 表单上传
+
             FormUploader target = new FormUploader(config);
             HttpResult result = target.UploadFile(filePath, key, token, null);
             Console.WriteLine("form upload result: " + result.ToString());
             Growl.Info("form upload result: " + result.ToString());
         }
 
+        /// <summary>
+        /// 获取七牛云存储中图片的访问链接
+        /// </summary>
+        /// <param name="target_img_name">目标图片名称</param>
+        /// <returns>图片的访问链接</returns>
         public static string GetUrl(string target_img_name)
         {
             string AccessKey = Settings.QiniuAccessKey;
             string SecretKey = Settings.QiniuSecretKey;
             Mac mac = new Mac(AccessKey, SecretKey);
+
             string domain = "http://s4u6u3ckk.hn-bkt.clouddn.com";
             string key = target_img_name;
             string privateUrl = DownloadManager.CreatePrivateUrl(mac, domain, key, 3600);
             return privateUrl;
         }
 
+        /// <summary>
+        /// 删除七牛云存储中的图片
+        /// </summary>
+        /// <param name="target_img_name">目标图片名称</param>
         public static void DeleteImg(string target_img_name)
         {
             string AccessKey = Settings.QiniuAccessKey;
             string SecretKey = Settings.QiniuSecretKey;
             Mac mac = new Mac(AccessKey, SecretKey);
+
             string key = target_img_name;
             Console.WriteLine(key);
-            // 存储空间名
             string Bucket = "uspace1";
-            // 设置存储区域
+
             Config config = new Config();
             config.Zone = Zone.ZONE_CN_South;
             BucketManager bucketManager = new BucketManager(mac, config);

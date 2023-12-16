@@ -10,6 +10,11 @@ namespace UIDisplay.DAL
     {
         private static MysqlBase mysqlBase = new MysqlBase();
 
+        /// <summary>
+        /// 向数据库插入待办事项信息
+        /// </summary>
+        /// <param name="todo">待办事项对象</param>
+        /// <returns>插入是否成功</returns>
         public static bool InsertTodo(Todo todo)
         {
             string sql = "INSERT INTO Todo (TID, Content, Date, Priority, IsDone, Teammate, UID) VALUES (@TID, @Content, @Date, @Priority, @IsDone, @Teammate, @UID)";
@@ -21,12 +26,17 @@ namespace UIDisplay.DAL
                 new MySqlParameter("@Priority", todo.Priority),
                 new MySqlParameter("@IsDone", todo.IsDone),
                 new MySqlParameter("@Teammate", todo.Teammate),
-                new MySqlParameter("@UID", todo.UID), 
+                new MySqlParameter("@UID", todo.UID),
             };
 
             return mysqlBase.CommonExecute(sql, parameters) > 0;
         }
 
+        /// <summary>
+        /// 更新数据库中的待办事项信息
+        /// </summary>
+        /// <param name="todo">待办事项对象</param>
+        /// <returns>更新是否成功</returns>
         public static bool UpdateTodo(Todo todo)
         {
             string sql = "UPDATE Todo SET Content = @Content, Date = @Date, Priority = @Priority, IsDone = @IsDone, Teammate = @Teammate, UID = @UID WHERE TID = @TID";
@@ -44,6 +54,11 @@ namespace UIDisplay.DAL
             return mysqlBase.CommonExecute(sql, parameters) > 0;
         }
 
+        /// <summary>
+        /// 删除数据库中的待办事项信息
+        /// </summary>
+        /// <param name="todo">待办事项对象</param>
+        /// <returns>删除是否成功</returns>
         public static bool DeleteTodo(Todo todo)
         {
             string sql = "DELETE FROM Todo WHERE TID = @TID";
@@ -55,6 +70,11 @@ namespace UIDisplay.DAL
             return mysqlBase.CommonExecute(sql, parameters) > 0;
         }
 
+        /// <summary>
+        /// 异步查询数据库中的待办事项信息
+        /// </summary>
+        /// <param name="userID">用户唯一标识符</param>
+        /// <returns>待办事项信息的DataTable</returns>
         public static async Task<DataTable> QueryTodoAsync(string userID)
         {
             string sql = "SELECT TID, Content, Date, Priority, IsDone, Teammate FROM Todo WHERE UID = @UID ORDER BY Priority DESC, Date";

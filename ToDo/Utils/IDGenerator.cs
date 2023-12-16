@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UIDisplay.Utils
 {
     internal class IDGenerator
     {
-        public static string genUUID()
+        /// <summary>
+        /// 生成UUID（通用唯一标识符）
+        /// </summary>
+        /// <returns>生成的UUID字符串</returns>
+        public static string GenUUID()
         {
             Guid myUUId = Guid.NewGuid();
             string convertedUUID = myUUId.ToString();

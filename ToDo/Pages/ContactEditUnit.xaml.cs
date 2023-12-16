@@ -26,7 +26,7 @@ using HandyControl.Controls;
 namespace UIDisplay.Pages
 {
     /// <summary>
-    /// ContactEditUnit.xaml 的交互逻辑
+    /// 表示联系人编辑页面的用户界面。
     /// </summary>
     public partial class ContactEditUnit : Page
     {
@@ -35,15 +35,21 @@ namespace UIDisplay.Pages
         private string tmp_img_path { get; set; }
         private ContactListPage _adbp;
         public event EventHandler<ContactSaveEventArgs> ContactSaved;
+
+        /// <summary>
+        /// 初始化 <see cref="ContactEditUnit"/> 类的新实例。
+        /// </summary>
         public ContactEditUnit()
         {
             InitializeComponent();
         }
+
         /// <summary>
-        /// 初始化页面
+        /// 初始化 <see cref="ContactEditUnit"/> 类的新实例，并指定所属的联系人列表页面、联系人信息和模式。
         /// </summary>
-        /// <param name="contact">contact信息</param>
-        /// <param name="mode">模式，默认0（添加新联系人），1（修改信息）</param>
+        /// <param name="adbp">所属的联系人列表页面。</param>
+        /// <param name="contact">联系人信息。</param>
+        /// <param name="mode">模式，默认0（添加新联系人），1（修改信息）。</param>
         public ContactEditUnit(ContactListPage adbp, Contact contact, int mode = 0)
         {
             InitializeComponent();
@@ -52,6 +58,7 @@ namespace UIDisplay.Pages
             this.mode = mode;
             Init();
         }
+
         private void Init()
         {
             Refresh();
@@ -64,6 +71,7 @@ namespace UIDisplay.Pages
                 insertBtn.Visibility = Visibility.Collapsed;
             }
         }
+
         private void Refresh()
         {
             nameTextBox.Text = contact.Name;
@@ -71,27 +79,22 @@ namespace UIDisplay.Pages
             emailTextBox.Text = contact.Email;
             img.Source = contact.GetImg();
         }
+
         private void Btn_Back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GetNavigationService(this).GoBack();
         }
 
-        private void Btn_Insert_Click(object sender, RoutedEventArgs e)
+        private void UpdateContactInfo()
         {
             contact.Name = nameTextBox.Text;
             contact.Phone = phoneTextBox.Text;
             contact.Email = emailTextBox.Text;
             OnContactSaved(false);
 
-            if (!ContactManager.ValidatePhoneNumber(contact.Phone))
+            if (!ContactManager.ValidatePhoneNumber(contact.Phone) || !ContactManager.ValidateEmail(contact.Email))
             {
-                Growl.Error("请输入有效的电话号码！");
-                return;
-            }
-
-            if (!ContactManager.ValidateEmail(contact.Email))
-            {
-                Growl.Error("请输入有效的电子邮件地址！");
+                Growl.Error(!ContactManager.ValidatePhoneNumber(contact.Phone) ? "请输入有效的电话号码！" : "请输入有效的电子邮件地址！");
                 return;
             }
 
@@ -101,53 +104,10 @@ namespace UIDisplay.Pages
                 {
                     QiniuBase.DeleteImg(contact.ImgPath);
                 }
-                contact.ImgPath = IDGenerator.genUUID() + ".jpg";
-                Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
+                contact.ImgPath = IDGenerator.GenUUID() + ".jpg";
                 QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
             }
-            UploadContactInfo();
-            //OnContactSaved(true);
-            _adbp.IsLoaded = false;
-            NavigationService.GetNavigationService(this).GoBack();         
-        }
 
-        private void Btn_Update_Click(object sender, RoutedEventArgs e)
-        {
-            contact.Name = nameTextBox.Text;
-            contact.Phone = phoneTextBox.Text;
-            contact.Email = emailTextBox.Text;
-            OnContactSaved(false);
-
-            if (!ContactManager.ValidatePhoneNumber(contact.Phone))
-            {
-                Growl.Error("请输入有效的电话号码！");
-                return;
-            }
-
-            if (!ContactManager.ValidateEmail(contact.Email))
-            {
-                Growl.Error("请输入有效的电子邮件地址！");
-                return;
-            }
-
-            if (tmp_img_path != null && tmp_img_path.Length > 0)
-            {
-                if (contact.ImgPath != "default.jpg")
-                {
-                    QiniuBase.DeleteImg(contact.ImgPath);
-                }
-                contact.ImgPath = IDGenerator.genUUID() + ".jpg";
-                Console.WriteLine("Now contact imgpath is: " + contact.ImgPath);
-                QiniuBase.UploadImg(tmp_img_path, contact.ImgPath);
-            }
-            ContactManager.UpdateContact(contact);
-            UploadContactInfo();
-            _adbp.IsLoaded = false;
-            NavigationService.GetNavigationService(this).GoBack();
-        }
-
-        private void UploadContactInfo()
-        {
             if (mode == 0)
             {
                 ContactManager.InsertContact(contact);
@@ -157,6 +117,19 @@ namespace UIDisplay.Pages
                 ContactManager.UpdateContact(contact);
             }
             OnContactSaved(true);
+
+            _adbp.IsLoaded = false;
+            NavigationService.GetNavigationService(this).GoBack();
+        }
+
+        private void Btn_Insert_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateContactInfo();
+        }
+
+        private void Btn_Update_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateContactInfo();
         }
 
         private void Btn_UploadImg_Click(object sender, RoutedEventArgs e)
@@ -177,6 +150,7 @@ namespace UIDisplay.Pages
         {
             LoadInAnimation(sender);
         }
+
         private void LoadInAnimation(object sender)
         {
             Storyboard storyboard = new Storyboard();
@@ -209,8 +183,14 @@ namespace UIDisplay.Pages
         }
     }
 
+    /// <summary>
+    /// 表示保存联系人事件的参数。
+    /// </summary>
     public class ContactSaveEventArgs : EventArgs
     {
+        /// <summary>
+        /// 获取或设置保存联系人是否成功。
+        /// </summary>
         public bool Success { get; set; }
     }
 }

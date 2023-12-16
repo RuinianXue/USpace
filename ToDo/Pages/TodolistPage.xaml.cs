@@ -21,25 +21,35 @@ using UIDisplay.Model;
 namespace UIDisplay.Pages
 {
     /// <summary>
-    /// TodolistPage.xaml 的交互逻辑
+    /// 代办事项页面，用于显示和管理用户的代办事项。
     /// </summary>
     public partial class TodoListPage : Page
     {
         private CancellationTokenSource cancellationTokenSource;
         private const int RefreshInterval = 60000; // 毫秒
 
+        /// <summary>
+        /// 初始化 <see cref="TodoListPage"/> 类的新实例。
+        /// </summary>
         public TodoListPage()
         {
             InitializeComponent();
             TodoListPageInitialize();
         }
 
+        /// <summary>
+        /// 初始化 TodoList 页面。
+        /// </summary>
         private void TodoListPageInitialize()
         {
             cancellationTokenSource = new CancellationTokenSource();
             Task.Run(() => CheckTimeAsync(cancellationTokenSource.Token));
         }
 
+        /// <summary>
+        /// 异步检查时间并发送通知。
+        /// </summary>
+        /// <param name="cancellationToken">用于取消异步操作的标记。</param>
         private async Task CheckTimeAsync(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
@@ -54,6 +64,10 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 检查并发送通知。
+        /// </summary>
+        /// <param name="children">子元素集合。</param>
         private void CheckAndSendNotifications(UIElementCollection children)
         {
             foreach (TodoUnit todoUnit in children.Cast<TodoUnit>().Where(todoUnit => DateTime.Now < todoUnit.todo.Date))
@@ -67,11 +81,18 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 停止 TodoList 页面的异步操作。
+        /// </summary>
         private void StopTodoListPage()
         {
             cancellationTokenSource?.Cancel();
         }
 
+        /// <summary>
+        /// 发送通知。
+        /// </summary>
+        /// <param name="todo">待办事项对象。</param>
         private void SendNotifications(Todo todo)
         {
             string[] nameList = todo.Teammate.Split(';');
@@ -98,6 +119,9 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 刷新地址簿。
+        /// </summary>
         private void Refresh_Addressbook()
         {
             DataTable dt;
@@ -132,11 +156,17 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 刷新代办事项列表。
+        /// </summary>
         private void Refresh_TodoList()
         {
             todoList.Refresh();
         }
 
+        /// <summary>
+        /// 页面加载事件。
+        /// </summary>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             LoadInAnimation(sender);
@@ -144,11 +174,17 @@ namespace UIDisplay.Pages
             Refresh_Addressbook();
         }
 
+        /// <summary>
+        /// 页面卸载事件。
+        /// </summary>
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             StopTodoListPage();
         }
 
+        /// <summary>
+        /// 加载页面动画。
+        /// </summary>
         private void LoadInAnimation(object sender)
         {
             Storyboard storyboard = new Storyboard();
@@ -175,6 +211,9 @@ namespace UIDisplay.Pages
             storyboard.Begin();
         }
 
+        /// <summary>
+        /// 任务内容文本框内容变化事件。
+        /// </summary>
         private void TextBox_TodoTaskContent_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (todoTaskContentTextBox.Text.Length > 0)
@@ -188,12 +227,17 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 任务内容文本框获得焦点事件。
+        /// </summary>
         private void TextBox_TodoTaskContent_GotFocus(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("todoTaskContentTextBox: " + "focus");
-
         }
 
+        /// <summary>
+        /// 页面边框鼠标按下事件。
+        /// </summary>
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Console.WriteLine("border: " + "mouse_down");
@@ -203,16 +247,21 @@ namespace UIDisplay.Pages
                 g0Focus1.Visibility = Visibility.Visible;
                 g1Focus0.Visibility = Visibility.Collapsed;
                 g1Focus1.Visibility = Visibility.Visible;
-                dateTimePickers.SelectedDateTime = DateTime.Now.AddDays(1);
                 todoTaskContentTextBox.Focus();
             }
         }
 
+        /// <summary>
+        /// 任务内容文本框失去焦点事件。
+        /// </summary>
         private void TextBox_TodoTaskContent_LostFocus(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("todoTaskContentTextBox: " + "lost_focus");
         }
 
+        /// <summary>
+        /// 任务内容文本框失去焦点事件。
+        /// </summary>
         private void TextBox_TodoTaskContent_LostFocus()
         {
             todoTaskContentTextBox.Text = null;
@@ -223,6 +272,9 @@ namespace UIDisplay.Pages
             teammateList.Text = "无";
         }
 
+        /// <summary>
+        /// 从文本中设置选定的日期时间。
+        /// </summary>
         private void SetSelectedDateTimeFromText(string text)
         {
             var result = TodoManager.ParseTime(text);
@@ -231,17 +283,40 @@ namespace UIDisplay.Pages
             {
                 dateTimePickers.SelectedDateTime = dt;
             }
+            else
+            {
+                dateTimePickers.SelectedDateTime = DateTime.Now.AddDays(1);
+            }
         }
 
+        /// <summary>
+        /// 从文本中获取内容。
+        /// </summary>
+        private string GetContentFromText(string text)
+        {
+            var result = TodoManager.ParseTime(text);
+            string dt = result.Content;
+            return dt;
+        }
+
+        /// <summary>
+        /// 页面键盘按下事件。
+        /// </summary>
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && g1Focus1.Visibility == Visibility.Visible)
             {
-                if (todoTaskContentTextBox.Text.Length > 0)
+                string text = todoTaskContentTextBox.Text;
+                if (text.Length > 0)
                 {
                     string teammate = (teammateList.Text == "无") ? null : teammateList.Text;
 
-                    Todo tmp_todoInfo = new Todo(IDGenerator.genUUID(), todoTaskContentTextBox.Text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text, LoginManager.CurrentUserID);
+                    if (GetContentFromText(text) != null)
+                    {
+                        text = GetContentFromText(text);
+                    }
+
+                    Todo tmp_todoInfo = new Todo(IDGenerator.GenUUID(), text, dateTimePickers.SelectedDateTime.Value, 0, 0, teammateList.Text, LoginManager.CurrentUserID);
 
                     Task.Run(() =>
                     {
@@ -252,7 +327,7 @@ namespace UIDisplay.Pages
                         Dispatcher.BeginInvoke(new Action(delegate
                         {
                             TodoUnit todoUnit = new TodoUnit(todoList, tmp_todoInfo);
-                            todoUnit.addTodoUnitIntoTodoList();
+                            todoUnit.AddTodoUnitIntoTodoList();
                         }));
                     });
                     TextBox_TodoTaskContent_LostFocus();
@@ -264,6 +339,9 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 切换地址簿可见性。
+        /// </summary>
         private void ToggleAddressbookVisibility(bool isVisible)
         {
             var opacityFrom = isVisible ? 0 : 1;
@@ -306,6 +384,9 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 点击添加联系人按钮事件。
+        /// </summary>
         private void Btn_AddEmailList_Click(object sender, RoutedEventArgs e)
         {
             if (addressbookBorder.Visibility == Visibility.Visible)
@@ -319,11 +400,17 @@ namespace UIDisplay.Pages
             }
         }
 
+        /// <summary>
+        /// 点击地址簿刷新按钮事件。
+        /// </summary>
         private void Btn_AddressbookRefresh_Click(object sender, RoutedEventArgs e)
         {
             Refresh_Addressbook();
         }
 
+        /// <summary>
+        /// 确认联系人列表按钮点击事件。
+        /// </summary>
         private async void Btn_ContactListConfirm_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(() =>

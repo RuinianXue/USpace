@@ -10,26 +10,51 @@ namespace UIDisplay.BLL
 {
     public class TodoManager
     {
+        /// <summary>
+        /// 向数据库插入新的待办事项
+        /// </summary>
+        /// <param name="todo">待办事项对象</param>
+        /// <returns>插入是否成功</returns>
         public static bool InsertTodo(Todo todo)
         {
             return TodoRepository.InsertTodo(todo);
         }
 
+        /// <summary>
+        /// 更新数据库中的待办事项
+        /// </summary>
+        /// <param name="todo">更新后的待办事项对象</param>
+        /// <returns>更新是否成功</returns>
         public static bool UpdateTodo(Todo todo)
         {
             return TodoRepository.UpdateTodo(todo);
         }
 
+        /// <summary>
+        /// 从数据库中删除指定的待办事项
+        /// </summary>
+        /// <param name="todo">待办事项对象</param>
+        /// <returns>删除是否成功</returns>
         public static bool DeleteTodo(Todo todo)
         {
             return TodoRepository.DeleteTodo(todo);
         }
 
+        /// <summary>
+        /// 异步查询指定用户的待办事项
+        /// </summary>
+        /// <param name="userID">用户ID</param>
+        /// <returns>待办事项的DataTable</returns>
         public static async Task<DataTable> QueryTodoAsync(string userID)
         {
             return await TodoRepository.QueryTodoAsync(userID);
         }
 
+        /// <summary>
+        /// 解析用户输入的时间字符串
+        /// </summary>
+        /// <param name="input">用户输入的时间字符串</param>
+        /// <returns>解析后的时间和内容</returns>
         public static (DateTime? ParsedDateTime, string Content) ParseTime(string input)
         {
             DateTime now = DateTime.Now;
@@ -45,7 +70,7 @@ namespace UIDisplay.BLL
                 string dayOfWeekPhrase = match.Groups[3].Value;
                 string timePhrase = match.Groups[4].Value;
                 string hour = match.Groups[6].Value;
-                string minute = match.Groups[7].Value;  //?
+                string minute = match.Groups[7].Value;
 
                 for (int i = 0; i < match.Groups.Count; i++)
                 {
@@ -143,6 +168,13 @@ namespace UIDisplay.BLL
             return (null, input);
         }
 
+        /// <summary>
+        /// 获取下一个指定星期几的日期时间
+        /// </summary>
+        /// <param name="now">当前日期时间</param>
+        /// <param name="targetDayOfWeek">目标星期几</param>
+        /// <param name="daysToAdd">要添加的天数</param>
+        /// <returns>下一个指定星期几的日期时间</returns>
         private static DateTime GetNextDateTime(DateTime now, DayOfWeek targetDayOfWeek, int daysToAdd)
         {
             int currentDayOfWeek = (int)now.DayOfWeek;

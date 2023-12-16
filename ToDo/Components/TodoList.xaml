@@ -22,7 +22,7 @@
                     <StackPanel x:Name="todoList1" Orientation="Vertical" VerticalAlignment="Top">
                     </StackPanel>
                 </StackPanel>
-                <Button x:Name="moreBtn" Grid.Row="1" HorizontalAlignment="Left" Margin="0 10 0 10" Click="moreBtn_Click">
+                <Button x:Name="moreBtn" Grid.Row="1" HorizontalAlignment="Left" Margin="0 10 0 10" Click="Btn_More_Click">
                     <Button.Background>
                         <SolidColorBrush Opacity="0.5" Color="White"/>
                     </Button.Background>

@@ -2,28 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UIDisplay.Model;
 
 namespace UIDisplay.Components
 {
     /// <summary>
-    /// AddressUnit.xaml 的交互逻辑
+    /// 表示一个联系人信息的用户界面组件。
     /// </summary>
     public partial class AddressUnit : UserControl
     {
+        // 用于存储颜色信息的结构体
         struct MyColor
         {
             public byte r, g, b, a;
@@ -35,14 +29,25 @@ namespace UIDisplay.Components
                 this.a = a;
             }
         }
+
         private readonly List<MyColor> myColors = new List<MyColor>();
         private readonly int mode = 0;
         public bool IsChecked { get; set; } = false;
         public Contact ContactInfo { get; set; }
+
+        /// <summary>
+        /// 初始化 <see cref="AddressUnit"/> 类的新实例。
+        /// </summary>
         public AddressUnit()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// 使用指定的联系人信息和模式初始化 <see cref="AddressUnit"/> 类的新实例。
+        /// </summary>
+        /// <param name="uI">联系人信息。</param>
+        /// <param name="mode">模式。</param>
         public AddressUnit(Contact uI, int mode = 0)
         {
             InitializeComponent();
@@ -68,6 +73,7 @@ namespace UIDisplay.Components
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
+            // 鼠标进入时的动画效果
             Storyboard storyboard = new Storyboard();
             DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
             EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
@@ -100,6 +106,7 @@ namespace UIDisplay.Components
 
         private void UserControl_MouseLeave(object sender, MouseEventArgs e)
         {
+            // 鼠标离开时的动画效果
             Storyboard storyboard = new Storyboard();
             DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
             EasingDoubleKeyFrame easingDoubleKeyFrame1 = new EasingDoubleKeyFrame()
@@ -127,6 +134,7 @@ namespace UIDisplay.Components
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            // 鼠标点击时的动画效果
             IsChecked = !IsChecked;
             Console.WriteLine(IsChecked.ToString());
             if (IsChecked)

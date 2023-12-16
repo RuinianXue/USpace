@@ -10,17 +10,21 @@ using UIDisplay.Utils;
 
 namespace UIDisplay.BLL
 {
-    public class EmailManager 
-    { 
+    public class EmailManager
+    {
         private static readonly Random random = new Random();
 
+        /// <summary>
+        /// 发送验证码邮件
+        /// </summary>
+        /// <param name="email">目标邮箱</param>
+        /// <returns>生成的验证码</returns>
         public static async Task<string> SendVerificationCode(string email)
         {
             string verificationCode = GenerateVerificationCode();
 
             try
             {
-                // Create a MailMessage instance
                 MailMessage mailMessage = new MailMessage
                 {
                     From = new MailAddress(Settings.EmailFrom),
@@ -29,56 +33,50 @@ namespace UIDisplay.BLL
                     Body = "Your verification code: " + verificationCode
                 };
 
-                // Create a SmtpClient instance
                 using (SmtpClient client = new SmtpClient(Settings.SmtpClient))
                 {
                     client.EnableSsl = true;
                     client.UseDefaultCredentials = false;
                     client.Credentials = new NetworkCredential(Settings.EmailFrom, Settings.EmailPwd);
 
-                    // Send the email
                     await client.SendMailAsync(mailMessage);
                 }
 
-                // Return the verification code for further processing if needed
                 return verificationCode;
             }
             catch (SmtpException ex)
             {
-                // Handle the exception (log, display an error, etc.)
-                Growl.Error($"Error sending email: {ex.Message}");
+                Growl.Error($"Failed to send email: {ex.Message}");
                 return null;
             }
         }
 
+        /// <summary>
+        /// 发送通知邮件
+        /// </summary>
+        /// <param name="emailTo">目标邮箱</param>
+        /// <param name="subject">邮件主题</param>
+        /// <param name="body">邮件内容</param>
         public static void SendNotice(string emailTo, string subject, string body)
         {
             try
             {
-                // 验证电子邮件地址格式
                 MailAddress mailAddress = new MailAddress(emailTo);
 
-                // 指定发件人、收件人、邮件主题和内容
                 string from = Settings.EmailFrom;
 
-                // 创建一个 SmtpClient 对象
                 SmtpClient smtpClient = new SmtpClient(Settings.SmtpClient, 587);
 
-                // 指定发件人的用户名和密码
                 smtpClient.Credentials = new NetworkCredential(Settings.EmailFrom, Settings.EmailPwd);
 
-                // 启用安全连接
                 smtpClient.EnableSsl = true;
 
-                // 创建一个 MailMessage 对象
                 MailMessage mailMessage = new MailMessage(from, emailTo, subject, body);
 
-                // 发送邮件
                 smtpClient.Send(mailMessage);
             }
             catch (FormatException ex)
             {
-                // 处理格式异常，可能是因为 emailTo 不是有效的电子邮件地址格式
                 Console.WriteLine("Invalid email address format: " + emailTo);
                 Console.WriteLine(ex.ToString());
             }
