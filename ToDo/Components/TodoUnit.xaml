@@ -12,7 +12,7 @@
             <MenuItem Name="deleteMI" Header="删除" Click="MI_Delete_Click"/>
         </ContextMenu>
     </UserControl.ContextMenu>
-    <Border x:Name="mainBorder" Height="60" CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}" Margin="0 1.6 0 1.6" Opacity="0.85" Loaded="Border_Loaded" RenderTransformOrigin="0.5,0.5" MouseEnter="mainBorder_MouseEnter" MouseLeave="mainBorder_MouseLeave">
+    <Border x:Name="mainBorder" Height="60" CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}" Margin="0 1.6 0 1.6" Opacity="0.85" Loaded="Border_Loaded" RenderTransformOrigin="0.5,0.5" MouseEnter="Border_Main_MouseEnter" MouseLeave="Border_Main_MouseLeave">
         <Border.RenderTransform>
             <TranslateTransform X="0" Y="0"/>
         </Border.RenderTransform>
@@ -28,7 +28,7 @@
                         <Path Data="{DynamicResource checked}" Stretch="Fill" Fill="{DynamicResource BackgroundBrush}" Width="12" Height="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </hc:StatusSwitchElement.CheckedElement>
-                <Border x:Name="unCheckPanel" Background="{DynamicResource BackgroundBrush}"  MouseEnter="unCheckPanel_MouseEnter" MouseLeave="unCheckPanel_MouseLeave">
+                <Border x:Name="unCheckPanel" Background="{DynamicResource BackgroundBrush}"  MouseEnter="Panel_UnCheck_MouseEnter" MouseLeave="Panel_UnCheck_MouseLeave">
                     <hc:SimplePanel Opacity="0.8">
                         <Path Data="{DynamicResource uncheckedcircle}" Stretch="Fill" Stroke="{DynamicResource TextSecondaryColor}" StrokeThickness="1" Fill="{DynamicResource TextSecondaryColor}" Width="22" Height="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <Path x:Name="checkHoverShow" Data="{DynamicResource checked}" Stretch="Fill" Fill="{DynamicResource PrimaryBlueColor}" Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
@@ -65,7 +65,7 @@
                             <Path Data="{DynamicResource starfilled}" Stretch="Fill" Fill="{DynamicResource PrimaryBrush}" Width="20" Height="20" HorizontalAlignment="Center"/>
                         </Border>
                     </hc:StatusSwitchElement.CheckedElement>
-                    <Border x:Name="starBorder" Background="{DynamicResource PrimaryBackgroundColor}" MouseEnter="starBorder_MouseEnter" MouseLeave="starBorder_MouseLeave">
+                    <Border x:Name="starBorder" Background="{DynamicResource PrimaryBackgroundColor}" MouseEnter="Border_Star_MouseEnter" MouseLeave="Border_Star_MouseLeave">
                         <hc:SimplePanel>
                             <Path x:Name="starPath" Data="{DynamicResource star}" Stretch="Fill" Fill="{DynamicResource PrimaryGrayColor}" Width="20" Height="20"/>
                         </hc:SimplePanel>

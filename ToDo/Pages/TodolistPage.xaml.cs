@@ -283,10 +283,6 @@ namespace UIDisplay.Pages
             {
                 dateTimePickers.SelectedDateTime = dt;
             }
-            else
-            {
-                dateTimePickers.SelectedDateTime = DateTime.Now.AddDays(1);
-            }
         }
 
         /// <summary>
@@ -295,8 +291,12 @@ namespace UIDisplay.Pages
         private string GetContentFromText(string text)
         {
             var result = TodoManager.ParseTime(text);
-            string dt = result.Content;
-            return dt;
+            string txt = result.Content;
+            if(string.IsNullOrEmpty(txt))
+            {
+                return null;
+            }
+            return txt;
         }
 
         /// <summary>

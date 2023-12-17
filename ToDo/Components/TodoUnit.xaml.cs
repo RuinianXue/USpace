@@ -66,12 +66,12 @@ namespace UIDisplay.Components
             }
         }
 
-        private void unCheckPanel_MouseEnter(object sender, MouseEventArgs e)
+        private void Panel_UnCheck_MouseEnter(object sender, MouseEventArgs e)
         {
             checkHoverShow.Visibility = Visibility.Visible;
         }
 
-        private void unCheckPanel_MouseLeave(object sender, MouseEventArgs e)
+        private void Panel_UnCheck_MouseLeave(object sender, MouseEventArgs e)
         {
             checkHoverShow.Visibility = Visibility.Hidden;
         }
@@ -101,12 +101,12 @@ namespace UIDisplay.Components
             storyboard.Begin();
         }
 
-        private void starBorder_MouseEnter(object sender, MouseEventArgs e)
+        private void Border_Star_MouseEnter(object sender, MouseEventArgs e)
         {
             starPath.Fill = (SolidColorBrush)this.FindResource("PrimaryBlueColor");
         }
 
-        private void starBorder_MouseLeave(object sender, MouseEventArgs e)
+        private void Border_Star_MouseLeave(object sender, MouseEventArgs e)
         {
             starPath.Fill = (SolidColorBrush)this.FindResource("PrimaryGrayColor");
         }
@@ -258,12 +258,12 @@ namespace UIDisplay.Components
             todoDateTimeText.Opacity = 1;
         }
 
-        private void mainBorder_MouseEnter(object sender, MouseEventArgs e)
+        private void Border_Main_MouseEnter(object sender, MouseEventArgs e)
         {
             mainBorder.Background = (SolidColorBrush)this.FindResource("TEAL_A");
         }
 
-        private void mainBorder_MouseLeave(object sender, MouseEventArgs e)
+        private void Border_Main_MouseLeave(object sender, MouseEventArgs e)
         {
             mainBorder.Background = (SolidColorBrush)this.FindResource("PrimaryBackgroundColor");
         }
