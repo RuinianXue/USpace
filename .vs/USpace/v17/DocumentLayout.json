@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "D:\\gitrepos\\USpace\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\pages\\dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\pages\\dashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|d:\\gitrepos\\uspace\\arxiv_crawller\\arxiv\\arxivarticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\arxiv\\arxivarticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|d:\\gitrepos\\uspace\\openaigpt\\gpthelper\\gptrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02A36FDC-445A-46FB-AB86-63CD2D6986C4}|OpenAIGPT\\OpenAIGPT.csproj|solutionrelative:openaigpt\\gpthelper\\gptrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\utils\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\utils\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|d:\\gitrepos\\uspace\\todo\\cards\\weathercard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\cards\\weathercard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\themes\\lighttheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\themes\\lighttheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|D:\\gitrepos\\USpace\\todo\\utils\\menubarmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ADF840A-48A4-4B7B-BB9F-28E3E7896B82}|ToDo\\UIDisplay.csproj|solutionrelative:todo\\utils\\menubarmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|D:\\gitrepos\\USpace\\arxiv_crawller\\viewmodel\\arxivviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\viewmodel\\arxivviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|d:\\gitrepos\\uspace\\arxiv_crawller\\arxiv\\arxivcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1965A8E-449B-4E88-AFF1-7F025DCC03D3}|arXiv_Crawller\\arXiv_Crawller.csproj|solutionrelative:arxiv_crawller\\arxiv\\arxivcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,93 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 270,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GPTRequest.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "RelativeDocumentMoniker": "OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "RelativeToolTip": "OpenAIGPT\\GPTHelper\\GPTRequest.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAuwBsAAABJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-09T12:18:40.267Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LightTheme.xaml",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Themes\\LightTheme.xaml",
-              "RelativeDocumentMoniker": "ToDo\\Themes\\LightTheme.xaml",
-              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Themes\\LightTheme.xaml",
-              "RelativeToolTip": "ToDo\\Themes\\LightTheme.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2023-12-09T11:51:44.777Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Dashboard.xaml.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Pages\\Dashboard.xaml.cs",
-              "RelativeDocumentMoniker": "ToDo\\Pages\\Dashboard.xaml.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Pages\\Dashboard.xaml.cs",
-              "RelativeToolTip": "ToDo\\Pages\\Dashboard.xaml.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAQwF0AAAAhAAAA",
+              "Title": "arXivArticle.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivArticle.cs",
+              "RelativeDocumentMoniker": "arXiv_Crawller\\arXiv\\arXivArticle.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivArticle.cs",
+              "RelativeToolTip": "arXiv_Crawller\\arXiv\\arXivArticle.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-09T11:51:02.228Z",
+              "WhenOpened": "2023-12-17T05:53:35.358Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Settings.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Utils\\Settings.cs",
-              "RelativeDocumentMoniker": "ToDo\\Utils\\Settings.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Utils\\Settings.cs",
-              "RelativeToolTip": "ToDo\\Utils\\Settings.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAIwA8AAAA+AAAA",
+              "DocumentIndex": 1,
+              "Title": "arXivCategory.cs",
+              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivCategory.cs",
+              "RelativeDocumentMoniker": "arXiv_Crawller\\arXiv\\arXivCategory.cs",
+              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\arXiv\\arXivCategory.cs",
+              "RelativeToolTip": "arXiv_Crawller\\arXiv\\arXivCategory.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwB8AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-09T11:49:51.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MenuBarMain.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Utils\\MenuBarMain.cs",
-              "RelativeDocumentMoniker": "ToDo\\Utils\\MenuBarMain.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Utils\\MenuBarMain.cs",
-              "RelativeToolTip": "ToDo\\Utils\\MenuBarMain.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAIwH8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-09T11:47:53.748Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "arXivViewModel.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
-              "RelativeDocumentMoniker": "arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
-              "RelativeToolTip": "arXiv_Crawller\\ViewModel\\arXivViewModel.cs",
-              "ViewState": "AQIAALgAAAAAAAAAAAAuwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-09T11:46:15.998Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WeatherCard.cs",
-              "DocumentMoniker": "D:\\gitrepos\\USpace\\ToDo\\Cards\\WeatherCard.cs",
-              "RelativeDocumentMoniker": "ToDo\\Cards\\WeatherCard.cs",
-              "ToolTip": "D:\\gitrepos\\USpace\\ToDo\\Cards\\WeatherCard.cs",
-              "RelativeToolTip": "ToDo\\Cards\\WeatherCard.cs",
-              "ViewState": "AQIAAM8BAAAAAAAAAAAqwNsBAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-12-09T11:42:38.73Z",
+              "WhenOpened": "2023-12-17T05:34:48.285Z",
               "EditorCaption": ""
             }
           ]

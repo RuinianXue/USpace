@@ -1,13 +1,22 @@
 ﻿using System;
 using System.IO;
 using System.Media;
+using System.Threading.Tasks;
 using System.Windows;
 using TomatoClock.Command;
 
+
+/// <summary>
+/// 表示番茄时钟的视图模型类。
+/// </summary>
 namespace TomatoClock.ViewModel
 {
     internal class TomatoClockViewModel : NotificationObject
     {
+        /// <summary>
+        /// 获取 TomatoClockViewModel 的单例实例。
+        /// </summary>
+        /// <returns>TomatoClockViewModel 的单例实例。</returns>
         private static TomatoClockViewModel instance;
 
         public static TomatoClockViewModel Instance()
@@ -20,6 +29,9 @@ namespace TomatoClock.ViewModel
 
         private static MyCommand _cmdFormLoaded;
 
+        /// <summary>
+        /// 在窗体加载完成时执行的命令。
+        /// </summary>
         public MyCommand CmdFormLoaded
         {
             get
@@ -37,33 +49,42 @@ namespace TomatoClock.ViewModel
             }
         }
 
+        private async Task UpdateCurrentTimeAsync(int newTime)
+        {
+            await Application.Current.Dispatcher.InvokeAsync(() =>
+            {
+                CurrentTime = newTime;
+            });
+        }
+
         private void TimeCountElapsed(object sender, EventArgs e)
         {
             if (CurrentTime > 0)
             {
                 CurrentTime--;
                 TimeSpan ts = TimeSpan.FromSeconds(CurrentTime);
-                TimeCount = ts.Hours + ":" + ts.Minutes + ":" + ts.Seconds;
+                TimeCount = $"{ts.Hours:D2}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+
+                // 异步更新 CurrentTime
+                _ = UpdateCurrentTimeAsync(CurrentTime);
             }
             else
             {
                 countTimer.Stop();
                 Ending();
-                TimeCount = "--:--:--";
-                IsStop = true;
-                IsCounting = false;
             }
         }
 
         private void Ending()
         {
+            TimeCount = "--:--:--";
+            IsStop = true;
+            IsCounting = false;
+
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            // 构建音频文件的相对路径
-            Console.WriteLine(baseDirectory);
-            string audioFilePath = Path.Combine(baseDirectory, "resource", "finished.wav");
+            string audioFilePath = Path.Combine(baseDirectory, "Resources", "finished.wav");
 
-            // 创建 SoundPlayer 实例
             SoundPlayer player = new SoundPlayer(audioFilePath);
 
             try
@@ -72,12 +93,14 @@ namespace TomatoClock.ViewModel
             }
             catch (Exception ex)
             {
-                // 处理播放异常
                 Console.WriteLine("Error playing sound: " + ex.Message);
             }
         }
 
         private static int _currentTime;
+        /// <summary>
+        /// 获取或设置当前剩余时间（以秒为单位）。
+        /// </summary>
         public int CurrentTime
         {
             get { return _currentTime; }
@@ -89,6 +112,9 @@ namespace TomatoClock.ViewModel
         }
 
         private static string _timeCount = "--:--:--";
+        /// <summary>
+        /// 获取或设置格式化后的当前剩余时间。
+        /// </summary>
         public string TimeCount
         {
             get { return _timeCount; }
@@ -100,7 +126,9 @@ namespace TomatoClock.ViewModel
         }
 
         private static MyCommand _cmdStart;
-
+        /// <summary>
+        /// 获取启动番茄时钟计时器的命令。
+        /// </summary>
         public MyCommand CmdStart
         {
             get
@@ -120,7 +148,9 @@ namespace TomatoClock.ViewModel
         }
 
         private static MyCommand _cmdReset;
-
+        /// <summary>
+        /// 获取重置番茄时钟计时器的命令。
+        /// </summary>
         public MyCommand CmdReset
         {
             get
@@ -138,7 +168,11 @@ namespace TomatoClock.ViewModel
             }
         }
 
+        // MinuterSet 属性，用于设置番茄时钟的分钟数
         private static int _minuterSet = 25;
+        /// <summary>
+        /// 获取或设置番茄时钟的设定分钟数。
+        /// </summary>
         public int MinuterSet
         {
             get { return _minuterSet; }
@@ -150,7 +184,9 @@ namespace TomatoClock.ViewModel
         }
 
         private static MyCommand _cmdSet;
-
+        /// <summary>
+        /// 获取设置番茄时钟分钟数的命令。
+        /// </summary>
         public MyCommand CmdSet
         {
             get
@@ -178,7 +214,9 @@ namespace TomatoClock.ViewModel
         }
 
         private static MyCommand _cmdStop;
-
+        /// <summary>
+        /// 获取停止番茄时钟计时器的命令。
+        /// </summary>
         public MyCommand CmdStop
         {
             get
@@ -198,42 +236,8 @@ namespace TomatoClock.ViewModel
             }
         }
 
-        private static MyCommand _cmdPause;
 
-        public MyCommand CmdPause
-        {
-            get
-            {
-                if(_cmdPause == null)
-                {
-                    _cmdPause = new MyCommand(new Action<object>(o =>
-                    {
-                        IsPause = true;
-                        countTimer.Stop();
-                    }));
-                }
-                return _cmdPause;
-            }
-        }
-
-        private static MyCommand _cmdContinue;
-
-        public MyCommand CmdContinue
-        {
-            get
-            {
-                if (_cmdContinue == null)
-                {
-                    _cmdContinue = new MyCommand(new Action<object>(o =>
-                    {
-                        IsPause = false;
-                        countTimer.Start();
-                    }));
-                }
-                return _cmdContinue;
-            }
-        }
-
+        // IsCounting 属性，指示番茄时钟计时器是否正在计时中
         private static bool _isCounting = false;
         public bool IsCounting
         {
@@ -245,6 +249,7 @@ namespace TomatoClock.ViewModel
             }
         }
 
+        // IsStop 属性，指示番茄时钟是否处于停止状态
         private static bool _isStop = true;
         public bool IsStop
         {
@@ -253,17 +258,6 @@ namespace TomatoClock.ViewModel
             {
                 _isStop = value;
                 this.RaisePropertyChanged("IsStop");
-            }
-        }
-        
-        private static bool _isPause = false;
-        public bool IsPause
-        {
-            get { return _isPause; }
-            set
-            {
-                _isStop = value;
-                this.RaisePropertyChanged("IsP");
             }
         }
     }

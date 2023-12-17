@@ -11,8 +11,12 @@ namespace arXiv_Crawller.ViewModel
 {
     internal class arXivViewModel : INotifyPropertyChanged
     {
+        // 单例实例
         private static arXivViewModel instance;
 
+        /// <summary>
+        /// 获取 arXivViewModel 的单例实例。
+        /// </summary>
         public static arXivViewModel Instance
         {
             get
@@ -22,6 +26,7 @@ namespace arXiv_Crawller.ViewModel
             }
         }
 
+        // arXiv 文章
         private ArxivArticle article;
 
         private string title;
@@ -148,17 +153,30 @@ namespace arXiv_Crawller.ViewModel
             }
         }
 
+        /// <summary>
+        /// INotifyPropertyChanged 接口的 PropertyChanged 事件。
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// 触发 PropertyChanged 事件。
+        /// </summary>
+        /// <param name="propertyName">属性名称。</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// 私有构造函数，用于初始化 arXivViewModel。
+        /// </summary>
         private arXivViewModel()
         {
         }
 
+        /// <summary>
+        /// 刷新文章。
+        /// </summary>
         public async Task RefreshArticle()
         {
             article = arXivCrawl.GetOneRandomArticle();
@@ -171,6 +189,9 @@ namespace arXiv_Crawller.ViewModel
             }
         }
 
+        /// <summary>
+        /// 刷新文章数据。
+        /// </summary>
         public async Task RefreshArticleData()
         {
             Title = article.Title;
@@ -191,6 +212,9 @@ namespace arXiv_Crawller.ViewModel
             }
         }
 
+        /// <summary>
+        /// 刷新AI建议。
+        /// </summary>
         public async Task RefreshSuggestion()
         {
             GPTRequest req = new GPTRequest();

@@ -15,7 +15,9 @@ class Program
 
     static async Task Main(string[] args)
     {
-        await arXivViewModel.Instance.RefreshArticle();
+        /*
+        await arXivViewModel.Instance.RefreshArticle();*/
+        arXivCrawl.GetOneRandomArticle().Show();
         Console.WriteLine("Press any key to exit.");
         Console.ReadKey();
 

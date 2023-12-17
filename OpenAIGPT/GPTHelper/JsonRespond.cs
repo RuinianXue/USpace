@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace OpenAIGPT.GPTHelper
 {
+    /// <summary>
+    /// 定义OpenAI返回的完整 JSON 响应的类。
+    /// </summary>
     internal class JsonRespond
     {
         public class Message
         {
+            /// <summary>
+            /// 表示消息的类。
+            /// </summary>
             public string Role { get; set; }
             public string Content { get; set; }
         }
 
+        /// <summary>
+        /// 表示选择信息的类。
+        /// </summary>
         public class Choice
         {
             public int Index { get; set; }
@@ -21,7 +30,9 @@ namespace OpenAIGPT.GPTHelper
             public string FinishReason { get; set; }
         }
 
-
+        /// <summary>
+        /// 表示 API 使用情况的类。
+        /// </summary>
         public class Usage
         {
             public int PromptTokens { get; set; }
@@ -29,6 +40,9 @@ namespace OpenAIGPT.GPTHelper
             public int TotalTokens { get; set; }
         }
 
+        /// <summary>
+        /// 表示 OpenAI 响应的类。
+        /// </summary>
         public class OpenAIResponse
         {
             public string Id { get; set; }
